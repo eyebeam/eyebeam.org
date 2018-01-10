@@ -1,1 +1,15 @@
 .DS_Store
+/backup
+/logs
+/wp-admin
+/wp-includes
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+/wp-content/uploads
+/wp-content/upgrade
+/wp-content/index.php
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
