@@ -5,14 +5,14 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 
 get_header(); ?>
 
 <div id="primary" class="content-area" onclick="getElementById('filterOptions').classList.remove('showMe');">
-		<?php 
+		<?php
 		$image = get_field('hero_image');
 		$headTitle = get_field('hero_title_text');
 		$headDescription = get_field('hero_title_blurb');
@@ -31,7 +31,7 @@ get_header(); ?>
 			</div>
 		</div>
 	<?php endif;?>
-	
+
 	<!-- Main Content -->
 	<main id="main" class="site-main" role="main">
 		<div class="page-title">Residents</div>
@@ -39,7 +39,7 @@ get_header(); ?>
 	<?php $currentYear = date("Y");?>
 
 	<!-- Resident Dropdown Filter -->
-	<?php 
+	<?php
 		$currentFilter = "All";
 		if(!empty($_GET['resident_year'])){
 			$currentFilter = $_GET['resident_year'];
@@ -75,33 +75,33 @@ get_header(); ?>
 		'post_type' => 'resident',
 		'posts_per_page' => $numberOfPosts,
 		'orderby'=> 'meta_value',
-		'meta_key' => 'end_year', 
+		'meta_key' => 'end_year',
 		);
 
 		 if(isset($_GET['resident_year']) and ($_GET['resident_year'])){
 			// Cast the value that was in the URL to an int to avoid SQL injection
 			$resident_year = (int)$_GET['resident_year'];
 
-			$archive_args['meta_query'] = 
+			$archive_args['meta_query'] =
 		    array(
 			    array(
 			      'key'=> 'start_year',
 			      'value'=> $resident_year,
-			      'compare'=> '<=' 
+			      'compare'=> '<='
 					),
-					// The value being queried (e.g. 2014) should be less than or equal to 
+					// The value being queried (e.g. 2014) should be less than or equal to
 					// the resident's end year (e.g. 2016)
 					array(
 						'key'=> 'end_year',
-						'value'=> $resident_year, 
-						'compare'=> '>=' 
+						'value'=> $resident_year,
+						'compare'=> '>='
 					),
 				);
 
 			} ?>
 
 
-		<?php 	
+		<?php
 		$residents = new WP_Query($archive_args);
 		if($residents->have_posts()):
 			$i = 0; ?>
@@ -109,8 +109,8 @@ get_header(); ?>
 				<?php while($residents->have_posts()) : $residents->the_post(); ?>
 					<?php
 					$image = get_field('image');
-					$specific_date = eyebeam2016_compare_resident_year(get_the_ID());
-					$grossHackUrl = get_field('name'); 
+					$specific_date = eyebeam2018_compare_resident_year(get_the_ID());
+					$grossHackUrl = get_field('name');
 					$lessGross = substr($grossHackUrl, strrpos($grossHackUrl, '<a href="' )+9) ;
 					$cleanUrl = substr($lessGross, 0, strrpos($lessGross, '">' )); ?>
 
@@ -121,7 +121,7 @@ get_header(); ?>
 							<span class="residentMugShot" style="background-color:black;color:white;"></span>
 							<span style="text-align: center;position: absolute;margin-top: -60px;color: white;width: 16%;">no photo</span>
 						<?php endif; ?>
-				
+
 						<?php if($specific_date) : ?>
 							<span class="residencyDateRange"><?php echo $specific_date ; ?></span>
 			   		<?php endif; ?>
@@ -145,13 +145,13 @@ get_header(); ?>
 				<?php endwhile; ?>
 			</div>
 			<?php if( $numberOfPosts == 15 ): ?>
-				<a class="showAllResidents" 
-					href="<?php 
+				<a class="showAllResidents"
+					href="<?php
 						echo add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) );
 						if(count($_GET))
-							{ echo '&'; } 
+							{ echo '&'; }
 						else
-							{ echo '?'; } 
+							{ echo '?'; }
 						echo 'showAll=true#newResults'; ?>">See more residents</a>
 			<?php endif; ?>
 		<?php endif;?>

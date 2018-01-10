@@ -5,14 +5,14 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 get_header(); ?>
 
 <div id="primary" class="content-area">
 	<!-- Calendar Page Hero Image -->
-	
-		<?php 
+
+		<?php
 		$image = get_field('hero_image');
 		$headTitle = get_field('hero_title_text');
 		$headDescription = get_field('hero_title_blurb');
@@ -35,7 +35,7 @@ get_header(); ?>
 
 	<!-- Main Content -->
 	<main id="main" class="site-main" role="main">
-		
+
 		<?php
 	    $now = new DateTime;
 	    $todays_date_formatted = $now->format('Ymd');
@@ -43,17 +43,17 @@ get_header(); ?>
 				'post_type' => 'event',
 				'posts_per_page' => -1,
 				'orderby'=> 'meta_value',
-				'meta_key' => 'end_date', 
+				'meta_key' => 'end_date',
 				'order' => 'ASC',
-			); 
+			);
 
 			$events = new WP_Query($archive_args);
-			if($events->have_posts()): 
+			if($events->have_posts()):
 				$i = 1;?>
 				<div class="events">
 					<h2>Upcoming</h2>
 					<div class="upcomingEvents">
-						<?php while($events->have_posts()) : $events->the_post(); 
+						<?php while($events->have_posts()) : $events->the_post();
 							if( get_field('end_date') >= $todays_date_formatted ):
 								$image = get_field('image');
 								$thisDate = new DateTime( get_field('end_date')); ?>
@@ -100,12 +100,12 @@ get_header(); ?>
 					</div>
 				</div>
 			<?php endif; ?>
-		
+
 		<?php wp_reset_query(); ?>
 
 		<?php wp_reset_postdata(); ?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
-		
+
 <?php get_footer(); ?>

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 get_header(); ?>

@@ -12,37 +12,37 @@
  *
  * @link http://codex.wordpress.org/Custom_Headers
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses eyebeam2016_header_style()
- * @uses eyebeam2016_admin_header_style()
- * @uses eyebeam2016_admin_header_image()
+ * @uses eyebeam2018_header_style()
+ * @uses eyebeam2018_admin_header_style()
+ * @uses eyebeam2018_admin_header_image()
  */
-function eyebeam2016_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'eyebeam2016_custom_header_args', array(
+function eyebeam2018_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'eyebeam2018_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'eyebeam2016_header_style',
-		'admin-head-callback'    => 'eyebeam2016_admin_header_style',
-		'admin-preview-callback' => 'eyebeam2016_admin_header_image',
+		'wp-head-callback'       => 'eyebeam2018_header_style',
+		'admin-head-callback'    => 'eyebeam2018_admin_header_style',
+		'admin-preview-callback' => 'eyebeam2018_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'eyebeam2016_custom_header_setup' );
+add_action( 'after_setup_theme', 'eyebeam2018_custom_header_setup' );
 
-if ( ! function_exists( 'eyebeam2016_header_style' ) ) :
+if ( ! function_exists( 'eyebeam2018_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see eyebeam2016_custom_header_setup().
+ * @see eyebeam2018_custom_header_setup().
  */
-function eyebeam2016_header_style() {
+function eyebeam2018_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,15 +75,15 @@ function eyebeam2016_header_style() {
 	</style>
 	<?php
 }
-endif; // eyebeam2016_header_style
+endif; // eyebeam2018_header_style
 
-if ( ! function_exists( 'eyebeam2016_admin_header_style' ) ) :
+if ( ! function_exists( 'eyebeam2018_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see eyebeam2016_custom_header_setup().
+ * @see eyebeam2018_custom_header_setup().
  */
-function eyebeam2016_admin_header_style() {
+function eyebeam2018_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -103,15 +103,15 @@ function eyebeam2016_admin_header_style() {
 	</style>
 <?php
 }
-endif; // eyebeam2016_admin_header_style
+endif; // eyebeam2018_admin_header_style
 
-if ( ! function_exists( 'eyebeam2016_admin_header_image' ) ) :
+if ( ! function_exists( 'eyebeam2018_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see eyebeam2016_custom_header_setup().
+ * @see eyebeam2018_custom_header_setup().
  */
-function eyebeam2016_admin_header_image() {
+function eyebeam2018_admin_header_image() {
 ?>
 	<div id="headimg">
 		<h1 class="displaying-header-text">
@@ -124,4 +124,4 @@ function eyebeam2016_admin_header_image() {
 	</div>
 <?php
 }
-endif; // eyebeam2016_admin_header_image
+endif; // eyebeam2018_admin_header_image

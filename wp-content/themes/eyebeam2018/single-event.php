@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 get_header(); ?>
@@ -21,7 +21,7 @@ get_header(); ?>
 				<?php
 					$event = get_fields();
 					$image = get_field('image');
-					$date_text = eyebeam2016_get_event_date(get_the_ID());
+					$date_text = eyebeam2018_get_event_date(get_the_ID());
 					$title = $event['title'];
 					$subtitle = $event['subtitle'];
 					$location = $event['location'];

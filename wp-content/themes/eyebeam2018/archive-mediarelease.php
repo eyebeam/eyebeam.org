@@ -5,19 +5,15 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
- 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
- 
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<!-- Press Page Hero Image -->
 		<div class="mobile-hero">
-			<?php $image = get_field('hero_image'); 
+			<?php $image = get_field('hero_image');
 				if(!empty($image)) : ?>
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="100%" height="100%"/>
 				<?php endif; ?>
@@ -30,7 +26,7 @@ get_header(); ?>
 		<!-- Main Content -->
 		<main id="main" class="column column-7 site-main" role="main">
 			<div class="page-title">Media Release</div>
-		
+
 		<?php if ( have_posts() ) : ?>
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -41,12 +37,12 @@ get_header(); ?>
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
 					get_template_part('mediarelease'); ?>
-			<?php endwhile; ?>	
-		
+			<?php endwhile; ?>
+
 			<?php
 				$archive_args = array(
 					'post_type' => 'mediarelease',
-					'posts_per_page' => -1 
+					'posts_per_page' => -1
 					);
 
 				$media_release = new WP_Query($archive_args);
@@ -77,10 +73,10 @@ get_header(); ?>
 
 						// Create a date string of the "{{Name of the month}} {{date of month}}, {{year}}"
 						if($date_start) :
-							$date_format = $date_start->format('F j, Y'); 
+							$date_format = $date_start->format('F j, Y');
 
-						if($date_format) : ?>	
-							<?= $date_format; ?></br>				
+						if($date_format) : ?>
+							<?= $date_format; ?></br>
 						<?php endif;
 
 						endif;
@@ -103,7 +99,7 @@ get_header(); ?>
 				</div>
 
 				<div id="mobile-media-release">
-					<?php 
+					<?php
 						if($media_release) : ?>
 							<h3><?php echo the_field('title'); ?></h3>
 						<?php endif;
@@ -113,11 +109,11 @@ get_header(); ?>
 
 						if($date_start) :
 						// Create a date string of the "{{Name of the month}} {{date of month}}, {{year}}"
-						$date_format = $date_start->format('F j, Y'); 
+						$date_format = $date_start->format('F j, Y');
 
-						if($date_format) : ?>	
-							<p><?= $date_format; ?></p>				
-						<?php endif; 
+						if($date_format) : ?>
+							<p><?= $date_format; ?></p>
+						<?php endif;
 						endif; ?>
 				</div>
 
@@ -125,15 +121,15 @@ get_header(); ?>
 				<?php $i++;
 				if($i != 0 && $i % 2 == 0){ ?>
 					</div> <!--/.row-->
-					<div class="clearfix"> </div>	
+					<div class="clearfix"> </div>
 				<?php
 				} ?>
 
 			<?php endwhile;
 			}
-			
+
 		wp_reset_query(); ?>
-		<?php wp_reset_postdata(); ?>	
+		<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->

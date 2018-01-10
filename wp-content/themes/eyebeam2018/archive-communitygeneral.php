@@ -5,25 +5,21 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
- 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
- 
+
 get_header(); ?>
 
 <div id="primary" class="content-area">
 	<!-- Community General Hero Image -->
 	<div class="img-container">
-	<?php $image = get_field('hero_image'); 
+	<?php $image = get_field('hero_image');
 		if(!empty($image)) : ?>
 			<img class="site-hero-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="100%" height="100%"/>
 	<?php endif; ?>
 	</div>
 
-	<!-- Main Navigation Bar -->	
+	<!-- Main Navigation Bar -->
 	<?php include_once('inc/nav.inc.php'); ?>
 	<!-- End Main Navigation Bar -->
 
@@ -48,11 +44,11 @@ get_header(); ?>
 				get_template_part( 'template-parts/content', 'communitygeneral'); ?>
 			<?php endwhile; ?>
 		</div>
-		
+
 		<?php
 			$archive_args = array(
 			'post_type' => 'communitygeneral',
-			'posts_per_page' => -1 
+			'posts_per_page' => -1
 			);
 
 			$programs = new WP_Query($archive_args);
@@ -66,7 +62,7 @@ get_header(); ?>
 				<?php
 					}
 				?>
-			
+
 				<!-- web layout -->
 				<div class="column column-4 content-event">
 					<?php
@@ -86,30 +82,30 @@ get_header(); ?>
 					<?php if(!empty($image)) : ?>
 							<p>	<a href="<?php the_permalink(); ?>"> <img src= "<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="100%" height="100%"/> </a> </p>
 					<?php endif; ?>
-				</div>		
+				</div>
 
 				<div id="mobile-program-name">
 					<?php if($programs) : ?>
 						<h3><a href="<?php the_permalink(); ?>"><?php echo the_field('program_name'); ?></h3></a>
 					<?php endif; ?>
-				</div>	
+				</div>
 
 			<!-- for loop for grid -->
-			<?php 
+			<?php
 				$i++;
 				if($i != 0 && $i % 2 == 0){ ?>
 				</div> <!--/.row-->
-				<div class="clearfix"> </div>	
+				<div class="clearfix"> </div>
 				<?php
 				} ?>
 
 			<?php endwhile;
 				}
-				
+
 			wp_reset_query(); ?>
 
 			<?php wp_reset_postdata(); ?>
-				
+
 			<?php endif; ?>
 	</main><!-- #main -->
 </div><!-- #primary -->

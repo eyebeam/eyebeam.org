@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 get_header(); ?>
@@ -22,7 +22,7 @@ get_header(); ?>
 
 <body <?php body_class(); ?>>
 
-		<?php 
+		<?php
 		$image = get_field('hero_image');
 		$headTitle = get_field('hero_title_text');
 		$headDescription = get_field('hero_title_blurb');
@@ -75,7 +75,7 @@ get_header(); ?>
 			<div class="rowSpacerLine"></div>
 
 
-			<?php 
+			<?php
 				$archive_args = array(
 				'post_type' => 'staff',
 				'posts_per_page' => -1,
@@ -104,7 +104,7 @@ get_header(); ?>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 				<?php echo ' -->' ?>
-			</div>	
+			</div>
 			<div class="rowSpacerLine"></div>
 
 
@@ -127,7 +127,7 @@ get_header(); ?>
 			<?php echo ' -->' ?></div>
 
 
-			
+
 			<?php wp_reset_postdata(); ?>
 
 		</main><!-- #main -->

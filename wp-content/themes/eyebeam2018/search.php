@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 get_header(); ?>
@@ -18,7 +18,7 @@ get_header(); ?>
 		<!-- End Main Navigation Bar -->
 
 			<header class="page-header">
-				<h1 class="search-title"><?php printf( esc_html__( 'Search Results for: %s', 'eyebeam2016' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="search-title"><?php printf( esc_html__( 'Search Results for: %s', 'eyebeam2018' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
 		<!-- Main Content -->

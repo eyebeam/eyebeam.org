@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 if (is_post_type_archive('stopwork')){ 

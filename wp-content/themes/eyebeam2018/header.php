@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 
@@ -43,7 +43,7 @@ src="https://www.facebook.com/tr?id=1510995512258807&ev=PageView&noscript=1"
 <?php
 $isMobile = "";
 
-if(eyebeam2016_isMobile()) {
+if(eyebeam2018_isMobile()) {
 	$isMobile = "mobile-device";
 }
 ?>

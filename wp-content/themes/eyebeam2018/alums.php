@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
 
 get_header(); ?>
@@ -23,25 +23,25 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<!-- Hero Image for Alum Page -->
-		<?php $image = get_field('hero_image'); 
+		<?php $image = get_field('hero_image');
 				if(!empty($image)) : ?>
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="100%" height="100%"/>
 				<?php endif; ?>
 
 		<?php include_once('inc/nav.inc.php'); ?>
-		
+
 		<main id="main" class="column column-7 site-main" role="main">
 			<header class="page-title">
 		    <?php the_title(); ?>
 		</header>
 
-			<div class="content-about">	
+			<div class="content-about">
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>			
+				<?php get_template_part( 'template-parts/content', 'page' ); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
-			
+
 
 		</div>
 

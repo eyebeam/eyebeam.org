@@ -1,19 +1,19 @@
 /*
-Theme Name: Eyebeam 2017
-Theme URI: http://underscores.me/
+Theme Name: Eyebeam 2018
+Theme URI: https://github.com/eyebeam/eyebeam.org
 Author: Underscores.me
 Author URI: http://underscores.me/
 Description: Description
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: eyebeam2016
+Text Domain: eyebeam2018
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-eyebeam2016 is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+eyebeam2018 is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -49,7 +49,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 
 html {
-	 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
 }
@@ -749,12 +749,12 @@ h4.title {
 
 .heroVideo{
 	min-height:100%;
-	min-width:100%; 
+	min-width:100%;
 
 	/* Setting width & height to auto prevents the browser from stretching or squishing the video */
   width: auto;
   height: auto;
-  
+
   /* Center the video */
   position: absolute;
   top: 50%;
@@ -1132,7 +1132,7 @@ object {
 	text-decoration: none;
 }
 
-.main-navigation 
+.main-navigation
 .main-navigation a: link a:visited {
 	color: #000;
 }
@@ -2912,7 +2912,7 @@ a.event{
 	font-size: 0px;
 }
 
-.resident{    
+.resident{
 	width: 16%;
   margin: 0 2%;
 	display:inline-block;
@@ -2962,7 +2962,7 @@ a.event{
 	margin-top:3px;
 	float:left;
 }
-.residentSortDropdown{    
+.residentSortDropdown{
 	background: transparent;
   color: #000;
   cursor: pointer;
@@ -2995,7 +2995,7 @@ a.event{
 	display:none;
 	text-align:left;
 }
-#filterOptions.showMe{    
+#filterOptions.showMe{
 	width: 128px;
   display: block;
   margin-left: -15px;

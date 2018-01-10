@@ -5,19 +5,15 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package eyebeam2016
+ * @package eyebeam2018
  */
- 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
- 
+
 get_header(); ?>
 
 <div id="primary" class="content-area">
 	<!-- Community Youth Hero Image -->
-		
-		<?php 
+
+		<?php
 		$image = get_field('hero_image');
 		$headTitle = get_field('hero_title_text');
 		$headDescription = get_field('hero_title_blurb');
@@ -36,7 +32,7 @@ get_header(); ?>
 			</div>
 		</div>
 	<?php endif;?>
-	
+
 	<!-- Main Content -->
 	<main id="main" class=" site-main" role="main">
 
@@ -53,19 +49,19 @@ get_header(); ?>
 					get_template_part('template-parts/content', 'communityyouth'); ?>
 				<?php endwhile; ?>
 		</div>
-				
+
 			<?php
 				$archive_args = array(
 				'post_type' => 'communityyouth',
-				'posts_per_page' => -1 
+				'posts_per_page' => -1
 				);
-			
+
 				$programs = new WP_Query($archive_args);
 				if($programs->have_posts()): ?>
 					<div id="comYouthPrograms">
-						
+
 						<?php while($programs->have_posts()) : $programs->the_post(); ?>
-					
+
 							<!-- web layout -->
 							<div class="comYouthProgram">
 								<?php $image = get_field('image_youth');?>
@@ -73,8 +69,8 @@ get_header(); ?>
 								--><div class="info">
 										<!-- div class="expandableRead overflowHidden" -->
 											<h2> <?php echo the_field('program_name_youth'); ?> </h2>
-					
-											<?php echo eyebeam2016_get_first_youth_paragraph(); ?>
+
+											<?php echo eyebeam2018_get_first_youth_paragraph(); ?>
 					</div>
 										<!-- <button onclick="(function(e){ e.target.parentNode.getElementsByClassName('expandableRead')[0].classList.remove('overflowHidden'); e.target.style.display = 'none'; })(event);"> Read More </button> -->
 									</div>
@@ -83,11 +79,11 @@ get_header(); ?>
 						<?php endwhile; ?>
 					</div>
 				<?php endif;
-				wp_reset_query(); 
+				wp_reset_query();
 				wp_reset_postdata(); ?>
-					
+
 		<?php endif; ?>
-		
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
