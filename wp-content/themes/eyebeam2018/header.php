@@ -75,7 +75,7 @@ if(eyebeam2018_isMobile()) {
 				}
 			</style>
 			<div id="movingButton" class="donate">
-				<a href="https://www.kickstarter.com/projects/roddy/eyebeams-new-home-building-a-sustainable-space-for">We're Moving!</a>
+				<a href="http://www.rebeam.eyebeam.org/">Support Eyebeam!</a>
 			</div>
 			<?php get_template_part( '/inc/nav.inc' ); ?>
 		</div>
