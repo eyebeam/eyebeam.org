@@ -22,7 +22,7 @@ get_header();?>
 </head>
 
 <body <?php body_class(); ?>>
-	<?php 
+	<?php
 	$mobileImage = get_field('mobile_hero_image');
 	$heroImage = get_field('hero_image');
 	$headTitle = get_field('hero_title_text');
@@ -31,14 +31,14 @@ get_header();?>
 		<div id="homeHeroImage" class="heroImageWrapper">
 			<div class="heroImage"  style='background-image: url("<?php echo $mobileImage['url']; ?>");' width="100%" height="100%"></div>
 		</div>
-	<?php else: 
+	<?php else:
 		if(!empty($heroImage) ) : ?>
 			<div id="homeHeroImage" class="heroImageWrapper">
 				<div class="heroImage"  style='background-image: url("<?php echo $heroImage['url']; ?>");' width="100%" height="100%"></div>
 			</div>
 		<?php else: ?>
 		<div class="videoHolder">
-			<video class="heroVideo" autoplay loop muted src="<?php echo get_template_directory_uri().'/img/eyebeamhome.mp4' ?>"></video>
+			<video class="heroVideo" autoplay loop muted src="/img/eyebeamhome.mp4"></video>
 		</div>
 	<?php endif;endif; ?>
 	<?php if(!empty($headTitle)) : ?>
