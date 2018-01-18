@@ -1,16 +1,21 @@
 <script>
+
 document.addEventListener("DOMContentLoaded", function() {
- var ed = document.getElementById("education-dropdown").firstElementChild;
- var arrow = document.getElementById("education-arrow");
+	if (! document.getElementById("education-dropdown")) {
+		return;
+	}
+	var ed = document.getElementById("education-dropdown").firstElementChild;
+	var arrow = document.getElementById("education-arrow");
 
- ed.addEventListener("mouseover", function() {
-	arrow.classList.add("dark");
- });
+	ed.addEventListener("mouseover", function() {
+		arrow.classList.add("dark");
+	});
 
- ed.addEventListener("mouseleave", function() {
-	arrow.classList.remove("dark");
- });
+	ed.addEventListener("mouseleave", function() {
+		arrow.classList.remove("dark");
+	});
 });
+
 </script>
 
 <!-- Main Navigation for Web -->
@@ -24,9 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			<?php
 				$archive_args = array(
 				'post_type' => 'communityyouth',
-				'posts_per_page' => -1 
+				'posts_per_page' => -1
 				);
-			
+
 				$programs = new WP_Query($archive_args);
 				if($programs->have_posts() && false): ?>
 			<div id="education-dropdown">
@@ -38,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			<div>
 <?php endif;
-wp_reset_query(); 
+wp_reset_query();
 wp_reset_postdata(); ?>
 		</li>
 		<li>
@@ -51,16 +56,16 @@ wp_reset_postdata(); ?>
 			<a <?php if (strpos($_SERVER['REQUEST_URI'], 'ideas') > 0 || strpos($_SERVER['REQUEST_URI'], 'stopwork') > 0 ) print 'class="current"'; ?> href='<?php echo site_url()."/ideas/"; ?>'>Ideas</a>
 		</li>
 		<li>
-			<a <?php if (strpos($_SERVER['REQUEST_URI'], 'about') > 0) print 'class="current"'; ?> href='<?php echo site_url()."/about/"; ?>'>About</a>	
+			<a <?php if (strpos($_SERVER['REQUEST_URI'], 'about') > 0) print 'class="current"'; ?> href='<?php echo site_url()."/about/"; ?>'>About</a>
 		</li>
 	</ul>
-			<!-- 
+			<!--
 <li id="search" class="search">
 				<form role="search" method="get" class="search-form" action="https://eyebeam.org/">
 					<input type="search" class="search-field" value="" name="s">
 					<input type="submit" class="search-submit" name="submit" alt="search" value="">
 				</form>
-			</li>	
+			</li>
  -->
 </nav><!-- #site-navigation -->
 
@@ -83,7 +88,7 @@ wp_reset_postdata(); ?>
 			<a <?php if (strpos($_SERVER['REQUEST_URI'], 'ideas') > 0) print 'class="current"'; ?> href="<?php echo site_url().'/ideas/'; ?>">Ideas</a>
 		</li>
 		<li>
-			<a <?php if (strpos($_SERVER['REQUEST_URI'], 'about') > 0) print 'class="current"'; ?> href="<?php echo site_url().'/about/'; ?>">About</a>	
+			<a <?php if (strpos($_SERVER['REQUEST_URI'], 'about') > 0) print 'class="current"'; ?> href="<?php echo site_url().'/about/'; ?>">About</a>
 		</li>
 		<li>
 			<div class="donate mobile">
@@ -91,4 +96,4 @@ wp_reset_postdata(); ?>
 			</div>
 		</li>
 	</ul>
-</nav>	
+</nav>
