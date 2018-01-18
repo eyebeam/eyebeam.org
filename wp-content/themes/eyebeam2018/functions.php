@@ -103,6 +103,351 @@ function eyebeam2018_setup() {
 endif; // eyebeam2018_setup
 add_action( 'after_setup_theme', 'eyebeam2018_setup' );
 
+
+/**
+ * Register custom post types.
+ **/
+
+function eyebeam2018_custom_post_types() {
+
+	$labels = array(
+		'name' => 'Residents',
+		'singular_name' => 'Resident',
+		'add_new' => 'Add New Resident',
+		'add_new_item' => 'Add New Resident',
+		'edit_item' => 'Edit Resident',
+		'new_item' => 'New Resident',
+		'all_items' => 'All Residents',
+		'view_item' => 'View Resident',
+		'search_items' => 'Search Residents',
+		'not_found' =>  'No Residents Found',
+		'not_found_in_trash' => 'No Residents found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Residents',
+	);
+	register_post_type( 'resident', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array( 'title','thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'residents' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Events',
+		'singular_name' => 'Event',
+		'add_new' => 'Add New Event',
+		'add_new_item' => 'Add New Event',
+		'edit_item' => 'Edit Event',
+		'new_item' => 'New Event',
+		'all_items' => 'All Events',
+		'view_item' => 'View Event',
+		'search_items' => 'Search Events',
+		'not_found' =>  'No Events Found',
+		'not_found_in_trash' => 'No Events found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Events',
+	);
+	register_post_type( 'event', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array( 'title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'events' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'News',
+		'singular_name' => 'News',
+		'add_new' => 'Add New News',
+		'add_new_item' => 'Add New News',
+		'edit_item' => 'Edit News',
+		'new_item' => 'New News',
+		'all_items' => 'All News',
+		'view_item' => 'View News',
+		'search_items' => 'Search News',
+		'not_found' =>  'No News Found',
+		'not_found_in_trash' => 'No News found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'News',
+	);
+	register_post_type( 'news', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array( 'title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'news' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Community General',
+		'singular_name' => 'Community General',
+		'add_new' => 'Add Community General',
+		'add_new_item' => 'Add Community General',
+		'edit_item' => 'Edit Community General',
+		'new_item' => 'New Community General',
+		'all_items' => 'All Community General',
+		'view_item' => 'View Community General',
+		'search_items' => 'Search Community General',
+		'not_found' =>  'No Programs Found',
+		'not_found_in_trash' => 'No Community General found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Community General',
+	);
+	register_post_type( 'communitygeneral', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'communitygeneral' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Community Youth',
+		'singular_name' => 'Community Youth',
+		'add_new' => 'Add Community Youth',
+		'add_new_item' => 'Add Community Youth',
+		'edit_item' => 'Edit Community Youth',
+		'new_item' => 'New Community Youth',
+		'all_items' => 'All Community Youth',
+		'view_item' => 'View Community Youth',
+		'search_items' => 'Search Community Youth',
+		'not_found' =>  'No Community Youth Found',
+		'not_found_in_trash' => 'No Community Youth found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Community Youth',
+	);
+	register_post_type( 'communityyouth', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'communityyouth' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Recent Press',
+		'singular_name' => 'Recent Press',
+		'add_new' => 'Add New Recent Press',
+		'add_new_item' => 'Add Recent Press',
+		'edit_item' => 'Edit Recent Press',
+		'new_item' => 'New Recent Press',
+		'all_items' => 'All Recent Press',
+		'view_item' => 'View Recent Press',
+		'search_items' => 'Search Recent Press',
+		'not_found' =>  'No Recent Press Found',
+		'not_found_in_trash' => 'No Recent Press found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Recent Press',
+	);
+	register_post_type( 'recentpress', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'recentpress' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Stop Work!',
+		'singular_name' => 'Stop Work!',
+		'add_new' => 'Add New Stop Work!',
+		'add_new_item' => 'Add Stop Work!',
+		'edit_item' => 'Edit Stop Work!',
+		'new_item' => 'New Stop Work!',
+		'all_items' => 'All Stop Work!',
+		'view_item' => 'View Stop Work!',
+		'search_items' => 'Search Stop Work!',
+		'not_found' =>  'No Stop Work! Found',
+		'not_found_in_trash' => 'No Stop Work! found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Stop Work!',
+	);
+	register_post_type( 'stopwork', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'stopwork' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Internships',
+		'singular_name' => 'Internships',
+		'add_new' => 'Add New Internships',
+		'add_new_item' => 'Add Internships',
+		'edit_item' => 'Edit Internships',
+		'new_item' => 'New Internships',
+		'all_items' => 'All Internships',
+		'view_item' => 'View Internships',
+		'search_items' => 'Search Internships',
+		'not_found' =>  'No Internships Found',
+		'not_found_in_trash' => 'No Internships found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Internships',
+	);
+	register_post_type( 'internships', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'internships' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Work',
+		'singular_name' => 'Work',
+		'add_new' => 'Add New Work',
+		'add_new_item' => 'Add Work',
+		'edit_item' => 'Edit Work',
+		'new_item' => 'New Work',
+		'all_items' => 'All Work',
+		'view_item' => 'View Work',
+		'search_items' => 'Search Work',
+		'not_found' =>  'No Work Found',
+		'not_found_in_trash' => 'No Work found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Work',
+	);
+	register_post_type( 'work', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'work' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Media Release',
+		'singular_name' => 'Media Release',
+		'add_new' => 'Add New Media Release',
+		'add_new_item' => 'Add Media Release',
+		'edit_item' => 'Edit Media Release',
+		'new_item' => 'New Media Release',
+		'all_items' => 'All Media Release',
+		'view_item' => 'View Media Release',
+		'search_items' => 'Search Media Release',
+		'not_found' =>  'No Media Release Found',
+		'not_found_in_trash' => 'No Media Release found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Media Release',
+	);
+	register_post_type( 'mediarelease', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'mediarelease' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Staff',
+		'singular_name' => 'Staff',
+		'add_new' => 'Add New Staff',
+		'add_new_item' => 'Add Staff',
+		'edit_item' => 'Edit Staff',
+		'new_item' => 'New Staff',
+		'all_items' => 'All Staff',
+		'view_item' => 'View Staff',
+		'search_items' => 'Search Staff',
+		'not_found' =>  'No Staff Found',
+		'not_found_in_trash' => 'No Staff found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Staff',
+	);
+	register_post_type( 'staff', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'staff' ),
+		)
+	);
+
+	$labels = array(
+		'name' => 'Board',
+		'singular_name' => 'Board',
+		'add_new' => 'Add New Board',
+		'add_new_item' => 'Add Board',
+		'edit_item' => 'Edit Board',
+		'new_item' => 'New Board',
+		'all_items' => 'All Board',
+		'view_item' => 'View Board',
+		'search_items' => 'Search Board',
+		'not_found' =>  'No Board Found',
+		'not_found_in_trash' => 'No Board found in Trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Board',
+	);
+	register_post_type( 'board', array(
+		'labels' => $labels,
+		'has_archive' => true,
+		'public' => true,
+		'query_var' => true,
+		'supports' => array('title', 'thumbnail','page-attributes' ),
+		'taxonomies' => array( 'post_tag', 'category' ),
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'rewrite' => array( 'slug' => 'board' ),
+		)
+	);
+}
+add_action( 'init', 'eyebeam2018_custom_post_types' );
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
