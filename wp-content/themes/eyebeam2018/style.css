@@ -2954,7 +2954,7 @@ a.event{
 	font-weight:bold;
 }
 
-.residentFilter{
+#residentFilter{
   overflow: auto;
 	margin: 10px 6% 20px;
 }
@@ -2984,6 +2984,9 @@ a.event{
   z-index: 95;
   margin-left:80px;
 }
+.residentSortDropdown .currentLabel{
+	float:left;
+}
 .residentSortDropdown .carety{
 	float:right;
 }
@@ -2995,12 +2998,15 @@ a.event{
 	display:none;
 	text-align:left;
 }
-#filterOptions.showMe{
+.showOptions .filterOptions{
 	width: 128px;
   display: block;
   margin-left: -15px;
   padding-left:15px;
 	display: block;
+}
+.showOptions .currentLabel{
+	display: none;
 }
 .filterOptions li{
 	display:block;
@@ -3026,7 +3032,7 @@ a.event{
 	}
 }
 
-a.showAllResidents{
+a.load-more{
   background: transparent;
   color: #000;
   cursor: pointer;
@@ -3047,6 +3053,10 @@ a.showAllResidents{
   font-size: 1.1rem;
 }
 
+#loading-more {
+	margin: 20px auto 20px 5%;
+	font-size: 1.1rem;
+}
 
 .homepageContent{
 	width:92%;

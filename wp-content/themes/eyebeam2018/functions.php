@@ -8,25 +8,27 @@
  */
 
 function dbug() {
-	$fh = $GLOBALS['dbug_fh'];
-	if (empty($fh)) {
-		$path = ini_get('error_log');
-		if (empty($path) || substr($path, 0, 1) != '/') {
+	if (empty($GLOBALS['dbug_fh'])) {
+		if (!defined('DBUG_PATH')) {
 			return;
 		}
-		$dir = dirname($path);
-		$fh = fopen("$dir/dbug.log", "a");
+		$fh = fopen(DBUG_PATH, "a");
 		$GLOBALS['dbug_fh'] = $fh;
+		$GLOBALS['dbug_start'] = microtime(true);
+		fwrite($fh, "----------------------\n");
 	}
-	date_timezone_set('America/New_York');
-	$now = date('Y-m-d H:i:s');
+	$fh = $GLOBALS['dbug_fh'];
+	$sec = microtime(true) - $GLOBALS['dbug_start'];
+	$sec = number_format($sec, 2);
+	$sec = ($sec < 10) ? "0$sec" : $sec;
+
 	$args = func_get_args();
 	foreach ($args as $arg) {
 		if (! is_scalar($arg)) {
 			$arg = print_r($arg, true);
 			$arg = trim($arg);
 		}
-		fwrite($fh, "[$now] $arg\n");
+		fwrite($fh, "[$sec] $arg\n");
 	}
 }
 
@@ -548,6 +550,7 @@ function eyebeam2018_scripts() {
 	wp_enqueue_style( 'eyebeam2018-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'eyebeam2018-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'eyebeam2018-load-more', get_template_directory_uri() . '/js/load-more.js', array('jquery'), '20180118', true );
 
 	wp_enqueue_script( 'eyebeam2018-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -697,3 +700,82 @@ function fb_opengraph() {
     }
 }
 add_action('wp_head', 'fb_opengraph', 5);
+
+function eyebeam2018_load_more() {
+	$allowed_types = array('resident');
+
+	$type = $_GET['type'];
+
+	if (! in_array($type, $allowed_types)) {
+		$rsp = array(
+			'html' => '<div class="error">Oh no, something went wrong!</div>'
+		);
+	} else {
+		$func = "eyebeam2018_load_{$type}s";
+		$rsp = $func($page);
+	}
+	header('Content-Type: application/json');
+	echo json_encode($rsp);
+	exit;
+}
+add_action('wp_ajax_load_more', 'eyebeam2018_load_more');
+add_action('wp_ajax_nopriv_load_more', 'eyebeam2018_load_more');
+
+function eyebeam2018_resident_query() {
+
+	$page = empty($_GET['page']) ? 1 : intval($_GET['page']);
+	$args = array(
+		'post_type' => 'resident',
+		'posts_per_page' => 15,
+		'orderby'=> 'meta_value ID',
+		'meta_key' => 'end_year',
+		'paged' => $page
+	);
+
+	$year = date('Y');
+	if (! empty($_GET['resident_year'])) {
+		$year = strtolower($_GET['resident_year']);
+	}
+	if ($year != 'all') {
+		$year = intval($year);
+		$args['meta_query'] = array(
+			array(
+				'key'=> 'start_year',
+				'value'=> $year,
+				'compare'=> '<='
+			),
+			// The value being queried (e.g. 2014) should be less than or equal to
+			// the resident's end year (e.g. 2016)
+			array(
+				'key'=> 'end_year',
+				'value' => $year,
+				'compare'=> '>='
+			),
+		);
+	}
+
+	return new WP_Query($args);
+}
+
+function eyebeam2018_load_residents() {
+
+	$query = eyebeam2018_resident_query();
+
+	ob_start();
+	if ($query->have_posts()) {
+		while ($query->have_posts()) {
+			$query->the_post();
+			get_template_part('template-parts/resident', 'list');
+		}
+	}
+	$html = ob_get_contents();
+	ob_end_clean();
+	$rsp = array(
+		'type' => 'resident',
+		'html' => $html
+	);
+
+	$offset = $query->query['posts_per_page'] * ($query->query['paged'] - 1);
+	$rsp['load_more'] = ($query->found_posts > $offset + $query->post_count);
+	return $rsp;
+}
