@@ -37,26 +37,45 @@ get_header(); ?>
 	<main id="main" class="site-main" role="main">
 
 		<?php
-	    $now = new DateTime;
-	    $todays_date_formatted = $now->format('Ymd');
-			$archive_args = array(
-				'post_type' => 'event',
-				'posts_per_page' => -1,
-				'orderby'=> 'meta_value',
-				'meta_key' => 'end_date',
-				'order' => 'ASC',
-			);
 
-			$events = new WP_Query($archive_args);
-			if($events->have_posts()):
-				$i = 1;?>
-				<div class="events">
-					<h2>Upcoming</h2>
-					<div class="upcomingEvents">
-						<?php while($events->have_posts()) : $events->the_post();
-							if( get_field('end_date') >= $todays_date_formatted ):
-								$image = get_field('image');
-								$thisDate = new DateTime( get_field('end_date')); ?>
+		// Modified this to have two different queries. Upcoming events are
+		// forward-chronological, as in the soonest first. Past events are
+		// reverse-chron, so that the most recent events come first.
+
+		// For now we are going to hard-code the limit at 6 instead of showing
+		// *all* the events that have ever been. We will need pagination here
+		// at some point, but we gotta start somewhere. (20180118/dphiffer)
+
+		$now = new DateTime;
+		$todays_date_formatted = $now->format('Ymd');
+
+		$upcoming_args = array(
+			'post_type' => 'event',
+			'posts_per_page' => 20, // arbitrary hard limit on upcoming events
+			'orderby'=> 'meta_value',
+			'meta_key' => 'end_date',
+			'order' => 'ASC',
+		);
+
+		$past_args = array(
+			'post_type' => 'event',
+			'posts_per_page' => 6,
+			'orderby'=> 'meta_value',
+			'meta_key' => 'end_date',
+			'order' => 'DESC',
+		);
+
+		$events = new WP_Query($upcoming_args);
+
+		if($events->have_posts()):
+			$i = 1;?>
+			<div class="events">
+				<h2>Upcoming</h2>
+				<div class="upcomingEvents">
+					<?php while($events->have_posts()) : $events->the_post();
+						if( get_field('end_date') >= $todays_date_formatted ):
+							$image = get_field('image');
+							$thisDate = new DateTime( get_field('end_date')); ?>
 
 								<a class="event" href="<?php echo get_permalink() ?>">
 									<div class="eventImage" style= "background-image:url('<?php echo $image['url']; ?>')" alt="<?php echo $image['alt']; ?>"></div>
@@ -72,9 +91,9 @@ get_header(); ?>
 						<?php endwhile; ?>
 					</div>
 					<?php
-					$events->rewind_posts();
-					$array_rev = array_reverse($events->posts);
-          $events->posts = $array_rev;
+
+					$events = new WP_Query($past_args);
+
 					if($i-1 % 3 != 0 && $i > 1): ?>
 						<div class="rowSpacerLine"></div>
 					<?php endif; $i = 1; ?>
