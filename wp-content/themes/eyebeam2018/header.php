@@ -55,8 +55,8 @@ if(eyebeam2018_isMobile()) {
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<div class="eyebeam-logo">
-				 <a href="http://eyebeam.org/">
-					<img src="http://eyebeam.org/three/logo.png"/>
+				 <a href="/">
+					<img src="/img/logo.png"/>
 				 </a>
 
 
