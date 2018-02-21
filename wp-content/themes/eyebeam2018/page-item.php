@@ -46,12 +46,12 @@ if (! empty(get_sub_field('image'))) {
 		if (! empty($url)) {
 			$html = "<a href=\"$url\">$html</a>";
 		}
-		echo "$html\n";
+		echo "<figure>$html</figure>\n";
 	}
 
 	if (! empty($title)) {
 		$html = $title;
-		if ($width == 'two-thirds') {
+		if ($width == 'two-thirds' && ! empty($url)) {
 			$html .= ' &mdash;&gt;';
 		}
 		if (! empty($url)) {
