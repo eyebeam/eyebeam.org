@@ -3,7 +3,14 @@ var eyebeam2018 = (function($) {
 	var self = {
 
 		init: function() {
+			self.setup_nav();
 			self.setup_subscribe();
+		},
+
+		setup_nav: function() {
+			if ($('#wpadminbar').length > 0) {
+				$('header nav').addClass('headroom');
+			}
 		},
 
 		setup_subscribe: function() {

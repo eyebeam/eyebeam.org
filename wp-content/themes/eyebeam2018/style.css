@@ -106,6 +106,10 @@ header nav {
 	position: relative;
 }
 
+header nav.headroom {
+	margin-top: 32px;
+}
+
 header a {
 	color: #fff;
 	text-decoration: none;
