@@ -11,7 +11,13 @@ remove_action('wp_head', 'wp_generator');
 
 // Add our CSS and JavaScript tags
 function eyebeam2018_enqueue() {
+
 	wp_enqueue_style('eyebeam2018-style', get_stylesheet_uri());
+
+	$fonts = get_stylesheet_directory_uri() . '/fonts';
+	wp_enqueue_style('eyebeam2018-arial', "$fonts/arial-monospaced.css");
+	wp_enqueue_style('eyebeam2018-eyebeam', "$fonts/eyebeam-bold.css");
+
 }
 add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
 
