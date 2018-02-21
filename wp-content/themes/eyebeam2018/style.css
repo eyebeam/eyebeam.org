@@ -209,6 +209,7 @@ header.headroom {
 
 header nav {
 	position: relative;
+	height: 80px;
 }
 
 header a {
@@ -218,8 +219,11 @@ header a {
 
 header .logo {
 	position: absolute;
-	top: 22px;
+	top: 50%;
 	left: 55px;
+	transform: translateY(-50%);
+	width: 210px;
+	height: auto;
 }
 
 header .menu {
@@ -229,9 +233,13 @@ header .menu {
 	transform: translateX(-50%);
 }
 
-nav li {
+header nav li {
 	display: inline;
 	margin-right: 10px;
+}
+
+header nav li:last-child {
+	margin-right: 0;
 }
 
 header .support {
@@ -368,4 +376,51 @@ footer .social a {
 
 footer .social a:last-child {
 	margin-right: 0;
+}
+
+@media (max-width: 1136px) {
+
+	header .logo {
+		left: 33px;
+		width: 180px;
+	}
+
+	header {
+		font-size: 20px;
+	}
+
+}
+
+@media (max-width: 972px) {
+
+	header .logo {
+		left: 15px;
+		width: 150px;
+	}
+
+	header {
+		font-size: 16px;
+	}
+
+	header .support {
+		right: 15px;
+	}
+
+}
+
+@media (max-width: 792px) {
+
+	header .logo {
+		left: 10px;
+		width: 120px;
+	}
+
+	header {
+		font-size: 14px;
+	}
+
+	header .support {
+		right: 10px;
+	}
+
 }
