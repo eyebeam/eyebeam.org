@@ -118,13 +118,14 @@ header a {
 header .logo {
 	position: absolute;
 	top: 22px;
-	left: 4%;
+	left: 55px;
 }
 
 header .menu {
 	position: absolute;
 	top: 30px;
-	left: 25%;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 nav li {

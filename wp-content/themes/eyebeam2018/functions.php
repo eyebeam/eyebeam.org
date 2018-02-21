@@ -22,6 +22,15 @@ function eyebeam2018_setup() {
 	// Don't show the version of WordPress (security, yo)
 	remove_action('wp_head', 'wp_generator');
 
+	// Weird that this is even necessary...
+	add_theme_support('html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	));
+
 }
 add_action('init', 'eyebeam2018_setup');
 
