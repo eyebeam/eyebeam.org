@@ -38,6 +38,32 @@
 				<input type="email" name="email" placeholder="Email">
 				<input type="submit" value="Subscribe">
 			</form>
+			<div class="partners">
+				<img src="<?php eyebeam2018_img_src('img/jerome.png'); ?>" alt="Jerome Foundation" width="120">
+				<img src="<?php eyebeam2018_img_src('img/nyculture.png'); ?>" alt="NYCulture" width="128">
+				<img src="<?php eyebeam2018_img_src('img/artworks.png'); ?>" alt="Art Works" width="90">
+				<img src="<?php eyebeam2018_img_src('img/nysca.png'); ?>" alt="NYSCA" width="202">
+			</div>
+			<div class="address one-third">
+				199 Cook St<br>
+				Brooklyn,  NY 11206<br>
+				<a href="#">View Map</a>
+			</div>
+			<div class="social one-third">
+				<div class="tagline">Going viral for 20 years</div>
+				<div class="links">
+					<a href="#"><img src="<?php eyebeam2018_img_src('img/twitter.png'); ?>" alt="Twitter" width="29">
+					<a href="#"><img src="<?php eyebeam2018_img_src('img/facebook.png'); ?>" alt="Facebook" width="29">
+					<a href="#"><img src="<?php eyebeam2018_img_src('img/instagram.png'); ?>" alt="Instagram" width="30">
+					<a href="#"><img src="<?php eyebeam2018_img_src('img/youtube.png'); ?>" alt="YouTube" width="35">
+				</div>
+			</div>
+			<div class="contact one-third">
+				+1 347.378.9163<br>
+				<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a><br>
+				<a href="https://www.eyebeam.org/">eyebeam.org</a>
+			</div>
+			<br class="clear">
 		</footer>
 		<?php wp_footer(); ?>
 	</body>

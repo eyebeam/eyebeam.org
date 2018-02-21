@@ -81,6 +81,15 @@ body {
 	padding-bottom: 1280px;
 }
 
+.clear {
+	clear: both;
+}
+
+.one-third {
+	float: left;
+	width: 33.33%;
+}
+
 header {
 	position: fixed;
 	top: 0;
@@ -131,7 +140,7 @@ header .support.red {
 }
 
 footer {
-	padding: 38px 0;
+	padding: 38px 15px;
 	color: #fff;
 	background: #EB6B62;
 	text-align: center;
@@ -198,4 +207,57 @@ form.loading .response-loading,
 form.success .response-success,
 form.error .response-error {
 	display: block;
+}
+
+footer .partners {
+	padding: 80px 0;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	margin-top: 60px;
+	vertical-align: middle;
+}
+
+footer .partners img {
+	margin-right: 30px;
+}
+
+footer .partners img:last-child {
+	margin-right: 0;
+}
+
+footer .address,
+footer .social,
+footer .contact {
+	margin-top: 40px;
+}
+
+footer .address {
+	text-align: left;
+}
+
+footer .contact {
+	text-align: right;
+}
+
+footer .tagline {
+	display: inline-block;
+	padding: 4px 6px 0 6px;
+	color: #fff;
+	background: #000;
+}
+
+footer .social {
+	margin-top: 40px;
+}
+
+footer .social .links {
+	margin-top: 20px;
+}
+
+footer .social a {
+	margin-right: 20px;
+}
+
+footer .social a:last-child {
+	margin-right: 0;
 }
