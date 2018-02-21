@@ -8,6 +8,7 @@ gets chosen. This is all written from scratch, with <3
 */
 
 get_header();
+the_post();
 
 /* Web page stuff goes in here. */
 
