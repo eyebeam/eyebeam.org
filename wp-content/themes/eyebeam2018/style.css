@@ -60,15 +60,43 @@ table {
 }
 
 nav {
+	position: relative;
 	width: 100%;
 	height: 80px;
 	color: #fff;
 	background: #262626;
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 24px;
 }
 
 nav .logo {
-	margin-top: 22px;
-	margin-left: 55px;
+	position: absolute;
+	top: 22px;
+	left: 4%;
+}
+
+nav .menu {
+	position: absolute;
+	top: 30px;
+	left: 25%;
+}
+
+nav .menu li {
+	display: inline;
+	margin-right: 10px;
+}
+
+nav .support {
+	position: absolute;
+	top: 23px;
+	right: 25px;
+	color: #fff;
+	padding: 7px 5px 5px 5px;
+	text-decoration: none;
+}
+
+nav .support.red {
+	background: #EB6B62;
 }
 
 @media (min-width: 580px) {
