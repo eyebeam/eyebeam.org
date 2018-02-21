@@ -18,27 +18,31 @@ var eyebeam2018 = (function($) {
 			var $form = $('#subscribe');
 			$form.submit(function(e) {
 				e.preventDefault();
-				var args = $form.serialize();
-				var url = $form.attr('action');
-				$form.addClass('loading');
-				$form.removeClass('success');
-				$form.removeClass('error');
-				$.post(url, args, function(rsp) {
-					$form.removeClass('loading');
-					$form.removeClass('success');
-					$form.removeClass('error');
-					if (rsp.ok) {
-						$form.addClass('success');
-					} else {
-						$form.addClass('error');
-					}
-				});
+				self.subscribe_submit();
 			});
 		},
 
 		setup_items: function() {
 			self.align_items();
 			$(window).resize(self.align_items);
+		},
+
+		subscribe_submit: function() {
+			var args = $form.serialize();
+			var url = $form.attr('action');
+			$form.addClass('loading');
+			$form.removeClass('success');
+			$form.removeClass('error');
+			$.post(url, args, function(rsp) {
+				$form.removeClass('loading');
+				$form.removeClass('success');
+				$form.removeClass('error');
+				if (rsp.ok) {
+					$form.addClass('success');
+				} else {
+					$form.addClass('error');
+				}
+			});
 		},
 
 		align_items: function() {
