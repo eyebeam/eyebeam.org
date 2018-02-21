@@ -7,7 +7,7 @@
 	<body>
 		<header>
 			<nav>
-				<img src="<?php eyebeam2018_img_src('eyebeam.svg') ?>" alt="EYEBEAM" class="logo">
+				<img src="<?php eyebeam2018_img_src('img/eyebeam.svg'); ?>" alt="EYEBEAM" class="logo">
 				<?php
 
 				// Edit nav items from the WordPress dashboard:

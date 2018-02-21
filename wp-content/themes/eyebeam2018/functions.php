@@ -25,14 +25,14 @@ function eyebeam2018_setup() {
 }
 add_action('init', 'eyebeam2018_setup');
 
-function eyebeam2018_css($path, $deps = array()) {
+function eyebeam2018_enqueue_css($path, $deps = array()) {
 	$name = 'eyebeam2018-' . str_replace('/[^a-z0-9-]/', '-', $path);
 	$url = get_stylesheet_directory_uri() . "/$path";
 	$version = filemtime(__DIR__ . "/$path");
 	wp_enqueue_style($name, $url, $deps, $version);
 }
 
-function eyebeam2018_js($path, $deps = array(), $bottom = true) {
+function eyebeam2018_enqueue_js($path, $deps = array(), $bottom = true) {
 	$name = 'eyebeam2018-' . str_replace('/[^a-z0-9-]/', '-', $path);
 	$url = get_stylesheet_directory_uri() . "/$path";
 	$version = filemtime(__DIR__ . "/$path");
@@ -41,14 +41,15 @@ function eyebeam2018_js($path, $deps = array(), $bottom = true) {
 
 // Add our CSS and JavaScript tags
 function eyebeam2018_enqueue() {
-	eyebeam2018_css('fonts/eyebeam-bold.css');
-	eyebeam2018_css('fonts/arial-monospaced.css');
-	eyebeam2018_css('style.css');
-	eyebeam2018_js('js/eyebeam2018.js', array('jquery'));
+	eyebeam2018_enqueue_css('fonts/eyebeam-bold.css');
+	eyebeam2018_enqueue_css('fonts/arial-monospaced.css');
+	eyebeam2018_enqueue_css('style.css');
+	eyebeam2018_enqueue_js('js/eyebeam2018.js', array('jquery'));
 }
 add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
 
 // Helper for theme images
 function eyebeam2018_img_src($path) {
-	echo get_stylesheet_directory_uri() . "/img/$path";
+	$version = filemtime(__DIR__ . "/$path");
+	echo get_stylesheet_directory_uri() . "/$path?ver=$version";
 }
