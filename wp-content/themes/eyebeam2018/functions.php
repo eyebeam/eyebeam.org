@@ -53,3 +53,52 @@ function eyebeam2018_img_src($path) {
 	$version = filemtime(__DIR__ . "/$path");
 	echo get_stylesheet_directory_uri() . "/$path?ver=$version";
 }
+
+function eyebeam2018_subscribe() {
+
+	if (! empty($_POST['first_name']) &&
+	    ! empty($_POST['last_name']) &&
+	    ! empty($_POST['email']) &&
+	    preg_match('/\w+@\w+\.\w+/', $_POST['email'])) {
+		$first_name = $_POST['first_hame'];
+		$last_name = $_POST['last_hame'];
+		$email = $_POST['email'];
+
+		// Something something subscribe to email list
+
+		$rsp = array(
+			'ok' => 1
+		);
+	} else {
+		$rsp = array(
+			'ok' => 0
+		);
+	}
+
+	$headers = apache_request_headers();
+	if (! empty($headers['X-Requested-With']) &&
+	    $headers['X-Requested-With'] == 'XMLHttpRequest') {
+		header('Content-Type: application/json');
+		echo json_encode($rsp);
+		exit;
+	} else if (! empty($headers['Referer'])) {
+		$redirect = $headers['Referer'];
+		$result = "subscribed={$rsp['ok']}";
+		if (preg_match('/subscribed=[^&]+/', $redirect)) {
+			$redirect = preg_replace('/subscribed=[^&]+/', $result, $redirect);
+		} else if (strpos($redirect, '?') === false) {
+			$redirect .= "?$result";
+		} else {
+			$redirect .= "&$result";
+		}
+		$redirect .= '#subscribe';
+		header("Location: $redirect");
+		exit;
+	} else if ($rsp['ok'] == 1) {
+		echo "Thanks for subscribing!";
+	} else {
+		echo "That didn’t work for some reason.";
+	}
+}
+add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
+add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');

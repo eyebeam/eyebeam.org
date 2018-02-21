@@ -12,7 +12,19 @@ var eyebeam2018 = (function($) {
 				e.preventDefault();
 				var args = $form.serialize();
 				var url = $form.attr('action');
-				$.post(
+				$form.addClass('loading');
+				$form.removeClass('success');
+				$form.removeClass('error');
+				$.post(url, args, function(rsp) {
+					$form.removeClass('loading');
+					$form.removeClass('success');
+					$form.removeClass('error');
+					if (rsp.ok) {
+						$form.addClass('success');
+					} else {
+						$form.addClass('error');
+					}
+				});
 			});
 		}
 
