@@ -6,3 +6,9 @@ gets chosen. This is all written from scratch, with <3
 (20180220/dphiffer)
 
 */
+
+get_header();
+
+/* Web page stuff goes in here. */
+
+get_footer();
