@@ -152,3 +152,30 @@ footer a {
 	color: #fff;
 	text-decoration: none;
 }
+
+#subscribe {
+	margin-top: 40px;
+}
+
+#subscribe input {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+}
+
+#subscribe input[type=text],
+#subscribe input[type=email] {
+	width: 162px;
+	height: 43px;
+	border: 2px solid #000;
+	background: transparent;
+}
+
+#subscribe input[type=submit] {
+	width: 146px;
+	height: 43px;
+	background: #000;
+	border: none;
+	cursor: pointer;
+}
