@@ -102,6 +102,7 @@ a {
 	margin-left: 10px;
 	border-left: 2px solid #000;
 	border-top: 2px solid #000;
+	margin-bottom: 110px;
 }
 
 .item h2 {
@@ -151,11 +152,43 @@ a {
 	font-size: 48px;
 	line-height: 56px;
 	padding-bottom: 15px;
-	margin-bottom: 110px;
 }
 
 .item.two-thirds .item-description {
 	margin-top: 4px;
+}
+
+.item.full-width {
+	width: calc(100% - 10px);
+	padding: 9px;
+}
+
+.item.full-width h2 {
+	width: 28.07%;
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 24px;
+	padding: 15px 9px 4px 9px;
+}
+
+.item.full-width .item-description {
+	width: 28.07%;
+	padding: 0 9px;
+}
+
+.item.full-width figure {
+	float: right;
+	width: 65.21%;
+}
+
+.item.full-width figure::after {
+	content: "";
+	display: table-cell;
+	clear: both;
+}
+
+.item.full-width img {
+	width: 100%;
+	height: auto;
 }
 
 header {
