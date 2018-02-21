@@ -31,6 +31,7 @@ function eyebeam2018_setup() {
 		'caption',
 	));
 
+	// Advanced Custom Fields
 	require_once __DIR__ . '/custom-fields/items.php';
 
 }
