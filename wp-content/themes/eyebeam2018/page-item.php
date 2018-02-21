@@ -46,14 +46,18 @@ if (! empty(get_sub_field('image'))) {
 		if (! empty($url)) {
 			$html = "<a href=\"$url\">$html</a>";
 		}
-		$html .= "\n";
-		echo $html;
+		echo "$html\n";
 	}
 
-	if (! empty($title) && ! empty($url)) {
-		echo "<h2><a href=\"$url\">$title</a></h2>\n";
-	} else if (! empty($title)) {
-		echo "<h2>$title</h2>\n";
+	if (! empty($title)) {
+		$html = $title;
+		if ($width == 'two-thirds') {
+			$html .= ' &mdash;&gt;';
+		}
+		if (! empty($url)) {
+			$html = "<a href=\"$url\">$html</a>";
+		}
+		echo "<h2>$html</h2>\n";
 	}
 
 	if (! empty($description)) {
