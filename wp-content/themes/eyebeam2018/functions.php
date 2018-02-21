@@ -6,8 +6,18 @@ Hello, this is the eyebeam2018 functions file.
 
 */
 
-// Don't show the version of WordPress (security, yo)
-remove_action('wp_head', 'wp_generator');
+function eyebeam2018_setup() {
+
+	// Flip some WordPress switches to turn on features
+	add_theme_support('automatic-feed-links');
+	add_theme_support('title-tag');
+	add_theme_support('post-thumbnails');
+
+	// Don't show the version of WordPress (security, yo)
+	remove_action('wp_head', 'wp_generator');
+
+}
+add_action('init', 'eyebeam2018_setup');
 
 // Add our CSS and JavaScript tags
 function eyebeam2018_enqueue() {
