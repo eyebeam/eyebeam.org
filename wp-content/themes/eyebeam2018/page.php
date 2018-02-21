@@ -13,7 +13,7 @@ while (have_posts()) {
 
 	echo '<div class="item-container">';
 	while (have_rows('items')) {
-		get_template_part('page-item');
+		get_template_part('templates/page-item');
 	}
 	echo '<br class="clear"></div>';
 }
