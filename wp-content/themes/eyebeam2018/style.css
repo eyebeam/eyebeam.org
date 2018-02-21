@@ -5,6 +5,7 @@ Author URI: https://phiffer.org/
 Description: Designed by <a href="http://lukaslukas.com/">Lukas Eigler-Harding</a>.
 */
 
+/* ---------------------------------------------------------------------------*/
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -54,13 +55,36 @@ table {
 	border-spacing: 0;
 }
 
+/* ---------------------------------------------------------------------------*/
+/* from https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* ---------------------------------------------------------------------------*/
+
+body {
+	background-image: url('img/background.jpg');
+	background-size: 1440px 1040px;
+	background-position: center top;
+	background-attachment: fixed;
+}
+
 #page {
 	width: 100%;
 	padding: 0 15px;
+	padding-bottom: 1280px;
 }
 
-nav {
-	position: relative;
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 80px;
 	color: #fff;
@@ -69,43 +93,62 @@ nav {
 	font-size: 24px;
 }
 
-nav a {
+header nav {
+	position: relative;
+}
+
+header a {
 	color: #fff;
 	text-decoration: none;
 }
 
-nav .logo {
+header .logo {
 	position: absolute;
 	top: 22px;
 	left: 4%;
 }
 
-nav .menu {
+header .menu {
 	position: absolute;
 	top: 30px;
 	left: 25%;
 }
 
-nav .menu li {
+nav li {
 	display: inline;
 	margin-right: 10px;
 }
 
-nav .support {
+header .support {
 	position: absolute;
 	top: 23px;
 	right: 25px;
 	padding: 7px 5px 5px 5px;
 }
 
-nav .support.red {
+header .support.red {
 	background: #EB6B62;
 }
 
-@media (min-width: 580px) {
+footer {
+	padding: 38px 0;
+	color: #fff;
+	background: #EB6B62;
+	text-align: center;
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	line-height: 24px;
+}
 
-	#page {
-		padding: 0;
-	}
+footer nav {
+	font-size: 24px;
+}
 
+footer nav li {
+	margin-right: 30px;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
 }

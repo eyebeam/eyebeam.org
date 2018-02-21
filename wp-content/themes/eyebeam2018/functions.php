@@ -15,7 +15,8 @@ function eyebeam2018_setup() {
 
 	// Main navigation
 	register_nav_menus(array(
-		'top' => 'Top nav'
+		'top' => 'Top nav',
+		'bottom' => 'Bottom nav'
 	));
 
 	// Don't show the version of WordPress (security, yo)

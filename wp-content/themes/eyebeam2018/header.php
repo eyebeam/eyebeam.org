@@ -5,14 +5,20 @@
 		<?php wp_head(); ?>
 	</head>
 	<body>
-		<nav>
-			<img src="<?php eyebeam2018_img_src('eyebeam.svg') ?>" alt="EYEBEAM" class="logo">
-			<?php
+		<header>
+			<nav>
+				<img src="<?php eyebeam2018_img_src('eyebeam.svg') ?>" alt="EYEBEAM" class="logo">
+				<?php
 
-			wp_nav_menu(array(
-				'theme_location' => 'top'
-			));
+				// Edit nav items from the WordPress dashboard:
+				// https://www.eyebeam.org/wp-admin/nav-menus.php
 
-			?>
-			<a href="#" class="support red">Support Eyebeam!</a>
-		</nav>
+				wp_nav_menu(array(
+					'theme_location' => 'top'
+				));
+
+				?>
+				<a href="#" class="support red">Support Eyebeam!</a>
+			</nav>
+		</header>
+		<div id="page">
