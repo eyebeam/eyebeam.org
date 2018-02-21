@@ -73,6 +73,9 @@ body {
 	background-size: 1440px 1040px;
 	background-position: center top;
 	background-attachment: fixed;
+	font-family: arial, sans-serif;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 a {
@@ -92,12 +95,17 @@ a {
 .item-container {
 	padding-left: 10px;
 	padding-top: 49px;
+	padding-right: 20px;
 }
 
-.item-container .item {
+.item {
 	margin-left: 10px;
 	border-left: 2px solid #000;
 	border-top: 2px solid #000;
+}
+
+.item h2 {
+	text-transform: uppercase;
 }
 
 .one-third {
@@ -115,7 +123,28 @@ a {
 	width: 100%;
 }
 
+.item.one-third {
+	padding: 9px;
+	width: calc(33.33% - 10px);
+}
+
+.item.one-third img {
+	width: 100%;
+	height: auto;
+}
+
+.item.one-third h2 {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 24px;
+	padding: 15px 9px 4px 9px;
+}
+
+.item.one-third .item-description {
+	padding: 0 9px;
+}
+
 .item.two-thirds {
+	width: calc(66.66% - 10px);
 	padding-left: 19px;
 	padding-top: 15px;
 	font-family: "eyebeamregular", sans-serif;
