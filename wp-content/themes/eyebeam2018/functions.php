@@ -25,15 +25,26 @@ function eyebeam2018_setup() {
 }
 add_action('init', 'eyebeam2018_setup');
 
+function eyebeam2018_css($path, $deps = array()) {
+	$name = 'eyebeam2018-' . str_replace('/[^a-z0-9-]/', '-', $path);
+	$url = get_stylesheet_directory_uri() . "/$path";
+	$version = filemtime(__DIR__ . "/$path");
+	wp_enqueue_style($name, $url, $deps, $version);
+}
+
+function eyebeam2018_js($path, $deps = array(), $bottom = true) {
+	$name = 'eyebeam2018-' . str_replace('/[^a-z0-9-]/', '-', $path);
+	$url = get_stylesheet_directory_uri() . "/$path";
+	$version = filemtime(__DIR__ . "/$path");
+	wp_enqueue_script($name, $url, $deps, $version, $bottom);
+}
+
 // Add our CSS and JavaScript tags
 function eyebeam2018_enqueue() {
-
-	wp_enqueue_style('eyebeam2018-style', get_stylesheet_uri());
-
-	$fonts = get_stylesheet_directory_uri() . '/fonts';
-	wp_enqueue_style('eyebeam2018-arial', "$fonts/arial-monospaced.css");
-	wp_enqueue_style('eyebeam2018-eyebeam', "$fonts/eyebeam-bold.css");
-
+	eyebeam2018_css('fonts/eyebeam-bold.css');
+	eyebeam2018_css('fonts/arial-monospaced.css');
+	eyebeam2018_css('style.css');
+	eyebeam2018_js('js/eyebeam2018.js', array('jquery'));
 }
 add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
 
