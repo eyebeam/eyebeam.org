@@ -75,19 +75,58 @@ body {
 	background-attachment: fixed;
 }
 
+a {
+	color: #68BD9E;
+	text-decoration: none;
+}
+
 #page {
 	width: 100%;
-	padding: 0 15px;
-	padding-bottom: 1280px;
+	padding-top: 80px;
 }
 
 .clear {
 	clear: both;
 }
 
+.item-container {
+	padding-left: 10px;
+	padding-top: 49px;
+}
+
+.item-container .item {
+	margin-left: 10px;
+	border-left: 2px solid #000;
+	border-top: 2px solid #000;
+}
+
 .one-third {
 	float: left;
 	width: 33.33%;
+}
+
+.two-thirds {
+	float: left;
+	width: 66.66%;
+}
+
+.full-width {
+	float: left;
+	width: 100%;
+}
+
+.item.two-thirds {
+	padding-left: 19px;
+	padding-top: 15px;
+	font-family: "eyebeamregular", sans-serif;
+	font-size: 48px;
+	line-height: 56px;
+	padding-bottom: 15px;
+	margin-bottom: 110px;
+}
+
+.item.two-thirds .item-description {
+	margin-top: 4px;
 }
 
 header {
@@ -145,7 +184,7 @@ header .support.red {
 }
 
 footer {
-	padding: 38px 15px;
+	padding: 38px 21px;
 	color: #fff;
 	background: #EB6B62;
 	text-align: center;
@@ -238,12 +277,12 @@ footer .contact {
 
 footer .address {
 	text-align: left;
-	padding-left: 15px;
+	padding-left: 9px;
 }
 
 footer .contact {
 	text-align: right;
-	padding-right: 15px;
+	padding-right: 9px;
 }
 
 footer .tagline {
