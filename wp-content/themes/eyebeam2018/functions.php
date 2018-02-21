@@ -5,3 +5,17 @@ Hello, this is the eyebeam2018 functions file.
 (20180220/dphiffer)
 
 */
+
+// Don't show the version of WordPress (security, yo)
+remove_action('wp_head', 'wp_generator');
+
+// Add our CSS and JavaScript tags
+function eyebeam2018_enqueue() {
+	wp_enqueue_style('eyebeam2018-style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
+
+// Helper for theme images
+function eyebeam2018_img_src($path) {
+	echo get_stylesheet_directory_uri() . "/img/$path";
+}
