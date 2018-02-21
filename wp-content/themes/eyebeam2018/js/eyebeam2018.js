@@ -9,7 +9,7 @@ var eyebeam2018 = (function($) {
 
 		setup_nav: function() {
 			if ($('#wpadminbar').length > 0) {
-				$('header nav').addClass('headroom');
+				$('header').addClass('headroom');
 			}
 		},
 
