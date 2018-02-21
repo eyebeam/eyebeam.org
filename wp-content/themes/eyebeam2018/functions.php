@@ -13,6 +13,11 @@ function eyebeam2018_setup() {
 	add_theme_support('title-tag');
 	add_theme_support('post-thumbnails');
 
+	// Main navigation
+	register_nav_menus(array(
+		'top' => 'Top nav'
+	));
+
 	// Don't show the version of WordPress (security, yo)
 	remove_action('wp_head', 'wp_generator');
 

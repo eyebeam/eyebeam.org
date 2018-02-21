@@ -69,6 +69,11 @@ nav {
 	font-size: 24px;
 }
 
+nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
 nav .logo {
 	position: absolute;
 	top: 22px;
@@ -90,9 +95,7 @@ nav .support {
 	position: absolute;
 	top: 23px;
 	right: 25px;
-	color: #fff;
 	padding: 7px 5px 5px 5px;
-	text-decoration: none;
 }
 
 nav .support.red {

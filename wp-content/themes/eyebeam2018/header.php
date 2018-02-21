@@ -7,13 +7,12 @@
 	<body>
 		<nav>
 			<img src="<?php eyebeam2018_img_src('eyebeam.svg') ?>" alt="EYEBEAM" class="logo">
-			<ul class="menu">
-				<li>Apply</li>
-				<li>Learn</li>
-				<li>Visit</li>
-				<li>People</li>
-				<li>Ideas</li>
-				<li>About</li>
-			</ul>
+			<?php
+
+			wp_nav_menu(array(
+				'theme_location' => 'top'
+			));
+
+			?>
 			<a href="#" class="support red">Support Eyebeam!</a>
 		</nav>
