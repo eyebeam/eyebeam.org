@@ -16,7 +16,7 @@ include_once("$dir/acf-repeater/acf-repeater.php");
 // WP_DEBUG = false / custom fields are included via PHP
 if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	define('ACF_LITE', true); // hide the editing UI
-	include_once("$dir/custom-fields/items.php");
+	include_once("$dir/custom-fields/modular-grid.php");
 }
 
 // We need this filter so that ACF can handle symlinked folders. Assumes the
