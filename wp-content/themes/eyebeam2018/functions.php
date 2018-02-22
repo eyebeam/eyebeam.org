@@ -22,17 +22,17 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 // We need these filters so that ACF can handle symlinked folders. This assumes
 // the symlink target folder path ends with "eyebeam.org" or
 // "staging.eyebeam.org" or any "*.eyebeam.org" (20180222/dphiffer)
-function eyebeam2018_acf_settings_path($path) {
+function eyebeam2018_acf_get_path($path) {
 	$path = get_stylesheet_directory() . '/advanced-custom-fields/';
 	return $path;
 }
-add_filter('acf/settings/path', 'eyebeam2018_acf_settings_path');
+add_filter('acf/helpers/get_path', 'eyebeam2018_acf_get_path');
 
-function eyebeam2018_acf_settings_dir($dir) {
+function eyebeam2018_acf_get_dir($dir) {
 	$dir = get_stylesheet_directory_uri() . '/advanced-custom-fields/';
 	return $dir;
 }
-add_filter('acf/settings/dir', 'eyebeam2018_acf_settings_dir');
+add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir');
 
 function eyebeam2018_setup() {
 
