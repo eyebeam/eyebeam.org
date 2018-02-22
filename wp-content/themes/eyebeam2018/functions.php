@@ -6,10 +6,24 @@ Hello, this is the eyebeam2018 functions file.
 
 */
 
+// We need these filters so that ACF can handle symlinked folders.
+// (20180222/dphiffer)
+function eyebeam2018_acf_get_path($path) {
+	$path = get_stylesheet_directory() . '/lib/advanced-custom-fields/';
+	return $path;
+}
+add_filter('acf/helpers/get_path', 'eyebeam2018_acf_get_path');
+
+function eyebeam2018_acf_get_dir($dir) {
+	$dir = get_stylesheet_directory_uri() . '/lib/advanced-custom-fields/';
+	return $dir;
+}
+add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir');
+
 // Advanced Custom Fields
 $dir = __DIR__;
-include_once("$dir/advanced-custom-fields/acf.php");
-include_once("$dir/acf-repeater/acf-repeater.php");
+include_once("$dir/lib/advanced-custom-fields/acf.php");
+include_once("$dir/lib/acf-repeater/acf-repeater.php");
 
 // Enable WP_DEBUG in wp-config.php to edit fields
 // WP_DEBUG = true / custom fields come from the database
@@ -18,21 +32,6 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	define('ACF_LITE', true); // hide the editing UI
 	include_once("$dir/custom-fields/modular-grid.php");
 }
-
-// We need these filters so that ACF can handle symlinked folders. This assumes
-// the symlink target folder path ends with "eyebeam.org" or
-// "staging.eyebeam.org" or any "*.eyebeam.org" (20180222/dphiffer)
-function eyebeam2018_acf_get_path($path) {
-	$path = get_stylesheet_directory() . '/advanced-custom-fields/';
-	return $path;
-}
-add_filter('acf/helpers/get_path', 'eyebeam2018_acf_get_path');
-
-function eyebeam2018_acf_get_dir($dir) {
-	$dir = get_stylesheet_directory_uri() . '/advanced-custom-fields/';
-	return $dir;
-}
-add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir');
 
 function eyebeam2018_setup() {
 
