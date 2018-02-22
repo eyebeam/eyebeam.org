@@ -19,9 +19,9 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	include_once("$dir/custom-fields/modular-grid.php");
 }
 
-// We need this filter so that ACF can handle symlinked folders. Assumes the
-// symlink target folder path ends with "eyebeam.org" or "staging.eyebeam.org"
-// or any "*.eyebeam.org" (20180222/dphiffer)
+// We need these filters so that ACF can handle symlinked folders. This assumes
+// the symlink target folder path ends with "eyebeam.org" or
+// "staging.eyebeam.org" or any "*.eyebeam.org" (20180222/dphiffer)
 function eyebeam2018_acf_get_dir($path) {
 
 	// If the path already starts with /wp-content, we don't need to do this.
@@ -34,6 +34,7 @@ function eyebeam2018_acf_get_dir($path) {
 	return preg_replace('#^/.+eyebeam\.org#', '', $path);
 }
 add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir');
+add_filter('acf/helpers/get_path', 'eyebeam2018_acf_get_path');
 
 function eyebeam2018_setup() {
 
