@@ -33,7 +33,7 @@ function eyebeam2018_acf_get_dir($path) {
 	// so we should return /wp-content/themes/...
 	return preg_replace('#^/.+eyebeam\.org#', '', $path);
 }
-add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir', 1, 2);
+add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir');
 
 function eyebeam2018_setup() {
 
