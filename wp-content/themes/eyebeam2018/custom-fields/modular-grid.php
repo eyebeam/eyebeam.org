@@ -11,7 +11,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Modular Grid Items',
 				'name' => 'items',
 				'type' => 'repeater',
-				'required' => 1,
+				'required' => 0,
 				'sub_fields' => array (
 					array (
 						'key' => 'field_5a8dbc52c2b77',
