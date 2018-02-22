@@ -22,7 +22,7 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 // We need these filters so that ACF can handle symlinked folders. This assumes
 // the symlink target folder path ends with "eyebeam.org" or
 // "staging.eyebeam.org" or any "*.eyebeam.org" (20180222/dphiffer)
-function eyebeam2018_acf_get_dir($path) {
+function eyebeam2018_acf_symlinks($path) {
 
 	// If the path already starts with /wp-content, we don't need to do this.
 	if (substr($path, 0, 11) == '/wp-content') {
@@ -33,8 +33,8 @@ function eyebeam2018_acf_get_dir($path) {
 	// so we should return /wp-content/themes/...
 	return preg_replace('#^/.+eyebeam\.org#', '', $path);
 }
-add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir');
-add_filter('acf/helpers/get_path', 'eyebeam2018_acf_get_path');
+add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_symlinks');
+add_filter('acf/helpers/get_path', 'eyebeam2018_acf_symlinks');
 
 function eyebeam2018_setup() {
 
