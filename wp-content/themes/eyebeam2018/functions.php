@@ -19,6 +19,22 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	include_once("$dir/custom-fields/items.php");
 }
 
+// We need this filter so that ACF can handle symlinked folders. Assumes the
+// symlink target folder path ends with "eyebeam.org" or "staging.eyebeam.org"
+// or any "*.eyebeam.org" (20180222/dphiffer)
+function eyebeam2018_acf_get_dir($path) {
+
+	// If the path already starts with /wp-content, we don't need to do this.
+	if (substr($path, 0, 11) == '/wp-content') {
+		return $path;
+	}
+
+	// At this point $path is like: /home/web_admin_eyebeam/github/staging.eyebeam.org/wp-content/themes/eyebeam2018/lib/advanced-custom-fields/js/tinymce.code.min.js
+	// so we should return /wp-content/themes/...
+	return preg_replace('#^/.+eyebeam\.org#', '', $path);
+}
+add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir', 1, 2);
+
 function eyebeam2018_setup() {
 
 	// Flip some WordPress switches to turn on features
