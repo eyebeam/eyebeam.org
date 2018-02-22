@@ -6,16 +6,12 @@ Hello, this is the eyebeam2018 functions file.
 
 */
 
-// We need these filters so that ACF can handle symlinked folders.
+// We need this filters so that ACF can handle symlinked folders.
 // (20180222/dphiffer)
-function eyebeam2018_acf_get_path($path) {
-	$path = get_stylesheet_directory() . '/lib/advanced-custom-fields/';
-	return $path;
-}
-add_filter('acf/helpers/get_path', 'eyebeam2018_acf_get_path');
-
 function eyebeam2018_acf_get_dir($dir) {
-	$dir = get_stylesheet_directory_uri() . '/lib/advanced-custom-fields/';
+	if (preg_match('#/wp-content/themes/.+$#', $dir, $matches)) {
+		return $matches[0];
+	}
 	return $dir;
 }
 add_filter('acf/helpers/get_dir', 'eyebeam2018_acf_get_dir');
