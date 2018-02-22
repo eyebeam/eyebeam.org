@@ -8,8 +8,8 @@ Hello, this is the eyebeam2018 functions file.
 
 // Advanced Custom Fields
 $dir = __DIR__;
-include_once("$dir/lib/advanced-custom-fields/acf.php");
-include_once("$dir/lib/acf-repeater/acf-repeater.php");
+include_once("$dir/advanced-custom-fields/acf.php");
+include_once("$dir/acf-repeater/acf-repeater.php");
 
 // Enable WP_DEBUG in wp-config.php to edit fields
 // WP_DEBUG = true / custom fields come from the database
