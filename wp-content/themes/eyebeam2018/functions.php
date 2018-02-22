@@ -6,6 +6,19 @@ Hello, this is the eyebeam2018 functions file.
 
 */
 
+// Advanced Custom Fields
+$dir = __DIR__;
+include_once("$dir/lib/advanced-custom-fields/acf.php");
+include_once("$dir/lib/acf-repeater/acf-repeater.php");
+
+// Enable WP_DEBUG in wp-config.php to edit fields
+// WP_DEBUG = true / custom fields come from the database
+// WP_DEBUG = false / custom fields are included via PHP
+if (! defined('WP_DEBUG') || ! WP_DEBUG) {
+	define('ACF_LITE', true); // hide the editing UI
+	include_once("$dir/custom-fields/items.php");
+}
+
 function eyebeam2018_setup() {
 
 	// Flip some WordPress switches to turn on features
@@ -30,10 +43,6 @@ function eyebeam2018_setup() {
 		'gallery',
 		'caption',
 	));
-
-	// Advanced Custom Fields
-	require_once __DIR__ . '/custom-fields/items.php';
-
 }
 add_action('init', 'eyebeam2018_setup');
 
