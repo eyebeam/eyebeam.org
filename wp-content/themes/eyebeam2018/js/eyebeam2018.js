@@ -6,6 +6,7 @@ var eyebeam2018 = (function($) {
 			self.setup_nav();
 			self.setup_subscribe();
 			self.setup_items();
+			self.setup_color();
 		},
 
 		setup_nav: function() {
@@ -73,6 +74,13 @@ var eyebeam2018 = (function($) {
 					row.push(item);
 				}
 			});
+		},
+
+		setup_color: function() {
+			var colors = ['red', 'green', 'blue'];
+			var index = Math.floor(Math.random() * colors.length);
+			var color = colors[index];
+			$(document.body).addClass(color);
 		}
 
 	};
