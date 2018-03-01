@@ -74,7 +74,7 @@ html {
 
 body {
 	background-image: url('img/background.jpg');
-	background-size: 1440px 1040px;
+	background-size: 100% auto;
 	background-position: center top;
 	background-attachment: fixed;
 	font-family: arial, sans-serif;
@@ -117,6 +117,36 @@ a {
 	padding-top: 80px;
 }
 
+/*----------------------------------------------------------------------------*/
+/* colors */
+
+body.red header .support,
+body.red footer {
+	background: #EB6B62;
+}
+
+body.red a {
+	color: #EB6B62;
+}
+
+body.green header .support,
+body.green footer {
+	background: #68BD9E;
+}
+
+body.green a {
+	color: #68BD9E;
+}
+
+body.blue header .support,
+body.blue footer {
+	background: #00A7DA;
+}
+
+body.blue a {
+	color: #00A7DA;
+}
+
 /* -------------------------------------------------------------------------- */
 /* form */
 
@@ -152,7 +182,7 @@ header {
 	color: #fff;
 	background: #262626;
 	font-family: "ArialMonospacedMTStd", monospace;
-	font-size: 24px;
+	font-size: 20px;
 }
 
 header.headroom {
@@ -225,7 +255,7 @@ footer nav li {
 }
 
 footer a {
-	color: #fff;
+	color: #fff !important;
 	text-decoration: none;
 }
 
@@ -317,6 +347,7 @@ footer .social a:last-child {
 .item.one-third h2 {
 	font-family: "ArialMonospacedMTStd", monospace;
 	font-size: 24px;
+	line-height: 24px;
 	padding: 15px 9px 4px 9px;
 }
 
@@ -401,40 +432,10 @@ footer .social a:last-child {
 	cursor: pointer;
 }
 
-/*----------------------------------------------------------------------------*/
-/* colors */
-
-body.red header .support,
-body.red footer {
-	background: #EB6B62;
-}
-
-body.red a {
-	color: #EB6B62;
-}
-
-body.green header .support,
-body.green footer {
-	background: #68BD9E;
-}
-
-body.green a {
-	color: #68BD9E;
-}
-
-body.blue header .support,
-body.blue footer {
-	background: #00A7DA;
-}
-
-body.blue a {
-	color: #00A7DA;
-}
-
 /* -------------------------------------------------------------------------- */
 /* breakpoints */
 
-@media (max-width: 1136px) {
+@media (max-width: 1183px) {
 
 	header .logo {
 		left: 33px;
@@ -442,12 +443,12 @@ body.blue a {
 	}
 
 	header {
-		font-size: 20px;
+		font-size: 18px;
 	}
 
 }
 
-@media (max-width: 972px) {
+@media (max-width: 1074px) {
 
 	header .logo {
 		left: 15px;
@@ -464,7 +465,7 @@ body.blue a {
 
 }
 
-@media (max-width: 792px) {
+@media (max-width: 962px) {
 
 	header .logo {
 		left: 10px;
@@ -481,10 +482,45 @@ body.blue a {
 
 }
 
-@media (max-width: 706px) {
+/* This should be kept in sync with the eyebeam2018.js mobile_width var. */
+@media (max-width: 856px) {
+
+	body {
+		font-size: 15px;
+		line-height: 18px;
+	}
 
 	#page {
 		padding-top: 60px;
+	}
+
+	.item-container {
+		padding-top: 15px;
+	}
+
+	.item {
+		margin-bottom: 15px;
+	}
+
+	.item.one-third,
+	.item.two-thirds,
+	.item.full-width {
+		width: 100%;
+		margin-left: 5px;
+	}
+
+	.item.one-third h2 {
+		font-size: 18px;
+		line-height: 18px;
+	}
+
+	.item.two-thirds {
+		font-size: 18px;
+		line-height: 24px;
+	}
+
+	.item.full-width {
+
 	}
 
 	header,
@@ -537,6 +573,47 @@ body.blue a {
 	header nav .menu-header-container,
 	header nav .support {
 		display: none;
+	}
+
+	body.show-menu .menu-btn {
+		background-image: url('img/close.png');
+		background-size: 27px 22px;
+	}
+
+	body.show-menu header nav .menu-header-container {
+		display: block;
+		position: fixed;
+		top: 60px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: #262626;
+	}
+
+	body.show-menu header nav {
+		font-size: 24px;
+		line-height: 48px;
+		text-align: center;
+	}
+
+	body.show-menu header .menu {
+		top: calc(50% - 30px);
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+	body.show-menu header nav li {
+		display: block;
+		margin-right: 0;
+	}
+
+	body.show-menu header nav .support {
+		display: block;
+		position: fixed;
+		left: 0;
+		top: auto;
+		bottom: 0;
+		right: 0;
+		height: 60px;
 	}
 
 }

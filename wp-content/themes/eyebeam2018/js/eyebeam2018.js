@@ -1,5 +1,8 @@
 var eyebeam2018 = (function($) {
 
+	// This should be kept in sync with the style.css mobile breakpoint.
+	var mobile_width = 856;
+
 	var self = {
 
 		init: function() {
@@ -7,6 +10,7 @@ var eyebeam2018 = (function($) {
 			self.setup_subscribe();
 			self.setup_items();
 			self.setup_color();
+			self.setup_menu();
 		},
 
 		setup_nav: function() {
@@ -25,7 +29,21 @@ var eyebeam2018 = (function($) {
 
 		setup_items: function() {
 			self.align_items();
+			$(document.body).load(self.align_items);
 			$(window).resize(self.align_items);
+		},
+
+		setup_color: function() {
+			var colors = ['red', 'green', 'blue'];
+			var index = Math.floor(Math.random() * colors.length);
+			var color = colors[index];
+			$(document.body).addClass(color);
+		},
+
+		setup_menu: function() {
+			$('.menu-btn').click(function() {
+				$(document.body).toggleClass('show-menu');
+			});
 		},
 
 		subscribe_submit: function() {
@@ -47,6 +65,12 @@ var eyebeam2018 = (function($) {
 		},
 
 		align_items: function() {
+
+			if ($(document.body).width() <= mobile_width) {
+				$('.item-container .item').css('height', 'auto');
+				return;
+			}
+
 			var span = 0;
 			var row = [];
 			$('.item-container .item').each(function(i, item) {
@@ -74,13 +98,6 @@ var eyebeam2018 = (function($) {
 					row.push(item);
 				}
 			});
-		},
-
-		setup_color: function() {
-			var colors = ['red', 'green', 'blue'];
-			var index = Math.floor(Math.random() * colors.length);
-			var color = colors[index];
-			$(document.body).addClass(color);
 		}
 
 	};
