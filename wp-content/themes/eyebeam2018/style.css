@@ -73,10 +73,12 @@ html {
 /* elements */
 
 body {
-	background-image: url('img/background.jpg');
-	background-size: 100% auto;
-	background-position: center top;
+	background-image: url('img/background.png');
+	background-color: #E9E9E9;
+	background-size: 74.5% auto;
+	background-position: center center;
 	background-attachment: fixed;
+	background-repeat: no-repeat;
 	font-family: arial, sans-serif;
 	font-size: 18px;
 	line-height: 24px;
@@ -482,10 +484,14 @@ footer .social a:last-child {
 
 }
 
+/* -------------------------------------------------------------------------- */
+/* mobile breakpoint */
 /* This should be kept in sync with the eyebeam2018.js mobile_width var. */
 @media (max-width: 856px) {
 
 	body {
+		background-image: url('img/background-mobile.png');
+		background-size: 94.3% auto;
 		font-size: 15px;
 		line-height: 18px;
 	}
