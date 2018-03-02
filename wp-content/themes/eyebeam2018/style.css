@@ -179,6 +179,7 @@ header {
 	background: #262626;
 	font-family: "ArialMonospacedMTStd", monospace;
 	font-size: 20px;
+	z-index: 1;
 }
 
 header.headroom {
@@ -620,6 +621,26 @@ footer .tagline {
 		font-size: 18px;
 	}
 
+}
+
+/* -------------------------------------------------------------------------- */
+/* Homepage */
+
+.hero-video {
+	position: relative;
+	width: 100%;
+	padding-bottom: 47.5%;
+	overflow: hidden;
+}
+
+.hero-video video {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
 }
 
 /* -------------------------------------------------------------------------- */
