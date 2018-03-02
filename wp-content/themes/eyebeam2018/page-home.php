@@ -11,7 +11,7 @@ while (have_posts()) {
 
 	the_post();
 
-	get_template_part('templates/home-video');
+	get_template_part('templates/hero-media');
 
 	echo "<div class=\"item-container\">\n";
 	while (have_rows('items')) {
