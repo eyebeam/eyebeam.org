@@ -18,11 +18,13 @@ var eyebeam2018 = (function($) {
 				$('header').addClass('headroom');
 				$(window).scroll(function() {
 					var scroll = document.documentElement.scrollTop;
-					console.log($('#wpadminbar').height());
-					console.log(scroll);
-					var top = Math.max(0, $('#wpadminbar').height() - scroll);
-					
-					$('header').css('top', top + 'px');
+					var height = $('#wpadminbar').height();
+					if (height > 32) {
+						// Only adjust the nav bar position on mobile, where the
+						// the height is 48. (20180302/dphiffer)
+						var top = Math.max(0, height - scroll);
+						$('header').css('top', top + 'px');
+					}
 				});
 			}
 		},
@@ -55,6 +57,7 @@ var eyebeam2018 = (function($) {
 		},
 
 		subscribe_submit: function() {
+			var $form = $('#subscribe');
 			var args = $form.serialize();
 			var url = $form.attr('action');
 			$form.addClass('loading');

@@ -527,6 +527,7 @@ footer .tagline {
 
 	footer nav {
 		font-size: 24px;
+		border-bottom: 0;
 	}
 
 	footer nav li {
@@ -534,19 +535,32 @@ footer .tagline {
 		margin-right: 30px;
 	}
 
-	footer #subscribe {
-		margin-top: 40px;
+	footer nav li:last-child {
+		margin-right: 0;
+	}
+
+	footer form {
+		padding-bottom: 40px;
+		margin-bottom: 0;
+	}
+
+	footer input {
+		display: inline !important;
+		margin-right: 10px !important;
+	}
+
+	footer input:last-child {
+		margin-right: 0 !important;
 	}
 
 	footer .partners {
 		padding: 80px 0;
-		border-top: 2px solid #000;
 		border-bottom: 2px solid #000;
-		margin-top: 60px;
 		vertical-align: middle;
 	}
 
 	footer .partners img {
+		margin-top: 0;
 		margin-right: 30px;
 	}
 
@@ -554,10 +568,15 @@ footer .tagline {
 		margin-right: 0;
 	}
 
+	footer .bottom {
+		height: 150px;
+		position: relative;
+	}
+
 	footer .address,
 	footer .social,
 	footer .contact {
-		margin-top: 40px;
+		padding-top: 40px;
 	}
 
 	footer .address {
@@ -566,24 +585,39 @@ footer .tagline {
 	}
 
 	footer .contact {
+		position: absolute;
+		top: 0;
+		right: 9px;
+		float: none;
 		text-align: right;
-		padding-right: 9px;
 	}
 
 	footer .social {
-		margin-top: 40px;
-	}
-
-	footer .social .links {
-		margin-top: 20px;
+		position: absolute;
+		float: none;
+		bottom: 0;
+		left: 50%;
+		width: 400px;
+		transform: translateX(-50%);
+		padding: 0;
+		margin: 0;
 	}
 
 	footer .social a {
+		display: inline;
 		margin-right: 20px;
 	}
 
 	footer .social a:last-child {
 		margin-right: 0;
+	}
+
+	footer .tagline {
+		position: absolute;
+		bottom: 50%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 18px;
 	}
 
 }

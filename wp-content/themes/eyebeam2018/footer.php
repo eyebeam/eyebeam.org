@@ -44,26 +44,28 @@
 				<img src="<?php eyebeam2018_img_src('img/artworks.png'); ?>" alt="Art Works" width="90">
 				<img src="<?php eyebeam2018_img_src('img/nysca.png'); ?>" alt="NYSCA" width="202">
 			</div>
-			<div class="address one-third">
-				199 Cook St<br>
-				Brooklyn,  NY 11206<br>
-				<a href="#">View Map</a>
-			</div>
-			<div class="social one-third">
-				<div class="links">
-					<a href="https://twitter.com/eyebeamnyc"><img src="<?php eyebeam2018_img_src('img/twitter.png'); ?>" alt="Twitter" width="29"></a>
-					<a href="https://www.facebook.com/eyebeamnyc/"><img src="<?php eyebeam2018_img_src('img/facebook.png'); ?>" alt="Facebook" width="29"></a>
-					<a href="https://www.instagram.com/eyebeamnyc/"><img src="<?php eyebeam2018_img_src('img/instagram.png'); ?>" alt="Instagram" width="30"></a>
-					<a href="https://www.youtube.com/user/eyebeamdotorg"><img src="<?php eyebeam2018_img_src('img/youtube.png'); ?>" alt="YouTube" width="35"></a>
+			<div class="bottom">
+				<div class="address">
+					199 Cook St<br>
+					Brooklyn,  NY 11206<br>
+					<a href="#">View Map</a>
 				</div>
+				<div class="social">
+					<div class="links">
+						<a href="https://twitter.com/eyebeamnyc"><img src="<?php eyebeam2018_img_src('img/twitter.png'); ?>" alt="Twitter" width="29"></a>
+						<a href="https://www.facebook.com/eyebeamnyc/"><img src="<?php eyebeam2018_img_src('img/facebook.png'); ?>" alt="Facebook" width="29"></a>
+						<a href="https://www.instagram.com/eyebeamnyc/"><img src="<?php eyebeam2018_img_src('img/instagram.png'); ?>" alt="Instagram" width="30"></a>
+						<a href="https://www.youtube.com/user/eyebeamdotorg"><img src="<?php eyebeam2018_img_src('img/youtube.png'); ?>" alt="YouTube" width="35"></a>
+					</div>
+				</div>
+				<div class="contact">
+					+1 347.378.9163<br>
+					<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a><br>
+					<a href="https://www.eyebeam.org/">eyebeam.org</a>
+				</div>
+				<br class="clear">
+				<div class="tagline">Going viral for 20 years</div>
 			</div>
-			<div class="contact one-third">
-				+1 347.378.9163<br>
-				<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a><br>
-				<a href="https://www.eyebeam.org/">eyebeam.org</a>
-			</div>
-			<br class="clear">
-			<div class="tagline">Going viral for 20 years</div>
 		</footer>
 		<?php wp_footer(); ?>
 	</body>
