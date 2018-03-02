@@ -11,7 +11,6 @@ while (have_posts()) {
 
 	the_post();
 
-	// TODO Don't hardcode this
 	get_template_part('templates/home-video');
 
 	echo "<div class=\"item-container\">\n";
@@ -19,6 +18,8 @@ while (have_posts()) {
 		get_template_part('templates/page-item');
 	}
 	echo "<br class=\"clear\">\n</div>\n";
+
+	get_template_part('templates/home-values');
 }
 
 get_footer();

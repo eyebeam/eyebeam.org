@@ -98,6 +98,11 @@ a {
 	clear: both;
 }
 
+.container {
+	width: 100%;
+	padding: 0 10px;
+}
+
 #page {
 	width: 100%;
 	padding-top: 60px;
@@ -162,6 +167,10 @@ form.error .response-error {
 
 	#page {
 		padding-top: 80px;
+	}
+
+	.container {
+		padding: 0 20px;
 	}
 
 }
@@ -529,6 +538,7 @@ footer .tagline {
 	footer nav {
 		font-size: 24px;
 		border-bottom: 0;
+		padding-top: 0;
 	}
 
 	footer nav li {
@@ -629,18 +639,107 @@ footer .tagline {
 .hero-video {
 	position: relative;
 	width: 100%;
-	padding-bottom: 47.5%;
+	height: 275px;
 	overflow: hidden;
 }
 
 .hero-video video {
 	position: absolute;
-	width: 100%;
-	height: auto;
+	width: auto;
+	height: 100%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
+}
+
+.values {
+	padding-bottom: 20px;
+}
+
+.values h2 {
+	font-family: "eyebeamregular", sans-serif;
+	font-size: 24px;
+	line-height: 32px;
+	text-align: center;
+	text-transform: uppercase;
+	padding-bottom: 5px;
+}
+
+.values li {
+	margin-top: 10px;
+	border-top: 2px solid #000;
+	border-left: 2px solid #000;
+	padding: 12px 9px 9px 114px;
+	background-size: 87px auto;
+	background-repeat: no-repeat;
+	background-position: 9px 9px;
+}
+
+.values h3 {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	line-height: 1.0em;
+	padding-bottom: 8px;
+	text-transform: uppercase;
+}
+
+.values .values-openness {
+	background-image: url('img/values-openness.png');
+	height: 90px;
+}
+
+.values .values-invention {
+	background-image: url('img/values-invention.png');
+	height: 107px;
+}
+
+.values .values-justice {
+	background-image: url('img/values-justice.png');
+	height: 107px;
+}
+
+.values .clear {
+	display: none;
+}
+
+@media (min-width: 857px) {
+
+	.hero-video {
+		height: 0;
+		padding-bottom: 47.5%;
+	}
+
+	.hero-video video {
+		width: 100%;
+		height: auto;
+	}
+
+	.values h2 {
+		font-size: 48px;
+		line-height: 56px;
+		text-align: left;
+	}
+
+	.values li {
+		float: left;
+		width: calc(33.33% - 10px);
+		margin-right: 10px;
+		padding-top: 20px;
+		padding-left: 124px;
+		height: 131px !important;
+		background-position: 20px 20px;
+	}
+
+	.values h3 {
+		font-size: 24px;
+
+	}
+
+	.values .clear {
+		display: block;
+	}
+
 }
 
 /* -------------------------------------------------------------------------- */
