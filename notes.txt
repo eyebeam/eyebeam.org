@@ -1,2 +1,5 @@
 * replace utf8mb4_unicode_520_ci with utf8mb4_unicode_ci (because...?)
 * make subscribe ACTUALLY work
+* hero video is super big!
+* home page
+* donate page
