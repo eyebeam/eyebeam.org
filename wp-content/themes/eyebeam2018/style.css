@@ -9,8 +9,9 @@ Contents (breakpoints are mobile-first):
 * Globals
 * Header
 * Footer
-* Homepage
-* Modular grid
+* Hero
+* Module
+* Values
 
 */
 
@@ -363,13 +364,25 @@ body.show-menu header nav .support {
 		transform: translateX(-50%);
 	}
 
+	header nav {
+		white-space: nowrap;
+	}
+
 	header nav li {
 		display: inline;
-		margin-right: 10px;
+		margin-right: 5px;
+		border-top: 2px solid transparent;
+		border-left: 2px solid transparent;
+		padding: 7px 0 0 7px;
 	}
 
 	header nav li:last-child {
 		margin-right: 0;
+	}
+
+	header nav li.current_page_item {
+		border-top-color: #fff;
+		border-left-color: #fff;
 	}
 
 	header .support {
@@ -636,11 +649,19 @@ footer .tagline {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Homepage */
+/* Hero */
 
 .hero-image {
 	width: 100%;
 	height: auto;
+}
+
+.hero-image-desktop {
+	display: none;
+}
+
+.hero-image-mobile {
+	display: block;
 }
 
 .hero-video {
@@ -660,6 +681,143 @@ footer .tagline {
 	transform: translateX(-50%) translateY(-50%);
 }
 
+@media (min-width: 857px) {
+
+	.hero-image-mobile {
+		display: none;
+	}
+
+	.hero-image-desktop {
+		display: block;
+	}
+
+	.hero-video {
+		height: 0;
+		padding-bottom: 47.5%;
+	}
+
+	.hero-video video {
+		width: 100%;
+		height: auto;
+	}
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* Module */
+
+.module-container {
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.module {
+	margin-left: 10px;
+	border-left: 2px solid #000;
+	border-top: 2px solid #000;
+	margin-bottom: 15px;
+	padding: 9px;
+}
+
+.module img {
+	width: 100%;
+	height: auto;
+}
+
+.module .module-title {
+	text-transform: uppercase;
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 15px 9px 4px 9px;
+}
+
+.module .module-description {
+	padding: 0 9px;
+}
+
+.module-two_thirds {
+	padding-left: 19px;
+	padding-top: 15px;
+	font-family: "eyebeamregular", sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	padding-bottom: 15px;
+}
+
+.module-two_thirds .module-title {
+	font-family: "eyebeamregular", sans-serif;
+	font-size: inherit;
+	line-height: inherit;
+	padding: 0 0 4px 0;
+}
+
+.module-two_thirds .module-description {
+	margin-top: 4px;
+	padding: 0;
+}
+
+@media (min-width: 857px) {
+
+	.module-container {
+		padding-top: 49px;
+		padding-left: 10px;
+		padding-right: 20px;
+	}
+
+	.module {
+		float: left;
+		margin-bottom: 110px;
+	}
+
+	.module-one_third {
+		width: calc(33.33% - 10px);
+	}
+
+	.module-one_third  .module-title {
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.module-two_thirds {
+		width: calc(66.66% - 10px);
+		font-size: 48px;
+		line-height: 56px;
+	}
+
+	.module-full_width {
+		width: calc(100% - 10px);
+	}
+
+	.module-full_width .module-title {
+		width: 28.07%;
+		font-family: "ArialMonospacedMTStd", monospace;
+		font-size: 24px;
+		line-height: 28px;
+		padding: 15px 9px 4px 9px;
+	}
+
+	.module-full_width .module-description {
+		width: 28.07%;
+		padding: 0 9px;
+	}
+
+	.module-full_width .module-image {
+		float: right;
+		width: 65.21%;
+	}
+
+	.module-full_width .module-image::after {
+		content: "";
+		display: table-cell;
+		clear: both;
+	}
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* Values */
+
 .values {
 	padding-bottom: 20px;
 }
@@ -677,7 +835,7 @@ footer .tagline {
 	margin-top: 10px;
 	border-top: 2px solid #000;
 	border-left: 2px solid #000;
-	padding: 12px 9px 9px 114px;
+	padding: 15px 20px 9px 114px;
 	background-size: 87px auto;
 	background-repeat: no-repeat;
 	background-position: 9px 9px;
@@ -712,16 +870,6 @@ footer .tagline {
 
 @media (min-width: 857px) {
 
-	.hero-video {
-		height: 0;
-		padding-bottom: 47.5%;
-	}
-
-	.hero-video video {
-		width: 100%;
-		height: auto;
-	}
-
 	.values h2 {
 		font-size: 48px;
 		line-height: 56px;
@@ -745,127 +893,6 @@ footer .tagline {
 
 	.values .clear {
 		display: block;
-	}
-
-}
-
-/* -------------------------------------------------------------------------- */
-/* Modular grid */
-
-.item-container {
-	padding-top: 10px;
-	padding-right: 10px;
-}
-
-.item {
-	margin-left: 10px;
-	border-left: 2px solid #000;
-	border-top: 2px solid #000;
-	margin-bottom: 15px;
-	padding: 9px;
-}
-
-.item img {
-	width: 100%;
-	height: auto;
-}
-
-.item h2 {
-	text-transform: uppercase;
-	font-family: "ArialMonospacedMTStd", monospace;
-	font-size: 18px;
-	line-height: 18px;
-	padding: 15px 9px 4px 9px;
-}
-
-.item .item-description {
-	padding: 0 9px;
-}
-
-.item.two-thirds {
-	padding-left: 19px;
-	padding-top: 15px;
-	font-family: "eyebeamregular", sans-serif;
-	font-size: 18px;
-	line-height: 24px;
-	padding-bottom: 15px;
-}
-
-.item.two-thirds h2 {
-	font-family: "eyebeamregular", sans-serif;
-	font-size: inherit;
-	line-height: inherit;
-	padding: 0 0 4px 0;
-}
-
-.item.two-thirds .item-description {
-	margin-top: 4px;
-	padding: 0;
-}
-
-
-/* -------------------------------------------------------------------------- */
-/* mobile breakpoint */
-/* This should be kept in sync with the eyebeam2018.js mobile_width var. */
-@media (min-width: 857px) {
-
-	.item-container {
-		padding-top: 49px;
-		padding-left: 10px;
-		padding-right: 20px;
-	}
-
-	.item {
-		float: left;
-		margin-bottom: 110px;
-	}
-
-	.item.one-third {
-		width: calc(33.33% - 10px);
-	}
-
-	.item.one-third h2 {
-		font-size: 24px;
-		line-height: 24px;
-	}
-
-	.item.two-thirds {
-		width: calc(66.66% - 10px);
-		font-size: 48px;
-		line-height: 56px;
-	}
-
-	.item.full-width {
-		width: calc(100% - 10px);
-	}
-
-	.item.full-width h2 {
-		width: 28.07%;
-		font-family: "ArialMonospacedMTStd", monospace;
-		font-size: 24px;
-		line-height: 28px;
-		padding: 15px 9px 4px 9px;
-	}
-
-	.item.full-width .item-description {
-		width: 28.07%;
-		padding: 0 9px;
-	}
-
-	.item.full-width figure {
-		float: right;
-		width: 65.21%;
-	}
-
-	.item.full-width figure::after {
-		content: "";
-		display: table-cell;
-		clear: both;
-	}
-
-	.item.full-width img {
-		width: 100%;
-		height: auto;
 	}
 
 }

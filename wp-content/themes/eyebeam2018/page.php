@@ -15,7 +15,23 @@ while (have_posts()) {
 
 	the_post();
 
-	// Page stuff goes here
+	while (have_rows('items')) {
+
+		the_row();
+
+		$type = get_sub_field('type');
+		get_template_part("templates/item", $type);
+
+	}
+
+	get_template_part('templates/page-subnav');
+
+	eyebeam2018_render_heroes();
+	eyebeam2018_render_modules();
+
+	if (is_front_page()) {
+		get_template_part('templates/home-values');
+	}
 }
 
 get_footer();
