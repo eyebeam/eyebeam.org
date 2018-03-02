@@ -6,6 +6,7 @@ Hello, this is the eyebeam2018 functions file.
 
 */
 
+
 // We need this filters so that ACF can handle symlinked folders.
 // (20180222/dphiffer)
 function eyebeam2018_acf_get_dir($dir) {
@@ -301,3 +302,28 @@ function eyebeam2018_subscribe() {
 }
 add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
+
+// This requires that DBUG_PATH is set in wp-config.php.
+function dbug() {
+	if (empty($GLOBALS['dbug_fh'])) {
+		if (! defined('DBUG_PATH')) {
+			return;
+		}
+		$fh = fopen(DBUG_PATH, "a");
+		$GLOBALS['dbug_fh'] = $fh;
+		$GLOBALS['dbug_start'] = microtime(true);
+		fwrite($fh, "----------------------\n");
+	}
+	$fh = $GLOBALS['dbug_fh'];
+	$sec = microtime(true) - $GLOBALS['dbug_start'];
+	$sec = number_format($sec, 2);
+	$sec = ($sec < 10) ? "0$sec" : $sec;
+	$args = func_get_args();
+	foreach ($args as $arg) {
+		if (! is_scalar($arg)) {
+			$arg = print_r($arg, true);
+			$arg = trim($arg);
+		}
+		fwrite($fh, "[$sec] $arg\n");
+	}
+}
