@@ -638,6 +638,11 @@ footer .tagline {
 /* -------------------------------------------------------------------------- */
 /* Homepage */
 
+.hero-image {
+	width: 100%;
+	height: auto;
+}
+
 .hero-video {
 	position: relative;
 	width: 100%;
