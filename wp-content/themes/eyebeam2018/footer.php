@@ -50,12 +50,11 @@
 				<a href="#">View Map</a>
 			</div>
 			<div class="social one-third">
-				<div class="tagline">Going viral for 20 years</div>
 				<div class="links">
-					<a href="#"><img src="<?php eyebeam2018_img_src('img/twitter.png'); ?>" alt="Twitter" width="29"></a>
-					<a href="#"><img src="<?php eyebeam2018_img_src('img/facebook.png'); ?>" alt="Facebook" width="29"></a>
-					<a href="#"><img src="<?php eyebeam2018_img_src('img/instagram.png'); ?>" alt="Instagram" width="30"></a>
-					<a href="#"><img src="<?php eyebeam2018_img_src('img/youtube.png'); ?>" alt="YouTube" width="35"></a>
+					<a href="https://twitter.com/eyebeamnyc"><img src="<?php eyebeam2018_img_src('img/twitter.png'); ?>" alt="Twitter" width="29"></a>
+					<a href="https://www.facebook.com/eyebeamnyc/"><img src="<?php eyebeam2018_img_src('img/facebook.png'); ?>" alt="Facebook" width="29"></a>
+					<a href="https://www.instagram.com/eyebeamnyc/"><img src="<?php eyebeam2018_img_src('img/instagram.png'); ?>" alt="Instagram" width="30"></a>
+					<a href="https://www.youtube.com/user/eyebeamdotorg"><img src="<?php eyebeam2018_img_src('img/youtube.png'); ?>" alt="YouTube" width="35"></a>
 				</div>
 			</div>
 			<div class="contact one-third">
@@ -64,6 +63,7 @@
 				<a href="https://www.eyebeam.org/">eyebeam.org</a>
 			</div>
 			<br class="clear">
+			<div class="tagline">Going viral for 20 years</div>
 		</footer>
 		<?php wp_footer(); ?>
 	</body>

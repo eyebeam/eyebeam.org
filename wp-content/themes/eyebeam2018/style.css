@@ -3,10 +3,17 @@ Theme Name: Eyebeam 2018
 Author: Dan Phiffer
 Author URI: https://phiffer.org/
 Description: Designed by <a href="http://lukaslukas.com/">Lukas Eigler-Harding</a>.
+
+Contents (breakpoints are mobile-first):
+* Reset
+* Globals
+* Header
+* Footer
+
 */
 
 /* -------------------------------------------------------------------------- */
-/* reset */
+/* Reset */
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -57,8 +64,6 @@ table {
 	border-spacing: 0;
 }
 
-/* -------------------------------------------------------------------------- */
-/* box sizing
 /* from https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 
 html {
@@ -70,18 +75,18 @@ html {
 }
 
 /* -------------------------------------------------------------------------- */
-/* elements */
+/* Globals */
 
 body {
-	background-image: url('img/background.png');
+	font-family: arial, sans-serif;
+	font-size: 15px;
+	line-height: 18px;
+	background-image: url('img/background-mobile.png');
 	background-color: #E9E9E9;
-	background-size: 74.5% auto;
+	background-size: 94.3% auto;
 	background-position: center center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	font-family: arial, sans-serif;
-	font-size: 18px;
-	line-height: 24px;
 }
 
 a {
@@ -89,38 +94,14 @@ a {
 	text-decoration: none;
 }
 
-/* -------------------------------------------------------------------------- */
-/* classes */
-
 .clear {
 	clear: both;
 }
 
-.one-third {
-	float: left;
-	width: 33.33%;
-}
-
-.two-thirds {
-	float: left;
-	width: 66.66%;
-}
-
-.full-width {
-	float: left;
-	width: 100%;
-}
-
-/*--------------------------------------------------------------------------- */
-/* IDs */
-
 #page {
 	width: 100%;
-	padding-top: 80px;
+	padding-top: 60px;
 }
-
-/*----------------------------------------------------------------------------*/
-/* colors */
 
 body.red header .support,
 body.red footer {
@@ -149,9 +130,6 @@ body.blue a {
 	color: #00A7DA;
 }
 
-/* -------------------------------------------------------------------------- */
-/* form */
-
 form .response-loading,
 form .response-success,
 form .response-error {
@@ -162,7 +140,8 @@ form .response-error {
 	font-size: 18px;
 	color: #fff;
 	text-align: center;
-	width: 420px;
+	width: 100%;
+	max-width: 420px;
 	margin: 0 auto 15px auto;
 }
 
@@ -172,15 +151,30 @@ form.error .response-error {
 	display: block;
 }
 
+@media (min-width: 857px) {
+
+	body {
+		font-size: 18px;
+		line-height: 24px;
+		background-image: url('img/background.png');
+		background-size: 74.5% auto;
+	}
+
+	#page {
+		padding-top: 80px;
+	}
+
+}
+
 /* -------------------------------------------------------------------------- */
-/* header */
+/* Header */
 
 header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 80px;
+	height: 60px;
 	color: #fff;
 	background: #262626;
 	font-family: "ArialMonospacedMTStd", monospace;
@@ -188,12 +182,53 @@ header {
 }
 
 header.headroom {
-	top: 32px;
+	top: 46px;
+}
+
+header .menu-btn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 60px;
+	height: 60px;
+	background-image: url('img/menu.png');
+	background-size: 31px 22px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+
+header h1 {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+header h1 a {
+	display: block;
+	width: 60px;
+	height: 60px;
+	background-image: url('img/red-e.png');
+	background-size: 42px 42px;
+	background-repeat: no-repeat;
+	background-position: 7px 7px;
+}
+
+body.blue h1 a {
+	background-image: url('img/blue-e.png');
+}
+
+body.green h1 a {
+	background-image: url('img/green-e.png');
+}
+
+header h1 img {
+	display: none;
 }
 
 header nav {
 	position: relative;
-	height: 80px;
+	height: 60px;
 }
 
 header a {
@@ -201,59 +236,216 @@ header a {
 	text-decoration: none;
 }
 
-header .logo {
-	position: absolute;
-	top: 50%;
-	left: 55px;
-	transform: translateY(-50%);
-	width: 210px;
-	height: auto;
+header nav .support {
+	padding: 7px 5px 5px 5px;
 }
 
-header .menu {
-	position: absolute;
-	top: 30px;
+header nav .menu-header-container,
+header nav .support {
+	display: none;
+}
+
+body.show-menu header {
+	height: 100vh;
+}
+
+body.show-menu .menu-btn {
+	background-image: url('img/close.png');
+	background-size: 27px 22px;
+}
+
+body.show-menu header nav .menu-header-container {
+	display: block;
+	position: fixed;
+	top: 60px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+body.show-menu header.headroom nav .menu-header-container {
+	top: calc(60px + 46px);
+}
+
+body.show-menu header nav {
+	font-size: 24px;
+	line-height: 48px;
+	text-align: center;
+}
+
+body.show-menu header .menu {
+	position: fixed;
 	left: 50%;
-	transform: translateX(-50%);
+	top: calc(50% - 30px);
+	transform: translateX(-50%) translateY(-50%);
 }
 
-header nav li {
-	display: inline;
-	margin-right: 10px;
+body.show-menu header.headspace .menu {
+	top: calc(50% + 2px);
 }
 
-header nav li:last-child {
+body.show-menu header nav li {
+	display: block;
 	margin-right: 0;
 }
 
-header .support {
-	position: absolute;
-	top: 23px;
-	right: 25px;
-	padding: 7px 5px 5px 5px;
-	background: #EB6B62;
+body.show-menu header nav .support {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: auto;
+	bottom: 0;
+	right: 0;
+	height: 60px;
+}
+
+@media (min-width: 857px) {
+
+	header {
+		font-size: 14px;
+	}
+
+	header.headroom {
+		top: 32px;
+	}
+
+	header,
+	header nav {
+		height: 80px;
+	}
+
+	header h1 {
+		right: auto;
+		top: 50%;
+		left: 10px;
+		transform: translateY(-50%);
+		width: 120px;
+		height: auto;
+	}
+
+	header h1 img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	header h1 a {
+		background-image: none !important;
+		width: auto;
+		height: auto;
+	}
+
+	header .menu-btn {
+		display: none;
+	}
+
+	header nav .menu-header-container,
+	header nav .support {
+		display: block;
+	}
+
+	header .menu {
+		position: absolute;
+		top: 30px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	header nav li {
+		display: inline;
+		margin-right: 10px;
+	}
+
+	header nav li:last-child {
+		margin-right: 0;
+	}
+
+	header .support {
+		position: absolute;
+		top: 23px;
+		right: 10px;
+		background: #EB6B62;
+	}
+
+}
+
+@media (min-width: 963px) {
+
+	header h1 {
+		left: 15px;
+		width: 150px;
+	}
+
+	header {
+		font-size: 16px;
+	}
+
+	header .support {
+		right: 15px;
+	}
+
+}
+
+@media (min-width: 1075px) {
+
+	header h1 {
+		left: 33px;
+		width: 180px;
+	}
+
+	header {
+		font-size: 18px;
+	}
+
+	header .support {
+		right: 15px;
+	}
+
+}
+
+@media (min-width: 1184px) {
+
+	header h1 {
+		left: 55px;
+		width: 210px;
+	}
+
+	header {
+		font-size: 20px;
+	}
+
+}
+
+@media (min-width: 1398px) {
+
+	header {
+		font-size: 24px;
+	}
+
 }
 
 /* -------------------------------------------------------------------------- */
-/* footer */
+/* Footer */
 
 footer {
-	padding: 38px 21px;
 	color: #fff;
 	background: #EB6B62;
 	text-align: center;
 	font-family: "ArialMonospacedMTStd", monospace;
-	font-size: 18px;
-	line-height: 24px;
-}
-
-footer nav {
-	font-size: 24px;
+	font-size: 15px;
+	line-height: 20px;
+	padding-bottom: 40px;
 }
 
 footer nav li {
-	display: inline;
-	margin-right: 30px;
+	display: block;
+	font-size: 18px;
+	line-height: 32px;
+}
+
+footer nav {
+	padding: 20px;
+	border-bottom: 2px solid #000;
 }
 
 footer a {
@@ -261,36 +453,63 @@ footer a {
 	text-decoration: none;
 }
 
-footer .partners {
-	padding: 80px 0;
-	border-top: 2px solid #000;
+footer form {
+	padding: 20px 20px 30px 20px;
 	border-bottom: 2px solid #000;
-	margin-top: 60px;
+}
+
+footer input {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+}
+
+footer input[type=text],
+footer input[type=email] {
+	display: block;
+	width: 162px;
+	height: 43px;
+	border: 2px solid #000;
+	background: transparent;
+	margin: 0 auto 12px auto;
+}
+
+footer input[type=submit] {
+	width: 146px;
+	height: 43px;
+	background: #000;
+	border: none;
+	cursor: pointer;
+}
+
+footer .partners {
+	padding: 0 20px 30px 20px;
+	border-bottom: 2px solid #000;
 	vertical-align: middle;
 }
 
 footer .partners img {
-	margin-right: 30px;
-}
-
-footer .partners img:last-child {
-	margin-right: 0;
+	margin: 30px 30px 0 0;
 }
 
 footer .address,
-footer .social,
 footer .contact {
-	margin-top: 40px;
-}
-
-footer .address {
+	float: left;
+	width: calc(100% - 55px);
 	text-align: left;
-	padding-left: 9px;
+	padding: 20px 0 0 20px;
 }
 
-footer .contact {
-	text-align: right;
-	padding-right: 9px;
+footer .social {
+	float: right;
+	width: 55px;
+	padding: 20px 20px 0 0;
+}
+
+footer .social a {
+	display: block;
+	margin-bottom: 10px;
 }
 
 footer .tagline {
@@ -300,20 +519,73 @@ footer .tagline {
 	background: #000;
 }
 
-footer .social {
-	margin-top: 40px;
-}
+@media (min-width: 857px) {
 
-footer .social .links {
-	margin-top: 20px;
-}
+	footer {
+		padding: 38px 21px;
+	}
 
-footer .social a {
-	margin-right: 20px;
-}
+	footer nav {
+		font-size: 24px;
+	}
 
-footer .social a:last-child {
-	margin-right: 0;
+	footer nav li {
+		display: inline;
+		margin-right: 30px;
+	}
+
+	footer #subscribe {
+		margin-top: 40px;
+	}
+
+	footer .partners {
+		padding: 80px 0;
+		border-top: 2px solid #000;
+		border-bottom: 2px solid #000;
+		margin-top: 60px;
+		vertical-align: middle;
+	}
+
+	footer .partners img {
+		margin-right: 30px;
+	}
+
+	footer .partners img:last-child {
+		margin-right: 0;
+	}
+
+	footer .address,
+	footer .social,
+	footer .contact {
+		margin-top: 40px;
+	}
+
+	footer .address {
+		text-align: left;
+		padding-left: 9px;
+	}
+
+	footer .contact {
+		text-align: right;
+		padding-right: 9px;
+	}
+
+	footer .social {
+		margin-top: 40px;
+	}
+
+	footer .social .links {
+		margin-top: 20px;
+	}
+
+	footer .social a {
+		margin-right: 20px;
+	}
+
+	footer .social a:last-child {
+		margin-right: 0;
+	}
+
 }
 
 /* -------------------------------------------------------------------------- */
@@ -404,101 +676,11 @@ footer .social a:last-child {
 	height: auto;
 }
 
-/* ---------------------------------------------------------------------------*/
-/* subscribe */
-
-#subscribe {
-	margin-top: 40px;
-}
-
-#subscribe input {
-	font-family: "ArialMonospacedMTStd", monospace;
-	font-size: 18px;
-	color: #fff;
-	text-align: center;
-}
-
-#subscribe input[type=text],
-#subscribe input[type=email] {
-	width: 162px;
-	height: 43px;
-	border: 2px solid #000;
-	background: transparent;
-}
-
-#subscribe input[type=submit] {
-	width: 146px;
-	height: 43px;
-	background: #000;
-	border: none;
-	cursor: pointer;
-}
-
-/* -------------------------------------------------------------------------- */
-/* breakpoints */
-
-@media (max-width: 1183px) {
-
-	header .logo {
-		left: 33px;
-		width: 180px;
-	}
-
-	header {
-		font-size: 18px;
-	}
-
-}
-
-@media (max-width: 1074px) {
-
-	header .logo {
-		left: 15px;
-		width: 150px;
-	}
-
-	header {
-		font-size: 16px;
-	}
-
-	header .support {
-		right: 15px;
-	}
-
-}
-
-@media (max-width: 962px) {
-
-	header .logo {
-		left: 10px;
-		width: 120px;
-	}
-
-	header {
-		font-size: 14px;
-	}
-
-	header .support {
-		right: 10px;
-	}
-
-}
 
 /* -------------------------------------------------------------------------- */
 /* mobile breakpoint */
 /* This should be kept in sync with the eyebeam2018.js mobile_width var. */
-@media (max-width: 856px) {
-
-	body {
-		background-image: url('img/background-mobile.png');
-		background-size: 94.3% auto;
-		font-size: 15px;
-		line-height: 18px;
-	}
-
-	#page {
-		padding-top: 60px;
-	}
+@media (min-width: 857px) {
 
 	.item-container {
 		padding-top: 15px;
@@ -506,6 +688,21 @@ footer .social a:last-child {
 
 	.item {
 		margin-bottom: 15px;
+	}
+
+	.one-third {
+		float: left;
+		width: 33.33%;
+	}
+
+	.two-thirds {
+		float: left;
+		width: 66.66%;
+	}
+
+	.full-width {
+		float: left;
+		width: 100%;
 	}
 
 	.item.one-third,
@@ -527,99 +724,6 @@ footer .social a:last-child {
 
 	.item.full-width {
 
-	}
-
-	header,
-	header nav {
-		height: 60px;
-		width: 100%;
-	}
-
-	header .menu-btn {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 60px;
-		height: 60px;
-		background-image: url('img/menu.png');
-		background-size: 31px 22px;
-		background-repeat: no-repeat;
-		background-position: center center;
-		cursor: pointer;
-	}
-
-	header h1 {
-		position: absolute;
-		top: 0;
-		right: 0;
-	}
-
-	header h1 a {
-		display: block;
-		width: 60px;
-		height: 60px;
-		background-image: url('img/red-e.png');
-		background-size: 42px 42px;
-		background-repeat: no-repeat;
-		background-position: 7px 7px;
-	}
-
-	body.blue h1 a {
-		background-image: url('img/blue-e.png');
-	}
-
-	body.green h1 a {
-		background-image: url('img/green-e.png');
-	}
-
-	header h1 img {
-		display: none;
-	}
-
-	header nav .menu-header-container,
-	header nav .support {
-		display: none;
-	}
-
-	body.show-menu .menu-btn {
-		background-image: url('img/close.png');
-		background-size: 27px 22px;
-	}
-
-	body.show-menu header nav .menu-header-container {
-		display: block;
-		position: fixed;
-		top: 60px;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background: #262626;
-	}
-
-	body.show-menu header nav {
-		font-size: 24px;
-		line-height: 48px;
-		text-align: center;
-	}
-
-	body.show-menu header .menu {
-		top: calc(50% - 30px);
-		transform: translateX(-50%) translateY(-50%);
-	}
-
-	body.show-menu header nav li {
-		display: block;
-		margin-right: 0;
-	}
-
-	body.show-menu header nav .support {
-		display: block;
-		position: fixed;
-		left: 0;
-		top: auto;
-		bottom: 0;
-		right: 0;
-		height: 60px;
 	}
 
 }

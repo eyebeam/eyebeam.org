@@ -16,6 +16,14 @@ var eyebeam2018 = (function($) {
 		setup_nav: function() {
 			if ($('#wpadminbar').length > 0) {
 				$('header').addClass('headroom');
+				$(window).scroll(function() {
+					var scroll = document.documentElement.scrollTop;
+					console.log($('#wpadminbar').height());
+					console.log(scroll);
+					var top = Math.max(0, $('#wpadminbar').height() - scroll);
+					
+					$('header').css('top', top + 'px');
+				});
 			}
 		},
 
