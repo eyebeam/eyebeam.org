@@ -5,7 +5,7 @@ the_row();
 $title = null;
 $url = null;
 $description = null;
-$image = null;
+$image_id = null;
 
 $width = get_sub_field('width');
 
@@ -14,6 +14,10 @@ if (get_sub_field('page')) {
 	$title = apply_filters('the_title', $page->post_title);
 	$url = get_permalink($page->ID);
 	$description = apply_filters('the_excerpt', $page->post_excerpt);
+	$image_id = get_field('image', $page->ID);
+	if (! $image_id) {
+		$image_id = get_post_thumbnail_id($page);
+	}
 }
 
 if (! empty(get_sub_field('title'))) {
@@ -36,12 +40,13 @@ if (! empty(get_sub_field('image'))) {
 <div class="item <?php echo $width; ?>">
 	<?php
 
-	if (! empty($image)) {
+	if (! empty($image_id)) {
 		if ($width == 'one-third') {
-			$src = $image['sizes']['medium'];
+			$size = 'medium';
 		} else if ($width == 'full-width') {
-			$src = $image['sizes']['large'];
+			$size = 'large';
 		}
+		list($src, $width, $height) = wp_get_attachment_image_src($image_id, $size);
 		$html = "<img src=\"$src\">";
 		if (! empty($url)) {
 			$html = "<a href=\"$url\">$html</a>";
