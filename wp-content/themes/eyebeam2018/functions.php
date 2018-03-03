@@ -266,6 +266,11 @@ add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 
 function eyebeam2018_subscribe_request() {
+
+	// I mean, yes, I know there are plugins that do this sort of thing. But
+	// ultimately it's an API, and we should be able to debug it when it
+	// breaks. So we just use cURL and typing. (20180303/dphiffer)
+
 	if (! defined('MAILCHIMP_API_KEY')) {
 		return array(
 			'ok' => 0,
