@@ -820,7 +820,7 @@ body.red .module-toc li {
 	max-width: 140px;
 }
 
-.module-collection .staff-title {
+.module-collection .person-title {
 	opacity: 0.6;
 	padding-top: 0 !important;
 }
@@ -951,6 +951,24 @@ body.red .module-toc li {
 
 	.module-collection .staff-image {
 		max-width: 190px;
+	}
+
+	.module-collection .support-advisory {
+		float: left;
+		width: 66.66%;
+	}
+
+	.module-collection .support-advisory li {
+		width: calc(50% - 10px);
+	}
+
+	.module-collection .support-interns {
+		float: left;
+		width: 33.33%;
+	}
+
+	.module-collection .support-interns li {
+		width: calc(100% - 10px);
 	}
 
 }
