@@ -39,6 +39,11 @@ if ($type == 'image') {
 		);
 	}
 
+	$url = get_sub_field('hero_image_url');
+	if (! empty($url)) {
+		$hero['url'] = $url;
+	}
+
 } else if ($hero_media == 'video') {
 
 	// TODO: make this work

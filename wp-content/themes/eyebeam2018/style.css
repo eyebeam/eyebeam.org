@@ -736,6 +736,10 @@ footer .tagline {
 	padding: 0 9px;
 }
 
+.module .module-description p {
+	margin-top: 9px;
+}
+
 .module-two_thirds {
 	padding-left: 19px;
 	padding-top: 15px;
@@ -743,6 +747,10 @@ footer .tagline {
 	font-size: 18px;
 	line-height: 24px;
 	padding-bottom: 15px;
+}
+
+.module-description + .module-image {
+	margin-top: 15px;
 }
 
 .module-two_thirds .module-title {
@@ -792,9 +800,24 @@ body.red .module-toc li {
 		width: calc(33.33% - 10px);
 	}
 
-	.module-one_third  .module-title {
+	.module-one_third .module-title {
 		font-size: 24px;
 		line-height: 24px;
+	}
+
+	.module-one_half {
+		width: calc(50% - 10px);
+	}
+
+	.module-one_half .module-title {
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.module-one_half .module-title,
+	.module-one_half .module-description,
+	.module-one_half .module-image {
+		width: 66.66%;
 	}
 
 	.module-two_thirds {

@@ -5,6 +5,7 @@ $title = null;
 $url = null;
 $description = null;
 $image_id = null;
+$layout = null;
 
 $page = get_sub_field('module_page');
 if (! empty($page)) {
@@ -30,7 +31,11 @@ if (! empty(get_sub_field('module_description'))) {
 }
 
 if (! empty(get_sub_field('module_image'))) {
-	$image = get_sub_field('module_image');
+	$image_id = get_sub_field('module_image');
+}
+
+if (! empty(get_sub_field('module_layout'))) {
+	$layout = get_sub_field('module_layout');
 }
 
 $hash = sanitize_title($title);
@@ -41,5 +46,6 @@ eyebeam2018_module(array(
 	'title' => $title,
 	'url' => $url,
 	'description' => $description,
-	'image_id' => $image_id
+	'image_id' => $image_id,
+	'layout' => $layout
 ));
