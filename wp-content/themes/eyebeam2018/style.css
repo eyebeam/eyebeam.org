@@ -792,6 +792,48 @@ body.red .module-toc li {
 	font-size: 18px;
 }
 
+.module-collection .module-title {
+	width: 100%;
+	font-family: "eyebeamregular", sans-serif;
+	font-size: 24px;
+	line-height: 28px;
+	padding: 0;
+}
+
+.module-collection li {
+	padding-top: 15px;
+}
+
+.module-collection li .module-title {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	line-height: 22px;
+	padding-bottom: 4px;
+	padding-top: 10px;
+}
+
+.module-collection p {
+	margin-top: 9px;
+}
+
+.module-collection .staff-image {
+	max-width: 140px;
+}
+
+.module-collection .staff-title {
+	opacity: 0.6;
+	padding-top: 0 !important;
+}
+
+.module-collection .bio {
+	display: none;
+	padding-bottom: 15px;
+}
+
+.module-collection li.show-bio .bio {
+	display: block;
+}
+
 @media (min-width: 857px) {
 
 	.module-container {
@@ -883,6 +925,32 @@ body.red .module-toc li {
 	.module-toc li a {
 		font-size: 36px;
 		line-height: 52px;
+	}
+
+	.module-collection li {
+		float: left;
+		width: calc(33.33% - 10px);
+		padding-left: 9px;
+		padding-right: 40px;
+		margin-right: 10px;
+	}
+
+	.module-collection h2.module-title {
+		width: 100%;
+		font-family: "eyebeamregular", sans-serif;
+		font-size: 48px;
+		line-height: 60px;
+	}
+
+	.module-collection h3.module-title,
+	.module-collection h4.module-title {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.module-collection .staff-image {
+		max-width: 190px;
 	}
 
 }

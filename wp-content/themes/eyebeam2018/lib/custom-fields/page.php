@@ -433,10 +433,10 @@ if(function_exists("register_field_group"))
 						'maxlength' => '',
 					),
 					array (
-						'key' => 'field_5a99b8bdf565b',
-						'label' => 'Module TOC',
-						'name' => '',
-						'type' => 'message',
+						'key' => 'field_5a9a13961c280',
+						'label' => 'Module collection',
+						'name' => 'module_collection',
+						'type' => 'radio',
 						'conditional_logic' => array (
 							'status' => 1,
 							'rules' => array (
@@ -448,13 +448,20 @@ if(function_exists("register_field_group"))
 								array (
 									'field' => 'field_5a99c21321c37',
 									'operator' => '==',
-									'value' => 'toc',
+									'value' => 'collection',
 								),
 							),
 							'allorany' => 'all',
 						),
 						'column_width' => '',
-						'message' => 'List all the modules on the page.',
+						'choices' => array (
+							'staff' => 'Staff',
+							'support' => 'Support',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'staff',
+						'layout' => 'vertical',
 					),
 				),
 				'row_min' => '',

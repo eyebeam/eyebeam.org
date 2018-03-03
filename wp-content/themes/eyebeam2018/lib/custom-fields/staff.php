@@ -7,18 +7,6 @@ if(function_exists("register_field_group"))
 		'title' => 'Staff',
 		'fields' => array (
 			array (
-				'key' => 'field_56b563839837a',
-				'label' => 'Staff Name',
-				'name' => 'staff_name',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
 				'key' => 'field_56b5638f9837b',
 				'label' => 'Staff Title',
 				'name' => 'staff_title',
@@ -35,7 +23,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Staff Image',
 				'name' => 'staff_image',
 				'type' => 'image',
-				'save_format' => 'object',
+				'save_format' => 'id',
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
 			),
