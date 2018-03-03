@@ -397,7 +397,7 @@ if(function_exists("register_field_group"))
 						'placeholder' => '',
 						'maxlength' => '',
 						'rows' => '',
-						'formatting' => 'br',
+						'formatting' => 'html',
 					),
 					array (
 						'key' => 'field_5a8dbeeb40060',
