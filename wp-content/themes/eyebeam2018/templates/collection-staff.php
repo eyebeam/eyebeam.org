@@ -2,6 +2,11 @@
 
 extract($GLOBALS['eyebeam2018']['curr_module']);
 
+$id = "module-$hash";
+$class = 'module module-collection module-full_width';
+
+echo "<div id=\"$id\" class=\"$class\">\n";
+
 echo "<h2 class=\"module-title\">$title</h2>\n";
 echo "<ul>\n";
 
@@ -17,3 +22,4 @@ foreach ($posts as $staff) {
 
 echo "</ul>\n";
 echo "<br class=\"clear\">\n";
+echo "</div>\n";

@@ -23,7 +23,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Image',
 				'name' => 'image',
 				'type' => 'image',
-				'save_format' => 'object',
+				'save_format' => 'id',
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
 			),

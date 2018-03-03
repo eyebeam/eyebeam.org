@@ -1,5 +1,9 @@
 <?php
 
+if (empty($GLOBALS['eyebeam2018']['has_toc'])) {
+	return;
+}
+
 echo "<div class=\"subnav\">\n";
 echo "<ul>\n";
 

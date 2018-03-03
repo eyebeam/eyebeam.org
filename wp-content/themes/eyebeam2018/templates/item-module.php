@@ -45,6 +45,10 @@ if (! empty(get_sub_field('module_collection'))) {
 
 $hash = sanitize_title($title);
 
+if ($type == 'toc') {
+	$GLOBALS['eyebeam2018']['has_toc'] = true;
+}
+
 eyebeam2018_module(array(
 	'type' => $type,
 	'hash' => $hash,

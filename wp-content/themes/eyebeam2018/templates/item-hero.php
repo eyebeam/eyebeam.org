@@ -44,7 +44,11 @@ if ($type == 'image') {
 		$hero['url'] = $url;
 	}
 
-} else if ($hero_media == 'video') {
+} else if ($type == 'text') {
+
+	$hero['text'] = get_sub_field('hero_text');
+
+} else if ($type == 'video') {
 
 	// TODO: make this work
 

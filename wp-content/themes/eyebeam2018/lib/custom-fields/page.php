@@ -54,7 +54,7 @@ if(function_exists("register_field_group"))
 					),
 					array (
 						'key' => 'field_5a99b7e5f5658',
-						'label' => 'Hero image (desktop)',
+						'label' => 'Hero image',
 						'name' => 'hero_image_desktop',
 						'type' => 'image',
 						'conditional_logic' => array (
@@ -80,9 +80,10 @@ if(function_exists("register_field_group"))
 					),
 					array (
 						'key' => 'field_5a99b82ef5659',
-						'label' => 'Hero image (mobile)',
+						'label' => 'Hero mobile image',
 						'name' => 'hero_image_mobile',
 						'type' => 'image',
+						'instructions' => 'overrides on mobile',
 						'conditional_logic' => array (
 							'status' => 1,
 							'rules' => array (
@@ -137,7 +138,7 @@ if(function_exists("register_field_group"))
 						'key' => 'field_5a99c1e221c35',
 						'label' => 'Hero text',
 						'name' => 'hero_text',
-						'type' => 'wysiwyg',
+						'type' => 'textarea',
 						'conditional_logic' => array (
 							'status' => 1,
 							'rules' => array (
@@ -156,8 +157,10 @@ if(function_exists("register_field_group"))
 						),
 						'column_width' => '',
 						'default_value' => '',
-						'toolbar' => 'full',
-						'media_upload' => 'no',
+						'placeholder' => '',
+						'maxlength' => '',
+						'rows' => '',
+						'formatting' => 'br',
 					),
 					array (
 						'key' => 'field_5a99c21321c37',
@@ -187,6 +190,38 @@ if(function_exists("register_field_group"))
 						'other_choice' => 0,
 						'save_other_choice' => 0,
 						'default_value' => '',
+						'layout' => 'vertical',
+					),
+					array (
+						'key' => 'field_5a9a13961c280',
+						'label' => 'Module collection',
+						'name' => 'module_collection',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '==',
+									'value' => 'collection',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'choices' => array (
+							'staff' => 'Staff',
+							'support' => 'Support',
+							'ideas' => 'Ideas',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'staff',
 						'layout' => 'vertical',
 					),
 					array (
@@ -246,6 +281,16 @@ if(function_exists("register_field_group"))
 									'operator' => '!=',
 									'value' => 'toc',
 								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'ideas',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'support',
+								),
 							),
 							'allorany' => 'all',
 						),
@@ -296,7 +341,7 @@ if(function_exists("register_field_group"))
 						'key' => 'field_5a8dbe814005f',
 						'label' => 'Module description',
 						'name' => 'module_description',
-						'type' => 'wysiwyg',
+						'type' => 'textarea',
 						'instructions' => 'overrides page excerpt',
 						'conditional_logic' => array (
 							'status' => 1,
@@ -311,13 +356,30 @@ if(function_exists("register_field_group"))
 									'operator' => '!=',
 									'value' => 'toc',
 								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'staff',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'support',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'ideas',
+								),
 							),
 							'allorany' => 'all',
 						),
 						'column_width' => '',
 						'default_value' => '',
-						'toolbar' => 'full',
-						'media_upload' => 'no',
+						'placeholder' => '',
+						'maxlength' => '',
+						'rows' => '',
+						'formatting' => 'br',
 					),
 					array (
 						'key' => 'field_5a8dbeeb40060',
@@ -431,37 +493,6 @@ if(function_exists("register_field_group"))
 						'append' => '',
 						'formatting' => 'none',
 						'maxlength' => '',
-					),
-					array (
-						'key' => 'field_5a9a13961c280',
-						'label' => 'Module collection',
-						'name' => 'module_collection',
-						'type' => 'radio',
-						'conditional_logic' => array (
-							'status' => 1,
-							'rules' => array (
-								array (
-									'field' => 'field_5a8dbca1c2b78',
-									'operator' => '==',
-									'value' => 'module',
-								),
-								array (
-									'field' => 'field_5a99c21321c37',
-									'operator' => '==',
-									'value' => 'collection',
-								),
-							),
-							'allorany' => 'all',
-						),
-						'column_width' => '',
-						'choices' => array (
-							'staff' => 'Staff',
-							'support' => 'Support',
-						),
-						'other_choice' => 0,
-						'save_other_choice' => 0,
-						'default_value' => 'staff',
-						'layout' => 'vertical',
 					),
 				),
 				'row_min' => '',
