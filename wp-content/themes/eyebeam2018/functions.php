@@ -234,25 +234,7 @@ function eyebeam2018_video_embed($video_url) {
 // AJAX handler for email subscribers
 function eyebeam2018_subscribe() {
 
-	if (! empty($_POST['first_name']) &&
-	    ! empty($_POST['last_name']) &&
-	    ! empty($_POST['email']) &&
-	    preg_match('/\w+@\w+\.\w+/', $_POST['email'])) {
-		$first_name = $_POST['first_hame'];
-		$last_name = $_POST['last_hame'];
-		$email = $_POST['email'];
-
-		// Something something subscribe to email list
-
-		$rsp = array(
-			'ok' => 1
-		);
-	} else {
-		$rsp = array(
-			'ok' => 0
-		);
-	}
-
+	$rsp = eyebeam2018_subscribe_request();
 	$headers = apache_request_headers();
 	if (! empty($headers['X-Requested-With']) &&
 	    $headers['X-Requested-With'] == 'XMLHttpRequest') {
@@ -274,12 +256,107 @@ function eyebeam2018_subscribe() {
 		exit;
 	} else if ($rsp['ok'] == 1) {
 		echo "Thanks for subscribing!";
+	} else if ($rsp['error']) {
+		echo $rsp['error'];
 	} else {
 		echo "That didn’t work for some reason.";
 	}
 }
 add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
+
+function eyebeam2018_subscribe_request() {
+	if (! defined('MAILCHIMP_API_KEY')) {
+		return array(
+			'ok' => 0,
+			'error' => 'MAILCHIMP_API_KEY is undefined.'
+		);
+	} else if (! defined('MAILCHIMP_LIST_ID')) {
+		return array(
+			'ok' => 0,
+			'error' => 'MAILCHIMP_LIST_ID is undefined.'
+		);
+	} else if (! empty($_POST['first_name']) &&
+	           ! empty($_POST['last_name']) &&
+	           ! empty($_POST['email']) &&
+	           preg_match('/\w+@\w+\.\w+/', $_POST['email'])) {
+		$first_name = $_POST['first_name'];
+		$last_name = $_POST['last_name'];
+		$email = $_POST['email'];
+
+		// Something something subscribe to email list
+		if (! preg_match('/^[a-z0-9]+-(\w+)$/', MAILCHIMP_API_KEY, $matches)) {
+			return array(
+				'ok' => 0,
+				'error' => 'Invalid MAILCHIMP_API_KEY.'
+			);
+		}
+		$dc = $matches[1];
+
+		$base_url = "https://$dc.api.mailchimp.com/3.0";
+		$list_id = MAILCHIMP_LIST_ID;
+		$subscriber = trim($email);
+		$subscriber = strtolower($subscriber);
+		$subscriber = md5($subscriber);
+		$url = "$base_url/lists/$list_id/members/$subscriber";
+		$data = json_encode(array(
+			'email_address' => $email,
+			'status' => 'subscribed',
+			'merge_fields' => array(
+				'FNAME' => $first_name,
+				'LNAME' => $last_name
+			)
+		));
+		$headers = array(
+			'Content-Type: application/json'
+		);
+		$userpwd = ':' . MAILCHIMP_API_KEY;
+
+		//dbug($url);
+		//dbug($data);
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_USERPWD, $userpwd);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+
+		$json = curl_exec($ch);
+		$status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		curl_close($ch);
+
+		//dbug($status);
+		//dbug($json);
+
+		if ($status != 200) {
+			return array(
+				'ok' => 0,
+				'error' => 'Bad response from MailChimp API.'
+			);
+		}
+
+		$rsp = json_decode($json, 'as hash');
+		if (empty($rsp['status'])) {
+			return array(
+				'ok' => 0,
+				'error' => 'Uncertain response from MailChimp API.'
+			);
+		}
+
+		return array(
+			'ok' => 1,
+			'status' => $rsp['status']
+		);
+	} else {
+		return array(
+			'ok' => 0,
+			'error' => 'Sorry, all the fields are required.'
+		);
+	}
+}
 
 // This requires that DBUG_PATH is set in wp-config.php.
 function dbug() {

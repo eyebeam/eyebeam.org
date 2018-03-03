@@ -74,6 +74,9 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_residents: function() {
+			if ($('#residents-year select').length < 1) {
+				return;
+			}
 			var select = $('#residents-year select')[0];
 			var first_year = select.options[0].value;
 			$('#residents-year select').val(first_year);
@@ -119,13 +122,22 @@ var eyebeam2018 = (function($) {
 			$form.addClass('loading');
 			$form.removeClass('success');
 			$form.removeClass('error');
-			$.post(url, args, function(rsp) {
-				$form.removeClass('loading');
-				$form.removeClass('success');
-				$form.removeClass('error');
-				if (rsp.ok) {
-					$form.addClass('success');
-				} else {
+			$.ajax(url, {
+				method: 'POST',
+				data: args,
+				success: function(rsp) {
+					$form.removeClass('loading');
+					$form.removeClass('success');
+					$form.removeClass('error');
+					if (rsp.ok) {
+						$form.addClass('success');
+					} else {
+						$form.addClass('error');
+					}
+				},
+				error: function() {
+					$form.removeClass('loading');
+					$form.removeClass('success');
 					$form.addClass('error');
 				}
 			});
