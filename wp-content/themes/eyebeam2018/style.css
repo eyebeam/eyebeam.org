@@ -12,6 +12,7 @@ Contents (breakpoints are mobile-first):
 * Hero
 * Module
 * Values
+* Residents
 
 */
 
@@ -784,6 +785,7 @@ footer .tagline {
 	.hero-text .text {
 		font-size: 48px;
 		line-height: 56px;
+		padding: 0 10%;
 	}
 
 }
@@ -1155,5 +1157,50 @@ body.red .module-toc li {
 	.values .clear {
 		display: block;
 	}
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* Residents */
+
+#residents-year {
+	padding: 10px 0 0 0;
+	text-transform: uppercase;
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+}
+
+#residents-year select {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+}
+
+.resident-year {
+	margin-top: 10px;
+}
+
+@media (min-width: 857px) {
+
+	#residents-year {
+		padding-left: 10px;
+	}
+
+	#module-residents ul.loading {
+		padding-left: 10px;
+		font-family: "ArialMonospacedMTStd", monospace;
+		font-size: 18px;
+		padding-top: 15px;
+	}
+
+	.resident {
+		padding-bottom: 15px;
+	}
+
+	.resident-name,
+	.resident-type {
+		font-size: 24px !important;
+		line-height: 28px !important;
+	}
+
 
 }

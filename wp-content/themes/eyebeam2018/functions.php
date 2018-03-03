@@ -157,6 +157,53 @@ function eyebeam2018_render_modules() {
 	echo "</div>\n";
 }
 
+function eyebeam2018_get_residents($year = null) {
+
+	if (empty($year)) {
+		$year = date('Y');
+	}
+	$year = intval($year);
+
+	$args = array(
+		'post_type' => 'resident',
+		'posts_per_page' => -1,
+		'orderby'=> 'meta_value_num',
+		'meta_key' => 'end_year',
+		'meta_query' => array(
+			'relation' => 'AND',
+			'start_clause' => array(
+				'key'=> 'start_year',
+				'value'=> $year,
+				'compare'=> '<='
+			),
+			'end_clause' => array(
+				'key'=> 'end_year',
+				'value' => $year,
+				'compare'=> '>='
+			),
+		)
+	);
+
+	$posts = get_posts($args);
+	return $posts;
+}
+
+function eyebeam2018_ajax_residents() {
+	if (empty($_GET['year'])) {
+		die('No year specified');
+	}
+	$year = $_GET['year'];
+	$residents = eyebeam2018_get_residents($year);
+
+	foreach ($residents as $resident) {
+		$GLOBALS['eyebeam2018']['curr_collection_item'] = $resident;
+		get_template_part('templates/collection-resident-item');
+	}
+	exit;
+}
+add_action('wp_ajax_eyebeam2018_residents', 'eyebeam2018_ajax_residents');
+add_action('wp_ajax_nopriv_eyebeam2018_residents', 'eyebeam2018_ajax_residents');
+
 // AJAX handler for email subscribers
 function eyebeam2018_subscribe() {
 

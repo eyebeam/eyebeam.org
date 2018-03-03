@@ -13,6 +13,7 @@ var eyebeam2018 = (function($) {
 			self.setup_menu();
 			self.setup_collections();
 			self.setup_hash();
+			self.setup_residents();
 		},
 
 		setup_nav: function() {
@@ -72,6 +73,24 @@ var eyebeam2018 = (function($) {
 			}, false);
 		},
 
+		setup_residents: function() {
+			var select = $('#residents-year select')[0];
+			var first_year = select.options[0].value;
+			$('#residents-year select').val(first_year);
+			$('#residents-year select').change(function(e) {
+				var year = $('#residents-year select').val();
+				year = parseInt(year);
+				var path = '/wp-admin/admin-ajax.php';
+				var args = '?action=eyebeam2018_residents&year=' + year;
+				$('#module-residents ul').html('Loading...');
+				$('#module-residents ul').addClass('loading');
+				$.get(path + args, function(rsp) {
+					$('#module-residents ul').removeClass('loading');
+					$('#module-residents ul').html(rsp);
+				});
+			});
+		},
+
 		check_hash: function() {
 
 			if (location.hash == '') {
@@ -115,13 +134,13 @@ var eyebeam2018 = (function($) {
 		align_modules: function() {
 
 			if ($(document.body).width() <= mobile_width) {
-				$('.module').css('height', 'auto');
+				$('.module, .collection-item').css('height', 'auto');
 				return;
 			}
 
 			var span = 0;
 			var row = [];
-			$('.module').each(function(i, module) {
+			$('.module, .collection-item').each(function(i, module) {
 
 				// We are working off of a 12-column grid
 
@@ -131,6 +150,8 @@ var eyebeam2018 = (function($) {
 					span += 6;
 				} else if ($(module).hasClass('module-two_thirds')) {
 					span += 8;
+				} else if ($(module).hasClass('resident')) {
+					span += 4;
 				} else {
 					return;
 				}
