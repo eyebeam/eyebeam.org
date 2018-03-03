@@ -771,7 +771,7 @@ footer .tagline {
 	.hero-text {
 		border-top: none;
 		border-left: none;
-		margin: 100px 0;
+		margin: 100px 0 85px 0;
 		text-align: center;
 		padding: 0;
 	}
@@ -929,6 +929,10 @@ body.red .module-toc li {
 
 .module-ideas .ideas-image {
 	margin: 9px 0;
+}
+
+.event-dates {
+	padding-top: 0 !important;
 }
 
 @media (min-width: 857px) {
