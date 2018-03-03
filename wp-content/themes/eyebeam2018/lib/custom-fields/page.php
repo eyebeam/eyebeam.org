@@ -22,7 +22,7 @@ if(function_exists("register_field_group"))
 							'hero' => 'Hero',
 							'module' => 'Module',
 						),
-						'default_value' => '',
+						'default_value' => 'module',
 						'allow_null' => 0,
 						'multiple' => 0,
 					),
@@ -103,6 +103,35 @@ if(function_exists("register_field_group"))
 						'save_format' => 'id',
 						'preview_size' => 'thumbnail',
 						'library' => 'all',
+					),
+					array (
+						'key' => 'field_5a9a03f414af7',
+						'label' => 'Hero image URL',
+						'name' => 'hero_image_url',
+						'type' => 'text',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'hero',
+								),
+								array (
+									'field' => 'field_5a99c12e21c32',
+									'operator' => '==',
+									'value' => 'image',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'none',
+						'maxlength' => '',
 					),
 					array (
 						'key' => 'field_5a99c1e221c35',
@@ -190,6 +219,7 @@ if(function_exists("register_field_group"))
 						'post_type' => array (
 							0 => 'post',
 							1 => 'page',
+							2 => 'event',
 						),
 						'taxonomy' => array (
 							0 => 'all',
@@ -325,6 +355,37 @@ if(function_exists("register_field_group"))
 						'save_format' => 'id',
 						'preview_size' => 'thumbnail',
 						'library' => 'all',
+					),
+					array (
+						'key' => 'field_5a9a033124c15',
+						'label' => 'Module layout',
+						'name' => 'module_layout',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '==',
+									'value' => 'one_half',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'choices' => array (
+							'image_first' => 'Image first',
+							'text_first' => 'Text first',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'image_first',
+						'layout' => 'vertical',
 					),
 					array (
 						'key' => 'field_5a99b92df565d',
