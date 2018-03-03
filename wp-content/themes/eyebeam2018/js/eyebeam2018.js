@@ -8,7 +8,7 @@ var eyebeam2018 = (function($) {
 		init: function() {
 			self.setup_nav();
 			self.setup_subscribe();
-			self.setup_items();
+			self.setup_modules();
 			self.setup_color();
 			self.setup_menu();
 		},
@@ -37,10 +37,10 @@ var eyebeam2018 = (function($) {
 			});
 		},
 
-		setup_items: function() {
-			self.align_items();
-			$(document.body).load(self.align_items);
-			$(window).resize(self.align_items);
+		setup_modules: function() {
+			self.align_modules();
+			$(document.body).load(self.align_modules);
+			$(window).resize(self.align_modules);
 		},
 
 		setup_color: function() {
@@ -75,26 +75,35 @@ var eyebeam2018 = (function($) {
 			});
 		},
 
-		align_items: function() {
+		align_modules: function() {
 
 			if ($(document.body).width() <= mobile_width) {
-				$('.item-container .item').css('height', 'auto');
+				$('.module').css('height', 'auto');
 				return;
 			}
 
 			var span = 0;
 			var row = [];
-			$('.item-container .item').each(function(i, item) {
-				if ($(item).hasClass('one-third')) {
-					span += 1;
-				} else if ($(item).hasClass('two-thirds')) {
-					span += 2;
+			$('.module').each(function(i, module) {
+
+				// We are working off of a 12-column grid
+
+				if ($(module).hasClass('module-one_third')) {
+					span += 4;
+				} else if ($(module).hasClass('module-one_half')) {
+					span += 6;
+				} else if ($(module).hasClass('module-two_thirds')) {
+					span += 8;
 				} else {
 					return;
 				}
-				$(item).css('height', 'auto');
-				if (span % 3 == 0) {
-					row.push(item);
+
+				$(module).css('height', 'auto');
+
+				if (span % 12 == 0) {
+
+					row.push(module);
+
 					var max_height = 0;
 					for (var i = 0; i < row.length; i++) {
 						if (row[i].offsetHeight > max_height) {
@@ -106,7 +115,7 @@ var eyebeam2018 = (function($) {
 					}
 					row = [];
 				} else {
-					row.push(item);
+					row.push(module);
 				}
 			});
 		}

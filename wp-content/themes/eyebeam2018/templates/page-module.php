@@ -2,7 +2,7 @@
 
 extract($GLOBALS['eyebeam2018']['curr_module']);
 
-echo "<div class=\"module module-$type\">\n";
+echo "<div id=\"module-$hash\" class=\"module module-$type\">\n";
 
 if (! empty($image_id)) {
 

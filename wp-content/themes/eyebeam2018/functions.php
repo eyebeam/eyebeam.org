@@ -120,7 +120,23 @@ function eyebeam2018_render_heroes() {
 // Render each module item's template
 function eyebeam2018_render_modules() {
 
-	echo "<div class=\"module-container\">\n";
+	$class = 'module-container';
+
+	// Okay this is weird, but it's necessary for getting the module order
+	// right on mobile. Basically, we swap the TOC with the first module.
+	if (count($GLOBALS['eyebeam2018']['modules']) > 1 &&
+	    $GLOBALS['eyebeam2018']['modules'][0]['type'] == 'toc') {
+
+		$toc = $GLOBALS['eyebeam2018']['modules'][0];
+		$module = $GLOBALS['eyebeam2018']['modules'][1];
+
+		$GLOBALS['eyebeam2018']['modules'][0] = $module;
+		$GLOBALS['eyebeam2018']['modules'][1] = $toc;
+
+		$class .= ' module-swap-toc';
+	}
+
+	echo "<div class=\"$class\">\n";
 
 	foreach ($GLOBALS['eyebeam2018']['modules'] as $module) {
 

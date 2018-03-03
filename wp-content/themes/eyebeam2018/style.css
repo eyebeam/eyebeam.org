@@ -747,14 +747,32 @@ footer .tagline {
 
 .module-two_thirds .module-title {
 	font-family: "eyebeamregular", sans-serif;
-	font-size: inherit;
-	line-height: inherit;
-	padding: 0 0 4px 0;
+	font-size: 24px;
+	line-height: 28px;
+	padding: 0;
 }
 
 .module-two_thirds .module-description {
 	margin-top: 4px;
 	padding: 0;
+}
+
+.module-toc li {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 28px;
+	line-height: 28px;
+	text-transform: uppercase;
+	color: #EB6B62;
+	list-style: disc;
+	margin-left: 1.2em;
+}
+
+body.red .module-toc li {
+	color: #00A7DA;
+}
+
+.module-toc li a {
+	font-size: 18px;
 }
 
 @media (min-width: 857px) {
@@ -785,6 +803,11 @@ footer .tagline {
 		line-height: 56px;
 	}
 
+	.module-two_thirds .module-title {
+		font-size: 72px;
+		line-height: 86px;
+	}
+
 	.module-full_width {
 		width: calc(100% - 10px);
 	}
@@ -811,6 +834,23 @@ footer .tagline {
 		content: "";
 		display: table-cell;
 		clear: both;
+	}
+
+	.module-swap-toc .module:first-child {
+		float: right;
+	}
+
+	.module-toc {
+		padding-top: 20px;
+	}
+
+	.module-toc li {
+		font-size: 52px;
+	}
+
+	.module-toc li a {
+		font-size: 36px;
+		line-height: 52px;
 	}
 
 }
