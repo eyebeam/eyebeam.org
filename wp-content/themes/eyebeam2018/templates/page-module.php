@@ -22,9 +22,13 @@ if (! empty($image_id)) {
 
 }
 
-$video = '';
-if (! empty($video_url)) {
+if (! empty($video_url) &&
+    ! empty($video_layout) && $video_layout == 'full_width') {
 	eyebeam2018_video_embed($video_url);
+} else {
+	echo "<div class=\"module-image\">\n";
+	eyebeam2018_video_embed($video_url);
+	echo "</div>\n";
 }
 
 $text = '';

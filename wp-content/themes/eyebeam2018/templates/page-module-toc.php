@@ -8,6 +8,9 @@ foreach ($GLOBALS['eyebeam2018']['modules'] as $module) {
 	if ($type == 'toc') {
 		continue;
 	}
+	if (! empty($toc_title)) {
+		$title = $toc_title;
+	}
 	echo "<li><a href=\"#$hash\">$title</a></li>\n";
 }
 
