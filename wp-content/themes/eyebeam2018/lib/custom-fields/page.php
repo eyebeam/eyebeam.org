@@ -349,7 +349,7 @@ if(function_exists("register_field_group"))
 						'key' => 'field_5a8dbe814005f',
 						'label' => 'Module description',
 						'name' => 'module_description',
-						'type' => 'textarea',
+						'type' => 'wysiwyg',
 						'instructions' => 'overrides page excerpt',
 						'conditional_logic' => array (
 							'status' => 1,
@@ -394,10 +394,8 @@ if(function_exists("register_field_group"))
 						),
 						'column_width' => '',
 						'default_value' => '',
-						'placeholder' => '',
-						'maxlength' => '',
-						'rows' => '',
-						'formatting' => 'html',
+						'toolbar' => 'full',
+						'media_upload' => 'yes',
 					),
 					array (
 						'key' => 'field_5a8dbeeb40060',
