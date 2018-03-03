@@ -66,20 +66,30 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_hash: function() {
+			self.check_hash();
 			window.addEventListener('hashchange', function() {
-				var module = location.hash.substr(1);
-				if ($('#module-' + module).length > 0) {
-
-					$('#module-' + module)[0].scrollIntoView(true);
-
-					// now account for fixed header
-					var scroll_y = window.scrollY;
-					if (scroll_y) {
-						var offset = $('header nav').height() + 10;
-						window.scroll(0, scroll_y - offset);
-					}
-				}
+				self.check_hash();
 			}, false);
+		},
+
+		check_hash: function() {
+
+			if (location.hash == '') {
+				return;
+			}
+
+			var module = location.hash.substr(1);
+			if ($('#module-' + module).length > 0) {
+
+				$('#module-' + module)[0].scrollIntoView(true);
+
+				// now account for fixed header
+				var scroll_y = window.scrollY;
+				if (scroll_y) {
+					var offset = $('header nav').height() + 10;
+					window.scroll(0, scroll_y - offset);
+				}
+			}
 		},
 
 		subscribe_submit: function() {
