@@ -12,6 +12,7 @@ var eyebeam2018 = (function($) {
 			self.setup_color();
 			self.setup_menu();
 			self.setup_collections();
+			self.setup_hash();
 		},
 
 		setup_nav: function() {
@@ -62,6 +63,23 @@ var eyebeam2018 = (function($) {
 				e.preventDefault();
 				$(e.target).closest('li').toggleClass('show-bio');
 			});
+		},
+
+		setup_hash: function() {
+			window.addEventListener('hashchange', function() {
+				var module = location.hash.substr(1);
+				if ($('#module-' + module).length > 0) {
+
+					$('#module-' + module)[0].scrollIntoView(true);
+
+					// now account for fixed header
+					var scroll_y = window.scrollY;
+					if (scroll_y) {
+						var offset = $('header nav').height() + 10;
+						window.scroll(0, scroll_y - offset);
+					}
+				}
+			}, false);
 		},
 
 		subscribe_submit: function() {

@@ -2,11 +2,11 @@
 
 extract($GLOBALS['eyebeam2018']['curr_module']);
 
-?>
-<div class="module module-collection module-full_width">
-	<?php
+$id = "module-$hash";
+$class = 'module module-collection module-full_width';
 
-	get_template_part('templates/collection', $collection);
+echo "<div id=\"$id\" class=\"$class\">\n";
 
-	?>
-</div>
+get_template_part('templates/collection', $collection);
+
+echo "</div>\n";
