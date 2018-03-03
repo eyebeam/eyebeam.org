@@ -5,14 +5,17 @@ extract($GLOBALS['eyebeam2018']['curr_module']);
 $id = "module-$hash";
 $class = 'module module-collection module-full_width';
 
-$years = array();
-for ($y = date('Y'); $y > 1999; $y--) {
-	$years[] = $y;
-}
+$years = '';
+if ($residents_date != 'hide') {
+	$years = array();
+	for ($y = date('Y'); $y > 1999; $y--) {
+		$years[] = $y;
+	}
 
-$years = '<option>' . implode("</option>\n<option>", $years) . "</option>\n";
-$years = "<select>$years</select>";
-$years = "<div id=\"residents-year\">Year: $years</div>";
+	$years = '<option>' . implode("</option>\n<option>", $years) . "</option>\n";
+	$years = "<select>$years</select>";
+	$years = "<div id=\"residents-year\">Year: $years</div>";
+}
 
 echo "<div id=\"$id\" class=\"$class\">\n";
 

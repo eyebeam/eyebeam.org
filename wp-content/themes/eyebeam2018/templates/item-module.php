@@ -5,8 +5,10 @@ $title = null;
 $url = null;
 $description = null;
 $image_id = null;
+$video_url = null;
 $layout = null;
 $collection = null;
+$residents_date = null;
 
 $page = get_sub_field('module_page');
 if (! empty($page)) {
@@ -35,12 +37,20 @@ if (! empty(get_sub_field('module_image'))) {
 	$image_id = get_sub_field('module_image');
 }
 
+if (! empty(get_sub_field('module_video_url'))) {
+	$video_url = get_sub_field('module_video_url');
+}
+
 if (! empty(get_sub_field('module_layout'))) {
 	$layout = get_sub_field('module_layout');
 }
 
 if (! empty(get_sub_field('module_collection'))) {
 	$collection = get_sub_field('module_collection');
+}
+
+if (! empty(get_sub_field('residents_date'))) {
+	$residents_date = get_sub_field('residents_date');
 }
 
 $hash = sanitize_title($title);
@@ -56,6 +66,8 @@ eyebeam2018_module(array(
 	'url' => $url,
 	'description' => $description,
 	'image_id' => $image_id,
+	'video_url' => $video_url,
 	'layout' => $layout,
-	'collection' => $collection
+	'collection' => $collection,
+	'residents_date' => $residents_date
 ));

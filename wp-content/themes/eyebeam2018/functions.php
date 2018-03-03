@@ -157,6 +157,7 @@ function eyebeam2018_render_modules() {
 	echo "</div>\n";
 }
 
+// Returns an array of resident posts for a given year
 function eyebeam2018_get_residents($year = null) {
 
 	if (empty($year)) {
@@ -188,6 +189,7 @@ function eyebeam2018_get_residents($year = null) {
 	return $posts;
 }
 
+// AJAX handler for resident requests (by year)
 function eyebeam2018_ajax_residents() {
 	if (empty($_GET['year'])) {
 		die('No year specified');
@@ -203,6 +205,26 @@ function eyebeam2018_ajax_residents() {
 }
 add_action('wp_ajax_eyebeam2018_residents', 'eyebeam2018_ajax_residents');
 add_action('wp_ajax_nopriv_eyebeam2018_residents', 'eyebeam2018_ajax_residents');
+
+function eyebeam2018_video_embed($video_url) {
+
+	// TODO: make this work with more video hosts, currently we only support
+	// YouTube. I mean, should we let oembed or shortcodes handle this? It's
+	// not like this is the first video to get embedded onto WordPress. for
+	// now we just do it the dumb/easy way. (20180303/dphiffer)
+
+	if (preg_match('/youtube\.com\/watch\?v=([^&]+)/', $video_url, $matches)) {
+		$id = $matches[1];
+		$src = "https://www.youtube.com/embed/$id";
+		$dimensions = 'width="640" height="360"';
+		$args = 'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen';
+		$embed = "<iframe $dimensions src=\"$src\" $args></iframe>";
+		$embed = "<div class=\"video-container\">$embed</div>\n";
+		echo $embed;
+	} else {
+		echo "<!-- could not render video embed for $video_url -->\n";
+	}
+}
 
 // AJAX handler for email subscribers
 function eyebeam2018_subscribe() {

@@ -22,6 +22,11 @@ if (! empty($image_id)) {
 
 }
 
+$video = '';
+if (! empty($video_url)) {
+	eyebeam2018_video_embed($video_url);
+}
+
 $text = '';
 if (! empty($title)) {
 
