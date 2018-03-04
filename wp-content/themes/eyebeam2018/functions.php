@@ -384,6 +384,14 @@ function eyebeam2018_extract_intro($content) {
 	return $content;
 }
 
+function eyebeam2018_shortcode_filter($output, $tag, $attrs) {
+	if ($tag == 'embed') {
+		return "<div class=\"video-container\">$output</div>";
+	}
+	return $output;
+}
+add_filter('do_shortcode_tag', 'eyebeam2018_shortcode_filter', 10, 3);
+
 // This requires that DBUG_PATH is set in wp-config.php.
 function dbug() {
 	if (empty($GLOBALS['dbug_fh'])) {

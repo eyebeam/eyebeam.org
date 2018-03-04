@@ -6,8 +6,6 @@ echo "<h2 class=\"post-title\">";
 the_title();
 echo "</h2>\n";
 
-echo "<div class=\"post-intro\">\n";
-
 $image_id = get_field('image', $post->ID);
 if (! $image_id) {
 	$image_id = get_post_thumbnail_id($page);
@@ -28,8 +26,9 @@ if (! empty($image_id)) {
 }
 
 if (! empty($GLOBALS['eyebeam2018']['post_intro'])) {
+	echo "<div class=\"post-intro\">\n";
 	echo $GLOBALS['eyebeam2018']['post_intro'];
+	echo "</div>\n";
 }
 
-echo "</div>\n";
 echo "</div>\n";

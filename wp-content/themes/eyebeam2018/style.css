@@ -169,6 +169,7 @@ form.error .response-error {
 	padding-bottom: 56.25%; /* 16:9 */
 	height: 0;
 	overflow: hidden;
+	margin: 15px 0;
 }
 
 .video-container iframe,
@@ -1266,6 +1267,9 @@ body.red .module-toc li {
 	margin-top: 10px;
 }
 
+.post .clear {
+	display: none;
+}
 
 @media (min-width: 857px) {
 
@@ -1275,6 +1279,8 @@ body.red .module-toc li {
 
 	.post .post-image {
 		margin-bottom: 34px;
+		max-width: 700px;
+		margin-left: auto;
 	}
 
 	.post .post-main {
@@ -1287,11 +1293,11 @@ body.red .module-toc li {
 	.post .post-intro {
 		margin: 0;
 		padding: 0;
+		max-width: 700px;
+		margin-left: auto;
 		font-size: 24px;
 		line-height: 32px;
-		max-width: 700px;
 		padding: 0 0 90px 0;
-		margin-left: auto;
 	}
 
 	.post .post-title {
@@ -1310,6 +1316,10 @@ body.red .module-toc li {
 		padding: 0 0 90px 0;
 		max-width: 700px;
 		margin-left: auto;
+	}
+
+	.post .clear {
+		display: block;
 	}
 
 }
