@@ -3,12 +3,12 @@
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
-		'id' => 'acf_page',
-		'title' => 'Page',
+		'id' => 'acf_modular-grid',
+		'title' => 'Modular grid',
 		'fields' => array (
 			array (
 				'key' => 'field_5a8dbc2bc2b76',
-				'label' => 'Page items',
+				'label' => 'Modular grid items',
 				'name' => 'items',
 				'type' => 'repeater',
 				'sub_fields' => array (
@@ -597,17 +597,10 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'page',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-				array (
 					'param' => 'page_template',
-					'operator' => '!=',
-					'value' => 'page-archive.php',
-					'order_no' => 1,
+					'operator' => '==',
+					'value' => 'page-modular.php',
+					'order_no' => 0,
 					'group_no' => 0,
 				),
 			),

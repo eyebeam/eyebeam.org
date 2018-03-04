@@ -37,7 +37,7 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	include_once("$dir/lib/custom-fields/events.php");
 	include_once("$dir/lib/custom-fields/interns.php");
 	include_once("$dir/lib/custom-fields/media-release.php");
-	include_once("$dir/lib/custom-fields/page.php");
+	include_once("$dir/lib/custom-fields/modular-grid.php");
 	include_once("$dir/lib/custom-fields/post.php");
 	include_once("$dir/lib/custom-fields/recent-press.php");
 	include_once("$dir/lib/custom-fields/residency.php");
