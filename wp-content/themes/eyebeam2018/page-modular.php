@@ -1,5 +1,6 @@
 <?php
 /*
+Template Name: Modular Grid
 
 Okay so if you are unfamiliar with WordPress, this is kind of ridiculous. In
 the dashboard you will notice there are both "posts" and "pages." This is the
@@ -15,24 +16,24 @@ while (have_posts()) {
 
 	the_post();
 
-	$item_count = 0;
 	while (have_rows('items')) {
 
 		the_row();
-		$item_count++;
 
 		$type = get_sub_field('type');
 		get_template_part("templates/item", $type);
 
 	}
 
-	// Here is where we double check if we have items for the modular grid. If
-	// not, we bail out and use the standard template.
-	if ($item_count == 0) {
-		get_template_part("templates/post");
-	} else {
-		get_template_part("templates/page"); // See that? Page, not post! Sigh.
+	get_template_part('templates/page-subnav');
+
+	eyebeam2018_render_heroes();
+	eyebeam2018_render_modules();
+
+	if (is_front_page()) {
+		get_template_part('templates/home-values');
 	}
+
 }
 
 get_footer();
