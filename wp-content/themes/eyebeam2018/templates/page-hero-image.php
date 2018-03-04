@@ -7,6 +7,8 @@ if (! empty($image_desktop)) {
 	$class = $image_desktop['class'];
 	// TODO: do better with alts!
 	$image = "<img src=\"$src\" alt=\"\" class=\"$class\">";
+	$image = "<a href=\"$url\">$image</a>";
+	echo "$image\n";
 }
 
 if (! empty($image_mobile)) {
@@ -14,10 +16,6 @@ if (! empty($image_mobile)) {
 	$class = $image_mobile['class'];
 	// TODO: do better with alts!
 	$image = "<img src=\"$src\" alt=\"\" class=\"$class\">";
-}
-
-if (! empty($url)) {
 	$image = "<a href=\"$url\">$image</a>";
+	echo "$image\n";
 }
-
-echo "$image\n";
