@@ -94,6 +94,14 @@ body {
 	background-repeat: no-repeat;
 }
 
+strong, b {
+	font-weight: bold;
+}
+
+em, i {
+	font-style: italic;
+}
+
 a {
 	color: #EB6B62;
 	text-decoration: none;
