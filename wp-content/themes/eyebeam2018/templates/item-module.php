@@ -14,6 +14,7 @@ $toc_title = null;
 
 $page = get_sub_field('module_page');
 if (! empty($page)) {
+	$page = $page[0];
 	$title = apply_filters('the_title', $page->post_title);
 	$url = get_permalink($page->ID);
 	$description = apply_filters('the_excerpt', $page->post_excerpt);
