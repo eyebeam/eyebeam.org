@@ -30,6 +30,8 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 
 	define('ACF_LITE', true); // hide the editing UI
 
+	include_once("$dir/lib/custom-fields/archive-page.php");
+	include_once("$dir/lib/custom-fields/archive-post.php");
 	include_once("$dir/lib/custom-fields/board.php");
 	include_once("$dir/lib/custom-fields/community.php");
 	include_once("$dir/lib/custom-fields/events.php");
@@ -218,17 +220,29 @@ function eyebeam2018_video_embed($video_url) {
 	// not like this is the first video to get embedded onto WordPress. for
 	// now we just do it the dumb/easy way. (20180303/dphiffer)
 
-	if (preg_match('/youtube\.com\/watch\?v=([^&]+)/', $video_url, $matches)) {
-		$id = $matches[1];
-		$src = "https://www.youtube.com/embed/$id";
-		$dimensions = 'width="640" height="360"';
-		$args = 'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen';
-		$embed = "<iframe $dimensions src=\"$src\" $args></iframe>";
-		$embed = "<div class=\"video-container\">$embed</div>\n";
-		echo $embed;
-	} else {
-		echo "<!-- could not render video embed for $video_url -->\n";
+	$regexes = array(
+		'/youtube\.com\/watch\?.*v=([^&]+)/' => 'eyebeam2018_youtube_embed',
+		'/youtu\.be\/([^?]+)/' => 'eyebeam2018_youtube_embed'
+	);
+
+	foreach ($regexes as $regex => $handler) {
+		if (preg_match($regex, $video_url, $matches)) {
+			$handler($matches);
+			return;
+		}
 	}
+
+	echo "<!-- could not render video embed for $video_url -->\n";
+}
+
+function eyebeam2018_youtube_embed($matches) {
+	$id = $matches[1];
+	$src = "https://www.youtube.com/embed/$id";
+	$dimensions = 'width="640" height="360"';
+	$args = 'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen';
+	$embed = "<iframe $dimensions src=\"$src\" $args></iframe>";
+	$embed = "<div class=\"video-container\">$embed</div>\n";
+	echo $embed;
 }
 
 // AJAX handler for email subscribers

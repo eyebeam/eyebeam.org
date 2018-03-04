@@ -55,6 +55,33 @@ register_post_type('event', array(
 ));
 
 $labels = array(
+	'name' => 'Archive',
+	'singular_name' => 'Item',
+	'add_new' => 'Add Item',
+	'add_new_item' => 'Add Item',
+	'edit_item' => 'Edit Item',
+	'new_item' => 'New Item',
+	'all_items' => 'All Items',
+	'view_item' => 'View Item',
+	'search_items' => 'Search Items',
+	'not_found' =>  'No Items Found',
+	'not_found_in_trash' => 'No Items found in Trash',
+	'parent_item_colon' => '',
+	'menu_name' => 'Archive',
+);
+register_post_type('archive', array(
+	'labels' => $labels,
+	'has_archive' => false,
+	'public' => true,
+	'query_var' => false,
+	'supports' => array('title', 'editor', 'page-attributes'),
+	'taxonomies' => array(),
+	'exclude_from_search' => true,
+	'capability_type' => 'post',
+	'rewrite' => array('slug' => 'archive'),
+));
+
+$labels = array(
 	'name' => 'Recent Press',
 	'singular_name' => 'Recent Press',
 	'add_new' => 'Add New Recent Press',

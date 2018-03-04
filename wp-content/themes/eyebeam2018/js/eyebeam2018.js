@@ -14,6 +14,7 @@ var eyebeam2018 = (function($) {
 			self.setup_collections();
 			self.setup_hash();
 			self.setup_residents();
+			self.setup_archive();
 		},
 
 		setup_nav: function() {
@@ -92,6 +93,72 @@ var eyebeam2018 = (function($) {
 					$('#module-residents ul').html(rsp);
 				});
 			});
+		},
+
+		setup_archive: function() {
+			if ($('.archive').length == 0) {
+				return;
+			}
+			if ($(document.body).width() <= mobile_width) {
+				return;
+			}
+			self.archive_scroll();
+			$(window).scroll(self.archive_scroll);
+		},
+
+		archive_scroll: function() {
+			var scroll = document.documentElement.scrollTop;
+			var nav = 99;
+			if ($('#wpadminbar').length > 0) {
+				nav += $('#wpadminbar').height();
+			}
+			var offset = Math.floor($(window).height() / 4);
+
+			var curr = null;
+			var curr_index = null;
+			$('.featured').each(function(i, featured) {
+				if (curr) {
+					return;
+				}
+				var top = $(featured).offset().top;
+				var bottom = top + $(featured).height();
+				if (bottom > scroll + nav + offset) {
+					curr = featured;
+					curr_index = i;
+				}
+			});
+
+			if ($('.featured.current').length > 0) {
+				var curr_id = $('.featured.current').attr('id');
+				if (curr_id != $(curr).attr('id')) {
+					$('.featured.current').removeClass('current');
+					$(curr).addClass('current');
+				}
+			} else {
+				$(curr).addClass('current');
+			}
+
+			var top = $(curr).offset().top;
+			var bottom = top + $(curr).height();
+
+			var $media = $(curr).find('.featured-media');
+			var fixed_threshold = top + $(curr).height() - $media.height() + 20;
+
+			if (scroll + nav > fixed_threshold) {
+				$('.archive').removeClass('fixed-media');
+				$media.css('top', 'auto');
+				$media.css('bottom', 0);
+			} else if (scroll + nav > top) {
+				var width = $media.width();
+				$media.css('top', nav);
+				$media.css('bottom', 'auto');
+				$media.css('width', width);
+				$('.archive').addClass('fixed-media');
+			} else {
+				$('.archive').removeClass('fixed-media');
+				$media.css('top', 'auto');
+			}
+
 		},
 
 		check_hash: function() {
