@@ -394,8 +394,8 @@ if(function_exists("register_field_group"))
 						),
 						'column_width' => '',
 						'default_value' => '',
-						'toolbar' => 'full',
-						'media_upload' => 'yes',
+						'toolbar' => 'basic',
+						'media_upload' => 'no',
 					),
 					array (
 						'key' => 'field_5a8dbeeb40060',
