@@ -15,6 +15,7 @@ var eyebeam2018 = (function($) {
 			self.setup_hash();
 			self.setup_residents();
 			self.setup_archive();
+			self.setup_donate();
 		},
 
 		setup_nav: function() {
@@ -106,6 +107,21 @@ var eyebeam2018 = (function($) {
 			$(window).scroll(self.archive_scroll);
 		},
 
+		setup_donate: function() {
+			$('.donation-amount input').change(function(e) {
+				console.log('hi');
+				if ($('#show-other')[0].checked) {
+					$('#amount-other-container').removeClass('hidden');
+				} else {
+					$('#amount-other-container').addClass('hidden');
+				}
+			});
+			$('#donate').submit(function(e) {
+				e.preventDefault();
+				self.donate_submit();
+			});
+		},
+
 		archive_scroll: function() {
 			var scroll = document.documentElement.scrollTop;
 			var nav = 99;
@@ -184,6 +200,34 @@ var eyebeam2018 = (function($) {
 
 		subscribe_submit: function() {
 			var $form = $('#subscribe');
+			var args = $form.serialize();
+			var url = $form.attr('action');
+			$form.addClass('loading');
+			$form.removeClass('success');
+			$form.removeClass('error');
+			$.ajax(url, {
+				method: 'POST',
+				data: args,
+				success: function(rsp) {
+					$form.removeClass('loading');
+					$form.removeClass('success');
+					$form.removeClass('error');
+					if (rsp.ok) {
+						$form.addClass('success');
+					} else {
+						$form.addClass('error');
+					}
+				},
+				error: function() {
+					$form.removeClass('loading');
+					$form.removeClass('success');
+					$form.addClass('error');
+				}
+			});
+		},
+
+		donate_submit: function() {
+			var $form = $('#donate');
 			var args = $form.serialize();
 			var url = $form.attr('action');
 			$form.addClass('loading');

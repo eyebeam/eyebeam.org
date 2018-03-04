@@ -19,7 +19,7 @@
 				));
 
 				?>
-				<a href="http://www.rebeam.eyebeam.org/" class="support red">Support Eyebeam!</a>
+				<a href="/donate/" class="support red">Support Eyebeam!</a>
 			</nav>
 		</header>
 		<div id="page">

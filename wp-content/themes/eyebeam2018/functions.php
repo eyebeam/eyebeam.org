@@ -303,7 +303,6 @@ function eyebeam2018_subscribe_request() {
 		$last_name = $_POST['last_name'];
 		$email = $_POST['email'];
 
-		// Something something subscribe to email list
 		if (! preg_match('/^[a-z0-9]+-(\w+)$/', MAILCHIMP_API_KEY, $matches)) {
 			return array(
 				'ok' => 0,
@@ -369,6 +368,77 @@ function eyebeam2018_subscribe_request() {
 			'ok' => 1,
 			'status' => $rsp['status']
 		);
+	} else {
+		return array(
+			'ok' => 0,
+			'error' => 'Sorry, all the fields are required.'
+		);
+	}
+}
+
+// AJAX handler for donations
+function eyebeam2018_donate() {
+
+	$rsp = eyebeam2018_donate_request();
+	$headers = apache_request_headers();
+	if (! empty($headers['X-Requested-With']) &&
+	    $headers['X-Requested-With'] == 'XMLHttpRequest') {
+		header('Content-Type: application/json');
+		echo json_encode($rsp);
+		exit;
+	} else if (! empty($headers['Referer'])) {
+		$redirect = $headers['Referer'];
+		$result = "donation={$rsp['ok']}";
+		if (preg_match('/donation=[^&]+/', $redirect)) {
+			$redirect = preg_replace('/donation=[^&]+/', $result, $redirect);
+		} else if (strpos($redirect, '?') === false) {
+			$redirect .= "?$result";
+		} else {
+			$redirect .= "&$result";
+		}
+		$redirect .= '#donate';
+		header("Location: $redirect");
+		exit;
+	} else if ($rsp['ok'] == 1) {
+		echo "Thank you so much for your donation!";
+	} else if ($rsp['error']) {
+		echo $rsp['error'];
+	} else {
+		echo "Sorry, that didn’t work for some reason.";
+	}
+}
+add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
+add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
+
+function eyebeam2018_donate_request() {
+
+	// I mean, yes, I know there are plugins that do this sort of thing. But
+	// ultimately it's an API, and we should be able to debug it when it
+	// breaks. So we just use cURL and typing. (20180303/dphiffer)
+
+	if (! defined('STRIPE_TEST_KEY') ||
+	    ! defined('STRIPE_TEST_SECRET') ||
+	    ! defined('STRIPE_LIVE_KEY') ||
+	    ! defined('STRIPE_LIVE_SECRET')) {
+		return array(
+			'ok' => 0,
+			'error' => 'Stripe API keys are not setup.'
+		);
+	} else if (! empty($_POST['first_name']) &&
+	           ! empty($_POST['last_name']) &&
+	           ! empty($_POST['email']) &&
+	           preg_match('/\w+@\w+\.\w+/', $_POST['email']) &&
+	           ! empty($_POST['amount'])) {
+
+		$first_name = $_POST['first_name'];
+		$last_name = $_POST['last_name'];
+		$email = $_POST['email'];
+
+		return array(
+			'ok' => 0,
+			'error' => 'Sorry, this form does not work yet.'
+		);
+
 	} else {
 		return array(
 			'ok' => 0,
