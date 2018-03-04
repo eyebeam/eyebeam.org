@@ -13,6 +13,7 @@ Contents (breakpoints are mobile-first):
 * Module
 * Values
 * Residents
+* Post
 
 */
 
@@ -1224,5 +1225,91 @@ body.red .module-toc li {
 		line-height: 28px !important;
 	}
 
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* Post */
+
+.post .post-main-top,
+.post .post-meta {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	line-height: 24px;
+	margin: 15px 10px;
+	border-top: 2px solid #000;
+	border-left: 2px solid #000;
+	padding: 9px;
+}
+
+.post .post-title {
+	font-family: "eyebeamregular", sans-serif;
+	font-size: 24px;
+	line-height: 28px;
+	padding-bottom: 4px;
+}
+
+.post img {
+	width: 100%;
+	height: auto;
+}
+
+.post .post-image {
+	margin: 15px 0;
+}
+
+.post-content {
+	padding: 0 15px 40px 15px;
+}
+
+.post-content p {
+	margin-top: 10px;
+}
+
+
+@media (min-width: 857px) {
+
+	.post {
+		padding: 40px 19px;
+	}
+
+	.post .post-image {
+		margin-bottom: 34px;
+	}
+
+	.post .post-main {
+		float: left;
+		width: calc(66.66% - 10px);
+		margin: 0 10px 0 0;
+		padding: 0 19px;
+	}
+
+	.post .post-intro {
+		margin: 0;
+		padding: 0;
+		font-size: 24px;
+		line-height: 32px;
+		max-width: 700px;
+		padding: 0 0 90px 0;
+		margin-left: auto;
+	}
+
+	.post .post-title {
+		font-size: 48px;
+		line-height: 56px;
+		padding-top: 15px;
+	}
+
+	.post .post-meta {
+		float: left;
+		width: calc(33.33% - 10px);
+		margin: 0;
+	}
+
+	.post .post-content {
+		padding: 0 0 90px 0;
+		max-width: 700px;
+		margin-left: auto;
+	}
 
 }

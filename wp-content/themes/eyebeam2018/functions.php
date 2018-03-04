@@ -363,6 +363,27 @@ function eyebeam2018_subscribe_request() {
 	}
 }
 
+// A filter for the_content, that sets a 'post_intro' global var
+function eyebeam2018_extract_intro($content) {
+	$sections = preg_split('/<hr\s*\/?>/', $content);
+	if (count($sections) < 2) {
+		return $content;
+	}
+	if (preg_match('/<i>(.+?)<\/i>/ims', $sections[0], $matches)) {
+		$intro = array_shift($sections);
+
+		// TODO: get some htmlpurifier in the mix here
+		$intro = preg_replace('/<span[^>]*>/', '', $intro);
+		$intro = preg_replace('/<\/span[^>]*>/', '', $intro);
+		$intro = preg_replace('/<i[^>]*>/', '', $intro);
+		$intro = preg_replace('/<\/i[^>]*>/', '', $intro);
+
+		$GLOBALS['eyebeam2018']['post_intro'] = $intro;
+		return implode('<br>', $sections);
+	}
+	return $content;
+}
+
 // This requires that DBUG_PATH is set in wp-config.php.
 function dbug() {
 	if (empty($GLOBALS['dbug_fh'])) {
