@@ -445,12 +445,20 @@ function eyebeam2018_donate_request() {
 
 		dbug('creating charge...');
 
-		$charge = \Stripe\Charge::create(array(
-			'amount' => $values['amount'],
-			'currency' => 'usd',
-			'description' => 'Donation to Eyebeam. Thank you!',
-			'source' => $values['token']
-		));
+		try {
+			$charge = \Stripe\Charge::create(array(
+				'amount' => $values['amount'],
+				'currency' => 'usd',
+				'description' => 'Donation to Eyebeam. Thank you!',
+				'source' => $values['token']
+			));
+		} catch (Exception $e) {
+			dbug($e);
+			return array(
+				'ok' => 0,
+				'error' => 'Error from Stripe API: ' . $e->getMessage()
+			);
+		}
 
 		dbug($charge);
 
