@@ -258,7 +258,7 @@ var eyebeam2018 = (function($) {
 
 		donate_submit: function() {
 
-			console.log('donate_submit');
+			//console.log('donate_submit');
 
 			var $form = $('#donate');
 			$form.addClass('loading');
@@ -266,7 +266,7 @@ var eyebeam2018 = (function($) {
 			$form.removeClass('error');
 
 			stripe.createToken(stripe_card).then(function(result) {
-				console.log('createToken callback', result);
+				//console.log('createToken callback', result);
 
 				if (result.error) {
 					$('#card-errors').html(result.error.message);
@@ -278,7 +278,7 @@ var eyebeam2018 = (function($) {
 
 		donate_request: function(token) {
 
-			console.log('donate_request', token);
+			//console.log('donate_request', token);
 
 			var $form = $('#donate');
 			var args = $form.serialize();
@@ -289,7 +289,7 @@ var eyebeam2018 = (function($) {
 				method: 'POST',
 				data: args,
 				success: function(rsp) {
-					console.log('request success', rsp);
+					//console.log('request success', rsp);
 					$form.removeClass('loading');
 					$form.removeClass('success');
 					$form.removeClass('error');
@@ -300,7 +300,7 @@ var eyebeam2018 = (function($) {
 					}
 				},
 				error: function() {
-					console.log('request error');
+					//console.log('request error');
 					$form.removeClass('loading');
 					$form.removeClass('success');
 					$form.addClass('error');
