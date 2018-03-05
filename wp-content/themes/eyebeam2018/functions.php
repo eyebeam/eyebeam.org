@@ -492,6 +492,7 @@ function eyebeam2018_donate_normalize($raw) {
 			$normalized[$var] = trim($raw['amount_other']);
 		}
 	}
+	$normalized['amount'] = str_replace('$', '', $normalized['amount']);
 	return $normalized;
 }
 
