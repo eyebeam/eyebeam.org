@@ -413,13 +413,13 @@ add_action('wp_ajax_nopriv_eyebeam2018_donate', 'eyebeam2018_donate');
 
 function eyebeam2018_donate_request() {
 
-	//dbug('eyebeam2018_donate_request');
+	dbug('eyebeam2018_donate_request');
 
 	$dir = __DIR__;
 	require_once("$dir/lib/stripe-php/init.php");
 
 	$values = eyebeam2018_donate_normalize($_POST);
-	//dbug('eyebeam2018_donate_normalize:', $values);
+	dbug('eyebeam2018_donate_normalize:', $values);
 
 	if (! defined('STRIPE_TEST_KEY') ||
 	    ! defined('STRIPE_TEST_SECRET') ||
@@ -439,11 +439,11 @@ function eyebeam2018_donate_request() {
 			$secret = STRIPE_TEST_SECRET;
 		}
 
-		//dbug('setting API key...');
+		dbug('setting API key...');
 
 		\Stripe\Stripe::setApiKey($secret);
 
-		//dbug('creating charge...');
+		dbug('creating charge...');
 
 		$charge = \Stripe\Charge::create(array(
 			'amount' => $values['amount'],
@@ -452,7 +452,7 @@ function eyebeam2018_donate_request() {
 			'source' => $values['token']
 		));
 
-		//dbug($charge);
+		dbug($charge);
 
 		return array(
 			'ok' => 1
