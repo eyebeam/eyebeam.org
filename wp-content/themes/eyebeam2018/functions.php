@@ -543,6 +543,13 @@ function eyebeam2018_extract_intro($content) {
 	return $content;
 }
 
+function eyebeam2018_content_fields($content) {
+	if (get_field('event_info')) {
+		return get_field('event_info');
+	}
+	return $content;
+}
+
 function eyebeam2018_shortcode_filter($output, $tag, $attrs) {
 	if ($tag == 'embed') {
 		return "<div class=\"video-container\">$output</div>";
