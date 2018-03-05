@@ -3,6 +3,9 @@ var eyebeam2018 = (function($) {
 	// This should be kept in sync with the style.css mobile breakpoint.
 	var mobile_width = 856;
 
+	// For handling donations
+	var stripe_card = null;
+
 	var self = {
 
 		init: function() {
@@ -109,7 +112,6 @@ var eyebeam2018 = (function($) {
 
 		setup_donate: function() {
 			$('.donation-amount input').change(function(e) {
-				console.log('hi');
 				if ($('#show-other')[0].checked) {
 					$('#amount-other-container').removeClass('hidden');
 				} else {
@@ -120,6 +122,34 @@ var eyebeam2018 = (function($) {
 				e.preventDefault();
 				self.donate_submit();
 			});
+
+			if (typeof stripe == 'undefined') {
+				console.error('Could not find Stripe.js, set the following in wp-config.php: STRIPE_TEST_KEY, STRIPE_TEST_SECRET, STRIPE_LIVE_KEY, STRIPE_LIVE_SECRET, STRIPE_USE_LIVE');
+				$('#donate').html('Sorry, we cannot accept donations right now.');
+				return;
+			}
+
+			var elements = stripe.elements();
+			var style = {
+				base: {
+					fontSize: '18px',
+					fontFamily: '"ArialMonospacedMTStd", monospace'
+				}
+			};
+
+			stripe_card = elements.create('card', {style: style});
+			stripe_card.mount('#card-stripe');
+
+			stripe_card.addEventListener('change', function(event) {
+				var displayError = document.getElementById('card-errors');
+				if (event.error) {
+					displayError.textContent = event.error.message;
+				} else {
+					displayError.textContent = '';
+				}
+			});
+
+			$('#amount-50')[0].checked = true;
 		},
 
 		archive_scroll: function() {
@@ -227,16 +257,39 @@ var eyebeam2018 = (function($) {
 		},
 
 		donate_submit: function() {
+
+			console.log('donate_submit');
+
 			var $form = $('#donate');
-			var args = $form.serialize();
-			var url = $form.attr('action');
 			$form.addClass('loading');
 			$form.removeClass('success');
 			$form.removeClass('error');
+
+			stripe.createToken(stripe_card).then(function(result) {
+				console.log('createToken callback', result);
+
+				if (result.error) {
+					$('#card-errors').html(result.error.message);
+				} else {
+					self.donate_request(result.token);
+				}
+			});
+		},
+
+		donate_request: function(token) {
+
+			console.log('donate_request', token);
+
+			var $form = $('#donate');
+			var args = $form.serialize();
+			args += '&token=' + token.id;
+			var url = $form.attr('action');
+
 			$.ajax(url, {
 				method: 'POST',
 				data: args,
 				success: function(rsp) {
+					console.log('request success', rsp);
 					$form.removeClass('loading');
 					$form.removeClass('success');
 					$form.removeClass('error');
@@ -247,6 +300,7 @@ var eyebeam2018 = (function($) {
 					}
 				},
 				error: function() {
+					console.log('request error');
 					$form.removeClass('loading');
 					$form.removeClass('success');
 					$form.addClass('error');

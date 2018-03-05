@@ -42,44 +42,11 @@
 			Cardholder name
 		</label>
 		<input type="text" name="card_name" id="card-name">
-		<label for="card-number">
-			Card number
+		<label for="card-stripe">
+			Card details
 		</label>
-		<input type="text" name="card_number" id="card-number">
-		<label for="card-exp-month">
-			Expiration date
-		</label>
-		<select name="card_exp_month" id="card-exp-month">
-			<option value="">Month</option>
-			<option>01</option>
-			<option>02</option>
-			<option>03</option>
-			<option>04</option>
-			<option>05</option>
-			<option>06</option>
-			<option>07</option>
-			<option>08</option>
-			<option>09</option>
-			<option>10</option>
-			<option>11</option>
-			<option>12</option>
-		</select>
-		<select name="card_exp_year" id="card-exp-year">
-			<option value="">Year</option>
-			<?php
-
-			$start = date('Y');
-			$end = $start + 20;
-			for ($y = $start; $y <= $end; $y++) {
-				echo "<option>$y</option>\n";
-			}
-
-			?>
-		</select>
-		<label for="card-security-code">
-			Security code
-		</label>
-		<input type="text" name="number" name="card_security_code" id="card-security-code" size="3">
+		<div id="card-stripe"></div>
+		<div id="card-errors" role="alert"></div>
 		<input type="submit" value="Donate">
 		<div class="response-loading">
 			Please wait...

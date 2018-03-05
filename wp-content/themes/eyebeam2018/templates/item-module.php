@@ -68,6 +68,24 @@ $hash = sanitize_title($title);
 
 if ($type == 'toc') {
 	$GLOBALS['eyebeam2018']['has_toc'] = true;
+} else if ($type == 'donate') {
+	add_action('wp_footer', function() {
+
+		if (defined('STRIPE_USE_LIVE') && STRIPE_USE_LIVE &&
+		    defined('STRIPE_LIVE_KEY')) {
+			$key = STRIPE_LIVE_KEY;
+		} else if (defined('STRIPE_TEST_KEY')) {
+			$key = STRIPE_TEST_KEY;
+		} else {
+			echo "<!-- NO STRIPE API KEY DEFINED -->\n";
+			return;
+		}
+
+		echo "<script src=\"https://js.stripe.com/v3/\"></script>\n";
+		echo "<script>\n";
+		echo "var stripe = Stripe('$key');\n";
+		echo "</script>\n";
+	});
 }
 
 eyebeam2018_module(array(

@@ -406,15 +406,20 @@ function eyebeam2018_donate() {
 	} else {
 		echo "Sorry, that didn’t work for some reason.";
 	}
+	exit;
 }
-add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
-add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
+add_action('wp_ajax_eyebeam2018_donate', 'eyebeam2018_donate');
+add_action('wp_ajax_nopriv_eyebeam2018_donate', 'eyebeam2018_donate');
 
 function eyebeam2018_donate_request() {
 
-	// I mean, yes, I know there are plugins that do this sort of thing. But
-	// ultimately it's an API, and we should be able to debug it when it
-	// breaks. So we just use cURL and typing. (20180303/dphiffer)
+	dbug('eyebeam2018_donate_request');
+
+	$dir = __DIR__;
+	require_once("$dir/lib/stripe-php/init.php");
+
+	$values = eyebeam2018_donate_normalize($_POST);
+	dbug('eyebeam2018_donate_normalize:', $values);
 
 	if (! defined('STRIPE_TEST_KEY') ||
 	    ! defined('STRIPE_TEST_SECRET') ||
@@ -424,19 +429,33 @@ function eyebeam2018_donate_request() {
 			'ok' => 0,
 			'error' => 'Stripe API keys are not setup.'
 		);
-	} else if (! empty($_POST['first_name']) &&
-	           ! empty($_POST['last_name']) &&
-	           ! empty($_POST['email']) &&
-	           preg_match('/\w+@\w+\.\w+/', $_POST['email']) &&
-	           ! empty($_POST['amount'])) {
+	} else if (eyebeam2018_donate_validate($values)) {
 
-		$first_name = $_POST['first_name'];
-		$last_name = $_POST['last_name'];
-		$email = $_POST['email'];
+		if (defined('STRIPE_USE_LIVE') && STRIPE_USE_LIVE) {
+			$key = STRIPE_LIVE_KEY; // This isn't actually used here
+			$secret = STRIPE_LIVE_SECRET;
+		} else {
+			$key = STRIPE_TEST_KEY; // This isn't actually used here
+			$secret = STRIPE_TEST_SECRET;
+		}
+
+		dbug('setting API key...');
+
+		\Stripe\Stripe::setApiKey($secret);
+
+		dbug('creating charge...');
+
+		$charge = \Stripe\Charge::create(array(
+			'amount' => $values['amount'],
+			'currency' => 'usd',
+			'description' => 'Donation to Eyebeam. Thank you!',
+			'source' => $values['token']
+		));
+
+		dbug($charge);
 
 		return array(
-			'ok' => 0,
-			'error' => 'Sorry, this form does not work yet.'
+			'ok' => 1
 		);
 
 	} else {
@@ -445,6 +464,53 @@ function eyebeam2018_donate_request() {
 			'error' => 'Sorry, all the fields are required.'
 		);
 	}
+}
+
+function eyebeam2018_donate_normalize($raw) {
+	$vars = array(
+		'first_name',
+		'last_name',
+		'email',
+		'amount',
+		'token'
+	);
+	$normalized = array();
+	foreach ($vars as $var) {
+		$normalized[$var] = trim($raw[$var]);
+		if ($var == 'email') {
+			$normalized[$var] = strtolower($normalized[$var]);
+		} else if ($var == 'amount' &&
+		           $normalized['amount'] == 'other') {
+			$normalized[$var] = trim($raw['amount_other']);
+		}
+	}
+	return $normalized;
+}
+
+function eyebeam2018_donate_validate($values) {
+	$required = array(
+		'first_name',
+		'last_name',
+		'email',
+		'amount',
+		'token'
+	);
+	$numeric = array(
+		'amount'
+	);
+	foreach ($required as $var) {
+		if (empty($values[$var])) {
+			return false;
+		}
+		if (in_array($var, $numeric) &&
+		    ! is_numeric($values[$var])) {
+			return false;
+		}
+	}
+	if (! preg_match('/\w+@\w+\.\w+/', $values['email'])) {
+		return false;
+	}
+	return true;
 }
 
 // A filter for the_content, that sets a 'post_intro' global var

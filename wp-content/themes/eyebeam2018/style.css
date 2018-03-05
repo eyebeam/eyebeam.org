@@ -1507,7 +1507,7 @@ body.red .module-toc li {
 	cursor: pointer;
 	font-family: "ArialMonospacedMTStd", monospace;
 	font-size: 18px;
-	margin-top: 15px;
+	margin-top: 30px;
 }
 
 #donate select {
@@ -1553,8 +1553,15 @@ body.red .module-toc li {
 	width: 100px !important;
 }
 
-#donate #card-security-code {
-	width: 60px !important;
+#donate #card-name {
+	max-width: 460px;
+}
+
+#donate #card-stripe {
+	border: 2px solid #000;
+	max-width: 460px;
+	height: 43px;
+	padding: 9px;
 }
 
 @media (min-width: 857px) {
@@ -1571,7 +1578,7 @@ body.red .module-toc li {
 	#donate .response-loading,
 	#donate .response-success,
 	#donate .response-error {
-		max-width: 300px;
+		max-width: 460px;
 		margin-top: 30px;
 	}
 
