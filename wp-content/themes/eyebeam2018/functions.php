@@ -39,11 +39,11 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	include_once("$dir/lib/custom-fields/media-release.php");
 	include_once("$dir/lib/custom-fields/modular-grid.php");
 	include_once("$dir/lib/custom-fields/post.php");
+	include_once("$dir/lib/custom-fields/post-meta.php");
 	include_once("$dir/lib/custom-fields/recent-press.php");
 	include_once("$dir/lib/custom-fields/residency.php");
 	include_once("$dir/lib/custom-fields/residents.php");
 	include_once("$dir/lib/custom-fields/staff.php");
-	include_once("$dir/lib/custom-fields/youth.php");
 }
 
 function eyebeam2018_setup() {
