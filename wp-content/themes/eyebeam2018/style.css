@@ -694,6 +694,7 @@ footer .tagline {
 	footer .address {
 		text-align: left;
 		padding-left: 9px;
+		width: auto;
 	}
 
 	footer .contact {
@@ -702,6 +703,7 @@ footer .tagline {
 		right: 9px;
 		float: none;
 		text-align: right;
+		width: auto;
 	}
 
 	footer .social {
