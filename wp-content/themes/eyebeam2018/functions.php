@@ -99,6 +99,9 @@ function eyebeam2018_setup() {
 		'caption',
 	));
 
+	// Custom image sizes
+	add_image_size('hero', 2560, 0, false);
+
 	// Yeah, globals are bad, but at least we namespace ours
 	$GLOBALS['eyebeam2018'] = array(
 		'heroes' => array(),
@@ -107,6 +110,7 @@ function eyebeam2018_setup() {
 }
 add_action('init', 'eyebeam2018_setup');
 
+// Add a cache-buster to the URL
 function eyebeam2018_enqueue_css($path, $deps = array()) {
 	$name = 'eyebeam2018-' . str_replace('/[^a-z0-9-]/', '-', $path);
 	$url = get_stylesheet_directory_uri() . "/$path";
@@ -114,6 +118,7 @@ function eyebeam2018_enqueue_css($path, $deps = array()) {
 	wp_enqueue_style($name, $url, $deps, $version);
 }
 
+// Add a cache-buster to the URL
 function eyebeam2018_enqueue_js($path, $deps = array(), $bottom = true) {
 	$name = 'eyebeam2018-' . str_replace('/[^a-z0-9-]/', '-', $path);
 	$url = get_stylesheet_directory_uri() . "/$path";
