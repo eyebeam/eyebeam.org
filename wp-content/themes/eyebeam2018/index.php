@@ -16,13 +16,6 @@ Some basic ground rules:
 - Default to the simplest dumbest thing.
 (20180303/dphiffer)
 
-*/
-
-get_header();
-the_post();
-
-/*
-
 Some places you might want to look next:
 * templates/post.php
 * header.php and footer.php
@@ -39,6 +32,10 @@ https://developer.wordpress.org/themes/getting-started/
 (20180307/dphiffer)
 
 */
+
+get_header();
+the_post();
+
 get_template_part("templates/post");
 
 get_footer();
