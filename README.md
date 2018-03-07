@@ -9,21 +9,24 @@ Technology by Artists. If you want to help us improve the site, please don't
 hesitate to [file new issues](https://github.com/eyebeam/eyebeam.org/issues/)
 or get in touch at [info@eyebeam.org](mailto:info@eyebeam.org).
 
-## Statement of bias
+## Statements of bias
 
 The website is a work in progress and inevitably things will go wrong. We should
 endeavor to deploy working fixes as quickly as possible. We should not go about
 building a perfect, timeless cathedral. Useful mottos include "better than
-yesterday" and "build the dumbest, simplest thing first," and "optimize for
+yesterday" and "build the simplest, dumbest thing first," and "optimize for
 speed-of-deployment."
 
 ## Credits
 
 This site is built on [WordPress](https://wordpress.org/). The theme was made
-from scratch by @dphiffer and designed by @leigler. Props to Eyebeam staff
-@joannagould and @madpenny.
+from scratch by [@dphiffer](https://github.com/dphiffer) and designed by
+[@leigler](https://github.com/leigler). Props to Eyebeam staff
+[@joannagould](https://github.com/joannagould) and
+[@madpenny](https://github.com/madpenny).
 
-Also thanks to @straup for teaching me the biases described above.
+Also thanks to [@straup](https://github.com/straup) for teaching me the biases
+described above.
 
 ## Tech stuff
 
