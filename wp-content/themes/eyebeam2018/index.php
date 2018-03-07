@@ -21,6 +21,24 @@ Some basic ground rules:
 get_header();
 the_post();
 
+/*
+
+Some places you might want to look next:
+* templates/post.php
+* header.php and footer.php
+* functions.php
+* style.css (no preprocessing magic, just straight up CSS)
+* js/eyebeam2018.js
+* lib/*
+
+For a general discussion on how WordPress themes work, you might want to check
+out these articles:
+https://codex.wordpress.org/Theme_Development
+https://developer.wordpress.org/themes/getting-started/
+
+(20180307/dphiffer)
+
+*/
 get_template_part("templates/post");
 
 get_footer();
