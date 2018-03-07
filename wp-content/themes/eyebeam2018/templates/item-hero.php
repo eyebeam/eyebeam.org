@@ -13,7 +13,7 @@ if ($type == 'image') {
 	if (! empty($id_desktop)) {
 
 		$class = 'hero-image hero-image-desktop';
-		$size = 'large';
+		$size = 'hero';
 		list($src) = wp_get_attachment_image_src($id_desktop, $size);
 
 		if (empty($id_mobile)) {
