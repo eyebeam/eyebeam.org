@@ -48,7 +48,7 @@
 				<div class="address">
 					199 Cook St<br>
 					Brooklyn,  NY 11206<br>
-					<a href="#">View Map</a>
+					<a href="https://www.google.com/maps/search/?api=1&query=199+Cook+St,+Brooklyn,+NY+11206">View Map</a>
 				</div>
 				<div class="social">
 					<div class="links">
