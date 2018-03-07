@@ -124,9 +124,14 @@ var eyebeam2018 = (function($) {
 			});
 
 			if (typeof stripe == 'undefined') {
-				console.error('Could not find Stripe.js, set the following in wp-config.php: STRIPE_TEST_KEY, STRIPE_TEST_SECRET, STRIPE_LIVE_KEY, STRIPE_LIVE_SECRET, STRIPE_USE_LIVE');
-				$('#donate').html('Sorry, we cannot accept donations right now.');
-				return;
+				if (location.protocol == 'http:') {
+					window.location = 'https://www.eyebeam.org/donate/';
+					return;
+				} else {
+					console.error('Could not find Stripe.js, set the following in wp-config.php: STRIPE_TEST_KEY, STRIPE_TEST_SECRET, STRIPE_LIVE_KEY, STRIPE_LIVE_SECRET, STRIPE_USE_LIVE');
+					$('#donate').html('Sorry, we cannot accept donations right now.');
+					return;
+				}
 			}
 
 			var elements = stripe.elements();
