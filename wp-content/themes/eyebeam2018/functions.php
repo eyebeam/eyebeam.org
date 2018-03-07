@@ -4,6 +4,34 @@
 Hello, this is the eyebeam2018 functions file.
 (20180220/dphiffer)
 
+For your convenience, here is a list of all the functions in here:
+* eyebeam2018_acf_get_dir: make ACF work with symlinks
+* eyebeam2018_setup: init hook
+* eyebeam2018_enqueue_css: add cache-busting URL arg
+* eyebeam2018_enqueue_js: add cache-busting URL arg
+* eyebeam2018_enqueue: include front-end assets
+* eyebeam2018_img_src: add cache-busting URL arg
+* eyebeam2018_hero: register hero item
+* eyebeam2018_module: register a module item
+* eyebeam2018_render_heroes: calls get_template_part for each hero item
+* eyebeam2018_render_modules: calls get_template_part for each hero item
+* eyebeam2018_get_residents: returns array of resident posts
+* eyebeam2018_ajax_residents: AJAX handler for residents-by-year
+* eyebeam2018_video_embed: show an embed, given a video permalink
+* eyebeam2018_youtube_embed: show a ~YouTube~ embed
+* eyebeam2018_subscribe: AJAX handler for Mailchimp subscription
+* eyebeam2018_subscribe_request: makes Mailchimp API request
+* eyebeam2018_donate: AJAX handler for donations
+* eyebeam2018_donate_request: makes Stripe API request
+* eyebeam2018_donate_normalize: massage the donate submission values
+* eyebeam2018_donate_validate: ensure the donate submission is valid
+* eyebeam2018_extract_intro: the_content filter, pulls out intro text
+* eyebeam2018_content_fields: inserts the_content-like ACF content fields
+* eyebeam2018_shortcode_filter: tweak shortcode outputs
+* eyebeam2018_view_source: show any secret blog posts
+* eyebeam2018_view_source_post: register secret blog post
+* dbug: kinda like error_log, but more flexible
+
 */
 
 
@@ -213,6 +241,7 @@ function eyebeam2018_ajax_residents() {
 add_action('wp_ajax_eyebeam2018_residents', 'eyebeam2018_ajax_residents');
 add_action('wp_ajax_nopriv_eyebeam2018_residents', 'eyebeam2018_ajax_residents');
 
+// Outputs a video embed from its permalink URL
 function eyebeam2018_video_embed($video_url) {
 
 	// TODO: make this work with more video hosts, currently we only support
@@ -235,6 +264,7 @@ function eyebeam2018_video_embed($video_url) {
 	echo "<!-- could not render video embed for $video_url -->\n";
 }
 
+// Handler for YouTube video embeds
 function eyebeam2018_youtube_embed($matches) {
 	$id = $matches[1];
 	$src = "https://www.youtube.com/embed/$id";
@@ -279,6 +309,7 @@ function eyebeam2018_subscribe() {
 add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 
+// Actually *do* the API request to Mailchimp
 function eyebeam2018_subscribe_request() {
 
 	// I mean, yes, I know there are plugins that do this sort of thing. But
@@ -411,6 +442,7 @@ function eyebeam2018_donate() {
 add_action('wp_ajax_eyebeam2018_donate', 'eyebeam2018_donate');
 add_action('wp_ajax_nopriv_eyebeam2018_donate', 'eyebeam2018_donate');
 
+// Actually *do* the Stripe API request
 function eyebeam2018_donate_request() {
 
 	dbug('eyebeam2018_donate_request');
@@ -474,6 +506,7 @@ function eyebeam2018_donate_request() {
 	}
 }
 
+// Massage the donate submission values
 function eyebeam2018_donate_normalize($raw) {
 	$vars = array(
 		'first_name',
@@ -496,6 +529,7 @@ function eyebeam2018_donate_normalize($raw) {
 	return $normalized;
 }
 
+// Ensure the donate submission is valid
 function eyebeam2018_donate_validate($values) {
 	$required = array(
 		'first_name',
@@ -543,6 +577,7 @@ function eyebeam2018_extract_intro($content) {
 	return $content;
 }
 
+// Inserts the_content-like content from ACF
 function eyebeam2018_content_fields($content) {
 	if (get_field('event_info')) {
 		return get_field('event_info');
@@ -550,6 +585,7 @@ function eyebeam2018_content_fields($content) {
 	return $content;
 }
 
+// Tweak shortcode outputs
 function eyebeam2018_shortcode_filter($output, $tag, $attrs) {
 	if ($tag == 'embed') {
 		return "<div class=\"video-container\">$output</div>";
@@ -558,6 +594,7 @@ function eyebeam2018_shortcode_filter($output, $tag, $attrs) {
 }
 add_filter('do_shortcode_tag', 'eyebeam2018_shortcode_filter', 10, 3);
 
+// Inserts a secret blog post as an HTML comment
 function eyebeam2018_view_source() {
 	if (empty($GLOBALS['eyebeam2018']['view_source_post'])) {
 		return;
@@ -580,6 +617,7 @@ function eyebeam2018_view_source() {
 }
 add_action('eyebeam2018_view_source', 'eyebeam2018_view_source');
 
+// Register a secret blog post for a given page
 function eyebeam2018_view_source_post($slug) {
 	$GLOBALS['eyebeam2018']['view_source_post'] = $slug;
 }
