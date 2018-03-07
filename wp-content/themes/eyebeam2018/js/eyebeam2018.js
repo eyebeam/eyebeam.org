@@ -111,6 +111,10 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_donate: function() {
+			if ($('#donate').length < 1) {
+				return;
+			}
+
 			$('.donation-amount input').change(function(e) {
 				if ($('#show-other')[0].checked) {
 					$('#amount-other-container').removeClass('hidden');
@@ -125,7 +129,7 @@ var eyebeam2018 = (function($) {
 
 			if (typeof stripe == 'undefined') {
 				if (location.protocol == 'http:') {
-					window.location = 'https://www.eyebeam.org/donate/';
+					window.location = 'https://' + location.host + location.pathname;
 					return;
 				} else {
 					console.error('Could not find Stripe.js, set the following in wp-config.php: STRIPE_TEST_KEY, STRIPE_TEST_SECRET, STRIPE_LIVE_KEY, STRIPE_LIVE_SECRET, STRIPE_USE_LIVE');
