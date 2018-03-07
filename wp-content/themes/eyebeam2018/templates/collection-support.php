@@ -1,6 +1,12 @@
 <?php
 
-$id = "module-support";
+extract($GLOBALS['eyebeam2018']['curr_module']);
+
+if (! empty($toc_title)) {
+	$hash = sanitize_title($toc_title);
+}
+
+$id = "module-$hash";
 $class = 'module module-collection module-full_width';
 
 echo "<div id=\"$id\" class=\"$class\">\n";

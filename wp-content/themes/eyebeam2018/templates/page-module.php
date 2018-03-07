@@ -2,6 +2,10 @@
 
 extract($GLOBALS['eyebeam2018']['curr_module']);
 
+if (! empty($toc_title)) {
+	$hash = sanitize_title($toc_title);
+}
+
 echo "<div id=\"module-$hash\" class=\"module module-$type\">\n";
 
 $image = '';
