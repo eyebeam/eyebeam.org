@@ -558,6 +558,32 @@ function eyebeam2018_shortcode_filter($output, $tag, $attrs) {
 }
 add_filter('do_shortcode_tag', 'eyebeam2018_shortcode_filter', 10, 3);
 
+function eyebeam2018_view_source() {
+	if (empty($GLOBALS['eyebeam2018']['view_source_post'])) {
+		return;
+	}
+
+	$slug = $GLOBALS['eyebeam2018']['view_source_post'];
+	$dir = __DIR__;
+	$header = "$dir/view-source/00-header.txt";
+	$path = "$dir/view-source/$slug.txt";
+
+	if (! file_exists($path)) {
+		return;
+	}
+
+	echo "<!--\n";
+	echo file_get_contents($header);
+	echo "\n";
+	echo file_get_contents($path);
+	echo "-->\n";
+}
+add_action('eyebeam2018_view_source', 'eyebeam2018_view_source');
+
+function eyebeam2018_view_source_post($slug) {
+	$GLOBALS['eyebeam2018']['view_source_post'] = $slug;
+}
+
 // This requires that DBUG_PATH is set in wp-config.php.
 function dbug() {
 	if (empty($GLOBALS['dbug_fh'])) {
