@@ -338,6 +338,8 @@ var eyebeam2018 = (function($) {
 					span += 8;
 				} else if ($(module).hasClass('resident')) {
 					span += 4;
+				} else if ($(module).hasClass('event')) {
+					span += 4;
 				} else {
 					return;
 				}
