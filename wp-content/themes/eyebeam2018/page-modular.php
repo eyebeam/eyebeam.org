@@ -29,6 +29,8 @@ while (have_posts()) {
 
 	if (is_front_page()) {
 		get_template_part('templates/home-values');
+	} else if ($post->post_name == 'education') {
+		get_template_part('templates/education-sponsors');
 	}
 
 }

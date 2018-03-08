@@ -16,6 +16,7 @@ Contents (breakpoints are mobile-first):
 * Post
 * Archive
 * Donate
+* Sponsors
 
 */
 
@@ -1585,6 +1586,48 @@ body.red .module-toc li {
 	#donate .response-error {
 		max-width: 460px;
 		margin-top: 30px;
+	}
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sponsors */
+
+.module-sponsors-container {
+	background: #262626;
+	border-color: #262626;
+	color: #fff;
+	padding-bottom: 0;
+}
+
+.module-sponsors {
+	border: none;
+}
+
+.module-sponsors .sponsors-intro {
+	padding: 9px;
+}
+
+.module-sponsors .module {
+	border: none;
+}
+
+@media (min-width: 857px) {
+
+	.module-sponsors-container,
+	.module-sponsors,
+	.module-sponsors .module {
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+
+	.module-sponsors-container {
+		padding-top: 30px;
+	}
+
+	.module-sponsors {
+		max-width: 700px;
+		padding-bottom: 30px;
 	}
 
 }
