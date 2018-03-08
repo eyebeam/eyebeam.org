@@ -574,6 +574,22 @@ footer input {
 	text-align: center;
 }
 
+footer input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: rgba(255, 255, 255, 0.8);
+}
+
+footer input::-moz-placeholder { /* Firefox 19+ */
+	color: rgba(255, 255, 255, 0.8);
+}
+
+footer input:-ms-input-placeholder { /* IE 10+ */
+	color: rgba(255, 255, 255, 0.8);
+}
+
+footer input:-moz-placeholder { /* Firefox 18- */
+	color: rgba(255, 255, 255, 0.8);
+}
+
 footer input[type=text],
 footer input[type=email] {
 	display: block;
