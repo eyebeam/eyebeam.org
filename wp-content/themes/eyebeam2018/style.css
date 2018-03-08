@@ -575,19 +575,19 @@ footer input {
 }
 
 footer input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-	color: rgba(255, 255, 255, 0.8);
+	color: #fff;
 }
 
 footer input::-moz-placeholder { /* Firefox 19+ */
-	color: rgba(255, 255, 255, 0.8);
+	color: #fff;
 }
 
 footer input:-ms-input-placeholder { /* IE 10+ */
-	color: rgba(255, 255, 255, 0.8);
+	color: #fff;
 }
 
 footer input:-moz-placeholder { /* Firefox 18- */
-	color: rgba(255, 255, 255, 0.8);
+	color: #fff;
 }
 
 footer input[type=text],
