@@ -7,6 +7,50 @@ if(function_exists("register_field_group"))
 		'title' => 'Post',
 		'fields' => array (
 			array (
+				'key' => 'field_56f6810056542',
+				'label' => 'Image',
+				'name' => 'image',
+				'type' => 'image',
+				'save_format' => 'id',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_5aa1b7e8b1f22',
+				'label' => 'Show date',
+				'name' => 'show_date',
+				'type' => 'radio',
+				'choices' => array (
+					'show' => 'Show publish date',
+					'hide' => 'Hide date',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'show',
+				'layout' => 'horizontal',
+			),
+			array (
+				'key' => 'field_5aa1b70edd6c6',
+				'label' => 'Meta',
+				'name' => 'meta',
+				'type' => 'wysiwyg',
+				'instructions' => 'override meta box content',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5aa1b7e8b1f22',
+							'operator' => '==',
+							'value' => 'hide',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'toolbar' => 'basic',
+				'media_upload' => 'no',
+			),
+			array (
 				'key' => 'field_56f5cf3804841',
 				'label' => 'Author',
 				'name' => 'author',
@@ -17,15 +61,6 @@ if(function_exists("register_field_group"))
 				'append' => '',
 				'formatting' => 'html',
 				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_56f6810056542',
-				'label' => 'Image',
-				'name' => 'image',
-				'type' => 'image',
-				'save_format' => 'id',
-				'preview_size' => 'thumbnail',
-				'library' => 'all',
 			),
 		),
 		'location' => array (
