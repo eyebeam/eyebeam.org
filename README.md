@@ -22,8 +22,9 @@ speed-of-deployment."
 This site is built on [WordPress](https://wordpress.org/). The theme was made
 from scratch by [@dphiffer](https://github.com/dphiffer) and designed by
 [@leigler](https://github.com/leigler). Props to Eyebeam staff
-[@joannagould](https://github.com/joannagould) and
-[@madpenny](https://github.com/madpenny).
+[@joannagould](https://github.com/joannagould),
+[@madpenny](https://github.com/madpenny), and
+[@poohlaga](https://github.com/poohlaga).
 
 Also thanks to [@straup](https://github.com/straup) for teaching me the biases
 described above.
