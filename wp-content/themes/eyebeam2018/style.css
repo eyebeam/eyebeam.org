@@ -98,6 +98,9 @@ body {
 	background-position: center center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	-webkit-font-smoothing: antialiased;
+	-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
 }
 
 strong, b {
