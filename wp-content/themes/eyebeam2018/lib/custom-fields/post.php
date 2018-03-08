@@ -26,7 +26,7 @@ if(function_exists("register_field_group"))
 				),
 				'other_choice' => 0,
 				'save_other_choice' => 0,
-				'default_value' => 'show',
+				'default_value' => 'hide',
 				'layout' => 'horizontal',
 			),
 			array (
