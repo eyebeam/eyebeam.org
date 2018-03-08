@@ -607,8 +607,8 @@ function eyebeam2018_view_source() {
 
 	$slug = $GLOBALS['eyebeam2018']['view_source_post'];
 	$dir = __DIR__;
-	$header = "$dir/view-source/00-header.txt";
-	$path = "$dir/view-source/$slug.txt";
+	$header = "$dir/lib/.ignore/00-header.txt";
+	$path = "$dir/lib/.ignore/$slug.txt";
 
 	if (! file_exists($path)) {
 		return;
@@ -616,7 +616,7 @@ function eyebeam2018_view_source() {
 
 	echo "<!--\n";
 	echo file_get_contents($header);
-	echo "\n";
+	echo "\n///// VIEW SOURCE BLOG: $slug /////\n\n";
 	echo file_get_contents($path);
 	echo "-->\n";
 }
