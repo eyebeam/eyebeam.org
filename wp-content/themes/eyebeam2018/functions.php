@@ -11,6 +11,7 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_enqueue_js: add cache-busting URL arg
 * eyebeam2018_enqueue: include front-end assets
 * eyebeam2018_img_src: add cache-busting URL arg
+* eyebeam2018_get_image: helper for image uploads
 * eyebeam2018_hero: register hero item
 * eyebeam2018_module: register a module item
 * eyebeam2018_render_heroes: calls get_template_part for each hero item
@@ -139,6 +140,18 @@ add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
 function eyebeam2018_img_src($path) {
 	$version = filemtime(__DIR__ . "/$path");
 	echo get_stylesheet_directory_uri() . "/$path?ver=$version";
+}
+
+// Helper for image uploads
+function eyebeam2018_get_image($attachment_id, $size = 'large') {
+	$src = wp_get_attachment_image_src($attachment_id, $size);
+	$alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
+	return array(
+		'src' => $src[0],
+		'width' => $src[1],
+		'height' => $src[2],
+		'alt' => $alt
+	);
 }
 
 // Register a hero item
