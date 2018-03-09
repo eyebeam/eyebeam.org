@@ -183,6 +183,7 @@ function eyebeam2018_render_modules() {
 	}
 
 	echo "<div class=\"$class\">\n";
+	echo "<ul>\n";
 
 	foreach ($GLOBALS['eyebeam2018']['modules'] as $module) {
 
@@ -193,6 +194,7 @@ function eyebeam2018_render_modules() {
 		get_template_part('templates/page-module', $module['type']);
 	}
 
+	echo "</ul>\n";
 	echo "<br class=\"clear\">\n";
 	echo "</div>\n";
 }

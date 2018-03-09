@@ -6,7 +6,7 @@ if (! empty($toc_title)) {
 	$hash = sanitize_title($toc_title);
 }
 
-echo "<div id=\"module-$hash\" class=\"module module-$type\">\n";
+echo "<li id=\"module-$hash\" class=\"module module-$type\">\n";
 
 $image = '';
 if (! empty($image_id)) {
@@ -61,4 +61,4 @@ if (! empty($layout) &&
 	echo "$image$text";
 }
 
-echo "</div>\n";
+echo "</li>\n";

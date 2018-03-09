@@ -859,6 +859,7 @@ footer .tagline {
 }
 
 .module {
+	display: block;
 	margin-left: 10px;
 	border-left: 2px solid #000;
 	border-top: 2px solid #000;
