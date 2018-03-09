@@ -144,21 +144,21 @@ body.red a {
 body.green header .support,
 body.green .subnav,
 body.green footer {
-	background: #68BD9E;
+	background: #46A07F;
 }
 
 body.green a {
-	color: #68BD9E;
+	color: #46A07F;
 }
 
 body.blue header .support,
 body.blue .subnav,
 body.blue footer {
-	background: #00A7DA;
+	background: #009CCC;
 }
 
 body.blue a {
-	color: #00A7DA;
+	color: #009CCC;
 }
 
 form .response-loading,
