@@ -113,7 +113,7 @@ em, i {
 }
 
 a {
-	color: #EB6B62;
+	color: #E22F22;
 	text-decoration: none;
 }
 
@@ -134,31 +134,31 @@ a {
 body.red header .support,
 body.red .subnav,
 body.red footer {
-	background: #EB6B62;
+	background: #E22F22;
 }
 
 body.red a {
-	color: #EB6B62;
+	color: #E22F22;
 }
 
 body.green header .support,
 body.green .subnav,
 body.green footer {
-	background: #68BD9E;
+	background: #3A8368;
 }
 
 body.green a {
-	color: #68BD9E;
+	color: #3A8368;
 }
 
 body.blue header .support,
 body.blue .subnav,
 body.blue footer {
-	background: #00A7DA;
+	background: #007DA3;
 }
 
 body.blue a {
-	color: #00A7DA;
+	color: #007DA3;
 }
 
 form .response-loading,
@@ -438,7 +438,7 @@ body.show-menu header nav .support {
 		position: absolute;
 		top: 23px;
 		right: 10px;
-		background: #EB6B62;
+		background: #E22F22;
 	}
 
 }
@@ -538,7 +538,7 @@ body.show-menu header nav .support {
 
 footer {
 	color: #fff;
-	background: #EB6B62;
+	background: #E22F22;
 	text-align: center;
 	font-family: "ArialMonospacedMTStd", monospace;
 	font-size: 15px;
@@ -918,7 +918,7 @@ footer .tagline {
 	font-size: 28px;
 	line-height: 28px;
 	text-transform: uppercase;
-	color: #EB6B62;
+	color: #E22F22;
 	list-style: disc;
 	margin-left: 1.2em;
 }
