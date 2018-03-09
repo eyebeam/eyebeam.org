@@ -319,50 +319,59 @@ var eyebeam2018 = (function($) {
 
 		align_modules: function() {
 
+			var selector = '.module, .collection-item';
+
 			if ($(document.body).width() <= mobile_width) {
-				$('.module, .collection-item').css('height', 'auto');
+				$(selector).css('height', 'auto');
 				return;
 			}
 
-			var span = 0;
-			var row = [];
-			$('.module, .collection-item').each(function(i, module) {
+			var span;
+			var row;
 
-				// We are working off of a 12-column grid
+			$('ul').each(function(i, ul) {
 
-				if ($(module).hasClass('module-one_third')) {
-					span += 4;
-				} else if ($(module).hasClass('module-one_half')) {
-					span += 6;
-				} else if ($(module).hasClass('module-two_thirds')) {
-					span += 8;
-				} else if ($(module).hasClass('resident')) {
-					span += 4;
-				} else if ($(module).hasClass('event')) {
-					span += 4;
-				} else {
-					return;
-				}
+				span = 0;
+				row = [];
 
-				$(module).css('height', 'auto');
+				$(ul).find(selector).each(function(i, module) {
 
-				if (span % 12 == 0) {
+					// We are working off of a 12-column grid
 
-					row.push(module);
+					if ($(module).hasClass('module-one_third')) {
+						span += 4;
+					} else if ($(module).hasClass('module-one_half')) {
+						span += 6;
+					} else if ($(module).hasClass('module-two_thirds')) {
+						span += 8;
+					} else if ($(module).hasClass('resident')) {
+						span += 4;
+					} else if ($(module).hasClass('event')) {
+						span += 4;
+					} else {
+						return;
+					}
 
-					var max_height = 0;
-					for (var i = 0; i < row.length; i++) {
-						if (row[i].offsetHeight > max_height) {
-							max_height = row[i].offsetHeight;
+					$(module).css('height', 'auto');
+
+					if (span % 12 == 0) {
+
+						row.push(module);
+
+						var max_height = 0;
+						for (var i = 0; i < row.length; i++) {
+							if (row[i].offsetHeight > max_height) {
+								max_height = row[i].offsetHeight;
+							}
 						}
+						for (var i = 0; i < row.length; i++) {
+							$(row[i]).css('height', max_height + 'px');
+						}
+						row = [];
+					} else {
+						row.push(module);
 					}
-					for (var i = 0; i < row.length; i++) {
-						$(row[i]).css('height', max_height + 'px');
-					}
-					row = [];
-				} else {
-					row.push(module);
-				}
+				});
 			});
 		}
 
