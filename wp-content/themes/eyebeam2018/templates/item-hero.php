@@ -14,29 +14,25 @@ if ($type == 'image') {
 
 		$class = 'hero-image hero-image-desktop';
 		$size = 'hero';
-		list($src) = wp_get_attachment_image_src($id_desktop, $size);
+		$image = eyebeam2018_get_image($id_desktop, $size);
 
 		if (empty($id_mobile)) {
 			// if we don't have a mobile-specific image, use this for both
 			$class .= ' hero-image-mobile';
 		}
 
-		$hero['image_desktop'] = array(
-			'src' => $src,
-			'class' => $class
-		);
+		$image['class'] = $class;
+		$hero['image_desktop'] = $image;
 	}
 
 	if (! empty($id_mobile)) {
 
 		$class = 'hero-image hero-image-mobile';
 		$size = 'large';
-		list($src) = wp_get_attachment_image_src($id_mobile, $size);
+		$image = eyebeam2018_get_image($id_mobile, $size);
 
-		$hero['image_mobile'] = array(
-			'src' => $src,
-			'class' => $class
-		);
+		$image['class'] = $class;
+		$hero['image_mobile'] = $image;
 	}
 
 	$url = get_sub_field('hero_image_url');
