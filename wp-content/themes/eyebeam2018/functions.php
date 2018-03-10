@@ -677,9 +677,6 @@ function eyebeam2018_resident_bio($resident, $members = null) {
 	} else {
 
 		$bio = apply_filters('the_content', $resident->post_content);
-		if (empty($bio)) {
-			$bio = '<p><i>We don’t have this resident’s bio yet.</i></p>';
-		}
 
 		$links = get_field('links', $resident->ID);
 
@@ -694,6 +691,11 @@ function eyebeam2018_resident_bio($resident, $members = null) {
 			$bio .= implode(', ', $link_items) . "\n";
 			$bio .= "</div>\n";
 		}
+
+		if (empty($bio)) {
+			$bio = '<p><i>Nothing here (yet).</i></p>';
+		}
+
 		$bio = "<div class=\"resident-bio\">$bio</div>\n";
 		//$bio .= "<div class=\"resident-edit\"><a href=\"/people/$resident->ID\">Is this you? Edit your info.</a></div>\n";
 	}
