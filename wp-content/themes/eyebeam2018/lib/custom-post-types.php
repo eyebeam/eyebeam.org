@@ -20,7 +20,7 @@ register_post_type('resident', array(
 	'has_archive' => true,
 	'public' => true,
 	'query_var' => true,
-	'supports' => array('title', 'thumbnail', 'page-attributes'),
+	'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
 	'taxonomies' => array('post_tag', 'category'),
 	'exclude_from_search' => false,
 	'capability_type' => 'post',

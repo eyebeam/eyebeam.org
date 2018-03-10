@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/4.9.4" created="2018-03-10 18:59" -->
+<!-- generator="WordPress/4.9.4" created="2018-03-10 21:42" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Eyebeam</title>
 	<link>http://dev.eyebeam.org</link>
 	<description>Tech By Artists</description>
-	<pubDate>Sat, 10 Mar 2018 18:59:04 +0000</pubDate>
+	<pubDate>Sat, 10 Mar 2018 21:42:05 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
 	<wp:base_site_url>http://dev.eyebeam.org</wp:base_site_url>
@@ -189,6 +189,10 @@
 			<wp:meta_value><![CDATA[a:12:{s:3:"key";s:19:"field_5702b1ac2ae46";s:5:"label";s:10:"Start year";s:4:"name";s:10:"start_year";s:4:"type";s:6:"select";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:7:"choices";a:19:{i:2000;s:4:"2000";i:2001;s:4:"2001";i:2002;s:4:"2002";i:2003;s:4:"2003";i:2004;s:4:"2004";i:2005;s:4:"2005";i:2006;s:4:"2006";i:2007;s:4:"2007";i:2008;s:4:"2008";i:2009;s:4:"2009";i:2010;s:4:"2010";i:2011;s:4:"2011";i:2012;s:4:"2012";i:2013;s:4:"2013";i:2014;s:4:"2014";i:2015;s:4:"2015";i:2016;s:4:"2016";i:2017;s:4:"2017";i:2018;s:4:"2018";}s:13:"default_value";s:0:"";s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1d52ae47";s:8:"operator";s:2:"==";s:5:"value";s:4:"2015";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
+			<wp:meta_key>rule</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:8:"resident";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
 			<wp:meta_key>field_5702b1d52ae47</wp:meta_key>
 			<wp:meta_value><![CDATA[a:12:{s:3:"key";s:19:"field_5702b1d52ae47";s:5:"label";s:8:"End year";s:4:"name";s:8:"end_year";s:4:"type";s:6:"select";s:12:"instructions";s:0:"";s:8:"required";s:1:"1";s:7:"choices";a:19:{i:2000;s:4:"2000";i:2001;s:4:"2001";i:2002;s:4:"2002";i:2003;s:4:"2003";i:2004;s:4:"2004";i:2005;s:4:"2005";i:2006;s:4:"2006";i:2007;s:4:"2007";i:2008;s:4:"2008";i:2009;s:4:"2009";i:2010;s:4:"2010";i:2011;s:4:"2011";i:2012;s:4:"2012";i:2013;s:4:"2013";i:2014;s:4:"2014";i:2015;s:4:"2015";i:2016;s:4:"2016";i:2017;s:4:"2017";i:2018;s:4:"2018";}s:13:"default_value";s:0:"";s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2015";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}]]></wp:meta_value>
 		</wp:postmeta>
@@ -197,8 +201,20 @@
 			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_5705f16a1bd20";s:5:"label";s:13:"Resident type";s:4:"name";s:13:"resident_type";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2015";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>rule</wp:meta_key>
-			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:8:"resident";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
+			<wp:meta_key>field_5aa437f01f96b</wp:meta_key>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_5aa437f01f96b";s:5:"label";s:13:"Email address";s:4:"name";s:5:"email";s:4:"type";s:4:"text";s:12:"instructions";s:18:"not shown publicly";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2000";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_5aa437aa1f969</wp:meta_key>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_5aa437aa1f969";s:5:"label";s:7:"Members";s:4:"name";s:7:"members";s:4:"type";s:12:"relationship";s:12:"instructions";s:30:"each member in a collaboration";s:8:"required";s:1:"0";s:13:"return_format";s:6:"object";s:9:"post_type";a:1:{i:0;s:8:"resident";}s:8:"taxonomy";a:1:{i:0;s:3:"all";}s:7:"filters";a:1:{i:0;s:6:"search";}s:15:"result_elements";s:0:"";s:3:"max";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2000";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:7;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_5aa4383c6d960</wp:meta_key>
+			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_5aa4383c6d960";s:5:"label";s:20:"Collaboration member";s:4:"name";s:20:"collaboration_member";s:4:"type";s:5:"radio";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"choices";a:2:{s:4:"show";s:31:"Had individual residency (show)";s:4:"hide";s:39:"Only residency was collaboration (hide)";}s:12:"other_choice";s:1:"0";s:17:"save_other_choice";s:1:"0";s:13:"default_value";s:4:"show";s:6:"layout";s:8:"vertical";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2000";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:6;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_5aa43f17ed630</wp:meta_key>
+			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_5aa43f17ed630";s:5:"label";s:5:"Links";s:4:"name";s:5:"links";s:4:"type";s:8:"repeater";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:10:"sub_fields";a:2:{i:0;a:15:{s:3:"key";s:19:"field_5aa43f23ed631";s:5:"label";s:10:"Link title";s:4:"name";s:10:"link_title";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"html";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2000";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}i:1;a:15:{s:3:"key";s:19:"field_5aa43f2eed632";s:5:"label";s:8:"Link URL";s:4:"name";s:8:"link_url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2000";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}}s:7:"row_min";s:0:"";s:9:"row_limit";s:0:"";s:6:"layout";s:5:"table";s:12:"button_label";s:7:"Add Row";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5702b1ac2ae46";s:8:"operator";s:2:"==";s:5:"value";s:4:"2000";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>

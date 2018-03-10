@@ -1245,6 +1245,38 @@ body.red .module-toc li {
 	margin-top: 10px;
 }
 
+.resident-bio-name {
+	padding-bottom: 0 !important;
+	padding-top: 15px !important;
+}
+
+.resident-bio {
+	border-top: 2px solid #000;
+	margin-top: 10px;
+}
+
+.resident-bio-name + .resident-bio {
+	margin-top: 5px;
+}
+
+.resident-links {
+	margin-top: 10px;
+}
+
+.resident-edit {
+	font-size: 12px;
+	text-transform: uppercase;
+	margin-top: 5px;
+}
+
+.resident-edit a {
+	color: #666 !important;
+}
+
+.resident-edit a:hover {
+	color: #000 !important;
+}
+
 @media (min-width: 857px) {
 
 	#residents-year {

@@ -32,6 +32,7 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_shortcode_filter: tweak shortcode outputs
 * eyebeam2018_view_source: show any secret blog posts
 * eyebeam2018_view_source_post: register secret blog post
+* eyebeam2018_resident_bio: returns a resident bio
 * dbug: kinda like error_log, but more flexible
 
 */
@@ -661,6 +662,43 @@ add_action('eyebeam2018_view_source', 'eyebeam2018_view_source');
 // Register a secret blog post for a given page
 function eyebeam2018_view_source_post($slug) {
 	$GLOBALS['eyebeam2018']['view_source_post'] = $slug;
+}
+
+// Returns a resident bio
+function eyebeam2018_resident_bio($resident, $members = null) {
+	$bio = '';
+
+	if (! empty($members)) {
+		foreach ($members as $member) {
+			$name = get_the_title($member);
+			$bio .= "<h3 class=\"resident-bio-name module-title\">$name</h3>\n";
+			$bio .= eyebeam2018_resident_bio($member);
+		}
+	} else {
+
+		$bio = apply_filters('the_content', $resident->post_content);
+		if (empty($bio)) {
+			$bio = '<p><i>We don’t have this resident’s bio yet.</i></p>';
+		}
+
+		$links = get_field('links', $resident->ID);
+
+		if (! empty($links)) {
+			$bio .= "\n<div class=\"resident-links\">\n";
+			$link_items = array();
+			foreach ($links as $link) {
+				$esc_title = htmlentities($link['link_title']);
+				$esc_url = htmlentities($link['link_url']);
+				$link_items[] = "<a href=\"$esc_url\">$esc_title</a>";
+			}
+			$bio .= implode(', ', $link_items) . "\n";
+			$bio .= "</div>\n";
+		}
+		$bio = "<div class=\"resident-bio\">$bio</div>\n";
+		//$bio .= "<div class=\"resident-edit\"><a href=\"/people/$resident->ID\">Is this you? Edit your info.</a></div>\n";
+	}
+
+	return $bio;
 }
 
 // This requires that DBUG_PATH is set in wp-config.php.

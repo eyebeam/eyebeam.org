@@ -14,7 +14,7 @@ var eyebeam2018 = (function($) {
 			self.setup_modules();
 			self.setup_color();
 			self.setup_menu();
-			self.setup_collections();
+			self.setup_bio_toggle();
 			self.setup_hash();
 			self.setup_residents();
 			self.setup_archive();
@@ -64,10 +64,11 @@ var eyebeam2018 = (function($) {
 			});
 		},
 
-		setup_collections: function() {
+		setup_bio_toggle: function() {
 			$('.toggle-bio').click(function(e) {
 				e.preventDefault();
 				$(e.target).closest('li').toggleClass('show-bio');
+				self.align_modules();
 			});
 		},
 
@@ -95,6 +96,7 @@ var eyebeam2018 = (function($) {
 				$.get(path + args, function(rsp) {
 					$('#module-residents ul').removeClass('loading');
 					$('#module-residents ul').html(rsp);
+					self.setup_bio_toggle();
 				});
 			});
 		},
