@@ -34,6 +34,7 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_view_source_post: register secret blog post
 * eyebeam2018_resident_bio: returns a resident bio
 * dbug: kinda like error_log, but more flexible
+* eyebeam2018_db_migration_1: update resident links
 
 */
 
@@ -668,37 +669,44 @@ function eyebeam2018_view_source_post($slug) {
 function eyebeam2018_resident_bio($resident, $members = null) {
 	$bio = '';
 
+	//$bio = apply_filters('the_content', $resident->post_content);
+
+	$links = get_field('links', $resident->ID);
 	if (! empty($members)) {
+		foreach ($members as $member) {
+			$member_links = get_field('links', $member->ID);
+			if (! empty($member_links)) {
+				$links = array_merge($links, $member_links);
+			}
+		}
+	}
+
+	if (! empty($links)) {
+		$bio .= "\n<div class=\"resident-links\">\n";
+		$link_items = array();
+		foreach ($links as $link) {
+			$esc_title = htmlentities($link['link_title']);
+			$esc_url = htmlentities($link['link_url']);
+			$link_items[] = "<a href=\"$esc_url\">$esc_title</a>";
+		}
+		$bio .= implode("<br>\n", $link_items) . "\n";
+		$bio .= "</div>\n";
+	}
+
+	//if (empty($bio)) {
+	//	$bio = '<p><i>Nothing here (yet).</i></p>';
+	//}
+
+	//$bio = "<div class=\"resident-bio\">$bio</div>\n";
+	//$bio .= "<div class=\"resident-edit\"><a href=\"/people/$resident->ID\">Is this you? Edit your info.</a></div>\n";
+
+	/*if (! empty($members)) {
 		foreach ($members as $member) {
 			$name = get_the_title($member);
 			$bio .= "<h3 class=\"resident-bio-name module-title\">$name</h3>\n";
 			$bio .= eyebeam2018_resident_bio($member);
 		}
-	} else {
-
-		$bio = apply_filters('the_content', $resident->post_content);
-
-		$links = get_field('links', $resident->ID);
-
-		if (! empty($links)) {
-			$bio .= "\n<div class=\"resident-links\">\n";
-			$link_items = array();
-			foreach ($links as $link) {
-				$esc_title = htmlentities($link['link_title']);
-				$esc_url = htmlentities($link['link_url']);
-				$link_items[] = "<a href=\"$esc_url\">$esc_title</a>";
-			}
-			$bio .= implode(', ', $link_items) . "\n";
-			$bio .= "</div>\n";
-		}
-
-		if (empty($bio)) {
-			$bio = '<p><i>Nothing here (yet).</i></p>';
-		}
-
-		$bio = "<div class=\"resident-bio\">$bio</div>\n";
-		//$bio .= "<div class=\"resident-edit\"><a href=\"/people/$resident->ID\">Is this you? Edit your info.</a></div>\n";
-	}
+	}*/
 
 	return $bio;
 }
@@ -727,3 +735,64 @@ function dbug() {
 		fwrite($fh, "[$sec] $arg\n");
 	}
 }
+
+// Update resident links
+function eyebeam2018_db_migration_1() {
+	echo '<pre>';
+	$db_version = get_option('eyebeam2018_db_version', 0);
+	if ($db_version >= 1) {
+		die("db_version = $db_version (skipping migration)\n");
+	}
+	$posts = get_posts(array(
+		'post_type' => 'resident',
+		'posts_per_page' => -1
+	));
+
+	$links_field_key = 'field_5aa43f17ed630';
+	$link_title_field_key = 'field_5aa43f23ed631';
+	$link_url_field_key = 'field_5aa43f2eed632';
+
+	foreach ($posts as $post) {
+		echo "<a href=\"/wp-admin/post.php?post=$post->ID&action=edit\">$post->ID</a>: $post->post_title\n";
+		$name = get_post_meta($post->ID, 'name', true);
+		echo "\t$name\n";
+
+		$num = 0;
+		if (preg_match_all('/href="([^"]+?)"/', $name, $matches)) {
+			foreach ($matches[1] as $match) {
+				$url = trim($match);
+				$title = preg_replace('/^https?:\/\//', '', $url);
+				$title = preg_replace('/^www\./', '', $title);
+				$title = preg_replace('/\/(index\.php)?$/', '', $title);
+				if (substr($title, 0, strlen('eyebeam.org/stopwork/introducing-')) == 'eyebeam.org/stopwork/introducing-') {
+					$url = str_replace('http://www.eyebeam.org/stopwork', 'https://www.eyebeam.org', $url);
+					$title = 'Introducing: ' . strip_tags($name);
+				} else if (substr($url, 0, strlen('http://linkedin.com')) == 'http://linkedin.com') {
+					$title = 'LinkedIn';
+				}
+				echo "\t\tfound: <a href=\"$url\">$title</a>\n";
+
+				// This would make more sense (or add_row()), but it's not
+				// available until ACF 5.0 (note: $num is 1-indexed here)
+				// (20180310/dphiffer)
+
+				//update_sub_field(array('links', $num, 'link_title'), $title, $post->ID);
+				//update_sub_field(array('links', $num, 'link_url'), $url, $post->ID);
+
+				update_post_meta($post->ID, "links_{$num}_link_title", $title);
+				update_post_meta($post->ID, "_links_{$num}_link_title", $link_title_field_key);
+				update_post_meta($post->ID, "links_{$num}_link_url", $url);
+				update_post_meta($post->ID, "_links_{$num}_link_url", $link_url_field_key);
+
+				// $num is zero-indexed here
+				$num++;
+			}
+		}
+		update_post_meta($post->ID, "links", $num);
+		update_post_meta($post->ID, "_links", $links_field_key);
+
+	}
+	update_option('eyebeam2018_db_version', 1, false);
+	exit;
+}
+add_action('wp_ajax_eyebeam2018_db_migration_1', 'eyebeam2018_db_migration_1');
