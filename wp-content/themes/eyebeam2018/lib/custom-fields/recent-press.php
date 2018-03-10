@@ -8,14 +8,14 @@ if(function_exists("register_field_group"))
 		'fields' => array (
 			array (
 				'key' => 'field_56aec4e08b614',
-				'label' => 'URL',
-				'name' => 'url',
+				'label' => 'Link',
+				'name' => 'link',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
 				'prepend' => '',
 				'append' => '',
-				'formatting' => 'none',
+				'formatting' => 'html',
 				'maxlength' => '',
 			),
 			array (

@@ -12,6 +12,7 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_enqueue: include front-end assets
 * eyebeam2018_img_src: add cache-busting URL arg
 * eyebeam2018_get_image: helper for image uploads
+* eyebeam2018_get_image_html: helper for outputting image uploads
 * eyebeam2018_hero: register hero item
 * eyebeam2018_module: register a module item
 * eyebeam2018_render_heroes: calls get_template_part for each hero item
@@ -152,6 +153,26 @@ function eyebeam2018_get_image($attachment_id, $size = 'large') {
 		'height' => $src[2],
 		'alt' => $alt
 	);
+}
+
+// Helper for outputting image uploads
+function eyebeam2018_get_image_html($attachment_id, $size = 'large', $class = null) {
+
+	$image = eyebeam2018_get_image($attachment_id, $size);
+
+	if (! empty($class)) {
+		$image['class'] = $class;
+	}
+
+	$attrs = array();
+	foreach ($image as $attr => $value) {
+		$esc_attr = htmlentities($attr);
+		$esc_value = htmlentities($value);
+		$attrs[] = "$esc_attr=\"$esc_value\"";
+	}
+
+	$attrs = implode(' ', $attrs);
+	return "<img $attrs>";
 }
 
 // Register a hero item

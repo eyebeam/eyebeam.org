@@ -340,13 +340,13 @@ var eyebeam2018 = (function($) {
 
 					if ($(module).hasClass('module-one_third')) {
 						span += 4;
-					} else if ($(module).hasClass('module-one_half')) {
+					} else if ($(module).hasClass('module-one_half') ||
+					           $(module).hasClass('press-release')) {
 						span += 6;
 					} else if ($(module).hasClass('module-two_thirds')) {
 						span += 8;
-					} else if ($(module).hasClass('resident')) {
-						span += 4;
-					} else if ($(module).hasClass('event')) {
+					} else if ($(module).hasClass('resident') ||
+					           $(module).hasClass('event')) {
 						span += 4;
 					} else {
 						return;
