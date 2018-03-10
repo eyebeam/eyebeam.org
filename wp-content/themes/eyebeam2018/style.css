@@ -1702,7 +1702,7 @@ body.red .module-toc li {
 }
 
 .press-recent li {
-	margin-top: 15px;
+	margin-top: 20px;
 }
 
 .press-recent-title {
@@ -1710,11 +1710,15 @@ body.red .module-toc li {
 }
 
 .press-recent-publication {
-	margin-top: 5px;
+	margin-top: 10px;
 }
 
 .press-recent blockquote {
 	padding-left: 20px;
+}
+
+.press-recent blockquote p {
+	margin-top: 10px;
 }
 
 .press .clear {
@@ -1751,6 +1755,10 @@ body.red .module-toc li {
 		width: calc(50% - 19px);
 		margin-right: 19px;
 		padding-bottom: 40px;
+	}
+
+	.press-recent li {
+		margin-top: 40px;
 	}
 
 	.press .clear {
