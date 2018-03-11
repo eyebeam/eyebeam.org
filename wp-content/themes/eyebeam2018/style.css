@@ -1119,12 +1119,13 @@ footer .tagline {
 	}
 
 	.module-toc li {
-		font-size: 52px;
+		font-size: 36px;
+		line-height: 36px;
 	}
 
 	.module-toc li a {
-		font-size: 36px;
-		line-height: 52px;
+		font-size: 28px;
+		line-height: 36px;
 	}
 
 	.module-collection li {
@@ -1183,6 +1184,34 @@ footer .tagline {
 		margin-top: -40px;
 		padding-bottom: 40px;
 		margin-bottom: 0;
+	}
+
+}
+
+@media (min-width: 1050px) {
+
+	.module-toc li {
+		font-size: 42px;
+		line-height: 42px;
+	}
+
+	.module-toc li a {
+		font-size: 32px;
+		line-height: 42px;
+	}
+
+}
+
+@media (min-width: 1130px) {
+
+	.module-toc li {
+		font-size: 48px;
+		line-height: 48px;
+	}
+
+	.module-toc li a {
+		font-size: 36px;
+		line-height: 48px;
 	}
 
 }
