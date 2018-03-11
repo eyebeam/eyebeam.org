@@ -997,6 +997,26 @@ body.red .module-toc li {
 	padding-top: 0 !important;
 }
 
+.load-more {
+	font-family: "ArialMonospacedMTStd", monospace;
+	font-size: 18px;
+	line-height: 22px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.load-more a {
+	display: inline-block;
+	padding: 0 20px;
+	line-height: 43px;
+	background: #000;
+	color: #fff !important;
+}
+
+.load-more a.loading {
+	opacity: 0.5;
+}
+
 @media (min-width: 857px) {
 
 	.module-container {

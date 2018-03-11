@@ -19,6 +19,7 @@ var eyebeam2018 = (function($) {
 			self.setup_residents();
 			self.setup_archive();
 			self.setup_donate();
+			self.setup_lazy_load();
 		},
 
 		setup_nav: function() {
@@ -161,6 +162,38 @@ var eyebeam2018 = (function($) {
 			});
 
 			$('#amount-50')[0].checked = true;
+		},
+
+		setup_lazy_load: function() {
+			$('.lazy-load').click(function(e) {
+				e.preventDefault();
+				var $btn = $(e.target);
+				if ($btn.hasClass('loading')) {
+					return;
+				}
+				$btn.html('Loading&hellip;');
+				$btn.addClass('loading');
+				var page = $btn.data('page');
+				page = parseInt(page);
+				page++;
+				$btn.data('page', page);
+				page = '&page=' + page;
+				var base = '/wp-admin/admin-ajax.php';
+				var action = 'action=eyebeam2018_lazy_load';
+				var load = $btn.data('load');
+				load = '&load=' + load;
+				var args = action + load + page;
+				var url = base + '?' + args;
+				$.ajax(url, {
+					success: function(rsp) {
+						$btn.html('Load more');
+						var $ul = $btn.closest('.module-collection').find('ul');
+						$ul.append(rsp);
+						$btn.removeClass('loading');
+					}
+				});
+
+			});
 		},
 
 		archive_scroll: function() {

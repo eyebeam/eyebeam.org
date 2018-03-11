@@ -33,6 +33,7 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_view_source: show any secret blog posts
 * eyebeam2018_view_source_post: register secret blog post
 * eyebeam2018_resident_bio: returns a resident bio
+* eyebeam2018_lazy_load: AJAX handler for lazy loading content
 * dbug: kinda like error_log, but more flexible
 * eyebeam2018_db_migration_1: update resident links
 
@@ -710,6 +711,44 @@ function eyebeam2018_resident_bio($resident, $members = null) {
 
 	return $bio;
 }
+
+function eyebeam2018_get_events($page = 1) {
+	$today = date('Ymd');
+	$args = array(
+		'post_type' => 'event',
+		'posts_per_page' => 9,
+		'orderby'=> 'meta_value',
+		'meta_key' => 'end_date',
+		'order' => 'DESC',
+		'paged' => $page,
+		'meta_query' => array(
+			array(
+				'key'=> 'end_date',
+				'value'=> $today,
+				'compare'=> '<'
+			),
+		)
+	);
+	return get_posts($args);
+}
+
+// AJAX handler for lazy loading content
+function eyebeam2018_lazy_load() {
+	if (empty($_GET['load'])) {
+		die("Please specify a 'load' argument.");
+	}
+	$page = intval($_GET['page']);
+	if ($_GET['load'] == 'events') {
+		$posts = eyebeam2018_get_events($page);
+		foreach ($posts as $post) {
+			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
+			get_template_part('templates/collection-event-item');
+		}
+	}
+	exit;
+}
+add_action('wp_ajax_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
+add_action('wp_ajax_nopriv_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
 
 // This requires that DBUG_PATH is set in wp-config.php.
 function dbug() {
