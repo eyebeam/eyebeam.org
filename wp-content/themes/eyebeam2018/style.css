@@ -1118,16 +1118,6 @@ footer .tagline {
 		padding-top: 20px;
 	}
 
-	.module-toc li {
-		font-size: 36px;
-		line-height: 36px;
-	}
-
-	.module-toc li a {
-		font-size: 28px;
-		line-height: 36px;
-	}
-
 	.module-collection li {
 		float: left;
 		width: calc(33.33% - 10px);
@@ -1205,13 +1195,13 @@ footer .tagline {
 @media (min-width: 1130px) {
 
 	.module-toc li {
-		font-size: 48px;
-		line-height: 48px;
+		font-size: 36px;
+		line-height: 36px;
 	}
 
 	.module-toc li a {
-		font-size: 36px;
-		line-height: 48px;
+		font-size: 28px;
+		line-height: 36px;
 	}
 
 }
