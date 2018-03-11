@@ -289,9 +289,7 @@ var eyebeam2018 = (function($) {
 				if (scroll_y) {
 					var offset = $('header nav').height() + 10;
 					offset += parseInt($('header').css('top'));
-					if ($(document.body).hasClass('show-subnav')) {
-						offset += $('.subnav').height();
-					}
+					offset += $('.subnav').height();
 					window.scroll(0, scroll_y - offset);
 				}
 			}
