@@ -41,7 +41,7 @@ if (! empty($posts)) {
 $posts = eyebeam2018_get_events();
 if (! empty($posts)) {
 	echo "<h2 class=\"module-title\">Past Events</h2>\n";
-	echo "<ul>\n";
+	echo "<ul id=\"events-list\">\n";
 
 	foreach ($posts as $event) {
 		$GLOBALS['eyebeam2018']['curr_collection_item'] = $event;

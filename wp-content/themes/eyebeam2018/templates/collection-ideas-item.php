@@ -19,11 +19,11 @@ $url = get_permalink($post->ID);
 $title = "<a href=\"$url\">$title</a>";
 $image = "<a href=\"$url\">$image</a>";
 
-echo "<div class=\"module module-ideas module-one_third\">\n";
+echo "<li class=\"module module-ideas module-one_third\">\n";
 echo "<h3 class=\"ideas-title module-title\">$title</h3>\n";
 if (! empty($author)) {
 	echo "<h4 class=\"ideas-author module-title\">$author</h4>\n";
 }
 echo "$image\n";
 echo "<div class=\"ideas-excerpt\">$excerpt</div>\n";
-echo "</div>\n";
+echo "</li>\n";

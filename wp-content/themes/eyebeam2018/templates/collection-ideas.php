@@ -1,10 +1,10 @@
 <?php
 
-echo "<ul>\n";
+echo "<ul id=\"ideas-list\">\n";
 
 $posts = get_posts(array(
 	'post_type' => 'post',
-	'posts_per_page' => 6
+	'posts_per_page' => 9
 ));
 
 foreach ($posts as $post) {
@@ -14,3 +14,4 @@ foreach ($posts as $post) {
 
 echo "</ul>\n";
 echo "<br class=\"clear\">\n";
+echo "<div class=\"load-more load-more-ideas\"><a href=\"#more\" class=\"lazy-load\" data-load=\"ideas\" data-page=\"1\">Load more</a></div>\n";

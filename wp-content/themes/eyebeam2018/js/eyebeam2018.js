@@ -181,15 +181,18 @@ var eyebeam2018 = (function($) {
 				var base = '/wp-admin/admin-ajax.php';
 				var action = 'action=eyebeam2018_lazy_load';
 				var load = $btn.data('load');
-				load = '&load=' + load;
-				var args = action + load + page;
+				var load_arg = '&load=' + load;
+				var args = action + load_arg + page;
 				var url = base + '?' + args;
 				$.ajax(url, {
 					success: function(rsp) {
 						$btn.html('Load more');
-						var $ul = $btn.closest('.module-collection').find('ul');
+						var $ul = $('#' + load + '-list');
 						$ul.append(rsp);
 						$btn.removeClass('loading');
+					},
+					error: function() {
+						$btn.html('Error loading more.');
 					}
 				});
 

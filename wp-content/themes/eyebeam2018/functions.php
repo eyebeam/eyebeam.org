@@ -33,6 +33,8 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_view_source: show any secret blog posts
 * eyebeam2018_view_source_post: register secret blog post
 * eyebeam2018_resident_bio: returns a resident bio
+* eyebeam2018_get_events: returns an array of event posts
+* eyebeam2018_get_ideas: returns an array of ideas posts
 * eyebeam2018_lazy_load: AJAX handler for lazy loading content
 * dbug: kinda like error_log, but more flexible
 * eyebeam2018_db_migration_1: update resident links
@@ -712,6 +714,7 @@ function eyebeam2018_resident_bio($resident, $members = null) {
 	return $bio;
 }
 
+// Returns an array of event posts
 function eyebeam2018_get_events($page = 1) {
 	$today = date('Ymd');
 	$args = array(
@@ -732,6 +735,16 @@ function eyebeam2018_get_events($page = 1) {
 	return get_posts($args);
 }
 
+// Returns an array of ideas posts
+function eyebeam2018_get_ideas($page = 1) {
+	$posts = get_posts(array(
+		'post_type' => 'post',
+		'posts_per_page' => 9,
+		'paged' => $page
+	));
+	return $posts;
+}
+
 // AJAX handler for lazy loading content
 function eyebeam2018_lazy_load() {
 	if (empty($_GET['load'])) {
@@ -743,6 +756,12 @@ function eyebeam2018_lazy_load() {
 		foreach ($posts as $post) {
 			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
 			get_template_part('templates/collection-event-item');
+		}
+	} else if ($_GET['load'] == 'ideas') {
+		$posts = eyebeam2018_get_ideas($page);
+		foreach ($posts as $post) {
+			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
+			get_template_part('templates/collection-ideas-item');
 		}
 	}
 	exit;
