@@ -25,6 +25,7 @@ var eyebeam2018 = (function($) {
 		setup_nav: function() {
 			if ($('#wpadminbar').length > 0) {
 				$('header').addClass('headroom');
+				$('.subnav').addClass('headroom');
 				$(window).scroll(function() {
 					var scroll = document.documentElement.scrollTop;
 					var height = $('#wpadminbar').height();
@@ -33,6 +34,16 @@ var eyebeam2018 = (function($) {
 						// the height is 48. (20180302/dphiffer)
 						var top = Math.max(0, height - scroll);
 						$('header').css('top', top + 'px');
+					}
+					var offset = $('header nav').height() + 10;
+					offset += parseInt($('header').css('top'));
+					offset += height;
+					var toc_top = $('.module-toc').offset().top;
+					var toc_bottom = toc_top + $('.module-toc').height();
+					if (scroll + offset > toc_bottom) {
+						$(document.body).addClass('show-subnav');
+					} else {
+						$(document.body).removeClass('show-subnav');
 					}
 				});
 			}
@@ -270,6 +281,9 @@ var eyebeam2018 = (function($) {
 				if (scroll_y) {
 					var offset = $('header nav').height() + 10;
 					offset += parseInt($('header').css('top'));
+					if ($(document.body).hasClass('show-subnav')) {
+						offset += $('.subnav').height();
+					}
 					window.scroll(0, scroll_y - offset);
 				}
 			}

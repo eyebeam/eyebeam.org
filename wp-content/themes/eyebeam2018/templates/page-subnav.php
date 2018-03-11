@@ -14,6 +14,7 @@ foreach ($GLOBALS['eyebeam2018']['modules'] as $module) {
 	}
 	if (! empty($toc_title)) {
 		$title = $toc_title;
+		$hash = sanitize_title($title);
 	}
 	echo "<li><a href=\"#$hash\">$title</a></li>\n";
 }

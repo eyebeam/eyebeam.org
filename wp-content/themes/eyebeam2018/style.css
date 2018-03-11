@@ -509,6 +509,9 @@ body.show-menu header nav .support {
 @media (min-width: 857px) {
 
 	.subnav {
+		position: fixed;
+		top: 36px;
+		left: 0;
 		display: block;
 		width: 100%;
 		height: 44px;
@@ -517,6 +520,19 @@ body.show-menu header nav .support {
 		font-size: 18px;
 		line-height: 44px;
 		white-space: nowrap;
+		transition: top 0.5s ease-out;
+	}
+
+	body .subnav.headroom {
+		top: 68px;
+	}
+
+	body.show-subnav .subnav {
+		top: 80px;
+	}
+
+	body.show-subnav .subnav.headroom {
+		top: 112px;
 	}
 
 	.subnav li {
