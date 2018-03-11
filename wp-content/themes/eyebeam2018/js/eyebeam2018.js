@@ -26,27 +26,33 @@ var eyebeam2018 = (function($) {
 			if ($('#wpadminbar').length > 0) {
 				$('header').addClass('headroom');
 				$('.subnav').addClass('headroom');
-				$(window).scroll(function() {
-					var scroll = document.documentElement.scrollTop;
-					var height = $('#wpadminbar').height();
+			}
+
+			$(window).scroll(function() {
+
+				var height = 0;
+				var scroll = document.documentElement.scrollTop;
+				if ($('#wpadminbar').length > 0) {
+					height = $('#wpadminbar').height();
 					if (height > 32) {
 						// Only adjust the nav bar position on mobile, where the
 						// the height is 48. (20180302/dphiffer)
 						var top = Math.max(0, height - scroll);
 						$('header').css('top', top + 'px');
 					}
-					var offset = $('header nav').height() + 10;
-					offset += parseInt($('header').css('top'));
-					offset += height;
-					var toc_top = $('.module-toc').offset().top;
-					var toc_bottom = toc_top + $('.module-toc').height();
-					if (scroll + offset > toc_bottom) {
-						$(document.body).addClass('show-subnav');
-					} else {
-						$(document.body).removeClass('show-subnav');
-					}
-				});
-			}
+				}
+
+				var offset = $('header nav').height() + 10;
+				offset += parseInt($('header').css('top'));
+				offset += height;
+				var toc_top = $('.module-toc').offset().top;
+				var toc_bottom = toc_top + $('.module-toc').height();
+				if (scroll + offset > toc_bottom) {
+					$(document.body).addClass('show-subnav');
+				} else {
+					$(document.body).removeClass('show-subnav');
+				}
+			});
 		},
 
 		setup_subscribe: function() {
