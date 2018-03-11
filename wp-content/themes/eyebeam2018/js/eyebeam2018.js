@@ -65,7 +65,7 @@ var eyebeam2018 = (function($) {
 
 		setup_color: function() {
 			var colors = ['red', 'green', 'blue'];
-			$('header, .subnav, footer, .module, li').each(function(i, el) {
+			$('header, .subnav, footer, .module, .module-collection li').each(function(i, el) {
 				var index = Math.floor(Math.random() * colors.length);
 				var color = colors[index];
 				$(el).addClass(color);
