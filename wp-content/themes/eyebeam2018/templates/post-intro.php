@@ -15,11 +15,7 @@ $image = '';
 if (! empty($image_id)) {
 
 	$size = 'large';
-
-	list($src) = wp_get_attachment_image_src($image_id, $size);
-
-	// TODO: do better with alts!
-	$image = "<img src=\"$src\" alt=\"\">";
+	$image = eyebeam2018_get_image_html($image_id, $size);
 
 	echo "<figure class=\"post-image\">$image</figure>\n";
 

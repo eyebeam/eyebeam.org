@@ -6,8 +6,7 @@ $description = get_sub_field('description');
 $image = '';
 if (! empty($image_id)) {
 	$size = 'fullsize';
-	list($src) = wp_get_attachment_image_src($image_id, $size);
-	$image = "<img src=\"$src\" alt=\"\" class=\"partner-logo\">";
+	$image = eyebeam2018_get_image_html($image_id, $size, 'partner-logo');
 }
 
 echo "<li class=\"partner\">\n";

@@ -87,11 +87,10 @@ if (! empty($video_url)) {
 } else if (! empty($image_id)) {
 
 	$size = 'large';
-	list($src) = wp_get_attachment_image_src($image_id, $size);
+	$image = eyebeam2018_get_image_html($image_id, $size);
 
 	echo "<figure class=\"featured-image\">\n";
-	// TODO: do better with alts
-	echo "<img src=\"$src\" alt=\"\">\n";
+	echo $image;
 	if (! empty($caption)) {
 		echo "<figcaption class=\"featured-caption\">$caption</figcaption>\n";
 	}

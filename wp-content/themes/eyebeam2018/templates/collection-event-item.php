@@ -11,8 +11,7 @@ $image_id = get_field('image', $event->ID);
 $image = '';
 if (! empty($image_id)) {
 	$size = 'medium';
-	list($src) = wp_get_attachment_image_src($image_id, $size);
-	$image = "<img src=\"$src\" alt=\"$title\" class=\"event-image\">";
+	$image = eyebeam2018_get_image_html($image_id, $size, 'event-image');
 }
 
 $image = "<a href=\"$url\">$image</a>";

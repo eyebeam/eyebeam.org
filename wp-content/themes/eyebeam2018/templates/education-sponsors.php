@@ -12,10 +12,10 @@
 
 			$size = 'medium';
 			$image_id = get_sub_field('logo');
-			list($src) = wp_get_attachment_image_src($image_id, $size);
+			$image = eyebeam2018_get_image_html($image_id, $size);
 
 			echo "<div class=\"module module-one_half\">\n";
-			echo "<img src=\"$src\">\n";
+			echo "$image\n";
 			echo "</div>\n";
 
 		}

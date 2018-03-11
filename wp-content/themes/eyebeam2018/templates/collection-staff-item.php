@@ -10,8 +10,7 @@ $image_id = get_field('staff_image', $staff->ID);
 $image = '';
 if (! empty($image_id)) {
 	$size = 'thumbnail';
-	list($src) = wp_get_attachment_image_src($image_id, $size);
-	$image = "<img src=\"$src\" alt=\"$name\" class=\"staff-image\">";
+	$image = eyebeam2018_get_image_html($image_id, $size, 'staff-image');
 }
 
 echo "<li class=\"staff\">\n";

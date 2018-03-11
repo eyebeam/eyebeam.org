@@ -16,8 +16,7 @@ if ($collaboration_member == 'hide') {
 $image = '';
 if (! empty($image_id)) {
 	$size = 'medium';
-	list($src) = wp_get_attachment_image_src($image_id, $size);
-	$image = "<img src=\"$src\" alt=\"$name\" class=\"resident-image\">";
+	$image = eyebeam2018_get_image_html($image_id, $size, 'resident-image');
 }
 
 $bio_toggle = 'Bio';
