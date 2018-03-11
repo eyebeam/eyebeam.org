@@ -10,6 +10,7 @@ $layout = null;
 $collection = null;
 $residents_date = null;
 $video_layout = null;
+$toc_status = null;
 $toc_title = null;
 
 $page = get_sub_field('module_page');
@@ -60,6 +61,10 @@ if (! empty(get_sub_field('video_layout'))) {
 	$video_layout = get_sub_field('video_layout');
 }
 
+if (! empty(get_sub_field('toc_status'))) {
+	$toc_status = get_sub_field('toc_status');
+}
+
 if (! empty(get_sub_field('toc_title'))) {
 	$toc_title = get_sub_field('toc_title');
 }
@@ -100,5 +105,6 @@ eyebeam2018_module(array(
 	'collection' => $collection,
 	'residents_date' => $residents_date,
 	'video_layout' => $video_layout,
+	'toc_status' => $toc_status,
 	'toc_title' => $toc_title
 ));

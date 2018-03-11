@@ -53,8 +53,9 @@ if(function_exists("register_field_group"))
 			'position' => 'normal',
 			'layout' => 'no_box',
 			'hide_on_screen' => array (
+				0 => 'the_content',
 			),
 		),
-		'menu_order' => 0,
+		'menu_order' => 10,
 	));
 }

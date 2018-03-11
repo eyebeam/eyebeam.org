@@ -9,7 +9,7 @@ echo "<ul>\n";
 
 foreach ($GLOBALS['eyebeam2018']['modules'] as $module) {
 	extract($module);
-	if ($type == 'toc') {
+	if ($type == 'toc' || $toc_status == 'hide') {
 		continue;
 	}
 	if (! empty($toc_title)) {

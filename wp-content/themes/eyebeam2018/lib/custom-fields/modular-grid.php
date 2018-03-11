@@ -603,6 +603,37 @@ if(function_exists("register_field_group"))
 						'layout' => 'vertical',
 					),
 					array (
+						'key' => 'field_5aa52a6fdfff7',
+						'label' => 'TOC status',
+						'name' => 'toc_status',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '!=',
+									'value' => 'toc',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'choices' => array (
+							'show' => 'Include in TOC',
+							'hide' => 'Hide from TOC',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => '',
+						'layout' => 'horizontal',
+					),
+					array (
 						'key' => 'field_5a9ae2f413b52',
 						'label' => 'TOC title',
 						'name' => 'toc_title',
@@ -617,9 +648,9 @@ if(function_exists("register_field_group"))
 									'value' => 'module',
 								),
 								array (
-									'field' => 'field_5a99c21321c37',
+									'field' => 'field_5aa52a6fdfff7',
 									'operator' => '!=',
-									'value' => 'donate',
+									'value' => 'hide',
 								),
 							),
 							'allorany' => 'all',
