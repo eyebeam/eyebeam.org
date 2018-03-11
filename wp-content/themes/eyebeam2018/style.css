@@ -132,33 +132,33 @@ a {
 	padding-top: 60px;
 }
 
-body.red header .support,
-body.red .subnav,
-body.red footer {
+header.red .support,
+.subnav.red,
+footer.red {
 	background: #EB6B62;
 }
 
-body.red a {
+.red a {
 	color: #EB6B62;
 }
 
-body.green header .support,
-body.green .subnav,
-body.green footer {
+header.green .support,
+.subnav.green,
+footer.green {
 	background: #46A07F;
 }
 
-body.green a {
+.green a {
 	color: #46A07F;
 }
 
-body.blue header .support,
-body.blue .subnav,
-body.blue footer {
+header.blue .support,
+.subnav.blue,
+footer.blue {
 	background: #009CCC;
 }
 
-body.blue a {
+.blue a {
 	color: #009CCC;
 }
 
@@ -241,7 +241,7 @@ header {
 	background: #262626;
 	font-family: "ArialMonospacedMTStd", monospace;
 	font-size: 20px;
-	z-index: 1;
+	z-index: 2;
 }
 
 header.headroom {
@@ -277,11 +277,11 @@ header h1 a {
 	background-position: 7px 7px;
 }
 
-body.blue h1 a {
+header.blue h1 a {
 	background-image: url('img/blue-e.png');
 }
 
-body.green h1 a {
+header.green h1 a {
 	background-image: url('img/green-e.png');
 }
 
@@ -521,6 +521,7 @@ body.show-menu header nav .support {
 		line-height: 44px;
 		white-space: nowrap;
 		transition: top 0.5s ease-out;
+		z-index: 1;
 	}
 
 	body .subnav.headroom {
@@ -940,7 +941,7 @@ footer .tagline {
 	margin-left: 1.2em;
 }
 
-body.red .module-toc li {
+.module-toc.red li {
 	color: #00A7DA;
 }
 
