@@ -356,7 +356,7 @@ add_action('wp_ajax_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 add_action('wp_ajax_nopriv_eyebeam2018_subscribe', 'eyebeam2018_subscribe');
 
 // Actually *do* the API request to Mailchimp
-function eyebeam2018_subscribe_request() {
+function eyebeam2018_subscribe_request($list_id = null) {
 
 	// I mean, yes, I know there are plugins that do this sort of thing. But
 	// ultimately it's an API, and we should be able to debug it when it
@@ -389,7 +389,10 @@ function eyebeam2018_subscribe_request() {
 		$dc = $matches[1];
 
 		$base_url = "https://$dc.api.mailchimp.com/3.0";
-		$list_id = MAILCHIMP_LIST_ID;
+
+		if (empty($list_id)) {
+			$list_id = MAILCHIMP_LIST_ID;
+		}
 		$subscriber = trim($email);
 		$subscriber = strtolower($subscriber);
 		$subscriber = md5($subscriber);
@@ -457,7 +460,17 @@ function eyebeam2018_subscribe_request() {
 function eyebeam2018_donate() {
 
 	$rsp = eyebeam2018_donate_request();
-	$headers = apache_request_headers();
+
+	if ($rsp['ok'] == 1 &&
+	    defined('MAILCHIMP_DONORS_LIST_ID')) {
+		eyebeam2018_subscribe_request(MAILCHIMP_DONORS_LIST_ID);
+	}
+
+	$headers = array();
+	if (function_exists('apache_request_headers')) {
+		$headers = apache_request_headers();
+	}
+
 	if (! empty($headers['X-Requested-With']) &&
 	    $headers['X-Requested-With'] == 'XMLHttpRequest') {
 		header('Content-Type: application/json');
@@ -491,13 +504,13 @@ add_action('wp_ajax_nopriv_eyebeam2018_donate', 'eyebeam2018_donate');
 // Actually *do* the Stripe API request
 function eyebeam2018_donate_request() {
 
-	dbug('eyebeam2018_donate_request');
+	//dbug('eyebeam2018_donate_request');
 
 	$dir = __DIR__;
 	require_once("$dir/lib/stripe-php/init.php");
 
 	$values = eyebeam2018_donate_normalize($_POST);
-	dbug('eyebeam2018_donate_normalize:', $values);
+	//dbug('eyebeam2018_donate_normalize:', $values);
 
 	if (! defined('STRIPE_TEST_KEY') ||
 	    ! defined('STRIPE_TEST_SECRET') ||
@@ -517,11 +530,11 @@ function eyebeam2018_donate_request() {
 			$secret = STRIPE_TEST_SECRET;
 		}
 
-		dbug('setting API key...');
+		//dbug('setting API key...');
 
 		\Stripe\Stripe::setApiKey($secret);
 
-		dbug('creating charge...');
+		//dbug('creating charge...');
 
 		try {
 			$charge = \Stripe\Charge::create(array(
@@ -531,14 +544,14 @@ function eyebeam2018_donate_request() {
 				'source' => $values['token']
 			));
 		} catch (Exception $e) {
-			dbug($e);
+			//dbug($e);
 			return array(
 				'ok' => 0,
 				'error' => 'Error from Stripe API: ' . $e->getMessage()
 			);
 		}
 
-		dbug($charge);
+		//dbug($charge);
 
 		return array(
 			'ok' => 1
