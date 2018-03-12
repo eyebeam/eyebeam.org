@@ -52,12 +52,12 @@
 				Please wait...
 			</div>
 			<div class="response-error">
-				Sorry, that didn’t work for some reason.
+				Sorry, that didn’t work for some reason. Contact <a href="mailto:info@eyebeam.org">info@eyebeam.org</a> if you have any problems
 			</div>
 			<input type="submit" value="Donate">
 		</div>
 		<div class="response-success">
-			Thank you so much for your donation!
+			Thanks for your donation—<a href="/events/">visit Eyebeam here</a>.
 		</div>
 
 	</form>
