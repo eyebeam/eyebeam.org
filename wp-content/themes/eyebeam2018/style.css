@@ -1682,6 +1682,24 @@ footer .tagline {
 	padding: 9px;
 }
 
+#donate #card-errors {
+	margin-top: 10px;
+}
+
+#donate .fields {
+	transition: height 1s ease-out;
+}
+
+#donate.success .fields {
+	height: 0;
+	overflow: hidden;
+}
+
+#donate.loading input[type=submit] {
+	cursor: default;
+	opacity: 0.5;
+}
+
 @media (min-width: 857px) {
 
 	#donate {

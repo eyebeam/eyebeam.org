@@ -42,6 +42,9 @@ var eyebeam2018 = (function($) {
 					}
 				}
 
+				if ($('.module-toc').length == 0) {
+					return;
+				}
 				var offset = $('header nav').height() + 10;
 				offset += parseInt($('header').css('top'));
 				offset += height;
@@ -133,6 +136,7 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_donate: function() {
+
 			if ($('#donate').length < 1) {
 				return;
 			}
@@ -144,6 +148,7 @@ var eyebeam2018 = (function($) {
 					$('#amount-other-container').addClass('hidden');
 				}
 			});
+
 			$('#donate').submit(function(e) {
 				e.preventDefault();
 				self.donate_submit();
@@ -282,6 +287,11 @@ var eyebeam2018 = (function($) {
 			var module = location.hash.substr(1);
 			if ($('#module-' + module).length > 0) {
 
+				if (self.last_hash == module) {
+					return;
+				}
+				self.last_hash = module;
+
 				$('#module-' + module)[0].scrollIntoView(true);
 
 				// now account for fixed header
@@ -289,7 +299,9 @@ var eyebeam2018 = (function($) {
 				if (scroll_y) {
 					var offset = $('header nav').height() + 10;
 					offset += parseInt($('header').css('top'));
-					offset += $('.subnav').height();
+					if ($('.subnav').length > 0) {
+						offset += $('.subnav').height();
+					}
 					window.scroll(0, scroll_y - offset);
 				}
 			}
@@ -327,6 +339,10 @@ var eyebeam2018 = (function($) {
 
 			//console.log('donate_submit');
 
+			if ($('#donate').hasClass('loading')) {
+				return;
+			}
+
 			var $form = $('#donate');
 			$form.addClass('loading');
 			$form.removeClass('success');
@@ -334,8 +350,8 @@ var eyebeam2018 = (function($) {
 
 			stripe.createToken(stripe_card).then(function(result) {
 				//console.log('createToken callback', result);
-
 				if (result.error) {
+					$('#donate').removeClass('loading');
 					$('#card-errors').html(result.error.message);
 				} else {
 					self.donate_request(result.token);
@@ -352,6 +368,8 @@ var eyebeam2018 = (function($) {
 			args += '&token=' + token.id;
 			var url = $form.attr('action');
 
+			$('#donate input').attr('disabled', null);
+
 			$.ajax(url, {
 				method: 'POST',
 				data: args,
@@ -362,12 +380,24 @@ var eyebeam2018 = (function($) {
 					$form.removeClass('error');
 					if (rsp.ok) {
 						$form.addClass('success');
+						window.location = '#donate';
+						self.last_hash = null;
+						self.check_hash();
 					} else {
+						if (rsp.error) {
+							$('#donate .response-error').html(rsp.error);
+						} else {
+							$('#donate .response-error').html('Sorry, that didn’t work for some reason.');
+						}
 						$form.addClass('error');
 					}
+					$('#donate').removeClass('loading');
+					$('#donate input').attr('disabled', null);
 				},
 				error: function() {
 					//console.log('request error');
+					$('#donate').removeClass('loading');
+					$('#donate input').attr('disabled', null);
 					$form.removeClass('loading');
 					$form.removeClass('success');
 					$form.addClass('error');
