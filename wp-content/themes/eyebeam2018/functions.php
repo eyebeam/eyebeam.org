@@ -537,12 +537,13 @@ function eyebeam2018_donate_request() {
 		//dbug('creating charge...');
 
 		try {
-			$charge = \Stripe\Charge::create(array(
+			$charge_details = array(
 				'amount' => $values['amount'],
 				'currency' => 'usd',
 				'description' => 'Donation to Eyebeam. Thank you!',
 				'source' => $values['token']
-			));
+			);
+			$charge = \Stripe\Charge::create($charge_details);
 		} catch (Exception $e) {
 			//dbug($e);
 			return array(
@@ -585,6 +586,12 @@ function eyebeam2018_donate_normalize($raw) {
 		}
 	}
 	$normalized['amount'] = str_replace('$', '', $normalized['amount']);
+	$normalized['amount'] = floatval($normalized['amount']);
+
+	// IMPORTANT: Stripe's API operates in cents, not dollars. So we need to
+	// multiply by 100 in order to charge properly. (20180312/dphiffer)
+
+	$normalized['amount'] = floor(100 * $normalized['amount']);
 	return $normalized;
 }
 
