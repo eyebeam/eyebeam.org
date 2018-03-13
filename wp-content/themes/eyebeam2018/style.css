@@ -1034,6 +1034,10 @@ footer .tagline {
 	opacity: 0.5;
 }
 
+.item-container {
+	padding: 15px 0;
+}
+
 @media (min-width: 857px) {
 
 	.module-container {
