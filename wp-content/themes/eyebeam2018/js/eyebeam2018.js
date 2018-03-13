@@ -107,11 +107,13 @@ var eyebeam2018 = (function($) {
 				return;
 			}
 			var select = $('#residents-year select')[0];
-			var first_year = select.options[0].value;
+
+			// choose the second option (the current year)
+			var first_year = select.options[1].value;
 			$('#residents-year select').val(first_year);
+
 			$('#residents-year select').change(function(e) {
 				var year = $('#residents-year select').val();
-				year = parseInt(year);
 				var path = '/wp-admin/admin-ajax.php';
 				var args = '?action=eyebeam2018_residents&year=' + year;
 				$('#module-residents ul').html('Loading...');

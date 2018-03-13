@@ -244,14 +244,17 @@ function eyebeam2018_get_residents($year = null) {
 	if (empty($year)) {
 		$year = date('Y');
 	}
-	$year = intval($year);
 
 	$args = array(
 		'post_type' => 'resident',
 		'posts_per_page' => -1,
 		'orderby'=> 'meta_value_num',
-		'meta_key' => 'end_year',
-		'meta_query' => array(
+		'meta_key' => 'end_year'
+	);
+
+	if (strtolower($year) != 'all') {
+		$year = intval($year);
+		$args['meta_query'] = array(
 			'relation' => 'AND',
 			'start_clause' => array(
 				'key'=> 'start_year',
@@ -263,8 +266,8 @@ function eyebeam2018_get_residents($year = null) {
 				'value' => $year,
 				'compare'=> '>='
 			),
-		)
-	);
+		);
+	}
 
 	$posts = get_posts($args);
 	return $posts;

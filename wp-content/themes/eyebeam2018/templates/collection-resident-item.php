@@ -38,7 +38,11 @@ if (! empty($members)) {
 
 //$bio = eyebeam2018_resident_bio($resident, $members);
 
-$years = "$start_year&ndash;$end_year";
+if ($start_year == $end_year) {
+	$years = $start_year;
+} else {
+	$years = "$start_year&ndash;$end_year";
+}
 
 echo "<li class=\"resident collection-item\">\n";
 echo "<div class=\"item-container\">\n";

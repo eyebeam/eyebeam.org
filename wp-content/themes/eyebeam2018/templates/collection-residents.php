@@ -7,7 +7,7 @@ $class = 'module module-collection module-full_width';
 
 $years = '';
 if ($residents_date != 'hide') {
-	$years = array();
+	$years = array('All');
 	for ($y = date('Y'); $y > 1999; $y--) {
 		$years[] = $y;
 	}
