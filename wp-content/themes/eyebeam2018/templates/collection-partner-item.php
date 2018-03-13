@@ -10,8 +10,10 @@ if (! empty($image_id)) {
 }
 
 echo "<li class=\"partner\">\n";
+echo "<div class=\"item-container\">\n";
 echo "$image\n";
 echo "<div class=\"partner-description\">$description</div>\n";
+echo "</div>\n";
 echo "</li>\n";
 
 ?>

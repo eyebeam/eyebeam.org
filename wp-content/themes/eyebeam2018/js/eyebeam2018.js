@@ -302,6 +302,7 @@ var eyebeam2018 = (function($) {
 					if ($('.subnav').length > 0) {
 						offset += $('.subnav').height();
 					}
+					console.log('scroll: ' + scroll_y - offset);
 					window.scroll(0, scroll_y - offset);
 				}
 			}
@@ -440,16 +441,19 @@ var eyebeam2018 = (function($) {
 						return;
 					}
 
-					$(module).css('height', 'auto');
+					//var height = $(module).height();
+					//$(module).css('height', height);
 
 					if (span % 12 == 0) {
 
 						row.push(module);
 
 						var max_height = 0;
+						var $container = null;
 						for (var i = 0; i < row.length; i++) {
-							if (row[i].offsetHeight > max_height) {
-								max_height = row[i].offsetHeight;
+							$container = $(row[i]).find('.item-container');
+							if ($container[0].offsetHeight > max_height) {
+								max_height = $container[0].offsetHeight;
 							}
 						}
 						for (var i = 0; i < row.length; i++) {

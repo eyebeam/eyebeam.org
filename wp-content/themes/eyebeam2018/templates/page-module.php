@@ -7,6 +7,7 @@ if (! empty($toc_title)) {
 }
 
 echo "<li id=\"module-$hash\" class=\"module module-$type\">\n";
+echo "<div class=\"item-container\">\n";
 
 $image = '';
 if (! empty($image_id)) {
@@ -57,4 +58,5 @@ if (! empty($layout) &&
 	echo "$image$text";
 }
 
+echo "</div>\n";
 echo "</li>\n";

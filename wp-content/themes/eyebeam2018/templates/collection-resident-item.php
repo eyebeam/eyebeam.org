@@ -30,6 +30,7 @@ $bio = eyebeam2018_resident_bio($resident, $members);
 $years = "$start_year&ndash;$end_year";
 
 echo "<li class=\"resident collection-item\">\n";
+echo "<div class=\"item-container\">\n";
 echo "$image\n";
 echo "<h3 class=\"resident-name module-title\">$name</h3>\n";
 echo "<h4 class=\"resident-type person-title module-title\">$type</h4>\n";
@@ -37,6 +38,7 @@ echo "<div class=\"resident-years\">$years</div>\n";
 //echo "<a href=\"#bio\" class=\"toggle-bio\">$bio_toggle</a>\n";
 //echo "<div class=\"bio\">$bio</div>\n";
 echo "$bio\n";
+echo "</div>\n";
 echo "</li>\n";
 
 ?>

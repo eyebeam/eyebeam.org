@@ -24,9 +24,11 @@ $dates = $start_date;
 // TODO: account for end dates
 
 echo "<li class=\"event collection-item\">\n";
+echo "<div class=\"item-container\">\n";
 echo "$image\n";
 echo "<h3 class=\"event-title module-title\">$title</h3>\n";
 echo "<h4 class=\"event-dates module-title\">$dates</h4>\n";
+echo "</div>\n";
 echo "</li>\n";
 
 ?>
