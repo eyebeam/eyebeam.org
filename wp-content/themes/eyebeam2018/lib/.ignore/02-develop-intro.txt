@@ -148,8 +148,14 @@ next:
     |                                                        |
     +--------------------------------------------------------+
 
-One caveat: there is a specific configuration in wp-config.php that we *should*
-have enabled: define('WP_DEBUG', true);
+I'm sure many of you are thinking this: "wait, does this mean anyone can login
+with these credentials to the live website?" No, alas we are not *that* open
+with the Eyebeam website. Part of the nightly database backup process prepares
+a dev-specific edit of the SQL, which strips out the live user accounts and
+adds in the developer-specific login.
+
+One caveat before we call it a day: there is a specific configuration in
+wp-config.php that we *should* have enabled: define('WP_DEBUG', true);
 
 But we didn't, on purpose. The reason for this has to do with a plugin we use
 called Advanced Custom Fields, and the full explanation warrants its own
