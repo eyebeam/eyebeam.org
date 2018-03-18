@@ -454,7 +454,8 @@ var eyebeam2018 = (function($) {
 						var $container = null;
 						for (var i = 0; i < row.length; i++) {
 							$container = $(row[i]).find('.item-container');
-							if ($container[0].offsetHeight > max_height) {
+							if ($container.length > 0 &&
+							    $container[0].offsetHeight > max_height) {
 								max_height = $container[0].offsetHeight;
 							}
 						}
