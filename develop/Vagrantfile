@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  config.vm.define "eyebeam.org"
+  config.vm.define "dev.eyebeam.org"
   config.vm.hostname = "dev.eyebeam.org"
 
   # Every Vagrant development environment requires a box. You can search for
@@ -67,8 +67,21 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-      apt-get update
-      apt-get upgrade -y
+      echo "Updating packages"
+      apt-get update -q
+      apt-get upgrade -y -q
       ln -s /var/www/eyebeam.org /home/vagrant/eyebeam.org
+      echo "+--------------------------------------------------------+"
+      echo "|                                                        |"
+      echo "|   Congrats, you now have a Linux virtual machine       |"
+      echo "|   running. You're almost done!                         |"
+      echo "|                                                        |"
+      echo "|   Next steps:                                          |"
+      echo "|       sudo ./setup_host.sh                             |"
+      echo "|       vagrant ssh                                      |"
+      echo "|       cd eyebeam.org/develop                           |"
+      echo "|       sudo ./setup_vagrant.sh                          |"
+      echo "|                                                        |"
+      echo "+--------------------------------------------------------+"
   SHELL
 end
