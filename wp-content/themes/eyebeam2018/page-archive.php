@@ -3,6 +3,8 @@
 Template Name: Archive
 */
 
+eyebeam2018_view_source_post('02-develop-intro');
+
 get_header();
 
 while (have_posts()) {

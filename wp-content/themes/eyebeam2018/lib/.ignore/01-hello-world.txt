@@ -40,7 +40,9 @@ useful. This View Source Blog will attempt to make the code that runs
 eyebeam.org more legible and productive for future maintainers. (And also for
 Future Me, for when I forget how everything works.)
 
-Okay that is all, back to post-launch fixes for me. Check back here later to
-find the next blog post!
+Okay that is all, back to post-launch fixes for me.
+
+The next blog post can be found by viewing source over here:
+https://www.eyebeam.org/archive/
 
 (20180308/dphiffer)
