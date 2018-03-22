@@ -4,6 +4,14 @@
 		<meta charset="utf-8">
 		<?php do_action('eyebeam2018_view_source'); ?>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15850195-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-15850195-1');
+		</script>
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
