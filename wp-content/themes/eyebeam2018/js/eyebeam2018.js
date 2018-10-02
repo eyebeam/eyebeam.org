@@ -109,7 +109,7 @@ var eyebeam2018 = (function($) {
 			var select = $('#residents-year select')[0];
 
 			// choose the second option (the current year)
-			var first_year = select.options[1].value;
+			var first_year = select.options[1].value-2;
 			$('#residents-year select').val(first_year);
 
 			$('#residents-year select').change(function(e) {
