@@ -17,6 +17,7 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_module: register a module item
 * eyebeam2018_render_heroes: calls get_template_part for each hero item
 * eyebeam2018_render_modules: calls get_template_part for each hero item
+* eyebeam2018_get_related
 * eyebeam2018_get_residents: returns array of resident posts
 * eyebeam2018_ajax_residents: AJAX handler for residents-by-year
 * eyebeam2018_video_embed: show an embed, given a video permalink
@@ -114,6 +115,12 @@ function eyebeam2018_setup() {
 		'heroes' => array(),
 		'modules' => array()
 	);
+
+	// Register taxonomies to custom posts
+	register_taxonomy_for_object_type('post_tag', 'archive');
+	register_taxonomy_for_object_type('post_tag', 'resident');
+	register_taxonomy_for_object_type('post_tag', 'event');
+
 }
 add_action('init', 'eyebeam2018_setup');
 
@@ -236,6 +243,76 @@ function eyebeam2018_render_modules() {
 	echo "</ul>\n";
 	echo "<br class=\"clear\">\n";
 	echo "</div>\n";
+}
+
+// map post type to template
+function eyebeam2018_template_map($post_type = null) {
+
+	if (empty($post_type)) {
+		$posttype = get_the_post_type();
+	}
+
+	$post_type_map = array(
+			'resident' => 'resident-item',
+			'event' => 'event-item',
+			'post' => 'post-item',
+			'archive' => 'archive-featured-item',
+
+		);
+
+	return $post_type_map[$post_type];
+
+}
+
+function eyebeam2018_label_map($key = null){
+	if (empty($key))
+		return false;
+
+	$label = array(
+			'post' => 'Blog',
+			'resident' => 'Resident',
+			'event'	=> 'Event',
+			'archive' => 'Archive',
+		);
+	return $label[$key];
+}
+
+// Returns an array of related posts for a given post id
+function eyebeam2018_get_related_readings($postid = null) {
+
+	if (empty($postid)) {
+		$postid = get_the_id();
+	}
+
+	// types of related posts
+	$post_types = array(
+			'event',
+			'post',
+			'archive',
+			'resident',
+		);
+
+	// get the tags
+	$tags = wp_get_post_terms( get_queried_object_id(), 'post_tag', ['fields' => 'ids'] );
+
+	if (!count($tags))
+		return false;
+
+	// build out a list of each post type
+	$args = array(
+		'post_type' => $post_types,
+		'posts_per_page' => 3,
+		'post__not_in' => array($postid),
+		'orderby' => 'rand',
+		'tag__in' => $tags,
+	);
+
+	$related_readings = get_posts($args);
+	wp_reset_postdata();
+
+	return $related_readings;
+
+
 }
 
 // Returns an array of resident posts for a given year
@@ -877,3 +954,4 @@ function eyebeam2018_db_migration_1() {
 	exit;
 }
 add_action('wp_ajax_eyebeam2018_db_migration_1', 'eyebeam2018_db_migration_1');
+

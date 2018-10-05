@@ -99,6 +99,20 @@ if(function_exists("register_field_group"))
 				),
 				'max' => '',
 			),
+			array (
+				'key' => 'field_5aa1b7e8b1f99',
+				'label' => 'Show Related Readings',
+				'name' => 'show_related_readings',
+				'type' => 'radio',
+				'choices' => array (
+					'show' => 'Show Related Readings',
+					'hide' => 'Hide Related Readings',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'show',
+				'layout' => 'horizontal',
+			),
 		),
 		'location' => array (
 			array (

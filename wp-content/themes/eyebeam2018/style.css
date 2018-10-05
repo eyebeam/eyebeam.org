@@ -969,6 +969,24 @@ footer .tagline {
 	padding-top: 10px;
 }
 
+h5.post-label { text-transform: uppercase; color: white;padding: 2px 10px; display: inline-block; margin-top: 9px; font-size: 13px; line-height: 18px;}
+
+.module-collection.blue h5.post-label, .event-collection.blue h5.post-label {
+	background: #009CCC;
+}
+
+.module-collection.red h5.post-label, .event-collection.red h5.post-label {
+	background: #EB6B62;
+}
+
+.module-collection.green h5.post-label, .event-collection.green h5.post-label  {
+	background: #46A07F;
+}
+
+.module-collection.related-readings {
+	width: 100%;
+}
+
 .module-collection p {
 	margin-top: 9px;
 }

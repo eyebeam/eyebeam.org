@@ -1,4 +1,10 @@
 <?php
+$item = $GLOBALS['eyebeam2018']['curr_collection_item'];
+$is_related_reading = $GLOBALS['eyebeam2018']['is_related_reading'];
+
+$label = ($is_related_reading) ? eyebeam2018_label_map($resident->post_type) : ;
+
+
 
 list($item) = get_sub_field('archive_item');
 
@@ -100,6 +106,8 @@ if (! empty($video_url)) {
 echo "</div>\n";
 
 echo "<div class=\"featured-info\">\n";
+echo ($label) ? "<h5 class=\"post-label\">$label</h5>" : '';
+
 echo "<h3 class=\"featured-title\">$title</h3>\n";
 if (! empty($name)) {
 	echo "<h4 class=\"featured-name\">by $name</h4>\n";

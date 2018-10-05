@@ -75,7 +75,7 @@ register_post_type('archive', array(
 	'public' => true,
 	'query_var' => false,
 	'supports' => array('title', 'editor', 'page-attributes'),
-	'taxonomies' => array(),
+	'taxonomies' => array('post_tag', 'category'),
 	'exclude_from_search' => true,
 	'capability_type' => 'post',
 	'rewrite' => array('slug' => 'archive'),

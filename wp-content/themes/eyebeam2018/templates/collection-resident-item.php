@@ -1,6 +1,8 @@
 <?php
 
 $resident = $GLOBALS['eyebeam2018']['curr_collection_item'];
+$is_related_reading = $GLOBALS['eyebeam2018']['is_related_reading'];
+
 
 $name = apply_filters('the_title', $resident->post_title);
 $type = get_field('resident_type', $resident->ID);
@@ -29,6 +31,7 @@ if (! empty($links)) {
 		$image = "<a href=\"$url\">$image</a>";
 	}
 }
+$label = ($is_related_reading) ? eyebeam2018_label_map($resident->post_type) : false;
 
 /*$bio_toggle = 'Bio';
 $members = get_field('members', $resident->ID);
@@ -47,6 +50,7 @@ if ($start_year == $end_year) {
 echo "<li class=\"resident collection-item\">\n";
 echo "<div class=\"item-container\">\n";
 echo "$image\n";
+echo ($label) ? "<h5 class=\"post-label\">$label</h5>" : '';
 echo "<h3 class=\"resident-name module-title\">$name</h3>\n";
 echo "<h4 class=\"resident-type person-title module-title\">$type</h4>\n";
 echo "<div class=\"resident-years\">$years</div>\n";
