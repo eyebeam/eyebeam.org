@@ -877,3 +877,4 @@ function eyebeam2018_db_migration_1() {
 	exit;
 }
 add_action('wp_ajax_eyebeam2018_db_migration_1', 'eyebeam2018_db_migration_1');
+

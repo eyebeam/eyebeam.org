@@ -94,8 +94,10 @@ body {
 	font-family: arial, sans-serif;
 	font-size: 15px;
 	line-height: 18px;
-	background-image: url('img/background-mobile.png');
-	background-color: #E9E9E9;
+	/* 180506 this code was for a background image with the eyebeam logo -ct */
+	/* background-image: url('img/background-mobile.png'); */
+	/* background-color: #E9E9E9; */
+	background-color: #ffffff;
 	background-size: 94.3% auto;
 	background-position: center center;
 	background-attachment: fixed;
@@ -556,7 +558,7 @@ body.show-menu header nav .support {
 
 footer {
 	color: #fff;
-	background: #EB6B62;
+	background: #00A8DA;
 	text-align: center;
 	font-family: "ArialMonospacedMTStd", monospace;
 	font-size: 15px;
@@ -855,14 +857,18 @@ footer .tagline {
 	}
 
 	.hero-text h2 {
-		font-size: 72px;
-		line-height: 72px;
+		/*font-size: 72px;*/
+		font-size: 64px;
+		/*line-height: 72px;*/
+		line-height: 64px;
 		margin-bottom: 15px;
 	}
 
 	.hero-text .text {
-		font-size: 48px;
-		line-height: 56px;
+		/*font-size: 48px;*/
+		font-size: 36px;
+		/*line-height: 56px;*/
+		line-height: 36px;
 		padding: 0 10%;
 	}
 
@@ -910,8 +916,10 @@ footer .tagline {
 	padding-left: 19px;
 	padding-top: 15px;
 	font-family: "eyebeamregular", sans-serif;
-	font-size: 18px;
-	line-height: 24px;
+	/*font-size: 18px;*/
+	font-size: 14px;
+	/*line-height: 24px;*/
+	line-height: 14px;
 	padding-bottom: 15px;
 }
 
@@ -921,8 +929,10 @@ footer .tagline {
 
 .module-two_thirds .module-title {
 	font-family: "eyebeamregular", sans-serif;
-	font-size: 24px;
-	line-height: 28px;
+	/*font-size: 24px;*/
+	font-size: 14px;
+	/*line-height: 28px;*/
+	line-height: 14px;
 	padding: 0;
 }
 
@@ -936,13 +946,13 @@ footer .tagline {
 	font-size: 28px;
 	line-height: 28px;
 	text-transform: uppercase;
-	color: #EB6B62;
+	color: #000000;
 	list-style: disc;
 	margin-left: 1.2em;
 }
 
 .module-toc.red li {
-	color: #00A7DA;
+	color: #000000;
 }
 
 .module-toc li a {
@@ -1077,8 +1087,10 @@ footer .tagline {
 
 	.module-two_thirds {
 		width: calc(66.66% - 10px);
-		font-size: 48px;
-		line-height: 56px;
+		/*font-size: 48px;*/
+		/*line-height: 56px;*/
+		font-size: 36px;
+		line-height: 48px;
 	}
 
 	.module-two_thirds .module-title {
@@ -1890,3 +1902,4 @@ footer .tagline {
 	}
 
 }
+
