@@ -7,7 +7,15 @@ global $post;
 $show_date = get_field('show_date');
 $meta = get_field('meta');
 $author = get_field('author');
+$tags = get_the_tags();
 
+foreach($tags as $tag){
+	// gonna keep this here incase we need to use it later
+	// $link = get_tag_link($tag->term_id);
+	// $tagnames[] = "<a href=\"$link\">$tag->name</a>";
+	$tagnames[] = $tag->name;
+
+}
 if ($show_date == 'show') {
 	the_time('F j, Y');
 	if (! empty($author)) {
@@ -52,6 +60,10 @@ if ($show_date == 'show') {
 		}
 		echo "<h3 class=\"event-dates\">$dates</h3>\n";
 	}
+}
+
+if (count($tagnames)){
+	echo "Tags: " . implode($tagnames, ',');
 }
 
 

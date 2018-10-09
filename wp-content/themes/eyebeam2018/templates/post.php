@@ -19,4 +19,11 @@ get_template_part('templates/post-intro');
 get_template_part('templates/post-meta');
 get_template_part('templates/post-content');
 
+// check for related readings switch and get related section
+if (get_field('show_related_readings', get_the_ID()) == 'show'|| !get_field('show_related_readings')){
+	if (eyebeam2018_get_related_readings(get_the_ID())){
+		get_template_part('templates/post-related');
+	}
+}
+
 echo "</div>\n";

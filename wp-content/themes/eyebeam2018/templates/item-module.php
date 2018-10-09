@@ -92,6 +92,9 @@ if ($type == 'toc') {
 		echo "</script>\n";
 	});
 }
+else if ($type == 'related_readings') {
+	$GLOBALS['eyebeam2018']['has_related_readings'] = true;
+}
 
 eyebeam2018_module(array(
 	'type' => $type,
