@@ -12,7 +12,9 @@ var eyebeam2018 = (function($) {
 			self.setup_nav();
 			self.setup_subscribe();
 			self.setup_modules();
-			self.setup_color();
+			//self.setup_color();
+			self.setup_random_footer();
+			self.setup_link();
 			self.setup_menu();
 			self.setup_bio_toggle();
 			self.setup_hash();
@@ -72,7 +74,8 @@ var eyebeam2018 = (function($) {
 			setInterval(self.align_modules, 1000);
 		},
 
-		setup_color: function() {
+		 //the old code which randomizes link colors
+		 setup_color: function() {
 			var colors = ['red', 'green', 'blue'];
 			$('header, .subnav, footer, .module, .module-collection li').each(function(i, el) {
 				var index = Math.floor(Math.random() * colors.length);
@@ -80,6 +83,27 @@ var eyebeam2018 = (function($) {
 				$(el).addClass(color);
 			});
 		},
+
+		//new code that only randomizes the color of the footer background
+		setup_random_footer: function() {
+			var colors = ['red', 'green', 'blue'];
+			$('footer').each(function(i, el) {
+				var index = Math.floor(Math.random() * colors.length);
+				var color = colors[index];
+				$(el).addClass(color);
+			});
+		},
+		
+		
+		//new code that makes all links one color except for the footer
+		setup_link: function(){
+			$('header, .subnav, .module, .moodule-colleciton li').each(function(i, el) {
+				var color = 'red';
+				$(el).addClass(color);
+			});
+		},
+
+
 
 		setup_menu: function() {
 			$('.menu-btn').click(function() {
