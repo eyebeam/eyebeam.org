@@ -79,6 +79,7 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	include_once("$dir/lib/custom-fields/recent-press.php");
 	include_once("$dir/lib/custom-fields/residency.php");
 	include_once("$dir/lib/custom-fields/residents.php");
+	include_once("$dir/lib/custom-fields/projects.php");
 	include_once("$dir/lib/custom-fields/staff.php");
 }
 
@@ -119,6 +120,7 @@ function eyebeam2018_setup() {
 	// Register taxonomies to custom posts
 	register_taxonomy_for_object_type('post_tag', 'archive');
 	register_taxonomy_for_object_type('post_tag', 'resident');
+	register_taxonomy_for_object_type('post_tag', 'project');
 	register_taxonomy_for_object_type('post_tag', 'event');
 
 }
@@ -257,6 +259,7 @@ function eyebeam2018_template_map($post_type = null) {
 			'event' => 'event-item',
 			'post' => 'post-item',
 			'archive' => 'archive-featured-item',
+			'project' => 'project-item',
 
 		);
 
@@ -273,6 +276,7 @@ function eyebeam2018_label_map($key = null){
 			'resident' => 'Resident',
 			'event'	=> 'Event',
 			'archive' => 'Archive',
+			'project' => 'Project',
 		);
 	return $label[$key];
 }
@@ -290,8 +294,9 @@ function eyebeam2018_get_related_readings($postid = null) {
 			'post',
 			'archive',
 			'resident',
+			'project',
 		);
-
+	
 	// get the tags
 	$tags = wp_get_post_terms( get_queried_object_id(), 'post_tag', ['fields' => 'ids'] );
 
@@ -309,7 +314,6 @@ function eyebeam2018_get_related_readings($postid = null) {
 
 	$related_readings = get_posts($args);
 	wp_reset_postdata();
-
 	return $related_readings;
 
 
@@ -726,8 +730,25 @@ function eyebeam2018_extract_intro($content) {
 // Inserts the_content-like content from ACF
 function eyebeam2018_content_fields($content) {
 	if (get_field('event_info')) {
-		return get_field('event_info');
+		$content .= get_field('event_info');
 	}
+	if (get_field('project_description')){
+		$content .= get_field('project_description');
+	}
+	if (get_field('resident_type')){
+		$content .= get_field('resident_type');
+		$content .= "\n";
+	}
+	if (get_field('start_year') && get_field('end_year')){
+		$start_year = get_field('start_year');
+		$end_year = get_field('end_year');
+		$content .= "$start_year - $end_year\n";
+	}
+
+	if (get_field('resident_bio')){
+		$content .= get_field('resident_bio');
+	}
+
 	return $content;
 }
 
@@ -812,6 +833,15 @@ function eyebeam2018_resident_bio($resident, $members = null) {
 	}*/
 
 	return $bio;
+}
+
+// Returns an array of project posts
+function eyebeam2018_get_projects($page = 1) {
+	$args = array(
+		'post_type' => 'project',
+		'posts_per_page' => 9,
+		);
+	return get_posts($args);
 }
 
 // Returns an array of event posts

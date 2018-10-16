@@ -221,6 +221,7 @@ if(function_exists("register_field_group"))
 							'support' => 'Support',
 							'ideas' => 'Ideas',
 							'residents' => 'Residents',
+							'projects' 	=> 'Projects',
 							'events' => 'Events',
 							'partners' => 'Residency Partners',
 						),
@@ -425,6 +426,11 @@ if(function_exists("register_field_group"))
 									'operator' => '!=',
 									'value' => 'residents',
 								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'projects',
+								),								
 								array (
 									'field' => 'field_5a9a13961c280',
 									'operator' => '!=',

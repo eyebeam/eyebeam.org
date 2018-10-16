@@ -3,7 +3,6 @@
 echo "<div class=\"post-meta\">\n";
 
 global $post;
-
 $show_date = get_field('show_date');
 $meta = get_field('meta');
 $author = get_field('author');

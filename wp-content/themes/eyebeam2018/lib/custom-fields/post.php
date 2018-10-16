@@ -63,19 +63,83 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_5aa1b7e8b1f99',
-				'label' => 'Show Related Readings',
-				'name' => 'show_related_readings',
+				'key' => 'field_5aa1b7e8b1f59',
+				'label' => 'Show Related Readings Automatically',
+				'name' => 'show_related',
 				'type' => 'radio',
 				'choices' => array (
-					'show' => 'Show Related Readings',
-					'hide' => 'Hide Related Readings',
+					'auto' => 'Show Related Readings Automatically',
+					'manual' => 'Manually Select Related Readings',
 				),
 				'other_choice' => 0,
 				'save_other_choice' => 0,
-				'default_value' => 'show',
+				'default_value' => 'auto',
 				'layout' => 'horizontal',
+			),						
+			array (
+				'key' => 'field_56dce19bb582e3',
+				'label' => 'Related Name ',
+				'name' => 'related_name',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'resident',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'post_type',
+					1 => 'post_title',
+				),
+				'max' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5aa1b7e8b1f59',
+							'operator' => '==',
+							'value' => 'manual',
+						),
+					),
+					'allorany' => 'all',
+				),				
 			),
+			array (
+				'key' => 'field_kigbxyz3',
+				'label' => 'Projects',
+				'name' => 'related_projects',
+				'type' => 'relationship',
+				'instructions' => 'each member in a collaboration',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'project',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'post_title',
+				),
+				'max' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5aa1b7e8b1f59',
+							'operator' => '==',
+							'value' => 'manual',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),		
 		),
 		'location' => array (
 			array (
