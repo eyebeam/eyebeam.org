@@ -1,9 +1,8 @@
 <?php
-
 echo "<div class=\"post-main post-main-top\">\n";
-
 echo "<h2 class=\"post-title\">";
 the_title();
+
 echo "</h2>\n";
 
 $image_id = get_field('image', $post->ID);

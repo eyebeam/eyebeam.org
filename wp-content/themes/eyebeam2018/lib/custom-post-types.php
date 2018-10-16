@@ -28,6 +28,33 @@ register_post_type('resident', array(
 ));
 
 $labels = array(
+	'name' => 'Projects',
+	'singular_name' => 'Project',
+	'add_new' => 'Add New Project',
+	'add_new_item' => 'Add New Project',
+	'edit_item' => 'Edit Project',
+	'new_item' => 'New Resident',
+	'all_items' => 'All Projects',
+	'view_item' => 'View Project',
+	'search_items' => 'Search Projects',
+	'not_found' =>  'No Projects Found',
+	'not_found_in_trash' => 'No Projects found in Trash',
+	'parent_item_colon' => '',
+	'menu_name' => 'Projects',
+);
+register_post_type('project', array(
+	'labels' => $labels,
+	'has_archive' => true,
+	'public' => true,
+	'query_var' => true,
+	'supports' => array('title', 'thumbnail', 'page-attributes'),
+	'taxonomies' => array('post_tag', 'category'),
+	'exclude_from_search' => false,
+	'capability_type' => 'post',
+	'rewrite' => array( 'slug' => 'projects' ),
+));
+
+$labels = array(
 	'name' => 'Events',
 	'singular_name' => 'Event',
 	'add_new' => 'Add New Event',
