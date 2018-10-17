@@ -6,7 +6,7 @@ $GLOBALS['eyebeam2018']['is_related_reading'] = true;
 if (get_field('show_related') == 'auto' || !get_field('show_related')){
 
 	// get related readings by tagfrom functions
-	$related_readings = eyebeam2018_get_related_readings($post-ID);
+	$related_readings = eyebeam2018_get_related_readings($post->ID);
 }
 else {
 
