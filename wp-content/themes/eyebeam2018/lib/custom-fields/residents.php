@@ -204,14 +204,13 @@ if(function_exists("register_field_group"))
 				'layout' => 'horizontal',
 			),	
 			array (
-				'key' => 'field_kigbxy',
-				'label' => 'Projects',
-				'name' => 'related_projects',
+				'key' => 'field_586bce21ov23',
+				'label' => 'Related Readings',
+				'name' => 'related_readings',
 				'type' => 'relationship',
-				'instructions' => 'each member in a collaboration',
 				'return_format' => 'object',
 				'post_type' => array (
-					0 => 'project',
+					0 => 'event,post,project,archive',
 				),
 				'taxonomy' => array (
 					0 => 'all',
@@ -220,7 +219,8 @@ if(function_exists("register_field_group"))
 					0 => 'search',
 				),
 				'result_elements' => array (
-					0 => 'post_title',
+					0 => 'post_type',
+					1 => 'post_title',
 				),
 				'max' => '',
 				'conditional_logic' => array (

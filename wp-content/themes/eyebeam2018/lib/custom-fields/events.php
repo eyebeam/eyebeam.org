@@ -93,13 +93,13 @@ if(function_exists("register_field_group"))
 				'layout' => 'horizontal',
 			),						
 			array (
-				'key' => 'field_56dce19bb582e',
-				'label' => 'Related Name ',
-				'name' => 'related_name',
+				'key' => 'field_586bce21ov37',
+				'label' => 'Related Readings',
+				'name' => 'related_readings',
 				'type' => 'relationship',
 				'return_format' => 'object',
 				'post_type' => array (
-					0 => 'resident',
+					0 => 'post,project,resident,archive',
 				),
 				'taxonomy' => array (
 					0 => 'all',
@@ -110,38 +110,6 @@ if(function_exists("register_field_group"))
 				'result_elements' => array (
 					0 => 'post_type',
 					1 => 'post_title',
-				),
-				'max' => '',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_5aa1b7e8b1f69',
-							'operator' => '==',
-							'value' => 'manual',
-						),
-					),
-					'allorany' => 'all',
-				),				
-			),
-			array (
-				'key' => 'field_kigbxyz',
-				'label' => 'Projects',
-				'name' => 'related_projects',
-				'type' => 'relationship',
-				'instructions' => 'each member in a collaboration',
-				'return_format' => 'object',
-				'post_type' => array (
-					0 => 'project',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'filters' => array (
-					0 => 'search',
-				),
-				'result_elements' => array (
-					0 => 'post_title',
 				),
 				'max' => '',
 				'conditional_logic' => array (
