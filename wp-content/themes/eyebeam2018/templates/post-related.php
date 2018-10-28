@@ -11,14 +11,14 @@ if (get_field('show_related') == 'auto' || !get_field('show_related')){
 else {
 
 	// get related readings by relationship field in ACF
-	$related_readings = get_field('related_projects');
+	$related_readings = get_field('related_readings');
 	// if no projects check for residents
-	if (!$related_readings)
-		$related_readings = get_field('related_name');
 }
 
 // if we have related items to show then display the container
 if ($related_readings){
+	shuffle($related_readings);
+	$related_readings = array_slice($related_readings, 0,3);
 	echo "<div class=\"module module-collection related-readings\">";
 	echo "<h2 class=\"module-title\">Related Reading</h2>";
 	echo "<ul>";

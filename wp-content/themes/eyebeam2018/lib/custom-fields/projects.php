@@ -40,13 +40,13 @@ if(function_exists("register_field_group"))
 				'layout' => 'horizontal',
 			),
 			array (
-				'key' => 'field_586bce21ov',
-				'label' => 'Related Name ',
-				'name' => 'related_name',
+				'key' => 'field_586bce21ov33',
+				'label' => 'Related Readings',
+				'name' => 'related_readings',
 				'type' => 'relationship',
 				'return_format' => 'object',
 				'post_type' => array (
-					0 => 'resident',
+					0 => 'event,post,resident,archive,',
 				),
 				'taxonomy' => array (
 					0 => 'all',
@@ -70,7 +70,7 @@ if(function_exists("register_field_group"))
 					),
 					'allorany' => 'all',
 				),
-			),	
+			),
 			array (
 				'key' => 'field_565aee13pi',
 				'label' => 'Media',
