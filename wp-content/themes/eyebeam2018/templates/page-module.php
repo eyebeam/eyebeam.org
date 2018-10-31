@@ -36,7 +36,7 @@ $text = '';
 if (! empty($title)) {
 
 	if ($type == 'two_thirds' && ! empty($url)) {
-		$title .= ' &mdash;&gt;';
+		//$title .= ' &mdash;&gt;';
 	}
 
 	if (! empty($url)) {

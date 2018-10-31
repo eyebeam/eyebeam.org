@@ -29,7 +29,7 @@
 				));
 
 				?>
-				<a href="/donate/" class="support red">Support Eyebeam!</a>
+				<a href="/support/" class="support red">Support Eyebeam</a>
 			</nav>
 		</header>
 		<div id="page">

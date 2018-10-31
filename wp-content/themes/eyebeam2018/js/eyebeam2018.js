@@ -83,6 +83,28 @@ var eyebeam2018 = (function($) {
 				$(el).addClass(color);
 			});
 		},
+		
+		
+		
+		
+		//new code that only randomizes the color of the footer background
+		setup_random_footer: function() {
+			var colors = ['red', 'green', 'blue'];
+			$('footer').each(function(i, el) {
+				var index = Math.floor(Math.random() * colors.length);
+				var color = colors[index];
+				$(el).addClass(color);
+			});
+		},
+		
+		
+		//new code that makes all links one color except for the footer
+		setup_link: function(){
+			$('header, .subnav, .module, .moodule-colleciton li').each(function(i, el) {
+				var color = 'red';
+				$(el).addClass(color);
+			});
+		},
 
 		//new code that only randomizes the color of the footer background
 		setup_random_footer: function() {
