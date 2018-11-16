@@ -7,6 +7,8 @@ $show_date = get_field('show_date');
 $meta = get_field('meta');
 $author = get_field('author');
 $tags = get_the_tags();
+$show_tags = (get_field('show_tags') == 'show' ? true : false);
+
 
 if ($tags){
 	foreach($tags as $tag){
@@ -64,7 +66,7 @@ if ($show_date == 'show') {
 	}
 }
 
-if (count($tagnames)){
+if (count($tagnames) && $show_tags){
 	echo "Tags: " . implode($tagnames, ',');
 }
 
