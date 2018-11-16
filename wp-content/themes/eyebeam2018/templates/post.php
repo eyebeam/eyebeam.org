@@ -11,7 +11,6 @@ add_filter('the_content', 'eyebeam2018_extract_intro', 11);
 $content = apply_filters('the_content', $content);
 
 $GLOBALS['eyebeam2018']['post_content'] = $content;
-
 echo "<div class=\"post\">\n";
 get_template_part('templates/post-intro');
 get_template_part('templates/post-meta');

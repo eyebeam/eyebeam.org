@@ -26,7 +26,7 @@ if (! empty($image_id)) {
 if (! empty($permalink)){
 	$name = "<a href=\"$permalink\">$name</a>";
 		if (! empty($image)) {
-		$image = "<a href=\"$permalink\">$image</a>";
+		$image = "<a class=\"image\" href=\"$permalink\">$image</a>";
 	}
 }
 else {

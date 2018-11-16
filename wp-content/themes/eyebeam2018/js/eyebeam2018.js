@@ -5,6 +5,7 @@ var eyebeam2018 = (function($) {
 
 	// For handling donations
 	var stripe_card = null;
+	var enable_autocrop = true;
 
 	var self = {
 
@@ -22,8 +23,9 @@ var eyebeam2018 = (function($) {
 			self.setup_archive();
 			self.setup_donate();
 			self.setup_lazy_load();
+			self.setup_autocrop();
+			self.setup_searchform();
 		},
-
 		setup_nav: function() {
 			if ($('#wpadminbar').length > 0) {
 				$('header').addClass('headroom');
@@ -240,12 +242,83 @@ var eyebeam2018 = (function($) {
 						var $ul = $('#' + load + '-list');
 						$ul.append(rsp);
 						$btn.removeClass('loading');
+
+						// run autocrop to fix changed widths and heights
+						if (enable_autocrop){
+							self.setup_autocrop();						
+						}
 					},
 					error: function() {
 						$btn.html('Error loading more.');
 					}
 				});
 
+			});
+		},
+
+		setup_autocrop: function(resize) {
+
+			if (enable_autocrop){
+				$("a.image").each(function(){
+
+					if (!$(this).hasClass("cropped") || resize){
+						// define terms
+						var thisImg = $(this).find("img");
+						var width = thisImg.attr("width");
+						var height = thisImg.attr("height");
+
+						var thisImgRatio = height / width;
+						// console.log(thisImg);
+						// console.log(height);
+						// console.log(height/width);
+						// console.log(height / thisImgRatio);
+						// console.log('-------------');
+
+						// find the image attributes and assign the container a height
+
+						$(this).css("height", $(this).innerWidth());
+
+						if (thisImgRatio < 1){
+
+							// assign the background image to the anchor container
+							$(this).css({
+								"background-image": "url("+thisImg.attr("src")+")",
+								"background-size": (width / thisImgRatio)+"px",
+							});
+							$(this).addClass("cropped");
+
+						}
+						else {
+							// assign the background image to the anchor container
+							$(this).css({
+								"background-image": "url("+thisImg.attr("src")+")",
+								"background-size": "100%",
+							});					
+						}
+
+
+						// hide the link image element
+						thisImg.hide();
+
+						// $(this).parent(".item-container").css("background-image", thisImg.attr("src"));
+					}
+				});
+			}
+		},
+
+		setup_searchform: function() {
+			$("button").live('click', function(){
+
+				var searchQuery = $("#search input[type=\"text\"").val();
+			   	if (!searchQuery){
+				   	$("#search").find("input").toggleClass("visible");
+				    event.preventDefault();
+
+			   	}
+			   	else {
+				    event.preventDefault();
+				    $("#search").submit();
+				}
 			});
 		},
 
@@ -500,6 +573,14 @@ var eyebeam2018 = (function($) {
 		self.init();
 	});
 
+$(window).resize(function(){
+		if (enable_autocrop){
+			self.setup_autocrop(true);
+		}
+	});
+
 	return self;
 
 })(jQuery);
+
+	

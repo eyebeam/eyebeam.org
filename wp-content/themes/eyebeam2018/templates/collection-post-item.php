@@ -18,7 +18,7 @@ if (! empty($image_id)) {
 	$image = eyebeam2018_get_image_html($image_id, $size, 'event-image');
 }
 
-$image = "<a href=\"$url\">$image</a>";
+$image = "<a class=\"image\" href=\"$url\">$image</a>";
 $title = "<a href=\"$url\">$title</a>";
 
 // TODO: account for end dates
