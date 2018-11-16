@@ -251,7 +251,7 @@ function eyebeam2018_render_modules() {
 function eyebeam2018_template_map($post_type = null) {
 
 	if (empty($post_type)) {
-		$posttype = get_the_post_type();
+		$posttype = get_post_type();
 	}
 
 	$post_type_map = array(
@@ -984,4 +984,11 @@ function eyebeam2018_db_migration_1() {
 	exit;
 }
 add_action('wp_ajax_eyebeam2018_db_migration_1', 'eyebeam2018_db_migration_1');
+
+// add_action('wp_body', 'show_template');
+
+function show_template() {
+    global $template;
+    echo basename($template);
+}
 

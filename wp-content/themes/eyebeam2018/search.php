@@ -1,29 +1,25 @@
 <?php
 /*
 
-Template Name: Tag Page
+Template Name: Search Page
 
 */
-$queried_object = get_queried_object();
-$args = array(
-	'post_type' => 'any',
-	'posts_per_page' => -1,
-	'orderby' => 'rand',
-	'tag__in' => $queried_object->term_id,
-);
+global $query_string;
 
+wp_parse_str( $query_string, $search, $search_query );
+$search = new WP_Query ($search_query);
 
-$tag_posts = get_posts($args);
-wp_reset_postdata();
+$query = str_replace('s=', '', $query_string);
+
+global $wp_query;
+
 
 get_header();
-
-
-if (count($tag_posts) > 0){
+if (count($wp_query->posts) > 0){
 echo "<div class=\"module module-collection related-readings\">";
-	echo "<h2 class=\"module-title\">Tagged: $queried_object->name</h2>";
+	echo "<h2 class=\"module-title\">Search Results: $query</h2>";
 	echo "<ul>";
-	foreach($tag_posts as $post){
+	foreach($wp_query->posts as $post){
 
 		$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
 		get_template_part('templates/collection', eyebeam2018_template_map($post->post_type));
@@ -36,7 +32,7 @@ echo "<div class=\"module module-collection related-readings\">";
 }
 else {
 	echo "<div class=\"module module-collection related-readings\">";
-	echo "<h2 class=\"module-title\">Search Results</h2>";
+	echo "<h2 class=\"module-title\">Search Results: $query</h2>";
 	echo "<ul>";
 	get_template_part('templates/collection', 'none');
 	echo "</ul>";
@@ -44,6 +40,5 @@ else {
 	echo "<br class=\"clear\">\n";
 
 }
-
 
 get_footer();

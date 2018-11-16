@@ -16,6 +16,7 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<header>
+
 			<nav>
 				<div class="menu-btn"></div>
 				<h1><a href="/"><img src="<?php eyebeam2018_img_src('img/eyebeam.svg'); ?>" alt="EYEBEAM" class="logo"></a></h1>
@@ -31,5 +32,12 @@
 				?>
 				<a href="/support/" class="support red">Support Eyebeam</a>
 			</nav>
+			<form id="search" action="/" method="GET">
+				<input type="text" name="s"/>
+				<button type="submit">
+					<span class="search-icon"></span>
+				</button>
+			</form>
+
 		</header>
 		<div id="page">

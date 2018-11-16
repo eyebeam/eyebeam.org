@@ -35,7 +35,7 @@ if (! empty($members)) {
 
 echo "<li class=\"project collection-item\">\n";
 echo "<div class=\"item-container\">\n";
-echo "<a href=\"$project_url\">$image\n</a>";
+echo "<a class=\"image\" href=\"$project_url\">$image\n</a>";
 echo ($label) ? "<h5 class=\"post-label\">$label</h5>" : '';
 echo "<h3 class=\"project-name module-title\">$name</h3>\n";
 echo "<h4 class=\"project-type person-title module-title\">$type</h4>\n";

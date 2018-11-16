@@ -167,6 +167,20 @@ if(function_exists("register_field_group"))
 					'allorany' => 'all',
 				),
 			),
+			array (
+				'key' => 'field_5aa1b7e8b1f199',
+				'label' => 'Display Tags',
+				'name' => 'show_tags',
+				'type' => 'radio',
+				'choices' => array (
+					'show' => 'Show Tags',
+					'hide' => 'Hide Tags',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'show',
+				'layout' => 'horizontal',
+			),	
 		),
 		'location' => array (
 			array (
