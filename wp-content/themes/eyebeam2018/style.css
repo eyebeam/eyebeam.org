@@ -374,7 +374,7 @@ header #search { display: none;}
 body.show-menu header #search {
 	display: block;
 	position: absolute;
-    bottom: 80px;
+    top: 84vh;
     width: 100%;
     padding: 0 20px;
 }
@@ -505,6 +505,7 @@ header #search button span {
 	}
 
 	header #search {
+		display: block;
 		height: 36px;
 		position: absolute;
 		top: 23px;
