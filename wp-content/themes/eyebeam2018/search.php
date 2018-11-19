@@ -10,7 +10,7 @@ wp_parse_str( $query_string, $search, $search_query );
 $search = new WP_Query ($search_query);
 
 $query = str_replace('s=', '', $query_string);
-
+$query_decode = urldecode($query);
 global $wp_query;
 
 
@@ -32,7 +32,7 @@ echo "<div class=\"module module-collection related-readings\">";
 }
 else {
 	echo "<div class=\"module module-collection related-readings\">";
-	echo "<h2 class=\"module-title\">Search Results: $query</h2>";
+	echo "<h2 class=\"module-title\">Search Results: $query_decode</h2>";
 	echo "<ul>";
 	get_template_part('templates/collection', 'none');
 	echo "</ul>";
