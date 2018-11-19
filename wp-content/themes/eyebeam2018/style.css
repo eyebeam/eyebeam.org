@@ -370,6 +370,60 @@ body.show-menu header nav .support {
 	height: 60px;
 }
 
+header #search { display: none;}
+body.show-menu header #search {
+	display: block;
+	position: absolute;
+    bottom: 80px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+
+
+header #search input[type="text"] {
+	height: 36px; 
+	width: 80%; 
+	font-size: 18px;
+	background: #262626;
+	color: white;
+	border: 1.5px solid white;
+	display: block;
+	float: left;
+	position: relative;
+	transition: .3s ease-out;
+	z-index:2;
+}
+header #search input[type="text"].visible {
+	display: block;
+	right:0;
+	transition: .2s ease-out;
+}
+
+header #search input[type="text"]:focus {
+	outine: 0 !important;
+}
+
+header #search button { 
+	background: #262626;
+	border: none;
+	float: right;
+	position: relative;
+	z-index: 10;
+}
+
+header #search button span {
+	display: block;
+	width: 36px;
+	height: 36px;
+	background: url('/wp-content/themes/eyebeam2018/img/search.png');
+	background-position: center;
+	background-size: 85%;
+	background-repeat: no-repeat;
+	cursor: poitner;
+	outline: none;
+}
+
 @media (min-width: 857px) {
 
 	header {
@@ -450,9 +504,8 @@ body.show-menu header nav .support {
 		background: #EB6B62;
 	}
 
-		header #search {
-			height: 36px;
-
+	header #search {
+		height: 36px;
 		position: absolute;
 		top: 23px;
 		right: 0;
@@ -559,6 +612,11 @@ body.show-menu header nav .support {
 
 	header {
 		font-size: 24px;
+	}
+
+
+	header #search input[type="text"] {
+		width: 250px;
 	}
 
 }
