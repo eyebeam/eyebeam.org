@@ -258,8 +258,11 @@ var eyebeam2018 = (function($) {
 
 		setup_autocrop: function(resize) {
 
-			if (enable_autocrop){
-				$("a.image").each(function(){
+			var has_module_residents = $('#module-residents').length;
+
+			if (enable_autocrop && has_module_residents){
+
+				$("#module-residents a.image").each(function(){
 
 					if (!$(this).hasClass("cropped") || resize){
 						// define terms
