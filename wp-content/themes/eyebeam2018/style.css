@@ -501,7 +501,7 @@ header #search button span {
 	header .support {
 		position: absolute;
 		top: 23px;
-		right: 10px;
+		right: 50px;
 		background: #EB6B62;
 	}
 
@@ -571,7 +571,7 @@ header #search button span {
 	}
 
 	header .support {
-		right: 15px;
+		right: 51px;
 	}
 
 }
