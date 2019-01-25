@@ -6,6 +6,8 @@ if (! empty($toc_title)) {
 	$hash = sanitize_title($toc_title);
 }
 
+
+
 echo "<li id=\"module-$hash\" class=\"module module-$type\">\n";
 echo "<div class=\"item-container\">\n";
 

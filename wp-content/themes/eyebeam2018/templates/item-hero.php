@@ -43,6 +43,7 @@ if ($type == 'image') {
 } else if ($type == 'text') {
 
 	$hero['text'] = get_sub_field('hero_text');
+	$hero['show_page_title'] = get_sub_field('show_page_title');
 
 } else if ($type == 'video') {
 

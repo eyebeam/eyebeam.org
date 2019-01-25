@@ -2,6 +2,7 @@
 
 $type = get_sub_field('module_type');
 $title = null;
+$show_page_title = null;
 $url = null;
 $description = null;
 $image_id = null;
@@ -23,6 +24,9 @@ if (! empty($page)) {
 	if (! $image_id) {
 		$image_id = get_post_thumbnail_id($page);
 	}
+}
+if (! empty(get_sub_field('show_page_title'))) {
+	$show_page_title = get_sub_field('show_page_title');
 }
 
 if (! empty(get_sub_field('module_title'))) {
@@ -100,6 +104,7 @@ eyebeam2018_module(array(
 	'type' => $type,
 	'hash' => $hash,
 	'title' => $title,
+	'show_page_title' => $show_page_title,
 	'url' => $url,
 	'description' => $description,
 	'image_id' => $image_id,

@@ -163,6 +163,36 @@ if(function_exists("register_field_group"))
 						'formatting' => 'br',
 					),
 					array (
+						'key' => 'field_5a99c1e221c399',
+						'label' => 'Show Page Title',
+						'name' => 'show_page_title',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'hero',
+								),
+								array (
+									'field' => 'field_5a99c12e21c32',
+									'operator' => '==',
+									'value' => 'text',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'choices' => array (
+							'show' => 'Show Page Title',
+							'hide' => 'Hide Page Title',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'show',
+						'layout' => 'horizontal',
+					),					
+					array (
 						'key' => 'field_5a99c21321c37',
 						'label' => 'Module type',
 						'name' => 'module_type',
