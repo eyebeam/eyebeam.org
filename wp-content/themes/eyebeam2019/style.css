@@ -535,7 +535,7 @@ header #search button span {
 		padding: 1vw 0;
 		height: 100%;
 		left: 9.333vw;
-		width: 81.333vw;
+		width: 80.333vw;
 		display: flex;
 		justify-content: space-between;
 		border-bottom: 1px solid black;
@@ -616,6 +616,7 @@ header #search button span {
 		border: none;
 		float: right;
 		right: 9.666vw;
+		top: 34px;
 		position: absolute;
 		padding: 0;
 		z-index: 10;
@@ -629,7 +630,7 @@ header #search button span {
 		background-position: center;
 		background-size: 85%;
 		background-repeat: no-repeat;
-		cursor: poitner;
+		cursor: pointer;
 		outline: none;
 	}
 
@@ -1181,7 +1182,7 @@ footer form p {
 }
 
 .module .module-description p {
-	padding-right: 1rem;
+	margin: 1rem 1rem 0 0;
 }
 
 .module-two_thirds {
@@ -1530,7 +1531,7 @@ h5.post-label, .label {
 
 
 	.module-collection#module-staff ul{
-		justify-content: space-between;
+		justify-content: left;
 
 	}
 
@@ -1564,6 +1565,10 @@ h5.post-label, .label {
 	}
 
 	.module-collection ul {
+	}
+
+	.support-advisory ul {
+		justify-content: left !important;
 	}
 
 	.module-collection .support-advisory li {
@@ -1830,7 +1835,7 @@ h5.post-label, .label {
 }
 
 .post-content p {
-	margin: 4rem 0;
+	margin: 1rem 0;
 }
 
 .post .clear {
