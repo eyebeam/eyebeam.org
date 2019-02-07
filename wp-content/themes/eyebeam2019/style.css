@@ -387,7 +387,7 @@ body.show-menu header #search {
 
 
 header #search input[type="text"] {
-width: 81.333vw;
+width: 80.333vw;
 	padding: .5rem;
 	font-size: 1.5rem;
 	line-height: 2rem;
@@ -1413,7 +1413,7 @@ h5.post-label, .label {
 	}
 
 	.module-section_header {
-		width: calc(100% - 10px);
+		width: calc(100%);
 		border-bottom: 0;
 		padding-bottom: 0;
 
