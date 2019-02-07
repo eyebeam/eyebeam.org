@@ -1,0 +1,27 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3529929, 2018-02-20T19:40:30-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: ArialMonospacedMTStd by Monotype
+ * URL: https://www.myfonts.com/fonts/mti/arial-monospaced-mt/std-monospaced-regular/
+ * Copyright: Font software Copyright 1991 Adobe Systems Incorporated. Typeface designs Copyright 1991 The Monotype Corporation. All rights reserved.
+ * Licensed pageviews: 250,000
+ *
+ *
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3529929
+ *
+ * © 2018 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+/*@import url("/count/35dcc9");*/
+
+
+@font-face {font-family: 'ArialMonospacedMTStd';src: url('webfonts/35DCC9_0_0.eot');src: url('webfonts/35DCC9_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/35DCC9_0_0.woff2') format('woff2'),url('webfonts/35DCC9_0_0.woff') format('woff'),url('webfonts/35DCC9_0_0.ttf') format('truetype');}

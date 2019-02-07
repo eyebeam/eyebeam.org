@@ -1,0 +1,48 @@
+Hello world,
+
+Thanks for viewing source, I appreciate that you care how this works. @dphiffer
+here, writing my first "secret" View Source blog post. You can ~only~ read this
+if you *view source*, it does not otherwise exist in the realm of visible
+hypertext. (I mean, sure, I bet you could find this text file on GitHub,
+rendered as a web page, but IMO it's more fun to read this next to the `<meta>`
+tags.)
+
+The idea for this blog is to help you understand how this site is built, what
+it is made out of. I learned how to build websites by using 'the source' command
+on Netscape. Having the source code be visible, but also *legible* is important.
+
+HTML source code doesn't include the range of stuff that constitutes a modern
+web page; back-end code, minified assets, AJAX requests. I'm hoping that these
+blog posts can help you discover and understand those otherwise hidden away
+aspects of how each page on here is built.
+
+I want you to understand how it all works and maybe you'll even decide to pitch
+in and contribute your own fixes! The Eyebeam website is here for you to learn
+from, and perhaps contribute to. If you know how to, you can suggest changes
+on GitHub as pull requests. Maybe I'll explain how that process works at some
+point. You can also submit bug reports for things that don't work for you, that
+is also a super helpful way to contribute.
+
+All of that happens on this GitHub repo:
+https://github.com/eyebeam/eyebeam.org
+
+Here is where the bug reports live:
+https://github.com/eyebeam/eyebeam.org/issues
+
+My belief is that running code is only part of the story. After you write and
+test and deploy the code, things can still go wrong. All Code Has Bugs something
+I have learned over the years, even for the simplest and most insignificant
+computer programs. Seemingly tiny changes can cascade to break things
+unexpectedly.
+
+In the long span of its life, software needs to be maintained to continue being
+useful. This View Source Blog will attempt to make the code that runs
+eyebeam.org more legible and productive for future maintainers. (And also for
+Future Me, for when I forget how everything works.)
+
+Okay that is all, back to post-launch fixes for me.
+
+The next blog post can be found by viewing source over here:
+https://www.eyebeam.org/archive/
+
+(20180308/dphiffer)
