@@ -1,0 +1,4 @@
+table.acf-input-table > tbody > tr:nth-child(even) table.acf_input,
+table.acf-input-table > tbody > tr:nth-child(even) table.acf_input td.label {
+	background: lemonchiffon;
+}
