@@ -2,7 +2,7 @@
 $event = $GLOBALS['eyebeam2018']['curr_collection_item'];
 $is_related_reading = $GLOBALS['eyebeam2018']['is_related_reading'];
 $category = get_the_category($event->ID);
-$category_label = "<a href=\"#\" class=\"category-label\">" . $category[0]->name . "</a>";
+$category_label = "<a href=\"#\" class=\"category-label\" id=\"" . $category[0]->slug . "\">" . $category[0]->name . "</a>";
 
 
 $title = apply_filters('the_title', $event->post_title);

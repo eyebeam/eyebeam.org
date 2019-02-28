@@ -158,9 +158,8 @@ a:hover {
 }
 
 #page {
-	width: 81.333%;
+	width: 80.333vw;
 	margin:0 auto;
-	padding-top: 60px;
 	transition: all 0.2s ease-in;
 	z-index: 1;
 	position: relative;
@@ -220,6 +219,7 @@ form.error .response-error {
 		transition: background 0.1s ease-out;
 		text-decoration: underline;
 		word-wrap: break-word;
+		font-weight: 400;
 	}
 
 	a:hover {
@@ -233,7 +233,6 @@ form.error .response-error {
 	}
 
 	#page {
-		padding-top: 1.5rem;
 	}
 
 	.container {
@@ -282,6 +281,16 @@ header h1 {
 	color: #272425;
 }
 
+header .mobile-logo {
+	width: 80.333vw;
+	display: none;
+}
+
+header .mobile-label {
+	display: none;
+}
+
+
 /*header h1 a {
 	display: block;
 	width: 60px;
@@ -303,7 +312,6 @@ header h1 img {
 
 header nav {
 	position: relative;
-	height: 60px;
 }
 
 header a {
@@ -321,7 +329,6 @@ header nav .support {
 }
 
 body.show-menu header {
-	height: 100vh;
 }
 
 body.show-menu .menu-btn {
@@ -331,7 +338,6 @@ body.show-menu .menu-btn {
 
 body.show-menu header nav .menu-header-container {
 	display: block;
-	position: fixed;
 	top: 60px;
 	bottom: 0;
 	left: 0;
@@ -348,11 +354,11 @@ body.show-menu header nav {
 	text-align: center;
 }
 
+body.show-menu header nav .menu .sub-menu {
+	display: none;
+}
+
 body.show-menu header .menu {
-	position: fixed;
-	left: 50%;
-	top: calc(50% - 30px);
-	transform: translateX(-50%) translateY(-50%);
 }
 
 body.show-menu header.headspace .menu {
@@ -376,7 +382,7 @@ body.show-menu header nav .support {
 
 header #search { display: none;}
 body.show-menu header #search {
-     display: block;
+     display: none;
     position: relative;
     top: -6rem;
     width: 70%;
@@ -391,7 +397,6 @@ width: 80.333vw;
 	padding: .5rem;
 	font-size: 1.5rem;
 	line-height: 2rem;
-	background: #262626;
 	color: white;
 	border: 1.5px solid white;
 	display: block;
@@ -427,8 +432,19 @@ header #search button span {
 	background-position: center;
 	background-size: 85%;
 	background-repeat: no-repeat;
-	cursor: poitner;
+	cursor: pointer;
 	outline: none;
+}
+
+.category-label#artist-interview {
+	background: #FF0000;
+}
+.category-label#artist-reflection {
+	background: #00ff00;
+}
+.category-label#from-eyebeam {
+	background: #0000FF;
+	color: white;
 }
 
 @media (min-width: 857px) {
@@ -451,59 +467,79 @@ header #search button span {
 		transition: all 0.2s ease-in;
 	}
 
+	.logo-container#left {
+		position: absolute;
+		width: 8.333vw;
+		z-index: 100;
+	}
 
-
-	.logo-container h1 {
+	.logo-container#left h1 {
 	    /*transform-origin: top left;*/
 	    /*transform: rotate(90deg);*/
 	    text-transform: uppercase;
 		width: 7vw;
 		left: 1vw;
-		top: 2vh;
+		top: .8rem;
 	    height: 100vm;
 	    /*font-size: calc(7.333vw * 1.66615);*/
 	    /*line-height: 7.333vw;*/
 	    z-index: 20;
 	}
 
-	.logo-container h1 img {
+	.logo-container#left h1 img {
 		display: block;
 		position: absolute;
 		width: 100%;
 	}
-	.logo-container h1 a {
+	.logo-container#left h1 a {
 		display: block;
-		height: 100%;
 	}
 
-	div.matte {
+	#right div.matte {
 		display: block;
 		background: white;
 		position: fixed;
-		height: 2vh;
+		height: .8rem;
 		width: 9vw;
 		z-index: 200;
+		right: 0;
 
 	}
-
+	#left div.matte {
+		left: 0;
+	}
+/*
 	div.logo-container.clone {
 		position: absolute;
 		
 	}
+*/
 
 
-
-	.logo-container h1 a#eyebeam_1 img {
-		position: fixed;
-		width: 7vw;
-	}
-	.logo-container h1 a#eyebeam_2 img {
+	.logo-container#left h1 a#eyebeam_1_left {
 	}
 	
-	.logo-container h1 img.top, header h1 img.stretch {
+	.logo-container#left h1 a#eyebeam_1_left img {
+		position: fixed;
+		width: 7vw;
+		bottom: 2vh;
+	}
+	
+	.logo-container#left h1 a#eyebeam_2_left img {
+		width: 7vw;
+		bottom: 4vh;
+		height: 64px;
+		position: fixed;
+	}	
+	.logo-container#left h1 a#eyebeam_2_left {
+
+		height: 100px;
+	}
+	
+	.logo-container#left h1 img.top, header h1 img.stretch {
 	}
 
-	.logo-container h1 a#eyebeam_3 {
+	.logo-container#left h1 a#eyebeam_3_left {
 		/*background-image: url('/wp-content/themes/eyebeam2019/img/eyebeam_3.svg');*/
 		background-size: 5.333vw;
 		background-repeat: no-repeat;
@@ -514,10 +550,97 @@ header #search button span {
 		padding-bottom: 2rem;
 	}
 
-	#eyebeam_3, #eyebeam_2 img {
+	#eyebeam_3, #eyebeam_2_left img {
 	}
 
-	.logo-container h1 a.bottom {
+	.logo-container#left h1 a.bottom {
+		right:0 !important;
+	}
+
+
+
+/* right */
+
+	.logo-container#right {
+		position: fixed;
+		right: .7rem;
+		width: 8.333vw;
+	}
+
+	.logo-container#right h1 {
+	    /*transform-origin: top left;*/
+	    /*transform: rotate(90deg);*/
+	    text-transform: uppercase;
+		width: 7vw;
+		left: 1vw;
+		top: .8rem;
+	    height: 100vm;
+	    /*font-size: calc(7.333vw * 1.66615);*/
+	    /*line-height: 7.333vw;*/
+	    z-index: 20;
+	}
+
+	.logo-container#right h1 img {
+		display: block;
+		position: absolute;
+		width: 100%;
+	}
+	.logo-container#right h1 a {
+		display: block;
+		height: 100%;
+	}
+
+	#left div.matte {
+		display: block;
+		background: white;
+		position: fixed;
+		height: .8rem;
+		width: 9vw;
+		z-index: 200;
+		left: 0;
+		bottom: 0;
+
+	}
+
+	div.logo-container.clone {
+		position: absolute;
+		
+	}
+
+
+
+	.logo-container#right h1 a#eyebeam_1_right img {
+		position: fixed;
+		width: 7vw;
+	}
+	
+	.logo-container#right h1 a#eyebeam_2_right img {
+
+		height: 100px;
+	}	
+	.logo-container#right h1 a#eyebeam_2_right {
+
+		height: 100px;
+	}
+	
+	.logo-container#right h1 img.top, header h1 img.stretch {
+	}
+
+	.logo-container#right h1 a#eyebeam_3_right {
+		/*background-image: url('/wp-content/themes/eyebeam2019/img/eyebeam_3.svg');*/
+		background-size: 5.333vw;
+		background-repeat: no-repeat;
+		text-indent: -9999px;
+		width: 100%;
+		position: absolute;
+		/*transform: translateX(-100%);*/
+		padding-bottom: 2rem;
+	}
+
+	#eyebeam_3, #eyebeam_2_right img {
+	}
+
+	.logo-container#right h1 a.bottom {
 		right:0 !important;
 	}
 
@@ -532,8 +655,7 @@ header #search button span {
 
 	header .menu {
 		position: absolute;
-		padding: 1vw 0;
-		height: 100%;
+		padding: 1rem 0;
 		left: 9.333vw;
 		width: 80.333vw;
 		display: flex;
@@ -546,6 +668,7 @@ header #search button span {
 	header nav {
 		white-space: nowrap;
 		background: white;
+		height: 60px;
 	}
 
 	header nav li {
@@ -616,7 +739,6 @@ header #search button span {
 		border: none;
 		float: right;
 		right: 9.666vw;
-		top: 34px;
 		position: absolute;
 		padding: 0;
 		z-index: 10;
@@ -651,14 +773,13 @@ header #search button span {
 		font-weight: 800;
 		font-size: 1.5rem;
 		line-height: 2rem;
-		display: none;
 		white-space: nowrap;
 		background: white;
-		border-top: 1px solid black;
-		transition: opacity 0.05s ease-in;
+		border-bottom: 0;
+		transition: all 0.1s ease-in;
 		transition-delay: .1s;
-		padding: 1rem 0;
-		opacity: 0;
+		height: 0;
+		overflow: hidden;
 	}
 
 	ul.sub-menu li {
@@ -673,8 +794,11 @@ header #search button span {
 
 
 	.show-sub-menu > ul.sub-menu {
-		opacity: 1;
 		display: block;
+		padding: 1rem 0;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		transition: all 0.1s ease-in;
 	}
 
 	.sub-menu > li > a{
@@ -1165,6 +1289,13 @@ footer form p {
 	margin-bottom: 15px;
 }
 
+
+.module-container > ul {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+}
 .module img {
 	width: 100%;
 	height: auto;
@@ -1283,13 +1414,14 @@ h5.post-label, .label {
 }
 
 .module-collection .person-title {
-	opacity: 0.6;
 	padding-top: 0 !important;
 }
 
 .module-collection .bio {
 	display: none;
 	padding-bottom: 15px;
+	font-size: 1.1rem;
+	line-height: 1.4rem;
 }
 
 .module-collection li.show-bio .bio {
@@ -1373,7 +1505,12 @@ h5.post-label, .label {
 	}
 
 	.module-one_third {
-		width: calc(33.33% - 10px);
+		width: calc(33.33%);
+		padding-right: 2rem;
+	}
+
+	.module-one_third:nth-child(3n) {
+		padding-right: 0 !important;
 	}
 
 	.module-one_third .module-title {
@@ -1383,8 +1520,18 @@ h5.post-label, .label {
 
 	}
 
+	#module-donate {
+		/*float: right;*/
+		/*padding: 2rem 0;*/
+		/*text-align: right;*/
+	}
+
 	.module-one_half {
-		width: calc(50% - 10px);
+		width: calc(50%);
+		padding-right: 2rem;
+	}
+	.module-one_half:nth-child(2n) {
+		padding-right: 0;
 	}
 
 	.module-one_half .module-title {
@@ -1408,8 +1555,12 @@ h5.post-label, .label {
 	}
 
 	.module-two_thirds .module-title {
-		font-size: 1.5rem;
-		line-height: 86px;
+		font-size: 3rem;
+		line-height: 4rem;
+	}
+
+	#module-donate-to-eyebeam {
+		height: 600px;
 	}
 
 	.module-section_header {
@@ -1426,7 +1577,7 @@ h5.post-label, .label {
 	}
 
 	.module-full_width {
-		width: calc(100% - 10px);
+		width: calc(100%);
 	}
 
 	.module-full_width .module-title {
@@ -1486,11 +1637,32 @@ h5.post-label, .label {
 		width: 100%;
 	}
 
+	.module-collection#module-alumni ul {
+		justify-content: left;
+	}
+
 	.module-collection li {
 		float: left;
 		width: calc(33% - 2vw);
 		margin-bottom: 1rem;
-		margin-right: .75rem;
+		margin-right: 1rem;
+	}
+
+
+	.module-collection#module-alumni .five-columns li:nth-child(5n) {
+		margin-right: 0;
+	}
+
+	.module-collection#module-alumni .five-columns li {
+		margin-right: 2rem;
+	}
+
+	.module-collection#module-staff .four-columns li:nth-child(4n) {
+		margin-right: 0;
+	}
+
+	.module-collection#module-staff .four-columns li {
+		margin-right: 2rem;
 	}
 
 	.module-collection #posts-list {
@@ -1507,16 +1679,16 @@ h5.post-label, .label {
 */
 
 	.module-collection .five-columns li {
-		width: calc(20% - 2vw);
+		width: calc(20% - 1.6rem);
 	}
 
-	.module-collection .five-columns li:nth-child(2n+1) {
+/*	.module-collection .five-columns li:nth-child(2n+1) {
 		width: calc(20% - 2vw);
-	}
+	}*/
 
 	.module-collection .four-columns li,
 	.module-collection div .four-columns li {
-		width: calc(25% - 1vw);
+		width: calc(25% - 2vw);
 	}
 
 
@@ -1544,11 +1716,11 @@ h5.post-label, .label {
 
 	.module-collection h3.module-title,
 	.module-collection h4.module-title {
-		font-size: 1.75rem;
-		line-height: 2rem;
+		font-size: 1.3rem;
+		line-height: 1.67rem;
 		font-family: "EyebeamSans", sans-serif;
 		width: 100%;
-		padding: .75rem 0 1rem 0;
+		padding: .25rem 0 0 0;
 	}
 
 	.module-collection .staff-image {
@@ -1721,7 +1893,7 @@ h5.post-label, .label {
 #residents-year select {
 	border: 1px solid black;
 	font-family: "Work Sans";
-	padding: 1rem 2rem;
+	padding: 0 2rem;
 }
 
 #residents-year select {

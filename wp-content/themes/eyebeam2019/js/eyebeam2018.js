@@ -25,6 +25,8 @@ var eyebeam2018 = (function($) {
 			self.setup_autocrop();
 			self.setup_searchform();
 			self.setup_logo();
+			self.setup_alt_text();
+			self.setup_blog_labels();
 
 		},
 		setup_nav: function() {
@@ -66,20 +68,29 @@ var eyebeam2018 = (function($) {
 
 				event.preventDefault();
 
+				// set defaults
+				var navHeight = 60;
+				var subNavHeight = 0;
+
+				// find how many children links there are
+				var childCount = $(this).parent().find(".sub-menu").children().length;
+				subNavHeight = 32 * (childCount+1);
+
 				if ($(this).parent().hasClass("show-sub-menu")){
-					$("nav").css("height", 60);
-					// $("#page").css("padding-top", "2vh");
+
+					$("nav").css("height", navHeight);
+					$(this).parent().find(".sub-menu").css("height", 0 );
 					$(this).parent().toggleClass("show-sub-menu");
 
-				}else {
-
-					var subMenuHeight = $(this).parent().find(".sub-menu").height();
-					var heightUnit = $(window).height() / 100;
+				} else {
 
 					$(".show-sub-menu").removeClass("show-sub-menu");
 
-					$("nav").css("height", subMenuHeight+100);
-					// $("#page").css("padding-top", subMenuHeight + (heightUnit*4));
+					$(".sub-menu").css("height", 0 ).delay(1000);
+					$("nav").css("height", navHeight);
+
+					$("nav").css("height", subNavHeight+navHeight);
+					$(this).parent().find(".sub-menu").css("height", subNavHeight );
 
 					$(this).parent().toggleClass("show-sub-menu");					
 				}
@@ -574,6 +585,8 @@ var eyebeam2018 = (function($) {
 							if ($container.length > 0 &&
 							    $container[0].offsetHeight > max_height) {
 								max_height = $container[0].offsetHeight;
+							console.log("maxheight:");
+							console.log(max_height);
 							}
 						}
 						for (var i = 0; i < row.length; i++) {
@@ -608,8 +621,10 @@ var eyebeam2018 = (function($) {
 				var eyebeam2Height = ( (documentWidth/100) * 7) * eyebeam2Ratio;
 				var eyebeam3Height = ( (documentWidth/100) * 7) * eyebeam3Ratio;
 
-			 	$("#eyebeam_1").css("height",  eyebeam1Height);
-			 	$("#eyebeam_2").css("height",  eyebeam2Height);
+			 	$("#eyebeam_1_left").css("height",  eyebeam1Height);
+			 	$("#eyebeam_2_left").css("height",  eyebeam2Height);
+			 	$("#eyebeam_1_right").css("height",  eyebeam1Height);
+			 	$("#eyebeam_2_right").css("height",  eyebeam2Height);
 
 			 	var stretch = (documentHeight - eyebeam3Height);
 				var maxScroll = documentHeight - (eyebeam3Height ) ;
@@ -646,7 +661,7 @@ var eyebeam2018 = (function($) {
 				var maxScroll = ( documentHeight - (eyebeam3Height) ) - ((documentHeight / 100) * 2 );
 
 
-				console.log(documentHeight);
+				console.log("scroll");
 				console.log(scroll);
 
 				if ( (scroll > 0) && ( ( (scroll*1.1) < maxScroll) ) ){
@@ -663,6 +678,46 @@ var eyebeam2018 = (function($) {
 						"height": maxScroll+eyebeam2Height,
 					});
 				}
+
+
+				// testing for the right side
+				// console.log(maxScroll);
+
+				console.log('documentHeight');
+				console.log(documentHeight);
+				var right2Height = scroll +100;
+				var left2Height = scroll +64;
+				var left3Height = 0;
+
+				var reversePoint = documentHeight / 2;
+
+
+				if (scroll < reversePoint){
+					$(".logo-container#right h1 #eyebeam_2_right").css("height", right2Height);
+					$(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);
+					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left2Height);
+					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);
+				} else {
+
+					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 110;
+					left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 100;
+					// left3Height = ( documentHeight - ($(window).height() - 24 ));
+					// left3Height = (documentHeight - $(window).height() +36);
+					console.log('left3Height');
+					console.log(left3Height);
+					console.log('right2Height');
+					console.log(right2Height);
+					
+					$(".logo-container#right h1 #eyebeam_2_right").css("height", right2Height);
+					$(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);							
+
+					// $(".logo-container#left h1 #eyebeam_2_left img").css("height", left2Height);					
+					$(".logo-container#left h1 #eyebeam_3_left img").css("top", left3Height);					
+				}
+
+
+
+
 			});
 
 
@@ -671,6 +726,26 @@ var eyebeam2018 = (function($) {
 
 			// logoContainer.clone().addClass("clone").insertAfter(".logo-container");
 		},		
+		setup_alt_text: function(){
+			$(".module-title, .post-title, .menu-item a, input").each(function(){
+
+					if ( $(this).is("input") ){
+						var thisContent = $(this).attr("placeholder");
+					} else {
+						var thisContent = $(this).html();
+					}
+
+					$(this).attr("alt", thisContent);
+
+
+			});	
+		},
+		setup_blog_labels: function(){
+			$(".category-label").each(function(){
+				console.log($(this).attr("id"));
+
+			});
+		},
 
 	};
 
