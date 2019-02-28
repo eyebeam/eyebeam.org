@@ -1515,7 +1515,7 @@ h5.post-label, .label {
 	}
 
 	.module-one_third:nth-child(3n) {
-		padding-right: 0 !important;
+		/*padding-right: 0 !important;*/
 	}
 
 	.module-one_third .module-title {
