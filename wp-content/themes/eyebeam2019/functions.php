@@ -153,8 +153,12 @@ function eyebeam2018_enqueue_js($path, $deps = array(), $bottom = true) {
 function eyebeam2018_enqueue() {
 	
 	eyebeam2018_enqueue_css('fonts/eyebeamsans.css');
+	eyebeam2018_enqueue_css('lib/jquery-ui/jquery-ui.css');
 	eyebeam2018_enqueue_css('style.css');
+
+	eyebeam2018_enqueue_js('lib/jquery-ui/jquery-ui.js');
 	eyebeam2018_enqueue_js('js/eyebeam2018.js', array('jquery'));
+	
 }
 add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
 
