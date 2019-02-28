@@ -40,15 +40,15 @@ var eyebeam2018 = (function($) {
 
 				var height = 0;
 				var scroll = document.documentElement.scrollTop;
-				if ($('#wpadminbar').length > 0) {
-					height = $('#wpadminbar').height();
-					if (height > 32) {
-						// Only adjust the nav bar position on mobile, where the
-						// the height is 48. (20180302/dphiffer)
-						var top = Math.max(0, height - scroll);
-						$('header').css('top', top + 'px');
-					}
-				}
+				// if ($('#wpadminbar').length > 0) {
+				// 	height = $('#wpadminbar').height();
+				// 	if (height > 32) {
+				// 		// Only adjust the nav bar position on mobile, where the
+				// 		// the height is 48. (20180302/dphiffer)
+				// 		var top = Math.max(0, height - scroll);
+				// 		$('header').css('top', top + 'px');
+				// 	}
+				// }
 
 				if ($('.module-toc').length == 0) {
 					return;
@@ -69,31 +69,45 @@ var eyebeam2018 = (function($) {
 
 				event.preventDefault();
 
-				// set defaults
-				var navHeight = 60;
-				var subNavHeight = 0;
+				if ( $(window).width >= mobile_width ){
 
-				// find how many children links there are
-				var childCount = $(this).parent().find(".sub-menu").children().length;
-				subNavHeight = 32 * (childCount+1);
+					// set defaults
+					var navHeight = 60;
+					var subNavHeight = 0;
 
-				if ($(this).parent().hasClass("show-sub-menu")){
+					// find how many children links there are
+					var childCount = $(this).parent().find(".sub-menu").children().length;
+					subNavHeight = 32 * (childCount+1);
 
-					$("nav").css("height", navHeight);
-					$(this).parent().find(".sub-menu").css("height", 0 );
-					$(this).parent().toggleClass("show-sub-menu");
+					if ($(this).parent().hasClass("show-sub-menu")){
 
-				} else {
+						$("nav").css("height", navHeight);
+						$(this).parent().find(".sub-menu").css("height", 0 );
+						$(this).parent().toggleClass("show-sub-menu");
 
-					$(".show-sub-menu").removeClass("show-sub-menu");
+					} else {
 
-					$(".sub-menu").css("height", 0 ).delay(1000);
-					$("nav").css("height", navHeight);
+						$(".show-sub-menu").removeClass("show-sub-menu");
 
-					$("nav").css("height", subNavHeight+navHeight);
-					$(this).parent().find(".sub-menu").css("height", subNavHeight );
+						$(".sub-menu").css("height", 0 ).delay(1000);
+						$("nav").css("height", navHeight);
 
-					$(this).parent().toggleClass("show-sub-menu");					
+						$("nav").css("height", subNavHeight+navHeight);
+						$(this).parent().find(".sub-menu").css("height", subNavHeight );
+
+						$(this).parent().toggleClass("show-sub-menu");					
+					}
+				}
+				else {
+					console.log($(this).hasClass("show-sub-menu"));
+					if ( $(this).hasClass("show-sub-menu") ){
+						$(this).removeClass("show-sub-menu").parent().find(".sub-menu").css("height", 0);
+					} else {
+
+						var childCount = $(this).parent().find(".sub-menu").children().length;
+						$(this).addClass("show-sub-menu").parent().find(".sub-menu").css("height", (childCount * 32) );
+					}
+
 				}
 
 			});
@@ -583,11 +597,12 @@ var eyebeam2018 = (function($) {
 						var $container = null;
 						for (var i = 0; i < row.length; i++) {
 							$container = $(row[i]).find('.item-container');
+							console.log($container);
 							if ($container.length > 0 &&
 							    $container[0].offsetHeight > max_height) {
 								max_height = $container[0].offsetHeight;
-							console.log("maxheight:");
-							console.log(max_height);
+							// console.log("maxheight:");
+							// console.log(max_height);
 							}
 						}
 						for (var i = 0; i < row.length; i++) {
