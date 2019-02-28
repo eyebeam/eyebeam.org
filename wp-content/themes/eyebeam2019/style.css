@@ -1525,10 +1525,12 @@ h5.post-label, .label {
 
 	}
 
-	#module-donate {
+	#module-donate.module-one_third {
 		/*float: right;*/
 		/*padding: 2rem 0;*/
 		/*text-align: right;*/
+		min-height: 660px;
+		padding: 2rem 0;
 	}
 
 	#module-accessibility .accessibility {
@@ -1562,9 +1564,10 @@ h5.post-label, .label {
 	}
 
 	.module-two_thirds {
-		width: calc(66.66% - 10px);
+		width: calc(66.66%);
 		/*font-size: 48px;*/
 		/*line-height: 56px;*/
+		padding-right: 2rem;
 		font-size: 1.5rem;
 		line-height: 30px;
 	}
@@ -1575,7 +1578,7 @@ h5.post-label, .label {
 	}
 
 	#module-donate-to-eyebeam {
-		height: 600px;
+		min-height: 660px;
 	}
 
 	.module-section_header {
