@@ -1491,6 +1491,11 @@ h5.post-label, .label {
 	background-repeat: no-repeat;
 	}
 
+
+.google-map  iframe{
+	width: 100%;
+}
+
 @media (min-width: 857px) {
 
 	.module-container {
@@ -1524,6 +1529,16 @@ h5.post-label, .label {
 		/*float: right;*/
 		/*padding: 2rem 0;*/
 		/*text-align: right;*/
+	}
+
+	#module-accessibility .accessibility {
+		content: " ";
+		width: 150px;
+		height: 70px;
+		background-image: url('/img/accessibility.png');
+		background-size: 100%;
+		background-repeat: no-repeat;
+		display: block;
 	}
 
 	.module-one_half {
@@ -1727,8 +1742,12 @@ h5.post-label, .label {
 		max-width: 100%;
 	}
 
-	.module-collection .staff-bio {
-		transition: all .3 ease-out;
+	.module-collection .bio {
+		transition: all .3s ease-out;
+	}
+
+	.module-collection .staff.show-bio {
+		transition: all .3s ease-out;
 	}
 
 	.module-collection 
@@ -2506,6 +2525,112 @@ hr.wp-block-separator, hr {
 
 .press .clear {
 	display: none;
+}
+
+/* How to get Here */
+
+.how-to-get-here h2 {
+	font-size: 3rem;
+	line-height: 5rem;
+	font-family: "EyebeamSans", sans-serif;
+}
+
+
+/* Calendar */
+
+
+.calendar {
+}
+
+#module-calendar .module-title.one_half {
+	float: none;
+}
+
+#module-calendar .datepicker {
+
+}
+
+.ui-widget {
+	font-family: "EyebeamSans", sans-serif;
+}
+
+.ui-date-picker {
+	padding:0;
+	margin:0;
+}
+
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+	border-left: 1px solid black; border-bottom: 1px solid black; 
+	width: 8px;
+	height: 8px;
+}
+.ui-datepicker .ui-datepicker-prev span {
+	transform: rotate(45deg) translateX(100%);
+}
+.ui-datepicker .ui-datepicker-next span {
+	transform: rotate(-135deg) translateX(-100%);
+}
+
+.ui-datepicker .ui-datepicker-prev {
+	right: 3rem;
+	left: unset;
+
+}
+.ui-datepicker .ui-datepicker-prev span {
+	content: "<";
+}
+
+
+.ui-datepicker .ui-datepicker-next {
+	right: 0;
+}
+
+.ui-datepicker .ui-datepicker-next.ui-state-hover,
+.ui-datepicker .ui-datepicker-prev.ui-state-hover {
+	background: #00FF00;
+	border-radius: 0;
+	border: none;
+}
+
+
+.ui-datepicker .ui-datepicker-next span {
+	content: ">";
+}
+
+
+
+.ui-datepicker .ui-datepicker-title {
+	font-family: "EyebeamSans", sans-serif;
+	font-size: 2rem;
+	line-height: 2.4rem;
+	text-align: left;
+	margin:0;
+}
+
+.ui-widget-header {
+	background: none;
+	border: none;
+}
+
+.ui-widget.ui-widget-content {
+	border: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+	color: black;
+	border: none;
+	background: none;
+	text-align: center;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+	color: black;
+	background: #00FF00;
+}
+
+table.ui-datepicker-calendar thead {
+	border-bottom: 1px solid black;
 }
 
 @media (min-width: 857px) {

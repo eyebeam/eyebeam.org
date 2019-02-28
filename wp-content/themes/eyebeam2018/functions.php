@@ -42,6 +42,9 @@ For your convenience, here is a list of all the functions in here:
 
 */
 
+// disable gutenberg on all blog posts
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
 
 // We need this filters so that ACF can handle symlinked folders.
 // (20180222/dphiffer)

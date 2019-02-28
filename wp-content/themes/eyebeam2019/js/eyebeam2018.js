@@ -27,6 +27,7 @@ var eyebeam2018 = (function($) {
 			self.setup_logo();
 			self.setup_alt_text();
 			self.setup_blog_labels();
+			self.setup_calendar();
 
 		},
 		setup_nav: function() {
@@ -744,6 +745,11 @@ var eyebeam2018 = (function($) {
 			$(".category-label").each(function(){
 				console.log($(this).attr("id"));
 
+			});
+		},
+		setup_calendar: function(){
+			$( function() {
+				$(".datepicker").datepicker();
 			});
 		},
 
