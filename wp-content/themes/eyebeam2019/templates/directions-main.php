@@ -17,7 +17,7 @@
  Map
 </h2>
 	<iframe height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJw17FVOf8ZUAR5u-tdAeXiTw&key= AIzaSyDIcTJmvYrqVXmUt23c-VsJ7lUqTCqb6pU " allowfullscreen></iframe> 
+src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJw17FVOf8ZUAR5u-tdAeXiTw&key=<?php echo GOOGLE_API_KEY; ?>" allowfullscreen></iframe> 
 </div>
 </li>
 </ul>
