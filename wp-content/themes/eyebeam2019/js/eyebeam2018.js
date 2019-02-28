@@ -621,10 +621,10 @@ var eyebeam2018 = (function($) {
 				var eyebeam2Height = ( (documentWidth/100) * 7) * eyebeam2Ratio;
 				var eyebeam3Height = ( (documentWidth/100) * 7) * eyebeam3Ratio;
 
-			 	$("#eyebeam_1_left").css("height",  eyebeam1Height);
-			 	$("#eyebeam_2_left").css("height",  eyebeam2Height);
-			 	$("#eyebeam_1_right").css("height",  eyebeam1Height);
-			 	$("#eyebeam_2_right").css("height",  eyebeam2Height);
+			 	// $("#eyebeam_1_left").css("height",  eyebeam1Height);
+			 	// $("#eyebeam_2_left").css("height",  eyebeam2Height);
+			 	// $("#eyebeam_1_right").css("height",  eyebeam1Height);
+			 	// $("#eyebeam_2_right").css("height",  eyebeam2Height);
 
 			 	var stretch = (documentHeight - eyebeam3Height);
 				var maxScroll = documentHeight - (eyebeam3Height ) ;
