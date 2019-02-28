@@ -288,6 +288,10 @@ header .mobile-logo {
 	padding: 1rem;
 }
 
+header .mobile-logo a:hover {
+	background: none;
+}
+
 header .mobile-logo img {
 	width: 100%;
 }
@@ -1207,7 +1211,7 @@ footer form p {
 	}
 
 	footer .partners {
-		padding: 40px 0 0 0;
+		padding: 1rem 0 0 0;
 		display: inline-flex;
 		align-items: flex-start;
 		width: calc(8.333% * 5);
@@ -1229,12 +1233,15 @@ footer form p {
 		display: flex;
 		height: 150px;
 		position: relative;
+		justify-content: space-between;
 	}
 
 	footer .address,
 	footer .social,
-	footer .contact {
+	footer .contact,
+	footer nav {
 		padding-top: 20px;
+		width: calc(8.333vw);
 	}
 
 	footer .address {
@@ -1244,7 +1251,6 @@ footer form p {
 
 	footer .contact {
 		text-align: right;
-		width: auto;
 	}
 
 	footer .social {
@@ -1281,7 +1287,7 @@ footer form p {
 }
 
 .hero-image-desktop {
-	display: none;
+	display: block;
 }
 	
 .hero-video {
@@ -1303,7 +1309,7 @@ footer form p {
 
 .hero-text {
 	font-family: "EyebeamSans", sans-serif;
-	margin: 0 0 2rem 0;
+	margin: 0 0 1rem 0;
 	padding: 0;
 }
 
@@ -1316,6 +1322,7 @@ footer form p {
 .hero-text .text {
 	font-size: 20px;
 	line-height: 1.5rem;
+	padding-top: 1rem;
 }
 
 @media (min-width: 857px) {
@@ -1369,7 +1376,6 @@ footer form p {
 
 .module-container {
 	padding-top: 10px;
-	padding-right: 10px;
 }
 
 .module {
@@ -1378,6 +1384,7 @@ footer form p {
 	border-bottom: 1px solid black;
 	padding-bottom: 1rem;
 	margin-bottom: 1rem;
+	width: 100%;
 }
 
 
@@ -1394,8 +1401,8 @@ footer form p {
 
 .module .module-title {
 	font-family: 'EyebeamSans', sans-serif;
-	font-size: 48px;
-	line-height: 60px;
+	font-size: 2rem;
+	line-height: 2.25rem;
 	padding: 1rem 0;
 }
 
@@ -1457,12 +1464,13 @@ footer form p {
 .module-collection .module-title {
 	width: 100%;
 	font-family: "EyebeamSans", sans-serif;
-	font-size: 40px;
-	line-height: 50px;
-	padding: 0;
+	font-size: 2rem;
+	line-height: 2.25rem;
+	padding: 1rem 0;
 }
 
 .module-collection li {
+	width: calc(50vw - 1rem);
 }
 
 .module-collection li .module-title {
@@ -1574,7 +1582,6 @@ h5.post-label, .label {
 	width: 100%; 
 	height: 100%; 
 	display: block;
-	margin-bottom: 1rem;
 }
 
 .item-container a.image { 
@@ -1586,6 +1593,18 @@ h5.post-label, .label {
 
 .google-map  iframe{
 	width: 100%;
+}
+
+.module-collection ul {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	width: 100%;
+}
+
+.module-collection h4.module-title {
+	font-size: 1.3rem;
+	line-height: 1.4rem;
 }
 
 @media (min-width: 857px) {
@@ -1748,6 +1767,8 @@ h5.post-label, .label {
 		justify-content: left;
 		width: 100%;
 	}
+
+
 
 	.module-collection#module-alumni ul {
 		justify-content: left;
@@ -2656,6 +2677,10 @@ hr.wp-block-separator, hr {
 	margin:0;
 }
 
+
+.ui-datepicker-inline { 
+	width: 100%;
+}
 .ui-datepicker .ui-datepicker-prev span,
 .ui-datepicker .ui-datepicker-next span {
 	border-left: 1px solid black; border-bottom: 1px solid black; 
@@ -2752,7 +2777,7 @@ table.ui-datepicker-calendar thead {
 		width: calc(8.333% * 8);
 	}
 
-	.press-sidebar {
+	.press-sidebar 
 		float: right;
 		width: calc(33.33% - 10px);
 		margin: 0 0 0 10px;
