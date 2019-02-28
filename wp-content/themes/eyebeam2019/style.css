@@ -616,6 +616,9 @@ header #search button span {
 		right:0 !important;
 	}
 
+	#menu-header.menu {
+		padding: 1rem 0;
+	}
 
 
 /* right */
