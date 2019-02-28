@@ -39,16 +39,16 @@
 					<a href="https://www.google.com/maps/search/?api=1&query=199+Cook+St,+Brooklyn,+NY+11206">View on Map</a>
 				</div>
 				<div class="contact">
-					+1 347.378.9163<br>
-					<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a><br>
+					+1 347.378.9163
+					<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a>
 					<a href="https://www.eyebeam.org/">eyebeam.org</a>
 				</div>
 				<div class="social">
 					<div class="links">
-						<a href="https://twitter.com/eyebeamnyc">Twitter</a><br />
-						<a href="https://www.facebook.com/eyebeamnyc/">Facebook</a><br />
-						<a href="https://www.instagram.com/eyebeamnyc/">Instagram</a><br />
-						<a href="https://www.youtube.com/user/eyebeamdotorg">YouTube</a><br />
+						<a href="https://twitter.com/eyebeamnyc">Twitter</a>
+						<a href="https://www.facebook.com/eyebeamnyc/">Facebook</a>
+						<a href="https://www.instagram.com/eyebeamnyc/">Instagram</a>
+						<a href="https://www.youtube.com/user/eyebeamdotorg">YouTube</a>
 					</div>
 				</div>
 				<nav>
@@ -64,10 +64,10 @@
 					?>
 				</nav>
 				<div class="partners">
-					<img src="<?php eyebeam2018_img_src('img/jerome.png'); ?>" alt="Jerome Foundation" width="120">
-					<img src="<?php eyebeam2018_img_src('img/nyculture.png'); ?>" alt="NYCulture" width="128">
-					<img src="<?php eyebeam2018_img_src('img/artworks.png'); ?>" alt="Art Works" width="90">
-					<img src="<?php eyebeam2018_img_src('img/nysca.png'); ?>" alt="NYSCA" width="202">
+					<img src="<?php eyebeam2018_img_src('img/jerome.png'); ?>" alt="Jerome Foundation" width="auto">
+					<img src="<?php eyebeam2018_img_src('img/nyculture.png'); ?>" alt="NYCulture" width="auto">
+					<img src="<?php eyebeam2018_img_src('img/artworks.png'); ?>" alt="Art Works" width="auto">
+					<img src="<?php eyebeam2018_img_src('img/nysca.png'); ?>" alt="NYSCA" width="auto">
 				</div>
 				<br class="clear">
 			</div>
