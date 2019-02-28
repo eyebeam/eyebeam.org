@@ -350,7 +350,7 @@ header nav .support {
 
 header nav .menu-header-container {
 	overflow: hidden;
-	height: 0;
+	display: none;
 }
 
 body.show-menu header {
@@ -748,6 +748,7 @@ header #search button span {
 		padding: 3px 2vw;
 		border: 1px solid #262626;
 		background: rgb(0,255,0);
+		color: black;
 
 	}
 
@@ -1279,12 +1280,7 @@ footer form p {
 .hero-image-desktop {
 	display: none;
 }
-
-.hero-image-mobile {
-	display: block;
-	margin-bottom: 1rem;
-}
-
+	
 .hero-video {
 	position: relative;
 	width: 100%;
