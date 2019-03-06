@@ -9,6 +9,7 @@ $title = apply_filters('the_title', $event->post_title);
 $url = get_permalink($event->ID);
 $post_date = get_the_time('F j, Y');
 $label = ($is_related_reading) ? eyebeam2018_label_map($event->post_type) : false;
+$label_slug = ($is_related_reading) ? 'label-'.strtolower(eyebeam2018_label_map($event->post_type)) : false;
 
 // $start_date = get_field('start_date', $event->ID);
 // $end_date = get_field('end_date', $event->ID);
@@ -38,7 +39,7 @@ echo "<li class=\"post collection-item\">\n";
 
 echo "<div class=\"item-container\">\n";
 echo "$image\n";
-echo ($label) ?  "<h5 class=\"post-label\">$label</h5>" : '';
+echo ($label) ?  "<h5 class=\"post-label $label_slug\">$label</h5>" : '';
 echo "<h3 class=\"post-title module-title\">$title</h3>\n";
 // echo "<h4 class=\"event-dates\">$post_date</h4>\n";
 
