@@ -12,7 +12,7 @@ var eyebeam2018 = (function($) {
 		init: function() {
 			self.setup_nav();
 			self.setup_subscribe();
-			self.setup_modules();
+			// self.setup_modules();
 			self.setup_random_footer();
 			self.setup_link();
 			self.setup_menu();
@@ -69,8 +69,7 @@ var eyebeam2018 = (function($) {
 
 				event.preventDefault();
 
-				if ( $(window).width >= mobile_width ){
-
+				if ( $(window).width() >= mobile_width ){
 					// set defaults
 					var navHeight = 60;
 					var subNavHeight = 0;
@@ -92,6 +91,10 @@ var eyebeam2018 = (function($) {
 						$(".sub-menu").css("height", 0 ).delay(1000);
 						$("nav").css("height", navHeight);
 
+						console.log('subNavHeight');
+						console.log(subNavHeight);
+						console.log('navHeight');
+						console.log(navHeight);
 						$("nav").css("height", subNavHeight+navHeight);
 						$(this).parent().find(".sub-menu").css("height", subNavHeight );
 
@@ -99,7 +102,7 @@ var eyebeam2018 = (function($) {
 					}
 				}
 				else {
-					console.log($(this).hasClass("show-sub-menu"));
+					// console.log($(this).hasClass("show-sub-menu"));
 					if ( $(this).hasClass("show-sub-menu") ){
 						$(this).removeClass("show-sub-menu").parent().find(".sub-menu").css("height", 0);
 					} else {
@@ -633,29 +636,51 @@ var eyebeam2018 = (function($) {
 
 
 			 	// do the actual setting
-				var eyebeam1Height = ( (documentWidth/100) * 7) * eyebeam1Ratio;
-				var eyebeam2Height = ( (documentWidth/100) * 7) * eyebeam2Ratio;
-				var eyebeam3Height = ( (documentWidth/100) * 7) * eyebeam3Ratio;
+				// var eyebeam1Height = ( (documentWidth/100) * 7) * eyebeam1Ratio;
+				// var eyebeam2Height = ( (documentWidth/100) * 7) * eyebeam2Ratio;
+				// var eyebeam3Height = ( (documentWidth/100) * 7) * eyebeam3Ratio;
 
-			 	// $("#eyebeam_1_left").css("height",  eyebeam1Height);
-			 	// $("#eyebeam_2_left").css("height",  eyebeam2Height);
-			 	// $("#eyebeam_1_right").css("height",  eyebeam1Height);
-			 	// $("#eyebeam_2_right").css("height",  eyebeam2Height);
+			 	// var stretch = (documentHeight - eyebeam3Height);
+				// var maxScroll = documentHeight - (eyebeam3Height ) ;
 
-			 	var stretch = (documentHeight - eyebeam3Height);
-				var maxScroll = documentHeight - (eyebeam3Height ) ;
+				right2Height = ( (documentHeight - $(window).height()) - scroll ) + 130;
+				left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 100;
+				var left3Height = 0;
+					console.log('$(window).height()');
+					console.log($(window).height());
+					console.log('scroll');
+					console.log(scroll);
+					console.log('left2Height');
+					console.log(left2Height);
+					console.log('left3Height');
+					console.log(left3Height);
+					console.log('right2Height');
+					console.log(right2Height);
+				var reversePoint = documentHeight / 2;
+				if (scroll == 0){
 
-				$("#eyebeam_3").css("height", ( documentHeight - eyebeam2Height) );
+				}
+				else if (scroll < reversePoint){
+					$(".logo-container#right h1 #eyebeam_2_right").css("height", right2Height);
+					$(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);
+					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left2Height);
+					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);		
+				} else {
+					console.log('is this on load');
+					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 130;
+					left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 100;
+					left3Height = scroll;
+					// left3Height = ( documentHeight - ($(window).height() - 24 ));
+					// left3Height = (documentHeight - $(window).height() +36);
 
-				if (scroll < maxScroll){
-				 	$("#eyebeam_2").find("img").css("height", eyebeam2Height + (scroll * 1.1) );
-				 	// $("#eyebeam_3").find("img").css("top", ( (scroll * 1.5) + (eyebeam1Height + eyebeam2Height) ) );
-				 }
-				 else {
-				 	$("#eyebeam_2").find("img").css("height", eyebeam2Height + (maxScroll * 1.1) );
-				 	$("#eyebeam_3").find("img").css("top", ( (maxScroll * 1.1) + (eyebeam1Height + eyebeam2Height) ) );				 	
-				 }
+					
+					$(".logo-container#right h1 #eyebeam_2_right").css("height", right2Height);
+					$(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);							
 
+					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left3Height);					
+					console.log('is this');
+					$(".logo-container#left h1 #eyebeam_3_left img").css("top", left3Height);		
+				}
 
 			 });
 
@@ -664,45 +689,23 @@ var eyebeam2018 = (function($) {
 
 				var documentHeight = $('body').height();
 				var documentWidth = $('body').width();
-				var eyebeam1Height = ( (documentWidth/100) * 7) * eyebeam1Ratio;
-				var eyebeam2Height = ( (documentWidth/100) * 7) * eyebeam2Ratio;
-				var eyebeam3Height = ( (documentWidth/100) * 7) * eyebeam3Ratio;
+				// var eyebeam1Height = ( (documentWidth/100) * 7) * eyebeam1Ratio;
+				// var eyebeam2Height = ( (documentWidth/100) * 7) * eyebeam2Ratio;
+				// var eyebeam3Height = ( (documentWidth/100) * 7) * eyebeam3Ratio;
 
 				var documentHeight = $('body').height();
 				var logoEl = $("header div h1");
 
-
-
 				var scroll = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
-				var maxScroll = ( documentHeight - (eyebeam3Height) ) - ((documentHeight / 100) * 2 );
-
-
-				console.log("scroll");
-				console.log(scroll);
-
-				if ( (scroll > 0) && ( ( (scroll*1.1) < maxScroll) ) ){
-
-					$("#eyebeam_2").find("img").css("height", eyebeam2Height + (scroll * 1.1) );
-					$("#eyebeam_3").find("img").css("top", ( (scroll * 1.1)  ));
-
-				}
-				else if( scroll > maxScroll ){
-					$("#eyebeam_3").find("img").css({
-						"top": maxScroll,
-					});
-					$("#eyebeam_2").find("img").css({
-						"height": maxScroll+eyebeam2Height,
-					});
-				}
+				// var maxScroll = ( documentHeight - (eyebeam3Height) ) - ((documentHeight / 100) * 2 );
 
 
 				// testing for the right side
 				// console.log(maxScroll);
 
-				console.log('documentHeight');
-				console.log(documentHeight);
+
 				var right2Height = scroll +100;
-				var left2Height = scroll +64;
+				var left2Height = scroll +100;
 				var left3Height = 0;
 
 				var reversePoint = documentHeight / 2;
@@ -715,14 +718,11 @@ var eyebeam2018 = (function($) {
 					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);
 				} else {
 
-					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 110;
+					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 130;
 					left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 100;
 					// left3Height = ( documentHeight - ($(window).height() - 24 ));
 					// left3Height = (documentHeight - $(window).height() +36);
-					console.log('left3Height');
-					console.log(left3Height);
-					console.log('right2Height');
-					console.log(right2Height);
+
 					
 					$(".logo-container#right h1 #eyebeam_2_right").css("height", right2Height);
 					$(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);							
@@ -764,7 +764,26 @@ var eyebeam2018 = (function($) {
 		},
 		setup_calendar: function(){
 			$( function() {
-				$(".datepicker").datepicker();
+				$(".datepicker").datepicker({
+					dateFormat: "yy-mm-dd",
+					onSelect: function(date){
+						console.log(date);
+						$(".module-event").find("ul").fadeOut(150);
+						var path = '/wp-admin/admin-ajax.php';
+						$.get(path, {
+							action: 'eyebeam2018_lazy_load',
+							load: 'event',
+							day: date
+						}, function(data){
+							console.log(data);
+							
+							$(".module-event").find("ul").html(data).fadeIn(150);
+
+						});
+
+
+					}
+				});
 			});
 		},
 

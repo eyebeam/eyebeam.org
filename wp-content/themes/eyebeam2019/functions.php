@@ -906,7 +906,36 @@ function eyebeam2018_get_events($page = 1) {
 	);
 	return get_posts($args);
 
-}// Returns an array of blog posts
+}
+
+// Returns an event post for a given day
+function eyebeam2018_get_event($day = null) {
+	if ($day){
+		$day = date('Ymd', strtotime($day) ); 
+		$args = array(
+			'post_type' => 'event',
+			'posts_per_page' => 3,
+			'orderby'=> 'meta_value',
+			'meta_key' => 'end_date',
+			'order' => 'DESC',
+			'meta_query' => array(
+				array(
+					'key'=> 'start_date',
+					'value'=> $day,
+					'compare'=> '='
+				),			
+			)
+		);
+		return get_posts($args);
+	}
+	else {
+		return false;
+	}
+
+}
+
+
+// Returns an array of blog posts
 function eyebeam2018_get_blog_posts($page = 1) {
 
 	if (!isset($collection_post_limit)){
@@ -945,6 +974,22 @@ function eyebeam2018_lazy_load() {
 			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
 			get_template_part('templates/collection-event-item');
 		}
+	} else if ($_GET['load'] == 'event'){
+		if (!$_GET['day'])
+			return false;
+		$posts = eyebeam2018_get_event($_GET['day']);
+		if (!$posts){
+			$GLOBALS['eyebeam2018']['curr_collection_item'] = false;
+			get_template_part('templates/collection-event-item');
+		}
+		else {
+			foreach ($posts as $post) {
+				$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
+				get_template_part('templates/collection-event-item');
+		}
+		}
+
+
 	} else if ($_GET['load'] == 'ideas') {
 		$posts = eyebeam2018_get_ideas($page);
 		foreach ($posts as $post) {
@@ -1054,5 +1099,15 @@ add_action('wp_ajax_eyebeam2018_db_migration_1', 'eyebeam2018_db_migration_1');
 function show_template() {
     global $template;
     echo basename($template);
+}
+
+/*
+ * day_of_the_week($day)
+ * $day = (int) representation of the day of the week
+ */
+
+function day_of_week($day = null) {
+	$days = array( "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+	return $days[$day];
 }
 

@@ -1,6 +1,6 @@
 /*
 Theme Name: Eyebeam 2019
-Author: Emma Levesque-Schaefer
+310Author: Emma Levesque-Schaefer
 Author URI: https://emmalevesque.com/
 Description: Designed by Mother NYC. Built off of the work of Dan Phifffer (https://phiffer.org)
 
@@ -138,7 +138,8 @@ a:hover {
 a.btn {
 	display: inline-block;
 	text-decoration: none;
-	padding: 1rem 2rem;
+	margin: 2rem 0;
+	padding: 1rem 2vw;
 	font-family: "EyebeamSans", sans-serif;
 	border: 1px solid #262626;
 	
@@ -157,11 +158,12 @@ a:hover {
 }
 
 #page {
-	width: 100vw;
-	padding: 1rem;
+	width: 90vw;
+	margin:0 auto;
 	transition: all 0.2s ease-in;
 	z-index: 1;
 	position: relative;
+	padding-top: 180px;
 }
 
 
@@ -232,9 +234,6 @@ form.error .response-error {
 	}
 
 	#page {
-		width: 80.333vw;
-		margin:0 auto;
-		padding: 0;
 	}
 
 	.container {
@@ -247,15 +246,14 @@ form.error .response-error {
 /* Header */
 
 header {
-	position: relative;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	color: black;
 	background: white;
 	font-family: "EyebeamSans", sans-serif;
-	font-weight: 400;
-	font-size: 1.6rem;
+	font-size: 28px;
 	z-index: 2;
 }
 
@@ -265,8 +263,8 @@ header.headroom {
 
 header .menu-btn {
 	position: absolute;
-	top: 2vh;
-	right: 0;
+	top: 0;
+	right: 1rem;
 	width: 60px;
 	height: 60px;
 	background-image: url('img/menu.png');
@@ -285,32 +283,12 @@ header h1 {
 
 header .mobile-logo {
 	width: 100vw;
-	padding: 1rem;
-}
-
-header .mobile-logo a:hover {
-	background: none;
+	padding: 1rem ;
 }
 
 header .mobile-logo img {
 	width: 100%;
 }
-
-header div.logo-container#left,
-header div.logo-container#right {
-	display: none;
-}
-
-header .mobile-label {
-	display: block;
-	font-family: "EyebeamSans", sans-serif;
-	padding: .75rem 0;
-	width: 92.666vw;
-	margin: 0 auto;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-}
-
 
 /*header h1 a {
 	display: block;
@@ -333,8 +311,15 @@ header h1 img {
 
 header nav {
 	position: relative;
-	min-height: 64px;
+	min-height: 60px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 	padding: 1rem;
+}
+
+header nav .mobile-label {
+	display: block;
+	line-height: 2rem;
 }
 
 header a {
@@ -348,12 +333,6 @@ header nav .support {
 
 header nav .menu-header-container,
 header nav .support {
-	display: block;
-
-}
-
-header nav .menu-header-container {
-	overflow: hidden;
 	display: none;
 }
 
@@ -378,17 +357,13 @@ body.show-menu header.headroom nav .menu-header-container {
 }
 
 body.show-menu header nav {
-	font-size: 1.6rem;
-	line-height: 2rem;
-	text-align: left;
-	padding: 1rem;
+	font-size: 1.5rem;
+
+	line-height: 2.5rem;
 }
 
 body.show-menu header nav .menu .sub-menu {
-	display: block;
-	overflow: hidden;
-	height: 0;
-	transition: all .1s ease-in;
+	display: none;
 }
 
 body.show-menu header .menu {
@@ -401,14 +376,6 @@ body.show-menu header.headspace .menu {
 body.show-menu header nav li {
 	display: block;
 	margin-right: 0;
-}
-
-nav li.donate-btn a {
-	color: #00FF00;
-}
-nav li.donate-btn a:hover {
-	color: #00FF00;
-	background: none;
 }
 
 body.show-menu header nav .support {
@@ -477,17 +444,8 @@ header #search button span {
 	outline: none;
 }
 
-#menu-header.menu {
-	padding: .5rem 0;
-}
-
-.category-label {
-	padding: 0 2px;
-}
-
 .category-label#artist-interview {
 	background: #FF0000;
-	color: white;
 }
 .category-label#artist-reflection {
 	background: #00ff00;
@@ -501,31 +459,14 @@ header #search button span {
 
 	header {
 		font-size: 20px;
-		height: 60px;
-
 	}
 
 	header.headroom {
 		/*top: 32px;*/
 	}
 
-	div.mobile-logo {
-		display: none;
-	}
-
-	header .mobile-label {
-		display: none;
-	}
-
-	header div.logo-container#left,
-	header div.logo-container#right {
-		display: block;
-	}
-
 	header,
 	header nav {
-		border: none;
-		padding: 0;
 		/*height: 43px;*/
 	}
 	header nav { 
@@ -595,7 +536,7 @@ header #search button span {
 	.logo-container#left h1 a#eyebeam_2_left img {
 		width: 7vw;
 		bottom: 4vh;
-		height: 100px;
+		height: 64px;
 		position: fixed;
 	}	
 	.logo-container#left h1 a#eyebeam_2_left {
@@ -624,9 +565,6 @@ header #search button span {
 		right:0 !important;
 	}
 
-	#menu-header.menu {
-		padding: 1rem 0;
-	}
 
 
 /* right */
@@ -686,11 +624,11 @@ header #search button span {
 	
 	.logo-container#right h1 a#eyebeam_2_right img {
 
-		height: 120px;
+		height: 100px;
 	}	
 	.logo-container#right h1 a#eyebeam_2_right {
 
-		height: 120px;
+		height: 100px;
 	}
 	
 	.logo-container#right h1 img.top, header h1 img.stretch {
@@ -727,7 +665,6 @@ header #search button span {
 		position: absolute;
 		padding: 1rem 0;
 		left: 9.333vw;
-		height: 100%;
 		width: 80.333vw;
 		display: flex;
 		justify-content: space-between;
@@ -739,7 +676,6 @@ header #search button span {
 	header nav {
 		white-space: nowrap;
 		background: white;
-		height: 60px;
 	}
 
 	header nav li {
@@ -759,7 +695,6 @@ header #search button span {
 		padding: 3px 2vw;
 		border: 1px solid #262626;
 		background: rgb(0,255,0);
-		color: black;
 
 	}
 
@@ -1018,15 +953,8 @@ footer {
 	font-weight: bold;
 	line-height: 15px;
 	padding-bottom: 40px;
-	width: 92.666vw;
+	width: 81.333%;
 	margin: 0 auto;
-}
-
-footer .bottom {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	padding-top: 1rem;
 }
 
 footer nav {
@@ -1041,7 +969,8 @@ footer nav li a {
 	text-decoration: underline;
 }
 footer nav {
-	
+	padding: 20px;
+	border-bottom: 2px solid #000;
 }
 
 footer a {
@@ -1050,7 +979,7 @@ footer a {
 }
 
 footer form {
-	padding: 0 0 1rem 0;
+	padding: 0;
 	border-bottom: 1px solid #000;
 		display: flex;
 	flex-wrap: wrap;
@@ -1084,7 +1013,7 @@ footer input:-moz-placeholder { /* Firefox 18- */
 footer input[type=text],
 footer input[type=email] {
 	display: block;
-	width: 100%;
+	width: 162px;
 	height: 50px;
 	border: 1px solid #000;
 	background: transparent;
@@ -1119,29 +1048,23 @@ footer .response-error {
 
 footer .partners {
 	vertical-align: middle;
-	display: flex;
-	justify-content: space-around;
-	width: 93.666vw;
-	padding: 1rem 0;
 }
 
 footer .partners img {
-	width: calc(25vw - 2rem);
-	height: auto;
-	flex-grow: 0;
-	align-self: center;
+	margin: 30px 30px 0 0;
 }
 
 footer nav,
 footer .address,
 footer .contact,
 footer .social {
-	width: calc(25vw - 1rem);
+	width: calc(8.333vw);
     padding: 1vw;
 }
 
 footer .social a {
 	display: block;
+	margin-bottom: 10px;
 	text-decoration: underline;
 }
 
@@ -1153,9 +1076,9 @@ footer .tagline {
 }
 
 footer h2 {
-	font-size: 2.2rem;
+	font-size: 3rem;
 	font-family: "EyebeamSans", sans-serif;
-	line-height: 2.4rem;
+	line-height: 3.25rem;
 }
 
 footer form p { 
@@ -1169,18 +1092,11 @@ footer form p {
 
 	footer {
 		padding: 2rem 0;
-		width: 80.333vw;
-	}
-
-	footer h2 {
-		font-size: 3rem;
-		font-family: "EyebeamSans", sans-serif;
-		line-height: 3.25rem;
 	}
 
 	footer nav {
-	padding: 20px;
-}
+		border-bottom: 0;
+	}
 
 	footer nav li {
 	}
@@ -1200,22 +1116,12 @@ footer form p {
 		width: 25%;
 	}
 
-	footer input[type=text],
-	footer input[type=email] {
-	display: block;
-	width: 162px;
-	height: 50px;
-	border: 1px solid #000;
-	background: transparent;
-	margin: 0 auto 12px auto;
-}
-
 	footer input:last-child {
 		margin-right: 0 !important;
 	}
 
 	footer .partners {
-		padding: 1rem 0 0 0;
+		padding: 40px 0 0 0;
 		display: inline-flex;
 		align-items: flex-start;
 		width: calc(8.333% * 5);
@@ -1237,15 +1143,12 @@ footer form p {
 		display: flex;
 		height: 150px;
 		position: relative;
-		justify-content: space-between;
 	}
 
 	footer .address,
 	footer .social,
-	footer .contact,
-	footer nav {
+	footer .contact {
 		padding-top: 20px;
-		width: calc(8.333vw);
 	}
 
 	footer .address {
@@ -1255,6 +1158,7 @@ footer form p {
 
 	footer .contact {
 		text-align: right;
+		width: auto;
 	}
 
 	footer .social {
@@ -1288,12 +1192,17 @@ footer form p {
 	height: auto;
 	margin:0 auto;
 	margin-top: 0;
+	margin-bottom: 1rem;
 }
 
 .hero-image-desktop {
+	display: none;
+}
+
+.hero-image-mobile {
 	display: block;
 }
-	
+
 .hero-video {
 	position: relative;
 	width: 100%;
@@ -1313,7 +1222,7 @@ footer form p {
 
 .hero-text {
 	font-family: "EyebeamSans", sans-serif;
-	margin: 0 0 1rem 0;
+	margin: 0 0 2rem 0;
 	padding: 0;
 }
 
@@ -1324,9 +1233,8 @@ footer form p {
 }
 
 .hero-text .text {
-	font-size: 20px;
-	line-height: 1.5rem;
-	padding-top: 1rem;
+	font-size: 2rem;
+	line-height: 2.4rem;
 }
 
 @media (min-width: 857px) {
@@ -1380,15 +1288,13 @@ footer form p {
 
 .module-container {
 	padding-top: 10px;
+	padding-right: 10px;
 }
 
 .module {
 	display: block;
 	/*margin-left: 10px;*/
-	border-bottom: 1px solid black;
-	padding-bottom: 1rem;
-	margin-bottom: 1rem;
-	width: 100%;
+	margin-bottom: 15px;
 }
 
 
@@ -1406,7 +1312,7 @@ footer form p {
 .module .module-title {
 	font-family: 'EyebeamSans', sans-serif;
 	font-size: 2rem;
-	line-height: 2.25rem;
+	line-height: 2.4rem;
 	padding: 1rem 0;
 }
 
@@ -1469,40 +1375,37 @@ footer form p {
 	width: 100%;
 	font-family: "EyebeamSans", sans-serif;
 	font-size: 2rem;
-	line-height: 2.25rem;
-	padding: 1rem 0;
+	line-height: 2.4rem;
+	padding: 0;
 }
 
 .module-collection li {
-	width: calc(50vw - 1rem);
 }
 
 .module-collection li .module-title {
-/*	font-family: "Work Sans", sans-serif;
-	font-size: 40px;
-	line-height: 50px;
+	font-size: 2rem;
+	line-height: 2.4rem;
 	padding: 0;
-*/}
+	margin-bottom: 1rem;
+}
 
 
 h5.post-label, .label { 
-	margin: .5rem 0 0 0; 
+	margin: 1rem 0; 
 	display: inline-block; 
 	font-family: "EyebeamSans", sans-serif;
 }
 
-.module-collection h5.post-label.label-event {
-	background: #FF0000;
-	color: white;
+.module-collection.blue h5.post-label, .event-collection.blue h5.post-label {
+	background: #009CCC;
 }
 
-.module-collection h5.post-label.label-blog {
-	background: #00FF00;
+.module-collection.red h5.post-label, .event-collection.red h5.post-label {
+	background: #EB6B62;
 }
 
-.module-collection h5.post-label.label-resident  {
-	background: #0000FF;
-	color: white;
+.module-collection.green h5.post-label, .event-collection.green h5.post-label  {
+	background: #46A07F;
 }
 
 .module-collection.related-readings {
@@ -1594,28 +1497,10 @@ h5.post-label, .label {
 	background-position: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
+	margin-bottom: 1rem;
 	}
 
-
-.google-map  iframe{
-	width: 100%;
-}
-
-.module-collection ul {
-	display: inline-flex;
-	flex-wrap: wrap;
-	justify-content: left;
-	width: 100%;
-}
-
-.module-collection h4.module-title {
-	font-size: 1.3rem;
-	line-height: 1.4rem;
-}
-
 @media (min-width: 857px) {
-
-
 
 	.module-container {
 		padding:  0;
@@ -1634,32 +1519,20 @@ h5.post-label, .label {
 	}
 
 	.module-one_third:nth-child(3n) {
-		/*padding-right: 0 !important;*/
+		padding-right: 0 !important;
 	}
 
 	.module-one_third .module-title {
-		font-size: 2rem;
+		font-size: 48px;
 		line-height: 1.1em;
 		font-family: "EyebeamSans", sans-serif;
 
 	}
 
-	#module-donate.module-one_third {
+	#module-donate {
 		/*float: right;*/
 		/*padding: 2rem 0;*/
 		/*text-align: right;*/
-		min-height: 660px;
-		padding: 2rem 0;
-	}
-
-	#module-accessibility .accessibility {
-		content: " ";
-		width: 150px;
-		height: 70px;
-		background-image: url('/img/accessibility.png');
-		background-size: 100%;
-		background-repeat: no-repeat;
-		display: block;
 	}
 
 	.module-one_half {
@@ -1683,10 +1556,9 @@ h5.post-label, .label {
 	}
 
 	.module-two_thirds {
-		width: calc(66.66%);
+		width: calc(66.66% - 10px);
 		/*font-size: 48px;*/
 		/*line-height: 56px;*/
-		padding-right: 2rem;
 		font-size: 1.5rem;
 		line-height: 30px;
 	}
@@ -1697,7 +1569,7 @@ h5.post-label, .label {
 	}
 
 	#module-donate-to-eyebeam {
-		min-height: 660px;
+		height: 600px;
 	}
 
 	.module-section_header {
@@ -1730,7 +1602,7 @@ h5.post-label, .label {
 	}
 
 	.module-full_width .module-description {
-		padding: 0;
+		padding: 0 9px;
 	}
 
 	.module-full_width .module-description.one_half {
@@ -1773,8 +1645,6 @@ h5.post-label, .label {
 		justify-content: left;
 		width: 100%;
 	}
-
-
 
 	.module-collection#module-alumni ul {
 		justify-content: left;
@@ -1850,13 +1720,13 @@ h5.post-label, .label {
 		width: 100%;
 		font-family: "EyebeamSans", sans-serif;
 		font-size: 3rem;
-		line-height: 3.3rem;
+		line-height: 4rem;
 	}
 
 	.module-collection h3.module-title,
 	.module-collection h4.module-title {
-		font-size: 1.5rem;
-		line-height: 1.9rem;
+		font-size: 1.3rem;
+		line-height: 1.67rem;
 		font-family: "EyebeamSans", sans-serif;
 		width: 100%;
 		padding: .25rem 0 0 0;
@@ -1866,12 +1736,8 @@ h5.post-label, .label {
 		max-width: 100%;
 	}
 
-	.module-collection .bio {
-		transition: all .3s ease-out;
-	}
-
-	.module-collection .staff.show-bio {
-		transition: all .3s ease-out;
+	.module-collection .staff-bio {
+		transition: all .3 ease-out;
 	}
 
 	.module-collection 
@@ -2651,116 +2517,6 @@ hr.wp-block-separator, hr {
 	display: none;
 }
 
-/* How to get Here */
-
-.how-to-get-here h2 {
-	font-size: 3rem;
-	line-height: 5rem;
-	font-family: "EyebeamSans", sans-serif;
-}
-
-
-/* Calendar */
-
-
-.calendar {
-}
-
-#module-calendar .module-title.one_half {
-	float: none;
-}
-
-#module-calendar .datepicker {
-
-}
-
-.ui-widget {
-	font-family: "EyebeamSans", sans-serif;
-}
-
-.ui-date-picker {
-	padding:0;
-	margin:0;
-}
-
-
-.ui-datepicker-inline { 
-	width: 100%;
-}
-.ui-datepicker .ui-datepicker-prev span,
-.ui-datepicker .ui-datepicker-next span {
-	border-left: 1px solid black; border-bottom: 1px solid black; 
-	width: 8px;
-	height: 8px;
-}
-.ui-datepicker .ui-datepicker-prev span {
-	transform: rotate(45deg) translateX(100%);
-}
-.ui-datepicker .ui-datepicker-next span {
-	transform: rotate(-135deg) translateX(-100%);
-}
-
-.ui-datepicker .ui-datepicker-prev {
-	right: 3rem;
-	left: unset;
-
-}
-.ui-datepicker .ui-datepicker-prev span {
-	content: "<";
-}
-
-
-.ui-datepicker .ui-datepicker-next {
-	right: 0;
-}
-
-.ui-datepicker .ui-datepicker-next.ui-state-hover,
-.ui-datepicker .ui-datepicker-prev.ui-state-hover {
-	background: #00FF00;
-	border-radius: 0;
-	border: none;
-}
-
-
-.ui-datepicker .ui-datepicker-next span {
-	content: ">";
-}
-
-
-
-.ui-datepicker .ui-datepicker-title {
-	font-family: "EyebeamSans", sans-serif;
-	font-size: 2rem;
-	line-height: 2.4rem;
-	text-align: left;
-	margin:0;
-}
-
-.ui-widget-header {
-	background: none;
-	border: none;
-}
-
-.ui-widget.ui-widget-content {
-	border: none;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-	color: black;
-	border: none;
-	background: none;
-	text-align: center;
-}
-
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
-	color: black;
-	background: #00FF00;
-}
-
-table.ui-datepicker-calendar thead {
-	border-bottom: 1px solid black;
-}
-
 @media (min-width: 857px) {
 
 	.press {
@@ -2783,7 +2539,7 @@ table.ui-datepicker-calendar thead {
 		width: calc(8.333% * 8);
 	}
 
-	.press-sidebar 
+	.press-sidebar {
 		float: right;
 		width: calc(33.33% - 10px);
 		margin: 0 0 0 10px;
