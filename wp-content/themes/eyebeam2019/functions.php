@@ -214,9 +214,9 @@ function eyebeam2018_get_image_html($attachment_id, $size = 'large', $class = nu
 
 	$html = "<img $attrs>\n";
 
-		$html .= "<figcaption>\n";
-		$html .= $caption."\n";
-		$html .= "</figcaption>";
+		$html .= ($show_caption) ? "<figcaption>\n" : "";
+		$html .= ($show_caption) ? $caption."\n" : "";
+		$html .= ($show_caption) ? "</figcaption>" : "";
 	return $html;
 }
 

@@ -644,38 +644,36 @@ var eyebeam2018 = (function($) {
 				// var maxScroll = documentHeight - (eyebeam3Height ) ;
 
 				right2Height = ( (documentHeight - $(window).height()) - scroll ) + 130;
-				left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 100;
+				left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 85;
 				var left3Height = 0;
-					console.log('$(window).height()');
-					console.log($(window).height());
-					console.log('scroll');
-					console.log(scroll);
-					console.log('left2Height');
-					console.log(left2Height);
-					console.log('left3Height');
-					console.log(left3Height);
-					console.log('right2Height');
-					console.log(right2Height);
 				var reversePoint = documentHeight / 2;
+
+
+
 				if (scroll == 0){
 
 				}
 				else if (scroll < reversePoint){
-					$(".logo-container#right h1 #eyebeam_2_right").css("height", right2Height);
-					$(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);
+					$(".logo-container#right h1 #eyebeam_2_right").css({
+						"background-image": "url("+$(".logo-container#right h1 #eyebeam_2_right img").attr("src")+")",
+						"height": right2Height
+					});					
 					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left2Height);
 					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);		
 				} else {
 					console.log('is this on load');
-					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 130;
-					left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 100;
+					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 75;
+					left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 85;
 					left3Height = scroll;
 					// left3Height = ( documentHeight - ($(window).height() - 24 ));
 					// left3Height = (documentHeight - $(window).height() +36);
 
 					
-					$(".logo-container#right h1 #eyebeam_2_right").css("height", right2Height);
-					$(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);							
+					$(".logo-container#right h1 #eyebeam_2_right").css({
+						"background-image": "url("+$(".logo-container#right h1 #eyebeam_2_right img").attr("src")+")",
+						"height": right2Height
+					});
+					// $(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);							
 
 					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left3Height);					
 					console.log('is this');
@@ -718,7 +716,7 @@ var eyebeam2018 = (function($) {
 					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);
 				} else {
 
-					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 130;
+					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 100;
 					left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 100;
 					// left3Height = ( documentHeight - ($(window).height() - 24 ));
 					// left3Height = (documentHeight - $(window).height() +36);
@@ -743,7 +741,7 @@ var eyebeam2018 = (function($) {
 			// logoContainer.clone().addClass("clone").insertAfter(".logo-container");
 		},		
 		setup_alt_text: function(){
-			$(".module-title, .post-title, .menu-item a, input").each(function(){
+			$(".module-title, .post-title, .menu-item a, input, h2").each(function(){
 
 					if ( $(this).is("input") ){
 						var thisContent = $(this).attr("placeholder");
@@ -752,6 +750,7 @@ var eyebeam2018 = (function($) {
 					}
 
 					$(this).attr("alt", thisContent);
+					$(this).attr("title", thisContent);
 
 
 			});	
@@ -767,6 +766,7 @@ var eyebeam2018 = (function($) {
 				$(".datepicker").datepicker({
 					dateFormat: "yy-mm-dd",
 					onSelect: function(date){
+
 						console.log(date);
 						$(".module-event").find("ul").fadeOut(150);
 						var path = '/wp-admin/admin-ajax.php';

@@ -15,7 +15,7 @@
 		<?php wp_head(); ?>
 
 		<!-- This sseems like the best way to add google fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500" rel="stylesheet">
 
 	</head>
 	<body <?php body_class(); ?>>
