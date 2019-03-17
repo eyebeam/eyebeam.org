@@ -718,7 +718,7 @@ var eyebeam2018 = (function($) {
 					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);
 				} else {
 
-					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 100;
+					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 120;
 					left2Height = ( ( documentHeight - $(window).height()) - ( scroll ) ) + 80;
 					// left3Height = ( documentHeight - ($(window).height() - 24 ));
 					// left3Height = (documentHeight - $(window).height() +36);

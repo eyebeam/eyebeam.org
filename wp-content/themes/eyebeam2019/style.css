@@ -319,7 +319,7 @@ header div.logo-container#right h1 {
 header .mobile-label {
 	display: block;
 	font-family: "EyebeamSans", sans-serif;
-	padding: .75rem 0;
+	padding: 1rem 0;
 	width: 92.666vw;
 	margin: 0 auto;
 	border-top: 1px solid black;
@@ -404,6 +404,8 @@ body.show-menu header nav .menu .sub-menu {
 	overflow: hidden;
 	height: 0;
 	transition: all .1s ease-in;
+	font-size: 1.3rem;
+	line-height: 1.4rem;
 }
 
 body.show-menu header .menu {
