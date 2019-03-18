@@ -543,7 +543,7 @@ header #search button span {
 		border: none;
 		float: right;
 		position: relative;
-		z-index: 10;
+		z-index:20;
 	}
 
 	header #search button span {
