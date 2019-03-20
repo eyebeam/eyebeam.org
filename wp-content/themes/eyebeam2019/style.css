@@ -134,7 +134,7 @@ a {
 	text-decoration: none;
 }
 
-a:hover { 
+a:hover {
 }
 
 a.btn {
@@ -144,7 +144,7 @@ a.btn {
 	padding: 1rem 2rem;
 	font-family: "EyebeamSans", sans-serif;
 	border: 1px solid #262626;
-	
+
 }
 a:hover {
 	background: rgb(0,255,0);
@@ -243,6 +243,32 @@ form.error .response-error {
 		padding: 0 20px;
 	}
 
+}
+
+@media (min-width: 1441px){
+	header {
+		display: flex;
+		justify-content: space-between;
+		max-width: calc(1280px + 18.666vw);
+		margin: 0 auto;
+	}
+	#menu-header.menu {
+		margin: 0 auto;
+		max-width: 1280px;
+	}
+	#page,footer {
+		max-width: 1280px;
+	}
+
+	#page {
+		margin:0 auto;
+		left: 0;
+	}
+
+	.logo-container#right {
+		left: calc(1280px + 16.666vw);
+
+	}
 }
 
 /* -------------------------------------------------------------------------- */
@@ -473,7 +499,7 @@ header #search input[type="text"]:focus {
 	outine: 0 !important;
 }
 
-header #search button { 
+header #search button {
 	background: white;
 	margin-top: 5px;
 	border: none;
@@ -545,7 +571,7 @@ header #search button span {
 		padding: 0;
 		/*height: 43px;*/
 	}
-	header nav { 
+	header nav {
 		width: 99vw;
 		position: fixed;
 		transition: all 0.2s ease-in;
@@ -595,34 +621,34 @@ header #search button span {
 /*
 	div.logo-container.clone {
 		position: absolute;
-		
+
 	}
 */
 
 
 	.logo-container#left h1 a#eyebeam_1_left {
 	}
-	
+
 	.logo-container#left h1 a#eyebeam_1_left img {
 		position: fixed;
 		width: 7vw;
 		bottom: 2vh;
 	}
-	
+
 	.logo-container#left h1 a#eyebeam_2_left img {
 		width: 7vw;
 		bottom: 2vh;
 		height: 100px;
 		position: fixed;
-	}	
+	}
 
 
-	
+
 	.logo-container#left h1 a#eyebeam_2_left {
 
 		height: 100px;
 	}
-	
+
 	.logo-container#left h1 img.top, header h1 img.stretch {
 	}
 
@@ -694,7 +720,7 @@ header #search button span {
 
 	div.logo-container.clone {
 		position: absolute;
-		
+
 	}
 
 
@@ -703,26 +729,26 @@ header #search button span {
 		position: fixed;
 		width: 7vw;
 	}
-	
 
-	
+
+
 	.logo-container#right h1 a#eyebeam_2_right {
 
 		background-size: 100%;
-	}		
+	}
 	.logo-container#right h1 a#eyebeam_2_left {
 
 		background-size: 100%;
-	}		
+	}
 	.logo-container#right h1 a#eyebeam_2_right img {
 
 		height: 100px;
-	}	
+	}
 	.logo-container#right h1 a#eyebeam_2_right {
 
 		height: 100px;
 	}
-	
+
 	.logo-container#right h1 img.top, header h1 img.stretch {
 	}
 
@@ -775,7 +801,7 @@ header #search button span {
 	header nav li {
 		display: inline;
 		margin-right: 5px;
-		
+
 	}
 
 	header nav li:last-child {
@@ -837,7 +863,7 @@ header #search button span {
 		outine: 0 !important;
 	}
 
-	header #search button { 
+	header #search button {
 		border: none;
 		float: right;
 		right: 10vw;
@@ -929,8 +955,8 @@ header #search button span {
 @media (min-width: 1075px) {
 
 	/* so basically in order to get the typeface flush to the size of one column we need to do some maths
-	 * 
-	 * the ratio of line-eight to font-size should equal 0.6615384615 
+	 *
+	 * the ratio of line-eight to font-size should equal 0.6615384615
 	 * which means we can use calc for that
 	 * and that's procedural font sizing for you bih
 	*/
@@ -1018,7 +1044,7 @@ header #search button span {
 	.subnav ul {
 		border-bottom: 1px solid black;
 		background: white;
-		padding: 1vw 0;	
+		padding: 1vw 0;
 
 	}
 
@@ -1071,7 +1097,7 @@ footer nav li a {
 	text-decoration: underline;
 }
 footer nav {
-	
+
 }
 
 footer a {
@@ -1188,7 +1214,7 @@ footer h2 {
 	line-height: 3.25rem;
 }
 
-footer form p { 
+footer form p {
 	font-size: 1.2rem;
 	line-height: 1.5rem;
 	padding: 1rem 0;
@@ -1277,7 +1303,7 @@ footer form p {
 	footer .contact,
 	footer nav {
 		padding-top: 20px;
-		width: calc(8.333vw);
+		width: 12.666%;
 	}
 
 	footer .address {
@@ -1294,7 +1320,6 @@ footer form p {
 	}
 
 	footer .social a {
-		display: inline;
 		margin-right: 20px;
 	}
 
@@ -1325,7 +1350,7 @@ footer form p {
 .hero-image-desktop {
 	display: block;
 }
-	
+
 .hero-video {
 	position: relative;
 	width: 100%;
@@ -1517,9 +1542,9 @@ footer form p {
 */}
 
 
-h5.post-label, .label { 
-	margin: .5rem 0 0 0; 
-	display: inline-block; 
+h5.post-label, .label {
+	margin: .5rem 0 0 0;
+	display: inline-block;
 	font-family: "EyebeamSans", sans-serif;
 }
 
@@ -1616,13 +1641,13 @@ h5.post-label, .label {
 }
 
 
-.item-container  a.image { 
-	width: 100%; 
-	height: 100%; 
+.item-container  a.image {
+	width: 100%;
+	height: 100%;
 	display: block;
 }
 
-.item-container a.image { 
+.item-container a.image {
 	background-position: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -1742,7 +1767,7 @@ h5.post-label, .label {
 	.module-section_header .item-container {
 		padding:0;
 		margin:0;
-		
+
 	}
 
 	.module-full_width {
@@ -1838,7 +1863,7 @@ h5.post-label, .label {
 
 	.module-collection #posts-list {
 		justify-content: space-between;
-	}	
+	}
 	.module-collection #posts-list li {
 		margin-right: 0;
 	}
@@ -1906,7 +1931,7 @@ h5.post-label, .label {
 		transition: all .3s ease-out;
 	}
 
-	.module-collection 
+	.module-collection
 
 	.module-collection .support-advisory {
 	}
@@ -2155,7 +2180,7 @@ h5.post-label, .label {
 
 .post-date, .post-author {
 	font-size: 1.5rem;
-	line-height: 1.1em;	
+	line-height: 1.1em;
 }
 
 .post img {
@@ -2299,7 +2324,7 @@ hr.wp-block-separator, hr {
 	line-height: 60px;
 }
 
-.wp-block-column { 
+.wp-block-column {
 	flex-grow: 1;
 }
 .wp-block-columns.column-7-5 .wp-block-column:first-child {
@@ -2719,12 +2744,12 @@ hr.wp-block-separator, hr {
 }
 
 
-.ui-datepicker-inline { 
+.ui-datepicker-inline {
 	width: 100%;
 }
 .ui-datepicker .ui-datepicker-prev span,
 .ui-datepicker .ui-datepicker-next span {
-	border-left: 1px solid black; border-bottom: 1px solid black; 
+	border-left: 1px solid black; border-bottom: 1px solid black;
 	width: 8px;
 	height: 8px;
 }
@@ -2818,7 +2843,7 @@ table.ui-datepicker-calendar thead {
 		width: calc(8.333% * 8);
 	}
 
-	.press-sidebar 
+	.press-sidebar
 		float: right;
 		width: calc(33.33% - 10px);
 		margin: 0 0 0 10px;
@@ -2841,4 +2866,3 @@ table.ui-datepicker-calendar thead {
 	}
 
 }
-
