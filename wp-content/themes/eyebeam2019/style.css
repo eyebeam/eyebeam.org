@@ -245,31 +245,7 @@ form.error .response-error {
 
 }
 
-@media (min-width: 1441px){
-	header {
-		display: flex;
-		justify-content: space-between;
-		max-width: calc(1280px + 18.666vw);
-		margin: 0 auto;
-	}
-	#menu-header.menu {
-		margin: 0 auto;
-		max-width: 1280px;
-	}
-	#page,footer {
-		max-width: 1280px;
-	}
 
-	#page {
-		margin:0 auto;
-		left: 0;
-	}
-
-	.logo-container#right {
-		left: calc(1280px + 16.666vw);
-
-	}
-}
 
 /* -------------------------------------------------------------------------- */
 /* Header */
@@ -1000,6 +976,48 @@ header #search button span {
 
 
 	header #search input[type="text"] {
+	}
+
+}
+
+
+@media (min-width: 1441px){
+	header {
+		display: flex;
+		justify-content: space-between;
+		max-width: calc(1280px + 18.666vw);
+		margin: 0 auto;
+	}
+	#menu-header.menu {
+		margin: 0 auto;
+		max-width: 1280px;
+	}
+	#page,footer {
+		max-width: 1280px;
+	}
+
+	#page {
+		margin:0 auto;
+		left: 0;
+	}
+
+	.logo-container#right {
+		left: calc(1280px + 16.666vw);
+
+	}
+
+	.logo-container#left h1 a#eyebeam_1_left img {
+		bottom: 6vh;
+	}
+	.logo-container#left h1 a#eyebeam_2_left img {
+		bottom: 8vh;
+	}
+
+	.logo-container#right h1 a#eyebeam_2_right img {
+		top:2vh;
+	}
+	.logo-container#right h1 a#eyebeam_2_right {
+		height: 120px;
 	}
 
 }

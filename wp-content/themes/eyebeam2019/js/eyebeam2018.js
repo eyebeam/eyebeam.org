@@ -702,7 +702,7 @@ var eyebeam2018 = (function($) {
 				// console.log(maxScroll);
 
 
-				var right2Height = scroll +100;
+				var right2Height = scroll +120;
 				var left2Height = scroll +100;
 				var left3Height = 0;
 
