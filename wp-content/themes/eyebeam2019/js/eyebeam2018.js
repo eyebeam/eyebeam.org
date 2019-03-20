@@ -98,7 +98,7 @@ var eyebeam2018 = (function($) {
 						$("nav").css("height", subNavHeight+navHeight);
 						$(this).parent().find(".sub-menu").css("height", subNavHeight );
 
-						$(this).parent().toggleClass("show-sub-menu");					
+						$(this).parent().toggleClass("show-sub-menu");
 					}
 				}
 				else {
@@ -149,8 +149,8 @@ var eyebeam2018 = (function($) {
 				$(el).addClass(color);
 			});
 		},
-		
-		
+
+
 		//new code that makes all links one color except for the footer
 		setup_link: function(){
 			$('header, .subnav, .module, .moodule-colleciton li').each(function(i, el) {
@@ -299,7 +299,7 @@ var eyebeam2018 = (function($) {
 
 						// run autocrop to fix changed widths and heights
 						if (enable_autocrop){
-							self.setup_autocrop();						
+							self.setup_autocrop();
 						}
 					},
 					error: function() {
@@ -350,7 +350,7 @@ var eyebeam2018 = (function($) {
 							$(this).css({
 								"background-image": "url("+thisImg.attr("src")+")",
 								"background-size": "100%",
-							});					
+							});
 						}
 
 
@@ -657,9 +657,9 @@ var eyebeam2018 = (function($) {
 					$(".logo-container#right h1 #eyebeam_2_right").css({
 						"background-image": "url("+$(".logo-container#right h1 #eyebeam_2_right img").attr("src")+")",
 						"height": right2Height
-					});					
+					});
 					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left2Height);
-					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);		
+					$(".logo-container#left h1 #eyebeam_3_left img").css("top", 0);
 				} else {
 					console.log('is this on load');
 					right2Height = ( (documentHeight - $(window).height()) - scroll ) + 75;
@@ -668,16 +668,16 @@ var eyebeam2018 = (function($) {
 					// left3Height = ( documentHeight - ($(window).height() - 24 ));
 					// left3Height = (documentHeight - $(window).height() +36);
 
-					
+
 					$(".logo-container#right h1 #eyebeam_2_right").css({
 						"background-image": "url("+$(".logo-container#right h1 #eyebeam_2_right img").attr("src")+")",
 						"height": right2Height
 					});
-					// $(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);							
+					// $(".logo-container#right h1 #eyebeam_2_right img").css("height", right2Height);
 
-					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left3Height);					
+					$(".logo-container#left h1 #eyebeam_2_left img").css("height", left3Height);
 					console.log('is this');
-					$(".logo-container#left h1 #eyebeam_3_left img").css("top", left3Height);		
+					$(".logo-container#left h1 #eyebeam_3_left img").css("top", left3Height);
 				}
 
 			 });
@@ -727,8 +727,8 @@ var eyebeam2018 = (function($) {
 						"background-image": "url("+$(".logo-container#right h1 #eyebeam_2_right img").attr("src")+")",
 						"height": right2Height
 					});
-					// $(".logo-container#left h1 #eyebeam_2_left img").css("height", left2Height);					
-					$(".logo-container#left h1 #eyebeam_3_left img").css("top", left3Height);					
+					// $(".logo-container#left h1 #eyebeam_2_left img").css("height", left2Height);
+					$(".logo-container#left h1 #eyebeam_3_left img").css("top", left3Height);
 				}
 
 
@@ -741,21 +741,39 @@ var eyebeam2018 = (function($) {
 
 
 			// logoContainer.clone().addClass("clone").insertAfter(".logo-container");
-		},		
+		},
 		setup_alt_text: function(){
 			$(".module-title, .post-title, .menu-item a, input, h2").each(function(){
-
+					var hasChildren = false;
 					if ( $(this).is("input") ){
+
 						var thisContent = $(this).attr("placeholder");
+
+					} else if ($(this).children("a").length > 0) {
+
+						hasChildren = true;
+						var thisContent = $(this).find(".category-label").html();
+						$(this).find(".category-label").attr("alt", thisContent);
+						$(this).find(".category-label").attr("title", thisContent);
+
+						var thisContentClone = $(this).clone().find("a").remove();
+						var thisContentHtml = thisContentClone.html();
+						$(this).attr("alt", thisContentHtml);
+						$(this).attr("title", thisContentHtml);
+
 					} else {
+
 						var thisContent = $(this).html();
+
 					}
 
-					$(this).attr("alt", thisContent);
-					$(this).attr("title", thisContent);
+					if (!hasChildren){
+						$(this).attr("alt", thisContent);
+						$(this).attr("title", thisContent);
+					}
 
 
-			});	
+			});
 		},
 		setup_blog_labels: function(){
 			$(".category-label").each(function(){
@@ -778,7 +796,7 @@ var eyebeam2018 = (function($) {
 							day: date
 						}, function(data){
 							console.log(data);
-							
+
 							$(".module-event").find("ul").html(data).fadeIn(150);
 
 						});
@@ -804,5 +822,3 @@ $(window).resize(function(){
 	return self;
 
 })(jQuery);
-
-	
