@@ -1,0 +1,9 @@
+
+@font-face {
+    font-family: 'EyebeamSans';
+    src: url('webfonts/EyebeamSans.woff2') format('woff2'),
+         url('webfonts/EyebeamSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
