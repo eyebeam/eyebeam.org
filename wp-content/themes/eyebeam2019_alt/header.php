@@ -21,8 +21,8 @@
 	<body <?php body_class(); ?>>
 		<header>
 			<div class="mobile-logo">
-				<a href="/">
-					<img src="<?php eyebeam2018_img_src('img/eyebeam_logo.png'); ?>" alt="Eyebeam" />
+				<a href="/" alt="Eyebeam" title="Eyebeam">
+					<img src="<?php eyebeam2018_img_src('img/eyebeam_logo.png'); ?>" alt="Eyebeam" title="Eyebeam" />
 				</a>
 			</div>
 			<!-- <div class="logo-container" id="left">

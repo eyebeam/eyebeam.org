@@ -234,8 +234,8 @@ form.error .response-error {
 	}
 
 	#page {
-		width: 80.333vw;
-		left: 9.333vw;
+		width: calc(100vw - 16.666vw);
+		margin: 0 8.333vw;
 		padding: 0;
 	}
 
@@ -261,6 +261,9 @@ header {
 	font-weight: 400;
 	font-size: 1.6rem;
 	z-index: 2;
+	width: 100vw;
+	margin: 0 auto;
+
 }
 
 header.headroom {
@@ -288,8 +291,6 @@ header h1 {
 }
 
 header .mobile-logo {
-	width: calc(100vw - 16.666vw);
-	margin: 0 auto;
 	padding: 1rem;
 }
 
@@ -521,7 +522,8 @@ header #search button span {
 
 	header {
 		font-size: 20px;
-
+		width: 83.333vw;
+		margin: 0 8.333vw;
 	}
 
 	header.headroom {
@@ -529,6 +531,7 @@ header #search button span {
 	}
 
 	div.mobile-logo {
+		padding: 1rem 0;
 	}
 
 	header .mobile-label {
@@ -546,7 +549,6 @@ header #search button span {
 		padding: 0;
 	}
 	header nav {
-		width: 99vw;
 		transition: all 0.2s ease-in;
 	}
 
@@ -753,11 +755,8 @@ header #search button span {
 	}
 
 	header .menu {
-		position: absolute;
 		padding: 1rem 0;
-		left: 9.333vw;
 		height: 100%;
-		width: 80.333vw;
 		display: flex;
 		justify-content: space-between;
 		border-bottom: 1px solid black;
@@ -1088,9 +1087,11 @@ footer {
 	font-size: .7rem;
 	font-weight: bold;
 	line-height: 1rem;
-	padding-bottom: 40px;
-	width: 92.666vw;
+	width: 100vw;
 	margin: 0 auto;
+	padding: 0 1rem;
+	padding-bottom: 40px;
+
 }
 
 footer .bottom {
@@ -1242,7 +1243,8 @@ footer form p {
 
 	footer {
 		padding: 2rem 0;
-		width: 80.333vw;
+		width: 83.333vw;
+		margin: 0 8.333vw;
 	}
 
 	footer h2 {
@@ -1486,7 +1488,7 @@ footer form p {
 	padding: 1rem 0;
 }
 
-.module .module-description p {
+.module .module-description p:not(:first-child) {
 	margin: 2rem 1rem 0 0;
 }
 
@@ -1738,7 +1740,7 @@ h5.post-label, .label {
 		width: calc(50%);
 		padding-right: 2rem;
 	}
-	.module-one_half:nth-child(2n) {
+	.module-one_half.end {
 		padding-right: 0;
 	}
 
