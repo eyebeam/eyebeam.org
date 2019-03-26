@@ -424,10 +424,10 @@ body.show-menu header nav li {
 	margin-right: 0;
 }
 
-nav li.donate-btn a {
+nav li:last-child a {
 	color: #00FF00;
 }
-nav li.donate-btn a:hover {
+nav li:last-child a:hover {
 	color: #00FF00;
 	background: none;
 }
@@ -783,7 +783,8 @@ header #search button span {
 	header nav li.donate-btn {
 	}
 
-	header nav li.donate-btn a {
+	header nav li:last-child a {
+		width: 25%;
 		padding: 3px 2vw;
 		border: 1px solid #262626;
 		background: rgb(0,255,0);
