@@ -25,7 +25,7 @@ var eyebeam2018 = (function($) {
 			self.setup_autocrop();
 			self.setup_searchform();
 			// self.setup_logo();
-			self.setup_alt_text();
+			// self.setup_alt_text();
 			self.setup_blog_labels();
 			self.setup_calendar();
 

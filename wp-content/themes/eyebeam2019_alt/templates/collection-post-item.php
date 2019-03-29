@@ -40,7 +40,7 @@ echo "<li class=\"post collection-item\">\n";
 echo "<div class=\"item-container\">\n";
 echo "$image\n";
 echo ($label) ?  "<h5 class=\"post-label $label_slug\">$label</h5>" : '';
-echo "<h3 class=\"post-title module-title\">$title</h3>\n";
+echo "<h3 class=\"post-title module-title eyebeam-sans\">$title</h3>\n";
 // echo "<h4 class=\"event-dates\">$post_date</h4>\n";
 
 echo "</div>\n";

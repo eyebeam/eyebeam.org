@@ -142,7 +142,6 @@ a.btn {
 	display: inline-block;
 	text-decoration: none;
 	padding: 1rem 2rem;
-	font-family: "EyebeamSans", sans-serif;
 	border: 1px solid #262626;
 
 }
@@ -161,7 +160,8 @@ a:hover {
 
 #page {
 	width: 100vw;
-	padding: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 	transition: all 0.2s ease-in;
 	z-index: 1;
 	position: relative;
@@ -220,7 +220,6 @@ form.error .response-error {
 		transition: background 0.1s ease-out;
 		text-decoration: underline;
 		word-wrap: break-word;
-		font-weight: 400;
 	}
 
 	a:hover {
@@ -263,7 +262,6 @@ header {
 	z-index: 2;
 	width: 100vw;
 	margin: 0 auto;
-
 }
 
 header.headroom {
@@ -272,10 +270,10 @@ header.headroom {
 
 header .menu-btn {
 	position: absolute;
-	top: 2vh;
+	top: 0;
 	right: 0;
-	width: 60px;
-	height: 60px;
+	width: 4rem;
+	height: 4rem;
 	background-image: url('img/menu.png');
 	background-size: 31px 22px;
 	background-repeat: no-repeat;
@@ -323,6 +321,7 @@ header div.logo-container#right h1 {
 header .mobile-label {
 	display: block;
 	font-family: "EyebeamSans", sans-serif;
+	line-height: 2rem;
 	padding: 1rem 0;
 	width: 92.666vw;
 	margin: 0 auto;
@@ -353,7 +352,6 @@ header h1 img {
 header nav {
 	position: relative;
 	min-height: 64px;
-	padding: 1rem;
 }
 
 header a {
@@ -371,7 +369,7 @@ header nav .support {
 
 }
 
-header nav .menu-header-container {
+header nav div .menu {
 	overflow: hidden;
 	display: none;
 }
@@ -381,15 +379,13 @@ body.show-menu header {
 
 body.show-menu .menu-btn {
 	background-image: url('img/close.png');
-	background-size: 27px 22px;
+	background-size: 28px 28px;
 }
 
-body.show-menu header nav .menu-header-container {
+body.show-menu header nav div .menu {
 	display: block;
-	top: 60px;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	padding: .5rem 1rem;
+
 }
 
 body.show-menu header.headroom nav .menu-header-container {
@@ -400,7 +396,6 @@ body.show-menu header nav {
 	font-size: 1.6rem;
 	line-height: 2rem;
 	text-align: left;
-	padding: 1rem;
 }
 
 body.show-menu header nav .menu .sub-menu {
@@ -424,13 +419,13 @@ body.show-menu header nav li {
 	margin-right: 0;
 }
 
-nav li:last-child a {
+/* nav li:last-child a {
 	color: #00FF00;
 }
 nav li:last-child a:hover {
 	color: #00FF00;
 	background: none;
-}
+} */
 
 body.show-menu header nav .support {
 	display: block;
@@ -550,6 +545,10 @@ header #search button span {
 	}
 	header nav {
 		transition: all 0.2s ease-in;
+	}
+
+	header nav div .menu {
+		display: flex;
 	}
 
 	.logo-container#left {
@@ -767,12 +766,12 @@ header #search button span {
 	header nav {
 		white-space: nowrap;
 		background: white;
-		height: 60px;
 	}
 
 	header nav li {
 		display: inline;
 		margin-right: 5px;
+		line-height: 2.5rem;
 
 	}
 
@@ -786,10 +785,12 @@ header #search button span {
 	header nav li:last-child a {
 		width: 25%;
 		padding: 3px 2vw;
-		border: 1px solid #262626;
-		background: rgb(0,255,0);
+		border: 1px solid black;
+		background: white;
 		color: black;
-
+	}
+	header nav li:last-child a:hover {
+		background: #00FF00;
 	}
 
 	header nav li.current_page_item {
@@ -1085,9 +1086,9 @@ footer {
 	color: black;
 	text-align: left;
 	font-family: "Work Sans", sans-serif;
-	font-size: .7rem;
-	font-weight: bold;
-	line-height: 1rem;
+	font-size: .9rem;
+	font-weight: 400;
+	line-height: 1.2rem;
 	width: 100vw;
 	margin: 0 auto;
 	padding: 0 1rem;
@@ -1098,12 +1099,11 @@ footer {
 footer .bottom {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 	padding-top: 1rem;
 }
 
 footer nav {
-	padding-top: 20px;
 }
 
 footer nav li {
@@ -1114,7 +1114,7 @@ footer nav li a {
 	text-decoration: underline;
 }
 footer nav {
-
+display: flex;
 }
 
 footer a {
@@ -1205,12 +1205,15 @@ footer .partners img {
 	align-self: center;
 }
 
-footer nav,
-footer .address,
-footer .contact,
+footer nav div,
 footer .social {
-	width: calc(25vw - 1rem);
-    padding: 1vw;
+	width: calc(25%);
+    padding: 1rem 0;
+}
+
+footer .address,
+footer .contact {
+	width: calc(50% - 1rem);
 }
 
 footer .social a {
@@ -1243,7 +1246,7 @@ footer form p {
 @media (min-width: 857px) {
 
 	footer {
-		padding: 2rem 0;
+		padding: 1rem 0;
 		width: 83.333vw;
 		margin: 0 8.333vw;
 	}
@@ -1255,7 +1258,8 @@ footer form p {
 	}
 
 	footer nav {
-	padding: 20px;
+	padding: 1rem 0;
+	display: flex;
 }
 
 	footer nav li {
@@ -1266,7 +1270,7 @@ footer form p {
 	}
 
 	footer form {
-		padding-bottom: 40px;
+		padding-bottom: 1rem;
 		margin-bottom: 0;
 	}
 
@@ -1318,10 +1322,12 @@ footer form p {
 
 	footer .address,
 	footer .social,
-	footer .contact,
-	footer nav {
-		padding-top: 20px;
-		width: 12.666%;
+	footer .contact {
+		width: calc(25% - 1rem);
+	}
+
+	footer nav div {
+		width: calc(25%);
 	}
 
 	footer .address {
@@ -1330,7 +1336,6 @@ footer form p {
 	}
 
 	footer .contact {
-		text-align: right;
 	}
 
 	footer .social {
@@ -1362,7 +1367,7 @@ footer form p {
 	width: 100%;
 	height: auto;
 	margin:0 auto;
-	margin-top: 0;
+	padding-top: 1rem;
 }
 
 .hero-image-desktop {
@@ -1386,8 +1391,18 @@ footer form p {
 	transform: translateX(-50%) translateY(-50%);
 }
 
-.hero-text {
+.eyebeam-sans {
 	font-family: "EyebeamSans", sans-serif;
+}
+.eyebeam-sans:hover {
+	font-family: "Work Sans", sans-serif;
+	font-weight: 500;
+	letter-spacing: -.05rem;
+}
+
+
+.hero-text {
+	/* font-family: "EyebeamSans", sans-serif; */
 	margin: 0 0 1rem 0;
 	padding: 0;
 }
@@ -1454,15 +1469,14 @@ footer form p {
 /* Module */
 
 .module-container {
-	padding-top: 10px;
 }
 
 .module {
 	display: block;
 	/*margin-left: 10px;*/
 	border-bottom: 1px solid black;
-	padding-bottom: 1rem;
-	margin-bottom: 1rem;
+	padding-top:1rem;
+	padding-bottom:1rem;
 	width: 100%;
 }
 
@@ -1479,10 +1493,10 @@ footer form p {
 }
 
 .module .module-title {
-	font-family: 'EyebeamSans', sans-serif;
-	font-size: 2rem;
-	line-height: 2.25rem;
-	padding: 1rem 0;
+	font-size: 2.5rem;
+	line-height: 3rem;
+	padding-bottom: 1rem;
+	padding-top: 0;
 }
 
 .module .module-description {
@@ -1549,7 +1563,7 @@ footer form p {
 }
 
 .module-collection li {
-	width: calc(50vw - 1rem);
+	width: calc(100% - 1rem);
 }
 
 .module-collection li .module-title {
@@ -1700,6 +1714,7 @@ h5.post-label, .label {
 		float: left;
 		border-bottom: 1px solid black;
 		padding-bottom: 1rem;
+		padding-top: 1rem;
 		margin-bottom: 0;
 	}
 
@@ -1715,7 +1730,6 @@ h5.post-label, .label {
 	.module-one_third .module-title {
 		font-size: 2rem;
 		line-height: 1.1em;
-		font-family: "EyebeamSans", sans-serif;
 
 	}
 
@@ -1746,8 +1760,8 @@ h5.post-label, .label {
 	}
 
 	.module-one_half .module-title {
-		font-size: 3rem;
-		line-height: 3.25rem;
+		font-size: 2.5rem;
+		line-height: 3rem;
 		padding: 1rem 0;
 	}
 
@@ -1793,14 +1807,12 @@ h5.post-label, .label {
 	}
 
 	.module-full_width .module-title {
-		font-family: "EyebeamSans", sans-serif;
 		font-size: 3rem;
 		line-height: 3.25rem;
-		padding: 1rem 0;
 	}
 
 	.module-full_width .module-title.one_half {
-		width: 50%;
+		width: calc(50% - 2rem);
 		float: left;
 	}
 
@@ -1810,14 +1822,14 @@ h5.post-label, .label {
 
 	.module-full_width .module-description.one_half {
 		padding: 0;
-		width: 50%;
+		width: calc(50% - 2rem);
 		float: right;
 	}
 
 	.module-full_width .module-image {
 		float: left;
 		width: calc(8.333% * 6);
-		margin-right: 2vw;
+		margin-right: 2rem;
 	}
 
 	.module-full_width .module-image::after {

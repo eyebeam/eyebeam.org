@@ -29,7 +29,7 @@ if (! empty($title)) {
 		$title = "<a href=\"$url\">$title</a>";
 	}
 
-	$text .= "<h2 class=\"module-title $text_layout\">$title</h2>\n";
+	$text .= "<h2 class=\"module-title eyebeam-sans $text_layout\" alt=\"$title\" title=\"$title\">$title</h2>\n";
 
 }
 
@@ -48,24 +48,31 @@ if (! empty($image_id)) {
 }
 
 if (! empty($description)) {
-	$text_description .= "<div class=\"module-description $text_layout\">$description</div>\n";
+	$text_description .= "<div class=\"module-description $text_layout\">$description\n";
 }
+
+if ( (! empty($button_text)) && (! empty($url)) ) {
+
+	$text_description .= "<a class=\"btn\" href=\"$url\">\n";
+	$text_description .= $button_text;
+	$text_description .= "</a>\n";
+}
+
+if ( !empty($button_text) || !empty ($description) || !empty($url) ){
+	echo "</div>";
+}
+
 
 $layout = 'text_first';
 if (! empty($layout) &&
+		! empty($description) &&
     $layout == 'text_first') {
-	echo "$text$image$text_description";
+		echo "$text$image$text_description";
 } else {
 	echo "$image$text$text_description";
 }
 
 
-if ( (! empty($button_text)) && (! empty($url)) ) {
-
-	echo "<a class=\"btn\" href=\"$url\">\n";
-	echo $button_text;
-	echo "</a>\n";
-}
 
 echo "</div>\n";
 echo "</li>\n";
