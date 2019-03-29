@@ -450,7 +450,7 @@ body.show-menu header #search {
 
 
 header #search input[type="text"] {
-width: 80.333vw;
+width: 100%;
 	padding: .5rem;
 	font-size: 1.5rem;
 	line-height: 2rem;
@@ -458,7 +458,6 @@ width: 80.333vw;
 	border: 1.5px solid white;
 	display: block;
 	float: left;
-	position: fixed;
 	transition: .3s ease-out;
 	z-index:2;
 }
@@ -810,9 +809,7 @@ header #search button span {
 	header #search {
 		display: none;
 		width: 100%;
-		padding: 0 9.333vw;
-		position: absolute;
-		top: 70px;
+		margin-top:1rem;
 	}
 
 	header #search input[type="text"] {
@@ -822,8 +819,6 @@ header #search button span {
 		color: black;
 		border: 1px solid black;
 		display: block;
-		float: left;
-		position: fixed;
 		transition: .3s ease-out;
 		z-index:2;
 	}
@@ -840,7 +835,7 @@ header #search button span {
 	header #search button {
 		border: none;
 		float: right;
-		right: 10vw;
+		right: 1rem;
 		position: absolute;
 		padding: 0;
 		z-index: 10;
@@ -863,7 +858,6 @@ header #search button span {
 	}
 
 	header.show-search nav {
-		height: 130px;
 	}
 
 	ul.sub-menu {
@@ -1315,7 +1309,6 @@ footer form p {
 
 	footer .bottom {
 		display: flex;
-		height: 150px;
 		position: relative;
 		justify-content: space-between;
 	}
