@@ -11,7 +11,7 @@
 
 			?>
 			<form action="/wp-admin/admin-ajax.php" method="post" id="subscribe" class="<?php echo $form_class; ?>">
-				<h2>
+				<h2 class="eyebeam-sans" alt="Subscribe to our Newsletter" title="Subscribe to our Newsletter">
 					Subscribe to our Newsletter
 				</h2>
 				<p>
@@ -35,7 +35,7 @@
 			<div class="bottom">
 				<div class="address">
 					199 Cook St<br />
-					Brooklyn,  NY 11206<br />
+					Brooklyn, NY 11206<br />
 					<a href="https://www.google.com/maps/search/?api=1&query=199+Cook+St,+Brooklyn,+NY+11206">View on Map</a>
 				</div>
 				<div class="contact">

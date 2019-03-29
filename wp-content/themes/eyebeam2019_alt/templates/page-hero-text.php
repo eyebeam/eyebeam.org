@@ -3,6 +3,6 @@
 extract($GLOBALS['eyebeam2018']['curr_hero']);
 
 ?>
-<div class="hero-text">
-	<div class="text"><?php echo $text; ?></div>
+<div class="hero-text eyebeam-sans">
+	<div class="text" alt="<?php echo $text; ?>" title="<?php echo $text; ?>"><?php echo $text; ?></div>
 </div>
