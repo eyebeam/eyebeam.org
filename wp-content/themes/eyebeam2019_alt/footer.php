@@ -32,6 +32,45 @@
 				<input type="email" name="email" placeholder="Email">
 				<input type="submit" value="Subscribe">
 			</form>
+			<nav>
+
+				<?php
+
+				// Edit nav items from the WordPress dashboard:
+				// https://www.eyebeam.org/wp-admin/nav-menus.php
+
+				wp_nav_menu(array(
+					'theme_location' => 'bottom'
+				));
+
+				?>
+				<?php
+
+				// Edit nav items from the WordPress dashboard:
+				// https://www.eyebeam.org/wp-admin/nav-menus.php
+
+				wp_nav_menu(array(
+					'theme_location' => 'bottom_middle'
+				));
+
+				?>
+				<?php
+
+				// Edit nav items from the WordPress dashboard:
+				// https://www.eyebeam.org/wp-admin/nav-menus.php
+
+				wp_nav_menu(array(
+					'theme_location' => 'bottom_right'
+				));
+
+				?>
+				<div class="social">
+						<a href="https://twitter.com/eyebeamnyc">Twitter</a>
+						<a href="https://www.facebook.com/eyebeamnyc/">Facebook</a>
+						<a href="https://www.instagram.com/eyebeamnyc/">Instagram</a>
+						<a href="https://www.youtube.com/user/eyebeamdotorg">YouTube</a>
+				</div>
+			</nav>
 			<div class="bottom">
 				<div class="address">
 					199 Cook St<br />
@@ -43,26 +82,6 @@
 					<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a>
 					<a href="https://www.eyebeam.org/">eyebeam.org</a>
 				</div>
-				<div class="social">
-					<div class="links">
-						<a href="https://twitter.com/eyebeamnyc">Twitter</a>
-						<a href="https://www.facebook.com/eyebeamnyc/">Facebook</a>
-						<a href="https://www.instagram.com/eyebeamnyc/">Instagram</a>
-						<a href="https://www.youtube.com/user/eyebeamdotorg">YouTube</a>
-					</div>
-				</div>
-				<nav>
-					<?php
-
-					// Edit nav items from the WordPress dashboard:
-					// https://www.eyebeam.org/wp-admin/nav-menus.php
-
-					wp_nav_menu(array(
-						'theme_location' => 'bottom'
-					));
-
-					?>
-				</nav>
 				<div class="partners">
 					<img src="<?php eyebeam2018_img_src('img/jerome.png'); ?>" alt="Jerome Foundation" width="auto">
 					<img src="<?php eyebeam2018_img_src('img/nyculture.png'); ?>" alt="NYCulture" width="auto">

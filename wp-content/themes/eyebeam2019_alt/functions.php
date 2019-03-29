@@ -97,7 +97,9 @@ function eyebeam2018_setup() {
 	// Main navigation
 	register_nav_menus(array(
 		'top' => 'Top nav',
-		'bottom' => 'Bottom nav'
+		'bottom' => 'Bottom nav',
+		'bottom_middle' => 'Bottom nav middle',
+		'bottom_right' => 'Bottom nav right'
 	));
 
 	// Don't show the version of WordPress (security, yo)

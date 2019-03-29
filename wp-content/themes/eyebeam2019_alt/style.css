@@ -1088,7 +1088,7 @@ footer {
 	font-family: "Work Sans", sans-serif;
 	font-size: .9rem;
 	font-weight: 400;
-	line-height: 1rem;
+	line-height: 1.2rem;
 	width: 100vw;
 	margin: 0 auto;
 	padding: 0 1rem;
@@ -1099,12 +1099,11 @@ footer {
 footer .bottom {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 	padding-top: 1rem;
 }
 
 footer nav {
-	padding-top: 20px;
 }
 
 footer nav li {
@@ -1115,7 +1114,7 @@ footer nav li a {
 	text-decoration: underline;
 }
 footer nav {
-
+display: flex;
 }
 
 footer a {
@@ -1206,12 +1205,15 @@ footer .partners img {
 	align-self: center;
 }
 
-footer nav,
-footer .address,
-footer .contact,
+footer nav div,
 footer .social {
-	width: calc(25vw - 1rem);
-    padding: 1vw;
+	width: calc(25%);
+    padding: 1rem 0;
+}
+
+footer .address,
+footer .contact {
+	width: calc(50% - 1rem);
 }
 
 footer .social a {
@@ -1256,7 +1258,8 @@ footer form p {
 	}
 
 	footer nav {
-	padding: 20px;
+	padding: 1rem 0;
+	display: flex;
 }
 
 	footer nav li {
@@ -1319,10 +1322,12 @@ footer form p {
 
 	footer .address,
 	footer .social,
-	footer .contact,
-	footer nav {
-		padding-top: 20px;
-		width: 12.666%;
+	footer .contact {
+		width: calc(25% - 1rem);
+	}
+
+	footer nav div {
+		width: calc(25%);
 	}
 
 	footer .address {
@@ -1331,7 +1336,6 @@ footer form p {
 	}
 
 	footer .contact {
-		text-align: right;
 	}
 
 	footer .social {
@@ -1559,7 +1563,7 @@ footer form p {
 }
 
 .module-collection li {
-	width: calc(50vw - 1rem);
+	width: calc(100% - 1rem);
 }
 
 .module-collection li .module-title {
