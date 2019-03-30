@@ -1,3 +1,3 @@
-[submodule "wp-content/themes/eyebeam2019_alt/lib/siema-carousel"]
-	path = wp-content/themes/eyebeam2019_alt/lib/siema-carousel
-	url = https://github.com/pawelgrzybek/siema.git
+[submodule "wp-content/themes/eyebeam2019_alt/lib/swiper"]
+	path = wp-content/themes/eyebeam2019_alt/lib/swiper
+	url = https://github.com/nolimits4web/swiper.git
