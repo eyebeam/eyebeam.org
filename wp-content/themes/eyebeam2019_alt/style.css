@@ -1792,6 +1792,7 @@ Events
 	.module-one_half .module-title {
 		font-size: 2.5rem;
 		line-height: 3rem;
+		font-weight: 500;
 		padding: 1rem 0;
 	}
 
