@@ -1,3 +1,6 @@
 [submodule "wp-content/themes/eyebeam2019_alt/lib/swiper"]
 	path = wp-content/themes/eyebeam2019_alt/lib/swiper
 	url = https://github.com/nolimits4web/swiper.git
+[submodule "wp-content/themes/eyebeam2019_alt/lib/bricksjs"]
+	path = wp-content/themes/eyebeam2019_alt/lib/bricksjs
+	url = https://github.com/callmecavs/bricks.js.git
