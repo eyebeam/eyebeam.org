@@ -1211,7 +1211,6 @@ footer .contact {
 }
 
 footer .social a {
-	display: block;
 	text-decoration: underline;
 }
 
@@ -1633,6 +1632,22 @@ h5.post-label, .label {
 .module-ideas .ideas-image {
 	margin: 9px 0;
 }
+
+/**
+Carousel
+****/
+.carousel {
+	margin-top: 1rem;
+}
+
+.carousel .slide img {
+	width: 83.34vw;
+	height: calc(83.333vw / 3);
+}
+
+/**
+Events
+***/
 
 .event-dates {
 	padding-bottom: 2rem;
