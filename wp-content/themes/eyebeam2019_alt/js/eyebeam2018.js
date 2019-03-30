@@ -808,23 +808,45 @@ var eyebeam2018 = (function($) {
 			});
 		},
 		setup_carousel: function() {
-			const Carousel = new Siema({
-				selector: '.carousel',
-			  duration: 200,
-			  easing: 'ease-out',
-			  perPage: 1,
-			  startIndex: 0,
-			  draggable: true,
-			  multipleDrag: true,
-			  threshold: 20,
-			  loop: true,
-			  rtl: false,
-			  onInit: () => {},
-			  onChange: () => {},
-			});
 
-			// listen for keydown event
-			setInterval(() => Carousel.next(), 3000);
+			// if ($(".carousel").length > 0){
+			//
+			// 	const Carousel = new Siema({
+			// 		selector: '.carousel',
+			// 	  duration: 350,
+			// 	  easing: 'ease-out',
+			// 	  perPage: 1,
+			// 	  startIndex: 0,
+			// 	  draggable: true,
+			// 	  multipleDrag: true,
+			// 	  threshold: 20,
+			// 	  loop: true,
+			// 	  rtl: false,
+			// 	  onInit: () => {},
+			// 	  onChange: () => {},
+			// 	});
+			//
+			// 	// listen for keydown event
+			// 	carouselAutoplay = setInterval(() => Carousel.next(), 3500);
+			// }
+
+			var carousel = new Swiper ('.carousel-container', {
+				direction: 'horizontal',
+				// pagination: {
+				// 	 el: '.swiper-pagination',
+				// 	 type: 'progressbar',
+				//  },
+				autoplay: {
+					delay: 3500,
+				},
+				loop: true,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				observer: true,
+				observeParents: true
+			});
 
 		},
 	};

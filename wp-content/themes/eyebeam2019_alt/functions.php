@@ -157,10 +157,11 @@ function eyebeam2018_enqueue() {
 
 	eyebeam2018_enqueue_css('fonts/eyebeamsans.css');
 	eyebeam2018_enqueue_css('lib/jquery-ui/jquery-ui.css');
+	eyebeam2018_enqueue_css('lib/swiper/dist/css/swiper.min.css');
 	eyebeam2018_enqueue_css('style.css');
 
-	eyebeam2018_enqueue_js('lib/jquery-ui/jquery-ui.js');
-	eyebeam2018_enqueue_js('lib/siema-carousel/dist/siema.min.js');
+	eyebeam2018_enqueue_js('lib/jquery-ui/jquery-ui.js', array('jquery'));
+	eyebeam2018_enqueue_js('lib/swiper/dist/js/swiper.min.js');
 	eyebeam2018_enqueue_js('js/eyebeam2018.js', array('jquery'));
 
 }
