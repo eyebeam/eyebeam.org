@@ -20,6 +20,7 @@ if(function_exists("register_field_group"))
 						'column_width' => '',
 						'choices' => array (
 							'hero' => 'Hero',
+							'carousel' => 'Carousel',
 							'module' => 'Module',
 						),
 						'default_value' => 'module',
@@ -163,6 +164,49 @@ if(function_exists("register_field_group"))
 						'formatting' => 'br',
 					),
 					array (
+						'key' => 'field_565aee13pi233',
+						'label' => 'Carousel',
+						'name' => 'carousel',
+						'type' => 'repeater',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'carousel',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'sub_fields' => array (
+							array (
+								'key' => 'field_576cbc67rv233',
+								'label' => 'Image',
+								'name' => 'image',
+								'type' => 'image',
+								'column_width' => '',
+								'save_format' => 'id',
+								'preview_size' => 'thumbnail',
+								'library' => 'all',
+							),
+							array (
+								'key' => 'field_556aba43rg2',
+								'label' => 'Caption',
+								'name' => 'caption',
+								'type' => 'wysiwyg',
+								'column_width' => '',
+								'default_value' => '',
+								'toolbar' => 'basic',
+								'media_upload' => 'no',
+							),
+						),
+						'row_min' => '',
+						'row_limit' => '',
+						'layout' => 'row',
+						'button_label' => 'Add Media',
+					),
+					array (
 						'key' => 'field_5a99c21321c37',
 						'label' => 'Module type',
 						'name' => 'module_type',
@@ -256,7 +300,7 @@ if(function_exists("register_field_group"))
 						'column_width' => '',
 						'default_value' => '',
 						'placeholder' => '',
-					),	
+					),
 					array (
 						'key' => 'field_5a8dbca1c2b789999',
 						'label' => 'Columns',
@@ -273,7 +317,7 @@ if(function_exists("register_field_group"))
 						'default_value' => 'three-columns',
 						'allow_null' => 0,
 						'multiple' => 0,
-					),	
+					),
 					array (
 						'key' => 'field_5a8dbca1c2b78933',
 						'label' => 'Event Timing',
@@ -303,7 +347,7 @@ if(function_exists("register_field_group"))
 						'default_value' => 'All',
 						'allow_null' => 0,
 						'multiple' => 0,
-					),				
+					),
 					array (
 						'key' => 'field_5a8dbc52c2b77',
 						'label' => 'Module page',
@@ -504,7 +548,7 @@ if(function_exists("register_field_group"))
 									'field' => 'field_5a9a13961c280',
 									'operator' => '!=',
 									'value' => 'projects',
-								),								
+								),
 								array (
 									'field' => 'field_5a9a13961c280',
 									'operator' => '!=',

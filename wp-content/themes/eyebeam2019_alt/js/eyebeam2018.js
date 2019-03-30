@@ -28,6 +28,7 @@ var eyebeam2018 = (function($) {
 			// self.setup_alt_text();
 			self.setup_blog_labels();
 			self.setup_calendar();
+			self.setup_carousel();
 
 		},
 		setup_nav: function() {
@@ -806,7 +807,26 @@ var eyebeam2018 = (function($) {
 				});
 			});
 		},
+		setup_carousel: function() {
+			const Carousel = new Siema({
+				selector: '.carousel',
+			  duration: 200,
+			  easing: 'ease-out',
+			  perPage: 1,
+			  startIndex: 0,
+			  draggable: true,
+			  multipleDrag: true,
+			  threshold: 20,
+			  loop: true,
+			  rtl: false,
+			  onInit: () => {},
+			  onChange: () => {},
+			});
 
+			// listen for keydown event
+			setInterval(() => Carousel.next(), 3000);
+
+		},
 	};
 
 	$(document).ready(function() {
