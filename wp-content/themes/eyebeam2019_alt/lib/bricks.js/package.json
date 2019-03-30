@@ -1,0 +1,79 @@
+{
+  "_from": "bricks.js",
+  "_id": "bricks.js@1.8.0",
+  "_inBundle": false,
+  "_integrity": "sha1-j96zwCJq8lH01XJ6fff5rACStLI=",
+  "_location": "/bricks.js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "bricks.js",
+    "name": "bricks.js",
+    "escapedName": "bricks.js",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/bricks.js/-/bricks.js-1.8.0.tgz",
+  "_shasum": "8fdeb3c0226af251f4d5727a7df7f9ac0092b4b2",
+  "_spec": "bricks.js",
+  "_where": "/Applications/AMPPS/www/eyebeam",
+  "author": {
+    "name": "Michael Cavalea",
+    "email": "callmecavs@gmail.com",
+    "url": "http://callmecavs.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/callmecavs/bricks.js/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "knot.js": "^1.1.5"
+  },
+  "deprecated": false,
+  "description": "A blazing fast masonry layout generator for fixed width elements.",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-preset-env": "^1.2.2",
+    "eslint": "^3.13.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "rollup": "^0.41.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-watch": "^3.2.2"
+  },
+  "homepage": "https://github.com/callmecavs/bricks.js#readme",
+  "jsnext:main": "dist/bricks.module.js",
+  "keywords": [
+    "grid",
+    "masonry",
+    "layout",
+    "packing"
+  ],
+  "license": "MIT",
+  "main": "dist/bricks.js",
+  "module": "dist/bricks.module.js",
+  "name": "bricks.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callmecavs/bricks.js.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w -m inline",
+    "lint": "eslint src",
+    "prebuild": "rm -rf dist",
+    "prepublish": "npm run test",
+    "pretest": "npm run build",
+    "server": "python -m SimpleHTTPServer 3000",
+    "test": "npm run lint"
+  },
+  "version": "1.8.0"
+}
