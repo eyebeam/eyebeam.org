@@ -1641,8 +1641,15 @@ Carousel
 }
 
 .carousel .slide img {
-	width: 83.34vw;
-	height: calc(83.333vw / 3);
+	width: calc(100vw - 2rem);
+	height: calc(100vw / 3);
+}
+
+@media (min-width: 857px){
+	.carousel .slide img {
+		width: calc(83.34vw);
+		height: calc(83.333vw / 3);
+	}
 }
 
 /**

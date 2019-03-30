@@ -200,6 +200,32 @@ if(function_exists("register_field_group"))
 								'toolbar' => 'basic',
 								'media_upload' => 'no',
 							),
+							array (
+								'key' => 'field_5a8dbc52c2b733',
+								'label' => 'Target',
+								'name' => 'slide_target',
+								'type' => 'relationship',
+								'column_width' => '',
+								'return_format' => 'url',
+								'post_type' => array (
+									0 => 'post',
+									1 => 'page',
+									2 => 'resident',
+									3 => 'event',
+									4 => 'archive',
+								),
+								'taxonomy' => array (
+									0 => 'all',
+								),
+								'filters' => array (
+									0 => 'search',
+								),
+								'result_elements' => array (
+									0 => 'post_type',
+									1 => 'post_title',
+								),
+								'max' => 1,
+							),
 						),
 						'row_min' => '',
 						'row_limit' => '',
