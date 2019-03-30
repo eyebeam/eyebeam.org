@@ -21,14 +21,14 @@ var eyebeam2018 = (function($) {
 			self.setup_residents();
 			self.setup_archive();
 			self.setup_donate();
-			self.setup_lazy_load();
-			self.setup_autocrop();
+			// self.setup_autocrop();
 			self.setup_searchform();
 			// self.setup_logo();
 			// self.setup_alt_text();
 			self.setup_blog_labels();
 			self.setup_calendar();
 			self.setup_carousel();
+			self.setup_bricks();
 
 		},
 		setup_nav: function() {
@@ -270,99 +270,59 @@ var eyebeam2018 = (function($) {
 
 			$('#amount-50')[0].checked = true;
 		},
-
-		setup_lazy_load: function() {
-			$('.lazy-load').click(function(e) {
-				e.preventDefault();
-				var $btn = $(e.target);
-				if ($btn.hasClass('loading')) {
-					return;
-				}
-				$btn.html('Loading&hellip;');
-				$btn.addClass('loading');
-				var page = $btn.data('page');
-				page = parseInt(page);
-				page++;
-				$btn.data('page', page);
-				page = '&page=' + page;
-				var base = '/wp-admin/admin-ajax.php';
-				var action = 'action=eyebeam2018_lazy_load';
-				var load = $btn.data('load');
-				var load_arg = '&load=' + load;
-				var args = action + load_arg + page;
-				var url = base + '?' + args;
-				$.ajax(url, {
-					success: function(rsp) {
-						$btn.html('Load more');
-						var $ul = $('#' + load + '-list');
-						$ul.append(rsp);
-						$btn.removeClass('loading');
-
-						// run autocrop to fix changed widths and heights
-						if (enable_autocrop){
-							self.setup_autocrop();
-						}
-					},
-					error: function() {
-						$btn.html('Error loading more.');
-					}
-				});
-
-			});
-		},
-
-		setup_autocrop: function(resize) {
-
-			var has_module_residents = $('#module-residents').length;
-
-			if (enable_autocrop && has_module_residents){
-
-				$("#module-residents a.image").each(function(){
-
-					if (!$(this).hasClass("cropped") || resize){
-						// define terms
-						var thisImg = $(this).find("img");
-						var width = thisImg.attr("width");
-						var height = thisImg.attr("height");
-
-						var thisImgRatio = height / width;
-						// console.log(thisImg);
-						// console.log(height);
-						// console.log(height/width);
-						// console.log(height / thisImgRatio);
-						// console.log('-------------');
-
-						// find the image attributes and assign the container a height
-
-						$(this).css("height", $(this).innerWidth());
-
-						if (thisImgRatio < 1){
-
-							// assign the background image to the anchor container
-							$(this).css({
-								"background-image": "url("+thisImg.attr("src")+")",
-								"background-size": (width / thisImgRatio)+"px",
-							});
-							$(this).addClass("cropped");
-
-						}
-						else {
-							// assign the background image to the anchor container
-							$(this).css({
-								"background-image": "url("+thisImg.attr("src")+")",
-								"background-size": "100%",
-							});
-						}
-
-
-						// hide the link image element
-						thisImg.hide();
-
-						// $(this).parent(".item-container").css("background-image", thisImg.attr("src"));
-					}
-				});
-			}
-		},
+		//
+		// setup_autocrop: function(resize) {
+		//
+		// 	var has_module_residents = $('#module-residents').length;
+		//
+		// 	if (enable_autocrop && has_module_residents){
+		//
+		// 		$("#module-residents a.image").each(function(){
+		//
+		// 			if (!$(this).hasClass("cropped") || resize){
+		// 				// define terms
+		// 				var thisImg = $(this).find("img");
+		// 				var width = thisImg.attr("width");
+		// 				var height = thisImg.attr("height");
+		//
+		// 				var thisImgRatio = height / width;
+		// 				// console.log(thisImg);
+		// 				// console.log(height);
+		// 				// console.log(height/width);
+		// 				// console.log(height / thisImgRatio);
+		// 				// console.log('-------------');
+		//
+		// 				// find the image attributes and assign the container a height
+		//
+		// 				$(this).css("height", $(this).innerWidth());
+		//
+		// 				if (thisImgRatio < 1){
+		//
+		// 					// assign the background image to the anchor container
+		// 					$(this).css({
+		// 						"background-image": "url("+thisImg.attr("src")+")",
+		// 						"background-size": (width / thisImgRatio)+"px",
+		// 					});
+		// 					$(this).addClass("cropped");
+		//
+		// 				}
+		// 				else {
+		// 					// assign the background image to the anchor container
+		// 					$(this).css({
+		// 						"background-image": "url("+thisImg.attr("src")+")",
+		// 						"background-size": "100%",
+		// 					});
+		// 				}
+		//
+		//
+		// 				// hide the link image element
+		// 				thisImg.hide();
+		//
+		// 				// $(this).parent(".item-container").css("background-image", thisImg.attr("src"));
+		// 			}
+		// 		});
+		// 	}
+		// },
 
 		setup_searchform: function() {
 			$(".search-btn").live('click', function(event){
@@ -809,27 +769,6 @@ var eyebeam2018 = (function($) {
 		},
 		setup_carousel: function() {
 
-			// if ($(".carousel").length > 0){
-			//
-			// 	const Carousel = new Siema({
-			// 		selector: '.carousel',
-			// 	  duration: 350,
-			// 	  easing: 'ease-out',
-			// 	  perPage: 1,
-			// 	  startIndex: 0,
-			// 	  draggable: true,
-			// 	  multipleDrag: true,
-			// 	  threshold: 20,
-			// 	  loop: true,
-			// 	  rtl: false,
-			// 	  onInit: () => {},
-			// 	  onChange: () => {},
-			// 	});
-			//
-			// 	// listen for keydown event
-			// 	carouselAutoplay = setInterval(() => Carousel.next(), 3500);
-			// }
-
 			var carousel = new Swiper ('.carousel-container', {
 				direction: 'horizontal',
 				// pagination: {
@@ -849,6 +788,73 @@ var eyebeam2018 = (function($) {
 			});
 
 		},
+
+		setup_lazy_load: function() {
+
+		},
+
+
+		setup_bricks: function() {
+
+			const sizes = [
+				{ columns: 2, gutter: 25},
+			];
+
+			const bricksInstance = Bricks({
+				packed: 'packed',
+				container: '#posts-list',
+				sizes: sizes
+			});
+
+			bricksInstance.pack();
+
+			$('.lazy-load').click(function(e) {
+
+				e.preventDefault();
+				var $btn = $(e.target);
+
+				if ($btn.hasClass('loading')) {
+					return;
+				}
+
+				$btn.html('Loading&hellip;');
+				$btn.addClass('loading');
+				var page = $btn.data('page');
+
+				page = parseInt(page);
+				page++;
+				$btn.data('page', page);
+				page = '&page=' + page;
+
+				var base = '/wp-admin/admin-ajax.php';
+				var action = 'action=eyebeam2018_lazy_load';
+				var load = $btn.data('load');
+				var load_arg = '&load=' + load;
+				var args = action + load_arg + page;
+				var url = base + '?' + args;
+
+				$.ajax(url, {
+					success: function(rsp) {
+						$btn.html('Load more');
+						var $ul = $('#' + load + '-list');
+						$ul.append(rsp);
+						$btn.removeClass('loading');
+
+						// run autocrop to fix changed widths and heights
+						// if (enable_autocrop){
+						// 	self.setup_autocrop();
+						// }
+						bricksInstance.update();
+					},
+					error: function() {
+						$btn.html('Error loading more.');
+					}
+				});
+
+			});
+
+
+		},
 	};
 
 	$(document).ready(function() {
@@ -856,9 +862,9 @@ var eyebeam2018 = (function($) {
 	});
 
 $(window).resize(function(){
-		if (enable_autocrop){
-			self.setup_autocrop(true);
-		}
+		// if (enable_autocrop){
+		// 	self.setup_autocrop(true);
+		// }
 	});
 
 	return self;

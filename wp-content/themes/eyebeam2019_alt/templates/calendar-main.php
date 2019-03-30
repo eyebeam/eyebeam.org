@@ -3,14 +3,14 @@
 <li id="module-calendar" class="module module-one_half">
 	<div class="item-container">
 
-	<h2 class="module-title one_half">Calendar</h2>
+	<h2 class="module-title one_half eyebeam-sans">Calendar</h2>
 	<div class="datepicker">
 	</div>
 	</div>
 </li>
 <li class="module module-one_half">
 	<div class="module-event">
-	<?php 
+	<?php
 	$today = date('Ymd');
 
 	$upcoming_args = array(
