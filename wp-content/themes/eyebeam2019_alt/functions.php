@@ -162,7 +162,7 @@ function eyebeam2018_enqueue() {
 
 	eyebeam2018_enqueue_js('lib/jquery-ui/jquery-ui.js', array('jquery'));
 	eyebeam2018_enqueue_js('lib/swiper/dist/js/swiper.min.js');
-	eyebeam2018_enqueue_js('lib/bricksjs/dist/bricks.js');
+	eyebeam2018_enqueue_js('lib/bricks-js/node_modules/bricks.js/dist/bricks.js');
 	eyebeam2018_enqueue_js('js/eyebeam2018.js', array('jquery'));
 
 }

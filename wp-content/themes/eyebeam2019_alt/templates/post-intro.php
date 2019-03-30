@@ -9,15 +9,16 @@ $tags = get_the_tags();
 $show_tags = (get_field('show_tags') == 'show' ? true : false);
 
 echo "<div class=\"post-main post-main-top\">\n";
-echo "<h2 class=\"post-title\">";
+echo "<h2 class=\"post-title eyebeam-sans\">";
 the_title();
 
 echo "</h2>\n";
 
-
+echo "<div class=\"post-info\">\n";
 // show date and author
 if ($show_date == 'show') {
-	
+
+
 	echo "<h3 class=\"post-date\">\n";
 		the_time('F j, Y');
 	echo "</h3>";
@@ -28,7 +29,7 @@ if ($show_date == 'show') {
 } else if (! empty($meta)) {
 	echo "$meta\n";
 	if (! empty($author)) {
-		echo "<h3 class=\"post-author\">by $author</h3>\n";
+		echo "<p class=\"post-author\">by $author</p>\n";
 	}
 } else {
 
@@ -65,6 +66,8 @@ if ($show_date == 'show') {
 		echo "<h3 class=\"event-dates\">$dates</h3>\n";
 	}
 }
+
+echo "</div>\n";
 
 
 $image_id = get_field('image', $post->ID);
