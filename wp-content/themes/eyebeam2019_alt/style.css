@@ -384,7 +384,9 @@ body.show-menu .menu-btn {
 
 body.show-menu header nav div .menu {
 	display: block;
-	padding: .5rem 1rem;
+	padding: .5rem 0;
+	border-bottom: 1px solid black;
+	margin: 0 1rem;
 
 }
 
@@ -2227,11 +2229,15 @@ Events
 .post .post-title {
 	font-size: 1.5rem;
 	line-height: 1.1em;
+	padding-top: 1rem;
 }
 
 .post-date, .post-author {
-	font-size: 1.5rem;
-	line-height: 1.1em;
+
+}
+
+.post-info {
+	padding: 1rem 0;
 }
 
 .post img {
@@ -2254,7 +2260,6 @@ Events
 }
 
 .post-content {
-	padding: 0 15px 40px 15px;
 }
 
 .post-content p {
@@ -2311,27 +2316,30 @@ Events
 	}
 
 	.post .post-intro {
-		font-family: "EyebeamSans", sans-serif;
 		margin: 0;
 		padding: 0;
-		font-size: 48px;
-		line-height: 1.1em;
+		font-size: 3rem;
+		line-height: 3rem;;
 		padding: 0 0 2rem 0;
+		width: 50%;
 	}
 
 	.post-main.post-main-top .post-date,
 	.post-main.post-main-top .post-author {
-		font-family: "EyebeamSans", sans-serif;
 	}
 
 	.post-main.post-main-top figure {
 		margin-top: 2rem;
+		width: 50%;
+		float: right;
 	}
 
 	.post .post-title {
-		font-size: 48px;
-		line-height: 56px;
+		font-size: 3rem;
+		line-height: 3rem;
+		width: 50%;
 		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 
 	.post .post-meta {

@@ -1,5 +1,4 @@
 <?php
-echo "<br class=\"clear\">\n";
 echo "<div class=\"post-main\">\n";
 echo "<div class=\"post-media\">\n";
 // show and float all media
