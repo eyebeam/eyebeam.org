@@ -67,7 +67,7 @@ include_once("$dir/lib/custom-post-types.php");
 // WP_DEBUG = false / custom fields are included via PHP
 if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 
-	define('ACF_LITE', false); // hide the editing UI
+	define('ACF_LITE', true); // hide the editing UI
 
 	include_once("$dir/lib/custom-fields/archive-page.php");
 	include_once("$dir/lib/custom-fields/archive-post.php");
