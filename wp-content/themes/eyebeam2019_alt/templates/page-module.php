@@ -17,7 +17,26 @@ if (! empty($video_url) &&
 	echo "</div>\n";
 }
 
-$text = '';
+
+
+$image = '';
+if (! empty($image_id)) {
+
+	$size = 'original';
+	$image = eyebeam2018_get_image_html($image_id, $size, true);
+
+
+	if (! empty($url)) {
+		$image = "<a href=\"$url\">$image</a>";
+	}
+
+		$image = "<figure class=\"module-image\">$image</figure>\n";
+
+}
+
+echo $image;
+
+
 if (! empty($title)) {
 
 	if ($type == 'two_thirds' && ! empty($url)) {
@@ -25,29 +44,14 @@ if (! empty($title)) {
 	}
 
 	if (! empty($url) && empty($button_text)) {
-		$title = "<a href=\"$url\">$title</a>";
+		$title_link = "<a href=\"$url\">$title</a>";
 	}
-
-	$text .= "<h2 class=\"module-title eyebeam-sans $text_layout\" alt=\"$title\" title=\"$title\">$title</h2>\n";
-
-}
-
-$image = '';
-if (! empty($image_id)) {
-
-	$size = 'original';
-	$image = eyebeam2018_get_image_html($image_id, $size);
-
-	if (! empty($url)) {
-		$image = "<a href=\"$url\">$image</a>";
-	}
-
-	$image = "<figure class=\"module-image\">$image</figure>\n";
+	echo "<h2 class=\"module-title eyebeam-sans\" alt=\"$title\" title=\"$title\">$title</h2>\n";
 
 }
 
 if (! empty($description)) {
-	$text_description .= "<div class=\"module-description $text_layout\">$description\n";
+	$text_description .= "<div class=\"module-description\">$description\n";
 }
 
 if ( (! empty($button_text)) && (! empty($url)) ) {
@@ -57,19 +61,21 @@ if ( (! empty($button_text)) && (! empty($url)) ) {
 	$text_description .= "</a>\n";
 }
 
+echo $text_description;
+
 if ( !empty($button_text) || !empty ($description) || !empty($url) ){
 	echo "</div>";
 }
 
-
-$layout = 'text_first';
-if (! empty($layout) &&
-		! empty($description) &&
-    $layout == 'text_first') {
-		echo "$text$image$text_description";
-} else {
-	echo "$image$text$text_description";
-}
+//
+// $layout = 'text_first';
+// if (! empty($layout) &&
+// 		! empty($description) &&
+//     $layout == 'text_first') {
+// 		echo "$text$image$text_description";
+// } else {
+// 	echo "$image$text$text_description";
+// }
 
 
 
