@@ -254,7 +254,7 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	color: black;
+	color: #231F20;
 	background: white;
 	font-family: "EyebeamSans", sans-serif;
 	font-weight: 400;
@@ -325,8 +325,8 @@ header .mobile-label {
 	padding: 1rem 0;
 	width: 92.666vw;
 	margin: 0 auto;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	border-top: 1px solid #231F20;
+	border-bottom: 1px solid #231F20;
 }
 
 
@@ -385,7 +385,7 @@ body.show-menu .menu-btn {
 body.show-menu header nav div .menu {
 	display: block;
 	padding: .5rem 0;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #231F20;
 	margin: 0 1rem;
 
 }
@@ -759,7 +759,7 @@ header #search button span {
 		height: 100%;
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #231F20;
 
 		/*transform: translateX(-50%);*/
 	}
@@ -786,9 +786,9 @@ header #search button span {
 	header nav li:last-child a {
 		width: 25%;
 		padding: 3px 2vw;
-		border: 1px solid black;
+		border: 1px solid #231F20;
 		background: white;
-		color: black;
+		color: #231F20;
 	}
 	header nav li:last-child a:hover {
 		background: #00FF00;
@@ -818,8 +818,8 @@ header #search button span {
 		font-size: 1.5rem;
 		font-family: "EyebeamSans", sans-serif;
 		background: white;
-		color: black;
-		border: 1px solid black;
+		color: #231F20;
+		border: 1px solid #231F20;
 		display: block;
 		transition: .3s ease-out;
 		z-index:2;
@@ -894,8 +894,8 @@ header #search button span {
 	.show-sub-menu > ul.sub-menu {
 		display: block;
 		padding: 1rem 0;
-		border-top: 1px solid black;
-		border-bottom: 1px solid black;
+		border-top: 1px solid #231F20;
+		border-bottom: 1px solid #231F20;
 		transition: all 0.1s ease-in;
 	}
 
@@ -1054,7 +1054,7 @@ header #search button span {
 	}
 
 	.subnav ul {
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #231F20;
 		background: white;
 		padding: 1vw 0;
 
@@ -1070,7 +1070,7 @@ header #search button span {
 
 	.subnav a {
 		font-family: "EyebeamSans", sans-serif;
-		color: black !important;
+		color: #231F20 !important;
 	}
 
 }
@@ -1079,7 +1079,7 @@ header #search button span {
 /* Footer */
 
 footer {
-	color: black;
+	color: #231F20;
 	text-align: left;
 	font-family: "Work Sans", sans-serif;
 	font-size: .9rem;
@@ -1089,7 +1089,6 @@ footer {
 	margin: 0 auto;
 	padding: 0 1rem;
 	padding-bottom: 40px;
-	border-bottom: 1px solid black;
 }
 
 footer .bottom {
@@ -1099,12 +1098,13 @@ footer .bottom {
 	padding-top: 1rem;
 }
 .footer-logo {
-	width: 83.333vw;
+	width: 100%;
 	height: auto;
 	display: block;
 	transform: rotate(180deg);
-	padding: 2rem 0;
-	margin: 0 8.333vw;
+	padding: 2rem 8.333vw;
+	background: #231F20;
+	margin: 0;
 }
 
 footer nav {
@@ -1122,7 +1122,7 @@ display: flex;
 }
 
 footer a {
-	color: black !important;
+	color: #231F20 !important;
 	text-decoration: none;
 }
 
@@ -1136,26 +1136,26 @@ footer form {
 footer input {
 font-family: "EyebeamSans", sans-serif;
     font-size: 1.5rem;
-    color: black;
+    color: #231F20;
     text-align: left;
     flex-grow: 2;
     padding: 0 0 0 1rem;
 }
 
 footer input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-	color: black;
+	color: #231F20;
 }
 
 footer input::-moz-placeholder { /* Firefox 19+ */
-	color: black;
+	color: #231F20;
 }
 
 footer input:-ms-input-placeholder { /* IE 10+ */
-	color: black;
+	color: #231F20;
 }
 
 footer input:-moz-placeholder { /* Firefox 18- */
-	color: black;
+	color: #231F20;
 }
 
 footer input[type=text],
@@ -1173,7 +1173,7 @@ footer input[type=submit] {
 	height: 50px;
 	background: white;
 	border: 1px solid #000;
-	color: black;
+	color: #231F20;
 	cursor: pointer;
 	text-align: center;
 }
@@ -1211,13 +1211,18 @@ footer .partners img {
 
 footer nav div,
 footer .social {
-	width: calc(25%);
+	width: calc(33%);
     padding: 1rem 0;
 }
 
 footer .address,
 footer .contact {
 	width: calc(50% - 1rem);
+}
+
+.contact a {
+	float: left;
+	clear: left;
 }
 
 footer .social a {
@@ -1227,7 +1232,7 @@ footer .social a {
 footer .tagline {
 	display: inline-block;
 	padding: 4px 6px 0 6px;
-	color: black;
+	color: #231F20;
 	background: #000;
 }
 
@@ -1325,11 +1330,11 @@ footer form p {
 	footer .address,
 	footer .social,
 	footer .contact {
-		width: calc(25% - 1rem);
+		width: calc(33% - 1rem);
 	}
 
 	footer nav div {
-		width: calc(25%);
+		width: calc(33%);
 	}
 
 	footer .address {
@@ -1442,7 +1447,7 @@ footer form p {
 	}
 
 	.hero-text {
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #231F20;
 		margin: 0 auto;
 		text-align: left;
 		padding: 2rem 0;
@@ -1476,7 +1481,7 @@ footer form p {
 .module {
 	display: block;
 	/*margin-left: 10px;*/
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #231F20;
 	padding-top:1rem;
 	padding-bottom:1rem;
 	width: 100%;
@@ -1502,7 +1507,7 @@ footer form p {
 }
 
 .module .module-description {
-	padding: 1rem 0;
+	padding: 0;
 }
 
 .module .module-description p:not(:first-child) {
@@ -1750,7 +1755,7 @@ Events
 
 	.module {
 		float: left;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #231F20;
 		padding-bottom: 1rem;
 		padding-top: 1rem;
 		margin-bottom: 0;
@@ -2154,7 +2159,7 @@ Events
 }
 
 #residents-year select {
-	border: 1px solid black;
+	border: 1px solid #231F20;
 	font-family: "Work Sans";
 	padding: 0 2rem;
 }
@@ -2380,7 +2385,7 @@ figcaption {
 
 hr.wp-block-separator, hr {
 	height: 1px;
-	background: black;
+	background: #231F20;
 	border: 0;
 	padding:0;
 	margin: 1rem 0;
@@ -2817,7 +2822,7 @@ hr.wp-block-separator, hr {
 }
 .ui-datepicker .ui-datepicker-prev span,
 .ui-datepicker .ui-datepicker-next span {
-	border-left: 1px solid black; border-bottom: 1px solid black;
+	border-left: 1px solid #231F20; border-bottom: 1px solid #231F20;
 	width: 8px;
 	height: 8px;
 }
@@ -2874,19 +2879,19 @@ hr.wp-block-separator, hr {
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-	color: black;
+	color: #231F20;
 	border: none;
 	background: none;
 	text-align: center;
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
-	color: black;
+	color: #231F20;
 	background: #00FF00;
 }
 
 table.ui-datepicker-calendar thead {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #231F20;
 }
 
 @media (min-width: 857px) {

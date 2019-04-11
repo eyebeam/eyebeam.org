@@ -22,7 +22,7 @@
 		<header>
 			<div class="mobile-logo">
 				<a href="/" alt="Eyebeam" title="Eyebeam">
-					<img src="<?php eyebeam2018_img_src('img/eyebeam_logo.png'); ?>" alt="Eyebeam" title="Eyebeam" />
+					<img src="<?php eyebeam2018_img_src('img/eyebeam_logo.svg'); ?>" alt="Eyebeam" title="Eyebeam" />
 				</a>
 			</div>
 			<!-- <div class="logo-container" id="left">

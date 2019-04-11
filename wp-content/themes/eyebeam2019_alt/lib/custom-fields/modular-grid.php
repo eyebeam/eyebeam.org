@@ -977,7 +977,7 @@ if(function_exists("register_field_group"))
 						'maxlength' => '',
 					),
 					array (
-						'key' => 'field_5a9ae2f413b5233',
+						'key' => 'field_8gPQ5mRvh69b2',
 						'label' => 'Button URL',
 						'name' => 'button_text',
 						'type' => 'text',
