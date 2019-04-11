@@ -1082,9 +1082,9 @@ footer {
 	color: #231F20;
 	text-align: left;
 	font-family: "Work Sans", sans-serif;
-	font-size: .9rem;
+	font-size: 1rem;
 	font-weight: 400;
-	line-height: 1.2rem;
+	line-height: 1.3rem;
 	width: 100vw;
 	margin: 0 auto;
 	padding: 0 1rem;
@@ -1097,17 +1097,48 @@ footer .bottom {
 	justify-content: space-between;
 	padding-top: 1rem;
 }
+
+.logos {
+	padding: 2rem 8.333vw;
+	background: #231F20;
+
+}
+
+.logos #partners {
+	padding: 1rem 0 0 0;
+	display: inline-flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-left: auto;
+	width: 100%;
+}
+
+.logos #partners img {
+	flex: 1 0 12%;
+	padding: 1rem;
+	opacity: .75;
+
+}
+
+.logos #partners img:last-child {
+	margin-right: 0;
+}
+
 .footer-logo {
 	width: 100%;
 	height: auto;
 	display: block;
 	transform: rotate(180deg);
-	padding: 2rem 8.333vw;
-	background: #231F20;
+	padding: 2rem 0;
 	margin: 0;
 }
 
 footer nav {
+}
+
+footer nav h3 {
+	font-weight: 600;
+	padding-bottom: .5rem;
 }
 
 footer nav li {
@@ -1122,7 +1153,7 @@ display: flex;
 }
 
 footer a {
-	color: #231F20 !important;
+	color: #231F20;
 	text-decoration: none;
 }
 
@@ -1194,7 +1225,7 @@ footer .response-error {
 	margin: 0 auto 15px auto;
 }
 
-footer .partners {
+footer #partners {
 	vertical-align: middle;
 	display: flex;
 	justify-content: space-around;
@@ -1202,14 +1233,14 @@ footer .partners {
 	padding: 1rem 0;
 }
 
-footer .partners img {
+footer #partners img {
 	width: calc(25vw - 2rem);
 	height: auto;
 	flex-grow: 0;
 	align-self: center;
 }
 
-footer nav div,
+footer nav div.container,
 footer .social {
 	width: calc(33%);
     padding: 1rem 0;
@@ -1226,8 +1257,46 @@ footer .contact {
 }
 
 footer .social a {
-	text-decoration: underline;
 }
+
+footer .social a {
+	text-decoration: underline;
+	flex: 1 0;
+	display: inline-block;
+	margin-right: 0;
+	width: 48px;
+	height: 48px;
+	text-decoration: none;
+	color: #231F20;
+	-webkit-font-smoothing: antialiased;
+	font: normal 48px/1 'dashicons';
+}
+
+footer .social a.iconify.twitter {
+	content: url('https://api.iconify.design/dashicons:twitter.svg?height=48&color=%23231F20');
+}
+
+footer .social a.iconify.facebook {
+	content: url('https://api.iconify.design/ant-design:facebook.svg?height=48&color=%23231F20');
+}
+
+footer .social a.iconify.instagram {
+	content: url('https://api.iconify.design/uil:instagram.svg?height=48&color=%23231F20');
+}
+
+footer .social a.iconify.youtube {
+	content: url('https://api.iconify.design/fa-youtube-play.svg?height=36&color=%23231F20');
+	height: 44px;
+}
+
+
+footer .social a:hover {
+	color: #00FF00;
+	opacity: .8;
+	background-color: white;
+}
+
+
 
 footer .tagline {
 	display: inline-block;
@@ -1302,25 +1371,6 @@ footer form p {
 		margin-right: 0 !important;
 	}
 
-	footer .partners {
-		padding: 1rem 0 0 0;
-		display: inline-flex;
-		align-items: flex-start;
-		width: calc(8.333% * 5);
-		margin-left: auto;
-	}
-
-	footer .partners img {
-		margin-top: 0;
-		margin-right: 30px;
-		width: 18.333%;
-
-	}
-
-	footer .partners img:last-child {
-		margin-right: 0;
-	}
-
 	footer .bottom {
 		display: flex;
 		position: relative;
@@ -1333,24 +1383,22 @@ footer form p {
 		width: calc(33% - 1rem);
 	}
 
-	footer nav div {
-		width: calc(33%);
-	}
+
 
 	footer .address {
 		text-align: left;
-		padding-left: 9px;
 	}
 
 	footer .contact {
 	}
 
 	footer .social {
+		display: flex;
+
 		text-align:left;
 	}
 
 	footer .social a {
-		margin-right: 20px;
 	}
 
 	footer .social a:last-child {

@@ -796,62 +796,86 @@ var eyebeam2018 = (function($) {
 
 		setup_bricks: function() {
 
-			const sizes = [
-				{ columns: 2, gutter: 25},
-			];
+			if ($("#partners").length){
 
-			const bricksInstance = Bricks({
-				packed: 'packed',
-				container: '#posts-list',
-				sizes: sizes
-			});
+				const partnerSizes = [
+					{ columns: 8, gutter: 10},
+				];
 
-			bricksInstance.pack();
-
-			$('.lazy-load').click(function(e) {
-
-				e.preventDefault();
-				var $btn = $(e.target);
-
-				if ($btn.hasClass('loading')) {
-					return;
-				}
-
-				$btn.html('Loading&hellip;');
-				$btn.addClass('loading');
-				var page = $btn.data('page');
-
-				page = parseInt(page);
-				page++;
-				$btn.data('page', page);
-				page = '&page=' + page;
-
-				var base = '/wp-admin/admin-ajax.php';
-				var action = 'action=eyebeam2018_lazy_load';
-				var load = $btn.data('load');
-				var load_arg = '&load=' + load;
-				var args = action + load_arg + page;
-				var url = base + '?' + args;
-
-				$.ajax(url, {
-					success: function(rsp) {
-						$btn.html('Load more');
-						var $ul = $('#' + load + '-list');
-						$ul.append(rsp);
-						$btn.removeClass('loading');
-
-						// run autocrop to fix changed widths and heights
-						// if (enable_autocrop){
-						// 	self.setup_autocrop();
-						// }
-						bricksInstance.update();
-					},
-					error: function() {
-						$btn.html('Error loading more.');
-					}
+				const bricksPartners = Bricks({
+					packed: 'packed',
+					container: '#partners',
+					sizes: partnerSizes
 				});
 
-			});
+				// bricksPartners.pack();
+
+			}
+
+
+			if ($("#posts-list").length ){
+				const sizes = [
+					{ columns: 2, gutter: 25},
+				];
+
+
+				console.log($("#partners"));
+
+				const bricksInstance = Bricks({
+					packed: 'packed',
+					container: '#posts-list',
+					sizes: sizes
+				});
+
+
+				bricksInstance.pack();
+
+				$('.lazy-load').click(function(e) {
+
+					e.preventDefault();
+					var $btn = $(e.target);
+
+					if ($btn.hasClass('loading')) {
+						return;
+					}
+
+					$btn.html('Loading&hellip;');
+					$btn.addClass('loading');
+					var page = $btn.data('page');
+
+					page = parseInt(page);
+					page++;
+					$btn.data('page', page);
+					page = '&page=' + page;
+
+					var base = '/wp-admin/admin-ajax.php';
+					var action = 'action=eyebeam2018_lazy_load';
+					var load = $btn.data('load');
+					var load_arg = '&load=' + load;
+					var args = action + load_arg + page;
+					var url = base + '?' + args;
+
+					$.ajax(url, {
+						success: function(rsp) {
+							$btn.html('Load more');
+							var $ul = $('#' + load + '-list');
+							$ul.append(rsp);
+							$btn.removeClass('loading');
+
+							// run autocrop to fix changed widths and heights
+							// if (enable_autocrop){
+							// 	self.setup_autocrop();
+							// }
+							bricksInstance.update();
+						},
+						error: function() {
+							$btn.html('Error loading more.');
+						}
+					});
+
+				});
+
+			}
 
 
 		},

@@ -169,13 +169,17 @@ function eyebeam2018_enqueue() {
 }
 add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
 
-
 // Update CSS within in Admin
 function admin_style() {
   wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin-style.css');
 }
 add_action('admin_enqueue_scripts', 'admin_style');
 
+// Enqueue dash icons
+add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
+function load_dashicons_front_end() {
+	wp_enqueue_style( 'dashicons' );
+}
 
 // Helper for theme images
 function eyebeam2018_img_src($path) {
@@ -1122,4 +1126,15 @@ if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page();
 
+}
+
+function eyebeam2018_get_menu_by_location( $location ) {
+    if( empty($location) ) return false;
+
+    $locations = get_nav_menu_locations();
+    if( ! isset( $locations[$location] ) ) return false;
+
+    $menu_obj = get_term( $locations[$location], 'nav_menu' );
+
+    return $menu_obj;
 }
