@@ -198,13 +198,9 @@ function eyebeam2018_get_image($attachment_id, $size = 'large') {
 }
 
 // Helper for outputting image uploads
-function eyebeam2018_get_image_html($attachment_id, $size = 'large', $class = null, $show_caption = null) {
+function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption = null) {
 
 	$image = eyebeam2018_get_image($attachment_id, $size);
-
-	if (! empty($class)) {
-		$image['class'] = $class;
-	}
 
 	if (! empty($show_caption)) {
 		$show_caption = true;
@@ -218,7 +214,9 @@ function eyebeam2018_get_image_html($attachment_id, $size = 'large', $class = nu
 	}
 
 	$caption = wp_get_attachment_caption($attachment_id);
+	$alt_text = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
 
+	$attrs["alt"] = $alt_text;
 	$attrs = implode(' ', $attrs);
 
 	$html = "<img $attrs>\n";

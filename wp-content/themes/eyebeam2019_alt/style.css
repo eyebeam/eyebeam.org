@@ -1089,7 +1089,7 @@ footer {
 	margin: 0 auto;
 	padding: 0 1rem;
 	padding-bottom: 40px;
-
+	border-bottom: 1px solid black;
 }
 
 footer .bottom {
@@ -1097,6 +1097,14 @@ footer .bottom {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-top: 1rem;
+}
+.footer-logo {
+	width: 83.333vw;
+	height: auto;
+	display: block;
+	transform: rotate(180deg);
+	padding: 2rem 0;
+	margin: 0 8.333vw;
 }
 
 footer nav {
@@ -2255,9 +2263,10 @@ Events
 	padding: 1rem 0 2rem 0;
 }
 
-.image figcaption {
-	display: none;
+figcaption {
+	padding: 8px 0;
 }
+
 
 .post-content {
 }

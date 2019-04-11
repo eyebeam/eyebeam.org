@@ -7,13 +7,10 @@ if(function_exists("register_field_group"))
 		'title' => 'Page',
 		'fields' => array (
 			array (
-				'key' => 'field_568ac2197cee7002',
-				'label' => 'Summary',
-				'name' => 'summary',
-				'type' => 'wysiwyg',
-				'default_value' => '',
-				'toolbar' => 'full',
-				'media_upload' => 'yes',
+				'key' => 'field_5aa1b7e8b1f223123',
+				'label' => 'Image',
+				'name' => '',
+				'type' => 'tab',
 			),
 			array (
 				'key' => 'field_56f68100565422',
@@ -25,18 +22,25 @@ if(function_exists("register_field_group"))
 				'library' => 'all',
 			),
 			array (
-				'key' => 'field_5aa1b7e8b1f222',
-				'label' => 'Show date',
-				'name' => 'show_date',
-				'type' => 'radio',
-				'choices' => array (
-					'show' => 'Show publish date',
-					'hide' => 'Hide date',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => 'hide',
-				'layout' => 'horizontal',
+				'key' => 'field_5aa1b7e8b1f223234',
+				'label' => 'Summary',
+				'name' => '',
+				'type' => 'tab',
+			),
+			array (
+				'key' => 'field_568ac2197cee7002',
+				'label' => 'Summary',
+				'name' => 'summary',
+				'type' => 'wysiwyg',
+				'default_value' => '',
+				'toolbar' => 'full',
+				'media_upload' => 'yes',
+			),
+			array (
+				'key' => 'field_5aa1b7e8b1f22567',
+				'label' => 'Meta',
+				'name' => '',
+				'type' => 'tab',
 			),
 			array (
 				'key' => 'field_5aa1b70edd6c62',
@@ -72,6 +76,40 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' => 'field_5aa1b7e8b1f2236',
+				'label' => 'Settings',
+				'name' => '',
+				'type' => 'tab',
+			),
+			array (
+				'key' => 'field_5aa1b7e8b1f222',
+				'label' => 'Show date',
+				'name' => 'show_date',
+				'type' => 'radio',
+				'choices' => array (
+					'show' => 'Show publish date',
+					'hide' => 'Hide date',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'hide',
+				'layout' => 'horizontal',
+			),
+			array (
+				'key' => 'field_5aa1b7e8b1f66692',
+				'label' => 'Display Tags',
+				'name' => 'show_tags',
+				'type' => 'radio',
+				'choices' => array (
+					'show' => 'Show Tags',
+					'hide' => 'Hide Tags',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'show',
+				'layout' => 'horizontal',
+			),
+			array (
 				'key' => 'field_5aa1b7e8b1f592',
 				'label' => 'Show Related Readings Automatically',
 				'name' => 'show_related',
@@ -84,6 +122,44 @@ if(function_exists("register_field_group"))
 				'save_other_choice' => 0,
 				'default_value' => 'auto',
 				'layout' => 'horizontal',
+			),
+			array (
+				'key' => 'field_586bce21ov672',
+				'label' => 'Related Readings',
+				'name' => 'related_readings',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'event,project,resident,archive',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'post_type',
+					1 => 'post_title',
+				),
+				'max' => '',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5aa1b7e8b1f592',
+							'operator' => '==',
+							'value' => 'manual',
+						),
+					),
+					'allorany' => 'all',
+				),
+			),
+			array (
+				'key' => 'field_5aa1b7e8b1f2236234',
+				'label' => 'Media',
+				'name' => '',
+				'type' => 'tab',
 			),
 			array (
 				'key' => 'field_565aee13pi2',
@@ -168,52 +244,6 @@ if(function_exists("register_field_group"))
 				'layout' => 'row',
 				'button_label' => 'Add Media',
 			),
-			array (
-				'key' => 'field_586bce21ov672',
-				'label' => 'Related Readings',
-				'name' => 'related_readings',
-				'type' => 'relationship',
-				'return_format' => 'object',
-				'post_type' => array (
-					0 => 'event,project,resident,archive',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'filters' => array (
-					0 => 'search',
-				),
-				'result_elements' => array (
-					0 => 'post_type',
-					1 => 'post_title',
-				),
-				'max' => '',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_5aa1b7e8b1f592',
-							'operator' => '==',
-							'value' => 'manual',
-						),
-					),
-					'allorany' => 'all',
-				),
-			),
-			array (
-				'key' => 'field_5aa1b7e8b1f66692',
-				'label' => 'Display Tags',
-				'name' => 'show_tags',
-				'type' => 'radio',
-				'choices' => array (
-					'show' => 'Show Tags',
-					'hide' => 'Hide Tags',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => 'show',
-				'layout' => 'horizontal',
-			),
 		),
 		'location' => array (
 			array (
@@ -224,13 +254,18 @@ if(function_exists("register_field_group"))
 					'order_no' => 0,
 					'group_no' => 0,
 				),
+				array(
+					'param' => 'page_template',
+					'operator' => '!=',
+					'value' => 'page-modular.php'
+				),
 			),
 		),
 		'options' => array (
 			'position' => 'normal',
 			'layout' => 'no_box',
 			'hide_on_screen' => array (
-
+				'comments',
 			),
 		),
 		'menu_order' => 0,

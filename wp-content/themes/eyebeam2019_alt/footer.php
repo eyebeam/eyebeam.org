@@ -92,5 +92,6 @@
 			</div>
 		</footer>
 		<?php wp_footer(); ?>
+		<img class="footer-logo" src="<?php eyebeam2018_img_src('img/eyebeam_logo.png'); ?>" />
 	</body>
 </html>
