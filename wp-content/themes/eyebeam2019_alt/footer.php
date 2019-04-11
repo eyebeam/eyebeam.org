@@ -64,12 +64,6 @@
 				));
 
 				?>
-				<div class="social">
-						<a href="https://twitter.com/eyebeamnyc">Twitter</a>
-						<a href="https://www.facebook.com/eyebeamnyc/">Facebook</a>
-						<a href="https://www.instagram.com/eyebeamnyc/">Instagram</a>
-						<a href="https://www.youtube.com/user/eyebeamdotorg">YouTube</a>
-				</div>
 			</nav>
 			<div class="bottom">
 				<div class="address">
@@ -78,20 +72,29 @@
 					<a href="https://www.google.com/maps/search/?api=1&query=199+Cook+St,+Brooklyn,+NY+11206">View on Map</a>
 				</div>
 				<div class="contact">
-					+1 347.378.9163
+					<a href="tel:13473789163" class="phone">+1 347.378.9163</a>
 					<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a>
 					<a href="https://www.eyebeam.org/">eyebeam.org</a>
 				</div>
-				<div class="partners">
-					<img src="<?php eyebeam2018_img_src('img/jerome.png'); ?>" alt="Jerome Foundation" width="auto">
-					<img src="<?php eyebeam2018_img_src('img/nyculture.png'); ?>" alt="NYCulture" width="auto">
-					<img src="<?php eyebeam2018_img_src('img/artworks.png'); ?>" alt="Art Works" width="auto">
-					<img src="<?php eyebeam2018_img_src('img/nysca.png'); ?>" alt="NYSCA" width="auto">
+				<div class="social">
+						<a href="https://twitter.com/eyebeamnyc">Twitter</a>
+						<a href="https://www.facebook.com/eyebeamnyc/">Facebook</a>
+						<a href="https://www.instagram.com/eyebeamnyc/">Instagram</a>
+						<a href="https://www.youtube.com/user/eyebeamdotorg">YouTube</a>
 				</div>
 				<br class="clear">
 			</div>
+			<div class="partners">
+				<img src="<?php eyebeam2018_img_src('img/jerome.png'); ?>" alt="Jerome Foundation" width="auto">
+				<img src="<?php eyebeam2018_img_src('img/nyculture.png'); ?>" alt="NYCulture" width="auto">
+				<img src="<?php eyebeam2018_img_src('img/artworks.png'); ?>" alt="Art Works" width="auto">
+				<img src="<?php eyebeam2018_img_src('img/nysca.png'); ?>" alt="NYSCA" width="auto">
+			</div>
 		</footer>
 		<?php wp_footer(); ?>
-		<img class="footer-logo" src="<?php eyebeam2018_img_src('img/eyebeam_logo.png'); ?>" />
+		<!-- using an svg incase we want programatically change the color, is that excessive and over- programmed? maybe, yes -->
+		<a href="/">
+			<img class="footer-logo" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201923.55%20256%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23FFFFFF%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3Eeyebeam_logo%3C%2Ftitle%3E%3Cg%20id%3D%22Layer_2%22%20data-name%3D%22Layer%202%22%3E%3Cg%20id%3D%22Layer_1-2%22%20data-name%3D%22Layer%201%22%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%220%20256%200%200%20256%200%20256%2051.2%2051.2%2051.2%2051.2%20102.4%20256%20102.4%20256%20153.6%2051.2%20153.6%2051.2%20204.8%20256%20204.8%20256%20256%200%20256%22%2F%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%22535.61%200%20472.45%200%20407.61%2097.27%20342.76%200%20279.61%200%20379.36%20149.63%20379.36%20256%20435.85%20256%20435.85%20149.63%20535.61%200%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M1595.53%2C256h55.19L1548.32%2C0h-51.2l-102.4%2C256h55.18l20.48-51.2h104.68ZM1490.86%2C153.6%2C1522.72%2C74l31.85%2C79.64Z%22%2F%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%221667.55%200%201667.55%20256%201718.75%20256%201718.75%2051.2%201769.95%2051.2%201769.95%20256%201821.15%20256%201821.15%2051.2%201872.35%2051.2%201872.35%20256%201923.55%20256%201923.55%200%201667.55%200%22%2F%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%221373.84%20256%201373.84%20204.8%201169.04%20204.8%201169.04%20153.6%201373.84%20153.6%201373.84%20102.4%201169.04%20102.4%201169.04%2051.2%201373.84%2051.2%201373.84%200%201117.84%200%201117.84%20256%201373.84%20256%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M839.52%2C256h179.2a76.78%2C76.78%2C0%2C0%2C0%2C50.73-134.43A76.76%2C76.76%2C0%2C0%2C0%2C1009.26.06V0H839.52ZM1007.07%2C51.2a25.6%2C25.6%2C0%2C1%2C1%2C0%2C51.2H890.72V51.2Zm11.65%2C102.4a25.6%2C25.6%2C0%2C0%2C1%2C0%2C51.2h-128V153.6Z%22%2F%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%22811.23%200%20811.23%2051.2%20606.43%2051.2%20606.43%20102.4%20811.23%20102.4%20811.23%20153.6%20606.43%20153.6%20606.43%20204.8%20811.23%20204.8%20811.23%20256%20555.23%20256%20555.23%200%20811.23%200%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" />
+		</a>
 	</body>
 </html>
