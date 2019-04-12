@@ -27,7 +27,7 @@ echo "<div id=\"$id\" class=\"$class\">\n";
 $posts = get_posts($upcoming_args);
 if (! empty($posts)) {
 	echo "<h2 class=\"module-title\">Upcoming Events</h2>\n";
-	echo "<ul>\n";
+	echo "<ul class=\"$collection_columns\">\n";
 
 	foreach ($posts as $event) {
 		$GLOBALS['eyebeam2018']['curr_collection_item'] = $event;
@@ -51,19 +51,11 @@ if (!is_front_page()){
 		'orderby'=> 'meta_value',
 		'meta_key' => 'end_date',
 		'order' => 'ASC',
-		'meta_query' => array(
-			array(
-				'key'=> 'end_date',
-				'value'=> $today,
-				'compare'=> '<='
-			),
-		)
 	);
 
 	$posts = eyebeam2018_get_events($upcoming_args);
 	if (! empty($posts)) {
-		echo "<h2 class=\"module-title\">Past Events</h2>\n";
-		echo "<ul id=\"events-list\">\n";
+		echo "<ul id=\"events-list\" class=\"$collection_columns\">\n";
 
 		foreach ($posts as $event) {
 			$GLOBALS['eyebeam2018']['curr_collection_item'] = $event;
