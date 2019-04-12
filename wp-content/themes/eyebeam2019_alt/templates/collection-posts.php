@@ -41,7 +41,7 @@ echo "<div id=\"$id\" class=\"$class\">\n";
 $posts = eyebeam2018_get_blog_posts(1, $collection_post_limit);
 if (! empty($posts)) {
 	// echo "<h2 class=\"module-title\">Posts</h2>\n";
-	echo "<ul id=\"posts-list\" class=\"$collection_columns\">\n";
+	echo "<ul id=\"posts-list\">\n";
 
 	foreach ($posts as $event) {
 		$GLOBALS['eyebeam2018']['curr_collection_item'] = $event;

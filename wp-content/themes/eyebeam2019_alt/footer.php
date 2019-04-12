@@ -95,7 +95,7 @@
 						<a class="iconify twitter" data-icon="dashicons:twitter" alt="Twitter" href="https://twitter.com/eyebeamnyc"></a>
 						<a class="iconify facebook" data-icon="ant-design:facebook" alt="Facebook" href="https://www.facebook.com/eyebeamnyc/"></a>
 						<a class="iconify instagram" data-inline="false" data-icon="dashicons-instagram" alt="Instagram" href="https://www.instagram.com/eyebeamnyc/"></a>
-						<a class="iconify youtube" data-inline="false" data-icon="dashicons-youtube" alt="YouTube" href="https://www.youtube.com/user/eyebeamdotorg"></a>
+						<a class="iconify youtube" data-inline="false" data-icon="icomoon-free:youtube2" alt="YouTube" href="https://www.youtube.com/user/eyebeamdotorg"></a>
 				</div>
 				<br class="clear">
 			</div>
@@ -115,8 +115,6 @@
 				<img src="<?php eyebeam2018_img_src('img/partners/hyde-watson.png'); ?>" alt="The Hyde and Watson Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/surdna.png'); ?>" alt="Surdna Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/macarthur-foundation.png'); ?>" alt="MacArthur Foundation" width="auto">
-				<img src="<?php eyebeam2018_img_src('img/partners/nea-white.png'); ?>" alt="Art Works | The National Endowment for the Arts" width="auto">
-				<img src="<?php eyebeam2018_img_src('img/partners/nyc-cultural-affairs.png'); ?>" alt="New York State of Opportunity Council on the Arts" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/nysca.png'); ?>" alt="NYSCA" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/open-society.png'); ?>" alt="Open Society Foundations" width="auto">
 			</div>

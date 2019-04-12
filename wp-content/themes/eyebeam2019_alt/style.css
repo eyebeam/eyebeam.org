@@ -514,6 +514,17 @@ header #search button span {
 	color: white;
 }
 
+header nav li:last-child a {
+	width: 25%;
+	padding: 3px 2vw;
+	border: 1px solid #231F20;
+	background: #00ff00;
+	color: #231F20;
+}
+header nav li:last-child {
+	line-height: 3rem;
+}
+
 @media (min-width: 857px) {
 
 	header {
@@ -787,11 +798,12 @@ header #search button span {
 		width: 25%;
 		padding: 3px 2vw;
 		border: 1px solid #231F20;
-		background: white;
+		background: #00ff00;
 		color: #231F20;
 	}
 	header nav li:last-child a:hover {
-		background: #00FF00;
+		background: #231F20;
+		color: white;
 	}
 
 	header nav li.current_page_item {
@@ -977,9 +989,7 @@ header #search button span {
 
 @media (min-width: 1441px){
 	header {
-		display: flex;
-		justify-content: space-between;
-		max-width: calc(1280px + 18.666vw);
+		max-width: calc(1280px);
 		margin: 0 auto;
 	}
 	#menu-header.menu {
@@ -1013,6 +1023,7 @@ header #search button span {
 	.logo-container#right h1 a#eyebeam_2_right {
 		height: 120px;
 	}
+
 
 }
 
@@ -1098,6 +1109,9 @@ footer .bottom {
 	padding-top: 1rem;
 }
 
+footer .bottom div {
+	flex: 1 0 100%;
+}
 .logos {
 	padding: 2rem 8.333vw;
 	background: #231F20;
@@ -1114,7 +1128,7 @@ footer .bottom {
 }
 
 .logos #partners img {
-	flex: 1 0 12%;
+	flex: 0 0 50%;
 	padding: 1rem;
 	opacity: .75;
 
@@ -1150,6 +1164,7 @@ footer nav li a {
 }
 footer nav {
 display: flex;
+flex-wrap: wrap;
 }
 
 footer a {
@@ -1242,13 +1257,14 @@ footer #partners img {
 
 footer nav div.container,
 footer .social {
-	width: calc(33%);
+	flex: 1 0 100%;
     padding: 1rem 0;
 }
 
 footer .address,
 footer .contact {
 	width: calc(50% - 1rem);
+	padding: 1rem 0;
 }
 
 .contact a {
@@ -1261,11 +1277,10 @@ footer .social a {
 
 footer .social a {
 	text-decoration: underline;
-	flex: 1 0;
+	flex: 0 0 14%;
 	display: inline-block;
 	margin-right: 0;
-	width: 48px;
-	height: 48px;
+	height: 36px;
 	text-decoration: none;
 	color: #231F20;
 	-webkit-font-smoothing: antialiased;
@@ -1273,20 +1288,20 @@ footer .social a {
 }
 
 footer .social a.iconify.twitter {
-	content: url('https://api.iconify.design/dashicons:twitter.svg?height=48&color=%23231F20');
+	content: url('https://api.iconify.design/dashicons:twitter.svg?height=36&color=%23231F20');
 }
 
 footer .social a.iconify.facebook {
-	content: url('https://api.iconify.design/ant-design:facebook.svg?height=48&color=%23231F20');
+	content: url('https://api.iconify.design/ant-design:facebook.svg?height=36&color=%23231F20');
 }
 
 footer .social a.iconify.instagram {
-	content: url('https://api.iconify.design/uil:instagram.svg?height=48&color=%23231F20');
+	content: url('https://api.iconify.design/uil:instagram.svg?height=36&color=%23231F20');
 }
 
 footer .social a.iconify.youtube {
-	content: url('https://api.iconify.design/fa-youtube-play.svg?height=36&color=%23231F20');
-	height: 44px;
+	content: url('https://api.iconify.design/icomoon-free:youtube2.svg?height=36&color=%23231F20');
+	height: 36px;
 }
 
 
@@ -1339,6 +1354,10 @@ footer form p {
 	display: flex;
 }
 
+footer .bottom div {
+	flex: 1 0 33%;
+}
+
 	footer nav li {
 	}
 
@@ -1371,19 +1390,27 @@ footer form p {
 		margin-right: 0 !important;
 	}
 
+	.logos #partners img {
+		flex: 0 0 16.666%;
+
+	}
+
 	footer .bottom {
 		display: flex;
 		position: relative;
 		justify-content: space-between;
 	}
 
-	footer .address,
+	/* footer .address,
 	footer .social,
 	footer .contact {
 		width: calc(33% - 1rem);
+	} */
+
+	footer nav div.container,
+	footer .social {
+		flex: 1 0 33%;
 	}
-
-
 
 	footer .address {
 		text-align: left;
@@ -1415,7 +1442,25 @@ footer form p {
 
 }
 
-/* -------------------------------------------------------------------------- */
+
+@media (min-width: 1441px) {
+
+	footer {
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	.logos {
+		padding: 2rem 16.666vw;
+	}
+
+
+}
+
+
+
+
+	/* -------------------------------------------------------------------------- */
 /* Hero */
 
 .hero-image {
@@ -1700,15 +1745,15 @@ Carousel
 ****/
 .carousel-container {
 	margin-top: 1rem;
-	width: 83.333vw;
-	height: calc(83.333vw / 3);
+	width: 100%;
+	height: calc(100% / 3);
 	overflow-x: hidden;
 	position: relative;
 }
 
 .carousel-container .swiper-wrapper .swiper-slide a img {
-	width: calc(83.34vw);
-	height: calc(83.333vw / 3);
+	width: calc(100%);
+	height: calc(100% / 3);
 }
 
 .swiper-button-next,
@@ -1723,9 +1768,28 @@ Carousel
 }
 
 @media (min-width: 857px){
+
+	.carousel-container {
+	width: 83.333vw;
+	height: calc(83.333vw / 3);
+	}
+
 	.carousel-container .swiper-wrapper .swiper-slide a img {
 		width: calc(83.34vw);
 		height: calc(83.333vw / 3);
+	}
+}
+
+@media (min-width: 1441px){
+
+	.carousel-container {
+	max-width: 1280px;
+	height: calc(1280px / 3);
+	}
+
+	.carousel-container .swiper-wrapper .swiper-slide a img {
+		max-width: calc(1280px);
+		height: calc(1280px / 3);
 	}
 }
 
@@ -1798,7 +1862,7 @@ Events
 
 
 	.module-container {
-		padding:  0;
+		padding: 0;
 	}
 
 	.module {
@@ -1961,7 +2025,7 @@ Events
 
 	.module-collection li {
 		float: left;
-		width: calc(33.333% - 1rem);
+		width: calc(50% - 1rem);
 		margin-bottom: 1rem;
 		margin-right: 1rem;
 	}
@@ -2002,16 +2066,16 @@ Events
 
 	.module-collection .four-columns li,
 	.module-collection div .four-columns li {
-		width: calc(25% - 2vw);
+		width: calc(25% - 1rem);
 	}
 
 
 	.module-collection .three-columns li {
-		width: calc(33% - 1vw);
+		width: calc(33% - 1rem);
 	}
 
 	.module-collection .two-columns li {
-		width: calc(50% - 1vw);
+		width: calc(50% - 1rem);
 
 	}
 
@@ -2391,7 +2455,6 @@ figcaption {
 	}
 
 	.post-main.post-main-top figure {
-		margin-top: 2rem;
 		width: 50%;
 		float: right;
 	}
@@ -2775,7 +2838,6 @@ hr.wp-block-separator, hr {
 
 .press-main,
 .press-sidebar {
-	font-weight: bold;
 }
 
 .press-release {
@@ -2945,8 +3007,8 @@ table.ui-datepicker-calendar thead {
 @media (min-width: 857px) {
 
 	.press {
-		font-size: 1.5rem;
-		line-height: 1.1em;
+		font-size: 1.2rem;
+		line-height: 1.5rem;
 	}
 
 	.press h2 {
@@ -2962,6 +3024,8 @@ table.ui-datepicker-calendar thead {
 
 	.press-main ul {
 		width: calc(8.333% * 8);
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.press-sidebar
@@ -2971,7 +3035,7 @@ table.ui-datepicker-calendar thead {
 	}
 
 	.press-release {
-		width: 100%;
+		width: calc(50% - 1rem);
 	}
 
 	.press-recent ul {

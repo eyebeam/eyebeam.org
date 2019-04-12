@@ -326,7 +326,7 @@ var eyebeam2018 = (function($) {
 
 		setup_searchform: function() {
 			$(".search-btn").live('click', function(event){
-
+				console.log('clicked');
 				$("header").toggleClass("show-search");
 
 			});
