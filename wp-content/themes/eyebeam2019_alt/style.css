@@ -225,6 +225,10 @@ form.error .response-error {
 		background: #00FF00;
 	}
 
+	a:hover img {
+		background: white;
+	}
+
 	#eyebeam_1:hover,
 	#eyebeam_2:hover,
 	#eyebeam_3:hover, {
@@ -1341,9 +1345,9 @@ footer form p {
 	}
 
 	footer h2 {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		font-family: "EyebeamSans", sans-serif;
-		line-height: 3.25rem;
+		line-height: 3rem;
 		margin-bottom: 1rem;
 	}
 
