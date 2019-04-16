@@ -130,7 +130,7 @@ em, i {
 }
 
 a {
-	color: #000;
+	color: #231F20;
 	text-decoration: none;
 }
 
@@ -155,7 +155,6 @@ a:hover {
 
 .container {
 	width: 100%;
-	padding: 0 10px;
 }
 
 #page {
@@ -239,7 +238,6 @@ form.error .response-error {
 	}
 
 	.container {
-		padding: 0 20px;
 	}
 
 }
@@ -510,7 +508,7 @@ header #search button span {
 	background: #00ff00;
 }
 .category-label#from-eyebeam {
-	background: #0000FF;
+	background: #231F200FF;
 	color: white;
 }
 
@@ -1093,9 +1091,9 @@ footer {
 	color: #231F20;
 	text-align: left;
 	font-family: "Work Sans", sans-serif;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	font-weight: 400;
-	line-height: 1.3rem;
+	line-height: 1.5rem;
 	width: 100vw;
 	margin: 0 auto;
 	padding: 0 1rem;
@@ -1129,7 +1127,7 @@ footer .bottom div {
 
 .logos #partners img {
 	flex: 0 0 50%;
-	padding: 1rem;
+	padding: 1.5rem;
 	opacity: .75;
 
 }
@@ -1174,7 +1172,7 @@ footer a {
 
 footer form {
 	padding: 0 0 1rem 0;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #231F20;
 		display: flex;
 	flex-wrap: wrap;
 }
@@ -1209,7 +1207,7 @@ footer input[type=email] {
 	display: block;
 	width: 100%;
 	height: 50px;
-	border: 1px solid #000;
+	border: 1px solid #231F20;
 	background: transparent;
 	margin: 0 auto 12px auto;
 }
@@ -1218,7 +1216,7 @@ footer input[type=submit] {
 	width: 146px;
 	height: 50px;
 	background: white;
-	border: 1px solid #000;
+	border: 1px solid #231F20;
 	color: #231F20;
 	cursor: pointer;
 	text-align: center;
@@ -1258,7 +1256,6 @@ footer #partners img {
 footer nav div.container,
 footer .social {
 	flex: 1 0 100%;
-    padding: 1rem 0;
 }
 
 footer .address,
@@ -1317,7 +1314,7 @@ footer .tagline {
 	display: inline-block;
 	padding: 4px 6px 0 6px;
 	color: #231F20;
-	background: #000;
+	background: #231F20;
 }
 
 footer h2 {
@@ -1338,24 +1335,28 @@ footer form p {
 @media (min-width: 857px) {
 
 	footer {
-		padding: 1rem 0;
 		width: 83.333vw;
 		margin: 0 8.333vw;
+		padding:0;
 	}
 
 	footer h2 {
 		font-size: 3rem;
 		font-family: "EyebeamSans", sans-serif;
 		line-height: 3.25rem;
+		margin-bottom: 1rem;
 	}
 
 	footer nav {
 	padding: 1rem 0;
 	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid #231F20;
 }
 
 footer .bottom div {
-	flex: 1 0 33%;
+	flex: 0 0 24%;
 }
 
 	footer nav li {
@@ -1381,7 +1382,7 @@ footer .bottom div {
 	display: block;
 	width: 162px;
 	height: 50px;
-	border: 1px solid #000;
+	border: 1px solid #231F20;
 	background: transparent;
 	margin: 0 auto 12px auto;
 }
@@ -1390,15 +1391,24 @@ footer .bottom div {
 		margin-right: 0 !important;
 	}
 
+	.logos #partners {
+		justify-content: space-between;
+	}
 	.logos #partners img {
-		flex: 0 0 16.666%;
+		flex: 0 0 20%;
 		width: 16.666%;
+	}
+
+	.logos #partners img.offset {
+		position: relative;
+		top: 4rem;
 	}
 
 	footer .bottom {
 		display: flex;
 		position: relative;
 		justify-content: space-between;
+		margin-bottom: 1rem;
 	}
 
 	/* footer .address,
@@ -1409,7 +1419,7 @@ footer .bottom div {
 
 	footer nav div.container,
 	footer .social {
-		flex: 1 0 33%;
+		flex: 0 0 24%;
 	}
 
 	footer .address {
@@ -1421,6 +1431,7 @@ footer .bottom div {
 
 	footer .social {
 		display: flex;
+		justify-content: flex-end;
 
 		text-align:left;
 	}
@@ -1641,13 +1652,13 @@ footer .bottom div {
 	font-size: 28px;
 	line-height: 28px;
 	text-transform: uppercase;
-	color: #000000;
+	color: #231F20000;
 	list-style: disc;
 	margin-left: 1.2em;
 }
 
 .module-toc.red li {
-	color: #000000;
+	color: #231F20000;
 }
 
 .module-toc li a {
@@ -1689,7 +1700,7 @@ h5.post-label, .label {
 }
 
 .module-collection h5.post-label.label-resident  {
-	background: #0000FF;
+	background: #231F200FF;
 	color: white;
 }
 
@@ -1816,7 +1827,7 @@ Events
 	display: inline-block;
 	padding: 0 20px;
 	line-height: 43px;
-	background: #000;
+	background: #231F20;
 	color: #fff !important;
 }
 
@@ -2290,7 +2301,7 @@ Events
 }
 
 .resident-bio {
-	border-top: 2px solid #000;
+	border-top: 2px solid #231F20;
 	margin-top: 10px;
 }
 
@@ -2313,7 +2324,7 @@ Events
 }
 
 .resident-edit a:hover {
-	color: #000 !important;
+	color: #231F20 !important;
 }
 
 @media (min-width: 857px) {
@@ -2662,7 +2673,7 @@ hr.wp-block-separator, hr {
 	font-size: 20px;
 	width: 100%;
 	height: 43px;
-	border: 2px solid #000;
+	border: 2px solid #231F20;
 	padding: 0 9px;
 	background: transparent;
 	margin: 4px 0 15px 0;
@@ -2672,7 +2683,7 @@ hr.wp-block-separator, hr {
 	width: 146px;
 	height: 43px;
 	color: #fff;
-	background: #000;
+	background: #231F20;
 	border: none;
 	cursor: pointer;
 	font-family: "Work Sans", sans-serif;
@@ -2684,7 +2695,7 @@ hr.wp-block-separator, hr {
 	font-family: "Work Sans", sans-serif;
 	font-size: 20px;
 	height: 43px;
-	border: 2px solid #000;
+	border: 2px solid #231F20;
 	padding: 0 9px;
 	background: transparent;
 	margin: 4px 5px 15px 0;
@@ -2728,7 +2739,7 @@ hr.wp-block-separator, hr {
 }
 
 #donate #card-stripe {
-	border: 2px solid #000;
+	border: 2px solid #231F20;
 	max-width: 460px;
 	height: 43px;
 	padding: 9px;
@@ -2753,7 +2764,7 @@ hr.wp-block-separator, hr {
 }
 
 #donate .response-success a {
-	color: #000 !important;
+	color: #231F20 !important;
 }
 
 @media (min-width: 857px) {

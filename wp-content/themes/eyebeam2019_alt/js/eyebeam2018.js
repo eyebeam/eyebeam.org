@@ -720,7 +720,7 @@ var eyebeam2018 = (function($) {
 						var thisContentClone = $(this).clone().find("a").remove();
 						var thisContentHtml = thisContentClone.html();
 						$(this).attr("alt", thisContentHtml);
-						$(this).attr("title", thisContentHtml);
+						// $(this).attr("title", thisContentHtml);
 
 					} else {
 
@@ -730,7 +730,7 @@ var eyebeam2018 = (function($) {
 
 					if (!hasChildren){
 						$(this).attr("alt", thisContent);
-						$(this).attr("title", thisContent);
+						// $(this).attr("title", thisContent);
 					}
 
 
