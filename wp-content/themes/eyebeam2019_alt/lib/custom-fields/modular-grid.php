@@ -442,7 +442,7 @@ if(function_exists("register_field_group"))
 							),
 							'allorany' => 'all',
 						),
-						'default_value' => 'three-columns',
+						'default_value' => 'four-columns',
 						'allow_null' => 0,
 						'multiple' => 0,
 					),
@@ -660,51 +660,6 @@ if(function_exists("register_field_group"))
 						),
 					),
 					array (
-						'key' => 'field_5a8dbe674005e',
-						'label' => 'Module URL',
-						'name' => 'module_url',
-						'type' => 'text',
-						'instructions' => 'overrides page URL',
-						'conditional_logic' => array (
-							'status' => 1,
-							'rules' => array (
-								array (
-									'field' => 'field_5a8dbca1c2b78',
-									'operator' => '==',
-									'value' => 'module',
-								),
-								array (
-									'field' => 'field_5a99c21321c37',
-									'operator' => '!=',
-									'value' => 'collection',
-								),
-								array (
-									'field' => 'field_5a99c21321c37',
-									'operator' => '!=',
-									'value' => 'toc',
-								),
-								array (
-									'field' => 'field_5a99c21321c37',
-									'operator' => '!=',
-									'value' => 'donate',
-								),
-								array (
-									'field' => 'field_5a99c21321c37',
-									'operator' => '!=',
-									'value' => 'related',
-								),
-							),
-							'allorany' => 'all',
-						),
-						'column_width' => '',
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'formatting' => 'none',
-						'maxlength' => '',
-					),
-					array (
 						'key' => 'field_5a8dbe814005f',
 						'label' => 'Module description',
 						'name' => 'module_description',
@@ -906,7 +861,7 @@ if(function_exists("register_field_group"))
 					),
 					array (
 						'key' => 'field_GlvH2eWajl0AL',
-						'label' => 'Button',
+						'label' => 'Link',
 						'name' => '',
 						'type' => 'tab',
 						'conditional_logic' => array (
@@ -937,11 +892,11 @@ if(function_exists("register_field_group"))
 						),
 					),
 					array (
-						'key' => 'field_5a9ae2f413b5233',
-						'label' => 'Button Text',
-						'name' => 'button_text',
+						'key' => 'field_5a8dbe674005e',
+						'label' => 'Module URL',
+						'name' => 'module_url',
 						'type' => 'text',
-						'instructions' => 'Text to display as a button in module',
+						'instructions' => 'overrides page URL',
 						'conditional_logic' => array (
 							'status' => 1,
 							'rules' => array (
@@ -965,6 +920,11 @@ if(function_exists("register_field_group"))
 									'operator' => '!=',
 									'value' => 'donate',
 								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '!=',
+									'value' => 'related',
+								),
 							),
 							'allorany' => 'all',
 						),
@@ -973,15 +933,41 @@ if(function_exists("register_field_group"))
 						'placeholder' => '',
 						'prepend' => '',
 						'append' => '',
-						'formatting' => 'html',
+						'formatting' => 'none',
 						'maxlength' => '',
 					),
 					array (
-						'key' => 'field_8gPQ5mRvh69b2',
-						'label' => 'Button URL',
+						'key' => 'field_5a9ae0f58c9d90',
+						'label' => 'Show Button',
+						'name' => 'show_button',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'choices' => array (
+							'show' => 'Show Button',
+							'hide' => 'Hide Button',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'hide',
+						'layout' => 'vertical',
+					),
+					array (
+						'key' => 'field_5a9ae2f413b5233',
+						'label' => 'Button Text',
 						'name' => 'button_text',
 						'type' => 'text',
-						'instructions' => 'Target destination for the button',
+						'instructions' => 'Text to display as a button in module',
 						'conditional_logic' => array (
 							'status' => 1,
 							'rules' => array (

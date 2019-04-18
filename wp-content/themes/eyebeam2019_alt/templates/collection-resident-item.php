@@ -10,6 +10,7 @@ $start_year = get_field('start_year', $resident->ID);
 $end_year = get_field('end_year', $resident->ID);
 $image_id = get_field('image', $resident->ID);
 $links = get_field('links', $resident->ID);
+$link_target = get_field('link_target', $resident->ID);
 $permalink = get_permalink($resident->ID);
 $collaboration_member = get_field('collaboration_member', $resident->ID);
 
@@ -23,7 +24,7 @@ if (! empty($image_id)) {
 	$image = eyebeam2018_get_image_html($image_id, $size, 'resident-image');
 }
 
-if (! empty($permalink)){
+if (! empty($permalink) && ( $link_target == 'internal' ) ){
 	$name = "<a href=\"$permalink\">$name</a>";
 		if (! empty($image)) {
 		$image = "<a class=\"image\" href=\"$permalink\">$image</a>";
@@ -38,7 +39,7 @@ else {
 	if (! empty($image)) {
 		$image = "<a href=\"$url\">$image</a>";
 	}
-}	
+}
 }
 
 $label = ($is_related_reading) ? eyebeam2018_label_map($resident->post_type) : false;

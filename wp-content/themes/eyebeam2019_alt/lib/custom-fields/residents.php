@@ -117,6 +117,20 @@ if(function_exists("register_field_group"))
 				'media_upload' => 'no',
 			),
 			array (
+				'key' => 'field_5aa4383c6d939',
+				'label' => 'Link to Artist Website',
+				'name' => 'link_target',
+				'type' => 'radio',
+				'choices' => array (
+					'internal' => 'Resident Page (on Eyebeam)',
+					'external' => 'External Artist Website',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'external',
+				'layout' => 'vertical',
+			),
+			array (
 				'key' => 'field_5aa43f17ed630',
 				'label' => 'Links',
 				'name' => 'links',
@@ -188,7 +202,7 @@ if(function_exists("register_field_group"))
 					0 => 'post_title',
 				),
 				'max' => '',
-			),		
+			),
 			array (
 				'key' => 'field_5aa1b7e8b1f89',
 				'label' => 'Show Related Readings Automatically',
@@ -202,7 +216,7 @@ if(function_exists("register_field_group"))
 				'save_other_choice' => 0,
 				'default_value' => 'manual',
 				'layout' => 'horizontal',
-			),	
+			),
 			array (
 				'key' => 'field_586bce21ov23',
 				'label' => 'Related Readings',
@@ -317,7 +331,7 @@ if(function_exists("register_field_group"))
 				'row_limit' => '',
 				'layout' => 'row',
 				'button_label' => 'Add Media',
-			),	
+			),
 			array (
 				'key' => 'field_5aa1b7e8b1f99',
 				'label' => 'Display Tags',
@@ -331,7 +345,7 @@ if(function_exists("register_field_group"))
 				'save_other_choice' => 0,
 				'default_value' => 'show',
 				'layout' => 'horizontal',
-			),		
+			),
 		),
 		'location' => array (
 			array (

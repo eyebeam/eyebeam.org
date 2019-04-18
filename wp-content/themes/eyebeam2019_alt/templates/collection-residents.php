@@ -2,7 +2,7 @@
 
 extract($GLOBALS['eyebeam2018']['curr_module']);
 
-$id = "module-$hash";
+$id = "module-alumni";
 $class = 'module module-collection module-full_width';
 
 $years = '';
