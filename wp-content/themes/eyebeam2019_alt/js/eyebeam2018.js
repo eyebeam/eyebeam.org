@@ -194,12 +194,14 @@ var eyebeam2018 = (function($) {
 			$('#residents-year select').val(first_year);
 
 			$('#residents-year select').change(function(e) {
+				console.log('year changed');
 				var year = $('#residents-year select').val();
 				var path = '/wp-admin/admin-ajax.php';
 				var args = '?action=eyebeam2018_residents&year=' + year;
 				$('#module-alumni ul').html('Loading...');
 				$('#module-alumni ul').addClass('loading');
 				$.get(path + args, function(rsp) {
+					console.log(rsp);
 					$('#module-alumni ul').removeClass('loading');
 					$('#module-alumni ul').html(rsp);
 					self.setup_bio_toggle();
@@ -765,6 +767,22 @@ var eyebeam2018 = (function($) {
 
 					}
 				});
+
+				// hilight all the days where there are events this amount_other
+				var path = '/wp-admin/admin-ajax.php';
+				$.get(path, {
+					action: 'eyebeam2018_lazy_load',
+					load: 'event',
+					// day: date
+				}, function(data){
+					console.log(data);
+
+					//$(".module-event").find("ul").html(data).fadeIn(150);
+
+				});
+
+
+
 			});
 		},
 		setup_carousel: function() {

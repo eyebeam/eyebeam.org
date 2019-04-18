@@ -221,12 +221,27 @@ form.error .response-error {
 		word-wrap: break-word;
 	}
 
-	a:hover {
+	a:not(.image):hover {
 		background: #00FF00;
 	}
 
 	a:hover img {
 		background: white;
+	}
+.module-title {
+	color: #262626;
+}
+	.module-title a {
+		text-decoration: none;
+		#262626
+	}
+
+	.module-title:hover a {
+		background: #00FF00;
+	}
+
+	figure:hover + .module-title a, a.image:hover + .module-title a {
+		background: #00FF00;
 	}
 
 	#eyebeam_1:hover,
@@ -772,7 +787,6 @@ header nav li:last-child {
 		height: 100%;
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 1px solid #231F20;
 
 		/*transform: translateX(-50%);*/
 	}
@@ -825,7 +839,7 @@ header nav li:last-child {
 	header #search {
 		display: none;
 		width: 100%;
-		margin-top:1rem;
+		height: 4rem;
 	}
 
 	header #search input[type="text"] {
@@ -1132,7 +1146,6 @@ footer .bottom div {
 .logos #partners img {
 	flex: 0 0 50%;
 	padding: 1.5rem;
-	opacity: .75;
 
 }
 
@@ -1176,6 +1189,7 @@ footer a {
 
 footer form {
 	padding: 0 0 1rem 0;
+	border-top: 1px solid #231F20;
 	border-bottom: 1px solid #231F20;
 		display: flex;
 	flex-wrap: wrap;
@@ -1321,10 +1335,13 @@ footer .tagline {
 	background: #231F20;
 }
 
-footer h2 {
+footer h2, .logos h2 {
 	font-size: 3rem;
 	font-family: "EyebeamSans", sans-serif;
 	line-height: 3.25rem;
+}
+.logos h2 {
+	color: white;
 }
 
 footer form p {
@@ -1356,7 +1373,6 @@ footer form p {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 1rem;
-	border-bottom: 1px solid #231F20;
 }
 
 footer .bottom div {
@@ -1371,6 +1387,7 @@ footer .bottom div {
 	}
 
 	footer form {
+		padding-top: 1rem;
 		padding-bottom: 1rem;
 		margin-bottom: 0;
 	}
@@ -1441,6 +1458,7 @@ footer .bottom div {
 	}
 
 	footer .social a {
+		padding: 0 .5rem;
 	}
 
 	footer .social a:last-child {
@@ -1555,7 +1573,6 @@ footer .bottom div {
 	}
 
 	.hero-text {
-		border-bottom: 1px solid #231F20;
 		margin: 0 auto;
 		text-align: left;
 		padding: 2rem 0;
@@ -1589,7 +1606,6 @@ footer .bottom div {
 .module {
 	display: block;
 	/*margin-left: 10px;*/
-	border-bottom: 1px solid #231F20;
 	padding-top:1rem;
 	padding-bottom:1rem;
 	width: 100%;
@@ -1759,7 +1775,6 @@ h5.post-label, .label {
 Carousel
 ****/
 .carousel-container {
-	margin-top: 1rem;
 	width: 100%;
 	height: calc(100% / 3);
 	overflow-x: hidden;
@@ -1882,7 +1897,7 @@ Events
 
 	.module {
 		float: left;
-		border-bottom: 1px solid #231F20;
+		border-top: 1px solid #231F20;
 		padding-bottom: 1rem;
 		padding-top: 1rem;
 		margin-bottom: 0;

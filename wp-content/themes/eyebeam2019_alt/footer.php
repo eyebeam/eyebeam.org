@@ -1,5 +1,37 @@
 		</div>
 		<footer>
+			<?php
+
+			$form_class = '';
+			if (! empty($_GET['subscribed'])) {
+				$form_class = 'success';
+			} else if (isset($_GET['subscribed'])) {
+				$form_class = 'error';
+			}
+
+			?>
+			<form action="/wp-admin/admin-ajax.php" method="post" id="subscribe" class="<?php echo $form_class; ?>">
+				<h2 class="eyebeam-sans" alt="Subscribe to our Newsletter" title="Subscribe to our Newsletter">
+					Stay Updated
+				</h2>
+				<p>
+					Enter your e-mail to stay up to date on all of our programs
+				</p>
+				<div class="response-loading">
+					Please wait...
+				</div>
+				<div class="response-success">
+					Thanks for subscribing!
+				</div>
+				<div class="response-error">
+					That didn’t work for some reason.
+				</div>
+				<input type="hidden" name="action" value="eyebeam2018_subscribe">
+				<input type="text" name="first_name" placeholder="First Name">
+				<input type="text" name="last_name" placeholder="Last Name">
+				<input type="email" name="email" placeholder="Email">
+				<input type="submit" value="Subscribe">
+			</form>
 			<nav>
 
 				<?php
@@ -48,38 +80,6 @@
 				echo "</div>\n";
 				?>
 			</nav>
-			<?php
-
-			$form_class = '';
-			if (! empty($_GET['subscribed'])) {
-				$form_class = 'success';
-			} else if (isset($_GET['subscribed'])) {
-				$form_class = 'error';
-			}
-
-			?>
-			<form action="/wp-admin/admin-ajax.php" method="post" id="subscribe" class="<?php echo $form_class; ?>">
-				<h2 class="eyebeam-sans" alt="Subscribe to our Newsletter" title="Subscribe to our Newsletter">
-					Stay Updated
-				</h2>
-				<p>
-					Enter your e-mail to stay up to date on all of our programs
-				</p>
-				<div class="response-loading">
-					Please wait...
-				</div>
-				<div class="response-success">
-					Thanks for subscribing!
-				</div>
-				<div class="response-error">
-					That didn’t work for some reason.
-				</div>
-				<input type="hidden" name="action" value="eyebeam2018_subscribe">
-				<input type="text" name="first_name" placeholder="First Name">
-				<input type="text" name="last_name" placeholder="Last Name">
-				<input type="email" name="email" placeholder="Email">
-				<input type="submit" value="Subscribe">
-			</form>
 			<div class="bottom">
 				<div class="address">
 					199 Cook St<br />
@@ -103,6 +103,9 @@
 		<?php wp_footer(); ?>
 		<!-- using an svg incase we want programatically change the color, is that excessive and over- programmed? maybe, yes -->
 		<div class="logos">
+			<h2 class="eyebeam-sans">
+				Featured Sponsors
+			</h2>
 			<div id="partners">
 				<img src="<?php eyebeam2018_img_src('img/partners/ab-bernstein.png'); ?>" alt="AB Bernstein" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/andy-warhol.png'); ?>" alt="Andy Warhol Foundation" class="offset" width="auto">

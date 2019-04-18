@@ -36,17 +36,20 @@ if (! empty($image_id)) {
 
 echo $image;
 
-
 if (! empty($title)) {
 
 	if ($type == 'two_thirds' && ! empty($url)) {
 		$title .= ' &mdash;&gt;';
 	}
 
-	if (! empty($url) && empty($button_text)) {
-		$title_link = "<a href=\"$url\">$title</a>";
-	}
-	echo "<h2 class=\"module-title eyebeam-sans\" alt=\"$title\" title=\"$title\">$title</h2>\n";
+if ( !empty($url) ){
+	$title_text = ($show_button == 'show') ? $title : "<a href=\"$url\">$title</a>";
+}
+else {
+	$title_text = $title;
+}
+
+	echo "<h2 class=\"module-title eyebeam-sans\" alt=\"$title\" title=\"$title\">$title_text</h2>\n";
 
 }
 
@@ -54,7 +57,7 @@ if (! empty($description)) {
 	$text_description .= "<div class=\"module-description\">$description\n";
 }
 
-if ( (! empty($button_text)) && (! empty($url)) ) {
+if ( (! empty($show_button)) && ($show_button == 'show') && (! empty($url)) ) {
 
 	$text_description .= "<a class=\"btn\" href=\"$url\">\n";
 	$text_description .= $button_text;
