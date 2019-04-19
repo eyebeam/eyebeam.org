@@ -14,7 +14,7 @@ $category = get_the_terms($event->ID, 'category');
 $image = '';
 if (! empty($image_id)) {
 	$size = 'medium';
-	$image = eyebeam2018_get_image_html($image_id, $size, 'event-image');
+	$image = eyebeam2018_get_image_html($image_id, $size, 'event-image', false);
 }
 
 $image = "<a class=\"image\" href=\"$url\">$image</a>";
@@ -54,7 +54,7 @@ else {
 	echo "$image\n";
 	echo ($label) ?  "<h5 class=\"post-label $label_slug\">$label</h5>" : '';
 	echo ($category_label) ? "<h5>$category_label</h5>" : "";
-	echo "<h3 class=\"event-title module-title\">$title</h3>\n";
+	echo "<h3 class=\"event-title module-title eyebeam-sans\">$title</h3>\n";
 	echo "</div>\n";
 	echo "</li>\n";
 

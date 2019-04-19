@@ -814,6 +814,24 @@ var eyebeam2018 = (function($) {
 
 		setup_bricks: function() {
 
+			if ($(".four-columns")){
+				var sizes = [
+					{ columns: 4, gutter: 25},
+				];
+
+
+				console.log($("#partners"));
+
+				const fourColumnInstance = Bricks({
+					packed: 'packed',
+					container: '.four-columns',
+					sizes: sizes
+				});
+
+
+				fourColumnInstance.pack();
+			}
+
 			if ($("#partners").length){
 
 				const partnerSizes = [

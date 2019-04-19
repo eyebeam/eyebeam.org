@@ -12,21 +12,14 @@ $upcoming_args = array(
 	'posts_per_page' => $collection_post_limit,
 	'orderby'=> 'meta_value',
 	'meta_key' => 'end_date',
-	'order' => 'ASC',
-	'meta_query' => array(
-		array(
-			'key'=> 'end_date',
-			'value'=> $today,
-			'compare'=> '>='
-		),
-	)
-);
+	'order' => 'DESC',
+	);
 
 echo "<div id=\"$id\" class=\"$class\">\n";
 
 $posts = get_posts($upcoming_args);
 if (! empty($posts)) {
-	echo "<h2 class=\"module-title\">Upcoming Events</h2>\n";
+	echo "<h2 class=\"module-title eyebeam-sans\">Events</h2>\n";
 	echo "<ul class=\"$collection_columns\">\n";
 
 	foreach ($posts as $event) {
@@ -43,30 +36,30 @@ if (! empty($posts)) {
 /*
 THIS MIGHT NOT ACTUALLY WORK
 */
-if (!is_front_page()){
-
-	$upcoming_args = array(
-		'post_type' => 'event',
-		'posts_per_page' => $collection_post_limit,
-		'orderby'=> 'meta_value',
-		'meta_key' => 'end_date',
-		'order' => 'ASC',
-	);
-
-	$posts = eyebeam2018_get_events($upcoming_args);
-	if (! empty($posts)) {
-		echo "<ul id=\"events-list\" class=\"$collection_columns\">\n";
-
-		foreach ($posts as $event) {
-			$GLOBALS['eyebeam2018']['curr_collection_item'] = $event;
-			get_template_part('templates/collection-event-item');
-		}
-
-		echo "</ul>\n";
-		echo "<br class=\"clear\">\n";
-		echo "<div class=\"load-more\"><a href=\"#more\" class=\"lazy-load\" data-load=\"events\" data-page=\"1\">Load more</a></div>\n";
-	}
-
-}
+// if (!is_front_page()){
+//
+// 	$upcoming_args = array(
+// 		'post_type' => 'event',
+// 		'posts_per_page' => $collection_post_limit,
+// 		'orderby'=> 'meta_value',
+// 		'meta_key' => 'end_date',
+// 		'order' => 'ASC',
+// 	);
+//
+// 	$posts = eyebeam2018_get_events($upcoming_args);
+// 	if (! empty($posts)) {
+// 		echo "<ul id=\"events-list\" class=\"$collection_columns\">\n";
+//
+// 		foreach ($posts as $event) {
+// 			$GLOBALS['eyebeam2018']['curr_collection_item'] = $event;
+// 			get_template_part('templates/collection-event-item');
+// 		}
+//
+// 		echo "</ul>\n";
+// 		echo "<br class=\"clear\">\n";
+// 		echo "<div class=\"load-more\"><a href=\"#more\" class=\"lazy-load\" data-load=\"events\" data-page=\"1\">Load more</a></div>\n";
+// 	}
+//
+// }
 
 echo "</div>\n";

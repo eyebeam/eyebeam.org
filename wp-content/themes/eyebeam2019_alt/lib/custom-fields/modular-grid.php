@@ -291,8 +291,9 @@ if(function_exists("register_field_group"))
 						),
 						'column_width' => '',
 						'choices' => array (
-							'full_width' => 'Full width',
 							'section_header' => 'Section Header',
+							'separator' => 'Separator',
+							'full_width' => 'Full width',
 							'two_thirds' => '2/3 width',
 							'one_half' => '1/2 width',
 							'one_third' => '1/3 width',

@@ -1532,7 +1532,16 @@ footer .bottom div {
 	font-weight: 500;
 	letter-spacing: -.05rem;
 }
-
+.image:hover + .eyebeam-sans {
+	font-family: "Work Sans", sans-serif;
+	font-weight: 500;
+	letter-spacing: -.05rem;
+}
+.image:hover + .event-dates {
+	font-family: "Work Sans", sans-serif;
+	font-weight: 500;
+	letter-spacing: -.05rem;
+}
 
 .hero-text {
 	/* font-family: "EyebeamSans", sans-serif; */
@@ -1606,8 +1615,7 @@ footer .bottom div {
 .module {
 	display: block;
 	/*margin-left: 10px;*/
-	padding-top:1rem;
-	padding-bottom:1rem;
+	padding-bottom:2rem;
 	width: 100%;
 }
 
@@ -1617,6 +1625,7 @@ footer .bottom div {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
+	padding-bottom: 1rem;
 }
 .module img {
 	width: 100%;
@@ -1627,7 +1636,7 @@ footer .bottom div {
 	font-size: 2.5rem;
 	line-height: 3rem;
 	padding-bottom: 1rem;
-	padding-top: 0;
+	padding-top: 1rem;
 }
 
 .module .module-description {
@@ -1897,9 +1906,6 @@ Events
 
 	.module {
 		float: left;
-		border-top: 1px solid #231F20;
-		padding-bottom: 1rem;
-		padding-top: 1rem;
 		margin-bottom: 0;
 	}
 
@@ -2526,10 +2532,10 @@ figcaption {
 
 hr.wp-block-separator, hr {
 	height: 1px;
+	width: 100%;
 	background: #231F20;
 	border: 0;
-	padding:0;
-	margin: 1rem 0;
+	margin: 0 0 2rem 0;
 }
 
 
