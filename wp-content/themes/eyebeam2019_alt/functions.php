@@ -288,12 +288,15 @@ function eyebeam2018_render_modules() {
 
 function column_map($class = null){
 	$map = array(
+		"two-columns" => 2,
+		"three-columns" => 3,
 		"four-columns" => 4,
+		"five-columns" => 5,
 	);
 
 	if (!empty($class)){
 		return $map[$class];
-		
+
 	}
 }
 
