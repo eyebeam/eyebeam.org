@@ -820,16 +820,64 @@ var eyebeam2018 = (function($) {
 				];
 
 
-				console.log($("#partners"));
+				console.log($(".four-columns"));
 
 				const fourColumnInstance = Bricks({
-					packed: 'packed',
+					packed: 'data-packed',
 					container: '.four-columns',
 					sizes: sizes
 				});
 
 
 				fourColumnInstance.pack();
+
+
+				$('.lazy-load').click(function(e) {
+					console.log('lazy');
+					e.preventDefault();
+					var $btn = $(e.target);
+
+					if ($btn.hasClass('loading')) {
+						return;
+					}
+
+					$btn.html('Loading&hellip;');
+					$btn.addClass('loading');
+					var page = $btn.data('page');
+					var posts_per_page = $btn.data('limit');
+
+					page = parseInt(page);
+					page++;
+					$btn.data('page', page);
+					page = '&page=' + page;
+					posts_per_page = '&limit=' + posts_per_page;
+
+					var base = '/wp-admin/admin-ajax.php';
+					var action = 'action=eyebeam2018_lazy_load';
+					var load = $btn.data('load');
+					var load_arg = '&load=' + load;
+					var args = action + load_arg + page + posts_per_page;
+					var url = base + '?' + args;
+
+					$.ajax(url, {
+						success: function(rsp) {
+							console.log(rsp);
+							console.log(load);
+							$btn.html('Load more');
+							var $ul = $('#' + load + '-list');
+							$ul.append(rsp);
+							$btn.removeClass('loading');
+
+
+							fourColumnInstance.update();
+						},
+						error: function() {
+							$btn.html('Error loading more.');
+						}
+					});
+
+				});
+
 			}
 
 			if ($("#partners").length){
@@ -839,7 +887,7 @@ var eyebeam2018 = (function($) {
 				];
 
 				const bricksPartners = Bricks({
-					packed: 'packed',
+					packed: 'data-packed',
 					container: '#partners',
 					sizes: partnerSizes
 				});
@@ -858,7 +906,7 @@ var eyebeam2018 = (function($) {
 				console.log($("#partners"));
 
 				const bricksInstance = Bricks({
-					packed: 'packed',
+					packed: 'data-packed',
 					container: '#posts-list',
 					sizes: sizes
 				});
@@ -867,7 +915,7 @@ var eyebeam2018 = (function($) {
 				bricksInstance.pack();
 
 				$('.lazy-load').click(function(e) {
-
+					console.log('lazy');
 					e.preventDefault();
 					var $btn = $(e.target);
 

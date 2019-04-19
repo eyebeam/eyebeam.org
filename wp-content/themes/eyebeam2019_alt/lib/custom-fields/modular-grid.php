@@ -411,7 +411,7 @@ if(function_exists("register_field_group"))
 							'allorany' => 'all',
 						),
 						'column_width' => '',
-						'default_value' => '',
+						'default_value' => '8',
 						'placeholder' => '',
 					),
 					array (
