@@ -548,6 +548,8 @@ header nav li:last-child {
 		font-size: 20px;
 		width: 83.333vw;
 		margin: 0 8.333vw;
+		margin-bottom: 1rem;
+
 	}
 
 	header.headroom {
@@ -789,6 +791,11 @@ header nav li:last-child {
 		justify-content: space-between;
 
 		/*transform: translateX(-50%);*/
+	}
+
+	header {
+		border-bottom: 1px solid #231F20;
+
 	}
 
 	header nav {
