@@ -163,7 +163,8 @@ function eyebeam2018_enqueue() {
 	eyebeam2018_enqueue_js('lib/jquery-ui/jquery-ui.js', array('jquery'));
 	eyebeam2018_enqueue_js('lib/swiper/dist/js/swiper.min.js');
 	eyebeam2018_enqueue_js('lib/knot.js/knot.js');
-	eyebeam2018_enqueue_js('lib/bricks.js/bricks.js');
+	// eyebeam2018_enqueue_js('lib/bricks.js/bricks.js');
+	eyebeam2018_enqueue_js('lib/macy/macy.js');
 	eyebeam2018_enqueue_js('js/eyebeam2018.js', array('jquery'));
 
 }
@@ -210,20 +211,14 @@ function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_capti
 		$show_caption = true;
 	}
 
-	$attrs = array();
-	foreach ($image as $attr => $value) {
-		$esc_attr = htmlentities($attr);
-		$esc_value = htmlentities($value);
-		$attrs[] = "$esc_attr=\"$esc_value\"";
-	}
-
+	$image = $image['src'];
 	$caption = wp_get_attachment_caption($attachment_id);
 	$alt_text = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
+	$title_text = get_post($attachment_id);
+	$title_text = $title_text->title;
 
-	$attrs["alt"] = $alt_text;
-	$attrs = implode(' ', $attrs);
 
-	$html = "<img $attrs>\n";
+	$html = "<img alt=\"$alt_text\" title=\"$title_text\" src=\"$image\">\n";
 
 	if (!empty($caption)){
 		$html .= ($show_caption) ? "<figcaption>\n" : "";
@@ -289,6 +284,17 @@ function eyebeam2018_render_modules() {
 	echo "</ul>\n";
 	echo "<br class=\"clear\">\n";
 	echo "</div>\n";
+}
+
+function column_map($class = null){
+	$map = array(
+		"four-columns" => 4,
+	);
+
+	if (!empty($class)){
+		return $map[$class];
+		
+	}
 }
 
 // map post type to template

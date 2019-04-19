@@ -20,8 +20,10 @@ echo "<div id=\"$id\" class=\"$class\">\n";
 
 $posts = get_posts($upcoming_args);
 if (! empty($posts)) {
+	$columns = column_map($collection_columns);
+
 	echo "<h2 class=\"module-title eyebeam-sans\">Events</h2>\n";
-	echo "<ul id=\"events-list\" class=\"$collection_columns\">\n";
+	echo "<ul id=\"events-list\" class=\"masonry $collection_columns\" data-columns=\"$columns\">\n";
 
 	foreach ($posts as $event) {
 		$GLOBALS['eyebeam2018']['curr_collection_item'] = $event;
