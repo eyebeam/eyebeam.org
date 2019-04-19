@@ -13,15 +13,16 @@ if ($residents_date != 'hide') {
 	}
 
 	$years = '<option>' . implode("</option>\n<option>", $years) . "</option>\n";
-	$years = "<select>$years</select>";
-	$years = "<div id=\"residents-year\">Year: $years</div>";
+	$years = "<select id=\"years-select\">$years</select>";
+	$years = "<div id=\"residents-year\"><label for=\"years-select\">$years Select Year</label></div>";
 }
 
 echo "<div id=\"$id\" class=\"$class\">\n";
 
 echo "<h2 class=\"module-title\">$title</h2>\n";
 echo "$years\n";
-echo "<ul class=\"$collection_columns\">\n";
+$columns = column_map($collection_columns);
+echo "<ul class=\"$collection_columns masonry\" data-columns=\"$columns\">\n";
 if ($title == 'Alumni'){
 	$residents = eyebeam2018_get_residents(2017);
 }

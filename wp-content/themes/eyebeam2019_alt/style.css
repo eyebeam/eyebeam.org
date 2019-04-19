@@ -2320,20 +2320,35 @@ Events
 
 #residents-year {
 	padding: 2rem 0;
-	text-transform: uppercase;
+	font-family: "EyebeamSans", sans-serif;
+	font-size: 1.5rem;
+
+}
+
+#residents-year:hover {
 	font-family: "Work Sans", sans-serif;
-	font-size: 20px;
 }
 
 #residents-year select {
 	border: 1px solid #231F20;
-	font-family: "Work Sans";
-	padding: 0 2rem;
+	padding: 3px 2vw;
+	border: 1px solid #231F20;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	cursor: pointer;
 }
 
+#residents-year select:hover {
+	background: #231F20;
+	color: white;
+}
+
+
+
 #residents-year select {
-	font-family: "Work Sans", sans-serif;
-	font-size: 20px;
+	font-family: "EyebeamSans", sans-serif;
+	font-size: 1.5rem;
 }
 
 .resident-year {
