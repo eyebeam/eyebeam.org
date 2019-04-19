@@ -900,7 +900,8 @@ function eyebeam2018_get_projects($page = 1) {
 }
 
 // Returns an array of event posts
-function eyebeam2018_get_events($page = 1) {
+
+function eyebeam2018_get_events($page = 1, $posts_per_page = 8) {
 	$today = date('Ymd');
 	$args = array(
 		'post_type' => 'event',
@@ -909,13 +910,6 @@ function eyebeam2018_get_events($page = 1) {
 		'meta_key' => 'end_date',
 		'order' => 'DESC',
 		'paged' => $page,
-		'meta_query' => array(
-			array(
-				'key'=> 'end_date',
-				'value'=> $today,
-				'compare'=> '<'
-			),
-		)
 	);
 	return get_posts($args);
 
@@ -982,7 +976,7 @@ function eyebeam2018_lazy_load() {
 	}
 	$page = intval($_GET['page']);
 	if ($_GET['load'] == 'events') {
-		$posts = eyebeam2018_get_events($page);
+		$posts = eyebeam2018_get_events($page, $_GET['limit']);
 		foreach ($posts as $post) {
 			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
 			get_template_part('templates/collection-event-item');
