@@ -376,6 +376,11 @@ header a {
 	text-decoration: none;
 }
 
+header a:hover {
+	font-family: "Work Sans", sans-serif;
+	font-weight: 500;
+	letter-spacing: -.05rem;}
+
 header nav .support {
 	padding: 7px 5px 5px 5px;
 }
@@ -2330,6 +2335,8 @@ Events
 }
 
 #residents-year select {
+	font-family: "EyebeamSans", sans-serif;
+
 	border: 1px solid #231F20;
 	padding: 3px 2vw;
 	border: 1px solid #231F20;

@@ -206,6 +206,9 @@ var eyebeam2018 = (function($) {
 					console.log(rsp);
 					$('#module-alumni ul').removeClass('loading');
 					$('#module-alumni ul').html(rsp);
+					window.macyInstance.runOnImageLoad(function(){
+						window.macyInstance.recalculate(true);
+					});
 					self.setup_bio_toggle();
 				});
 			});
