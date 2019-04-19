@@ -36,11 +36,13 @@ if (! empty($image_id)) {
 		$image = "<a href=\"$url\">$image</a>";
 	}
 
-		$image = "<figure class=\"module-image\">$image</figure>\n";
+	$figure_class = ($layout == 'text_first') ? 'float-right' : 'float-left';
+
+
+		$image = "<figure class=\"module-image $figure_class\">$image</figure>\n";
 
 }
 
-echo $image;
 
 if (! empty($title)) {
 
@@ -55,7 +57,7 @@ else {
 	$title_text = $title;
 }
 
-	echo "<h2 class=\"module-title eyebeam-sans\" alt=\"$title\" title=\"$title\">$title_text</h2>\n";
+	$text_description .= "<h2 class=\"module-title eyebeam-sans\" alt=\"$title\" title=\"$title\">$title_text</h2>\n";
 
 }
 
@@ -70,7 +72,12 @@ if ( (! empty($show_button)) && ($show_button == 'show') && (! empty($url)) ) {
 	$text_description .= "</a>\n";
 }
 
-echo $text_description;
+// if (!empty ($layout) && $layout == 'text_first'){
+	// echo $text_description.$image;
+// }
+// else {
+	echo $image.$text_description;
+// }
 
 if ( !empty($button_text) || !empty ($description) || !empty($url) ){
 	echo "</div>";

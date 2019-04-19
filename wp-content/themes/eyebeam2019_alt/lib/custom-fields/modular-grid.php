@@ -775,9 +775,9 @@ if(function_exists("register_field_group"))
 						'library' => 'all',
 					),
 					array (
-						'key' => 'field_5a9a033124c15',
-						'label' => 'Module layout',
-						'name' => 'module_layout',
+						'key' => 'field_5a9ae0f58c9d77',
+						'label' => 'Show Video',
+						'name' => 'show_video',
 						'type' => 'radio',
 						'conditional_logic' => array (
 							'status' => 1,
@@ -787,22 +787,17 @@ if(function_exists("register_field_group"))
 									'operator' => '==',
 									'value' => 'module',
 								),
-								array (
-									'field' => 'field_5a99c21321c37',
-									'operator' => '==',
-									'value' => 'one_half',
-								),
 							),
 							'allorany' => 'all',
 						),
 						'column_width' => '',
 						'choices' => array (
-							'image_first' => 'Image first',
-							'text_first' => 'Text first',
+							'show' => 'Show Video',
+							'hide' => 'Hide Video',
 						),
 						'other_choice' => 0,
 						'save_other_choice' => 0,
-						'default_value' => 'image_first',
+						'default_value' => 'hide',
 						'layout' => 'vertical',
 					),
 					array (
@@ -1040,6 +1035,35 @@ if(function_exists("register_field_group"))
 							'allorany' => 'all',
 						),
 					),
+					array (
+						'key' => 'field_5a9a033124c15',
+						'label' => 'Module layout',
+						'name' => 'module_layout',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '==',
+									'value' => 'full_width',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'choices' => array (
+							'image_first' => 'Image first',
+							'text_first' => 'Text first',
+						),
+						'default_value' => 'image_first',
+						'layout' => 'vertical',
+					),
 					// array (
 					// 	'key' => 'field_5a9ae0f58c9d7889',
 					// 	'label' => 'Text Layout',
@@ -1078,6 +1102,11 @@ if(function_exists("register_field_group"))
 									'field' => 'field_5a99c21321c37',
 									'operator' => '==',
 									'value' => 'full_width',
+								),
+								array (
+									'field' => 'field_5a9ae0f58c9d77',
+									'operator' => '==',
+									'value' => 'show_video',
 								),
 							),
 							'allorany' => 'all',

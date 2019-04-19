@@ -2031,6 +2031,13 @@ Events
 		margin-right: 2rem;
 	}
 
+	.module-full_width .module-image.float-left {
+		float: left;
+	}
+	.module-full_width .module-image.float-right {
+		float: right;
+	}
+
 	.module-full_width .module-image::after {
 		content: "";
 		display: table-cell;
@@ -2542,7 +2549,7 @@ hr.wp-block-separator, hr {
 	width: 100%;
 	background: #231F20;
 	border: 0;
-	margin: 0 0 2rem 0;
+	margin: 0 0 1rem 0;
 }
 
 
