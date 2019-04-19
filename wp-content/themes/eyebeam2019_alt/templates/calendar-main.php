@@ -15,7 +15,7 @@
 
 	$upcoming_args = array(
 		'post_type' => 'event',
-		'posts_per_page' => 3,
+		'posts_per_page' => 1,
 		'orderby'=> 'meta_value',
 		'meta_key' => 'end_date',
 		'order' => 'ASC',

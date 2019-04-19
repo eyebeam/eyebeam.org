@@ -3,6 +3,12 @@ extract($GLOBALS['eyebeam2018']['curr_module']);
 if (! empty($toc_title)) {
 	$hash = sanitize_title($toc_title);
 }
+if ($type == 'separator'){
+	echo "<hr />";
+}
+else {
+
+
 
 echo "<li id=\"module-$hash\" class=\"module module-$type\">\n";
 echo "<div class=\"item-container\">\n";
@@ -22,7 +28,7 @@ if (! empty($video_url) &&
 $image = '';
 if (! empty($image_id)) {
 
-	$size = 'original';
+	$size = 'large';
 	$image = eyebeam2018_get_image_html($image_id, $size, true);
 
 
@@ -43,7 +49,7 @@ if (! empty($title)) {
 	}
 
 if ( !empty($url) ){
-	$title_text = ($show_button == 'show') ? $title : "<a href=\"$url\">$title</a>";
+	$title_text = ($show_button == 'show') ? $title : "<a alt=\"$title\" title=\"$title\" href=\"$url\">$title</a>";
 }
 else {
 	$title_text = $title;
@@ -82,5 +88,8 @@ if ( !empty($button_text) || !empty ($description) || !empty($url) ){
 
 
 
+
 echo "</div>\n";
+
+}
 echo "</li>\n";
