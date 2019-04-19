@@ -28,7 +28,9 @@ var eyebeam2018 = (function($) {
 			self.setup_blog_labels();
 			self.setup_calendar();
 			self.setup_carousel();
-			self.setup_bricks();
+			self.setup_lazy_load();
+			self.setup_masonry();
+			// self.setup_bricks();
 
 		},
 		setup_nav: function() {
@@ -809,158 +811,65 @@ var eyebeam2018 = (function($) {
 
 		setup_lazy_load: function() {
 
+			$('.lazy-load').click(function(e) {
+				console.log('lazy');
+				e.preventDefault();
+				var $btn = $(e.target);
+
+				if ($btn.hasClass('loading')) {
+					return;
+				}
+
+				$btn.html('Loading&hellip;');
+				$btn.addClass('loading');
+				var page = $btn.data('page');
+				var posts_per_page = $btn.data('limit');
+
+				page = parseInt(page);
+				page++;
+				$btn.data('page', page);
+				page = '&page=' + page;
+				posts_per_page = '&limit=' + posts_per_page;
+
+				var base = '/wp-admin/admin-ajax.php';
+				var action = 'action=eyebeam2018_lazy_load';
+				var load = $btn.data('load');
+				var load_arg = '&load=' + load;
+				var args = action + load_arg + page + posts_per_page;
+				var url = base + '?' + args;
+
+				$.ajax(url, {
+					success: function(rsp) {
+						$btn.html('Load more');
+						var $ul = $('#' + load + '-list');
+						$ul.append(rsp);
+						$btn.removeClass('loading');
+
+						window.macyInstance.runOnImageLoad(function(){
+							window.macyInstance.recalculate(true);
+						});
+						// fourColumnInstance.update();
+					},
+					error: function() {
+						$btn.html('Error loading more.');
+					}
+				});
+
+			});
 		},
 
+		setup_masonry: function() {
+				console.log('test');
 
-		setup_bricks: function() {
+				var columns = $(".masonry").data('columns');
 
-			if ($(".four-columns")){
-				var sizes = [
-					{ columns: 4, gutter: 25},
-				];
-
-
-				console.log($(".four-columns"));
-
-				const fourColumnInstance = Bricks({
-					packed: 'data-packed',
-					container: '.four-columns',
-					sizes: sizes
+				window.macyInstance = Macy({
+					container: '.masonry',
+					trueOrder: true,
+					waitForImages: true,
+					margin: 36,
+					columns: columns,
 				});
-
-
-				fourColumnInstance.pack();
-
-
-				$('.lazy-load').click(function(e) {
-					console.log('lazy');
-					e.preventDefault();
-					var $btn = $(e.target);
-
-					if ($btn.hasClass('loading')) {
-						return;
-					}
-
-					$btn.html('Loading&hellip;');
-					$btn.addClass('loading');
-					var page = $btn.data('page');
-					var posts_per_page = $btn.data('limit');
-
-					page = parseInt(page);
-					page++;
-					$btn.data('page', page);
-					page = '&page=' + page;
-					posts_per_page = '&limit=' + posts_per_page;
-
-					var base = '/wp-admin/admin-ajax.php';
-					var action = 'action=eyebeam2018_lazy_load';
-					var load = $btn.data('load');
-					var load_arg = '&load=' + load;
-					var args = action + load_arg + page + posts_per_page;
-					var url = base + '?' + args;
-
-					$.ajax(url, {
-						success: function(rsp) {
-							console.log(rsp);
-							console.log(load);
-							$btn.html('Load more');
-							var $ul = $('#' + load + '-list');
-							$ul.append(rsp);
-							$btn.removeClass('loading');
-
-
-							fourColumnInstance.update();
-						},
-						error: function() {
-							$btn.html('Error loading more.');
-						}
-					});
-
-				});
-
-			}
-
-			if ($("#partners").length){
-
-				const partnerSizes = [
-					{ columns: 8, gutter: 10},
-				];
-
-				const bricksPartners = Bricks({
-					packed: 'data-packed',
-					container: '#partners',
-					sizes: partnerSizes
-				});
-
-				// bricksPartners.pack();
-
-			}
-
-
-			if ($("#posts-list").length ){
-				const sizes = [
-					{ columns: 2, gutter: 25},
-				];
-
-
-				console.log($("#partners"));
-
-				const bricksInstance = Bricks({
-					packed: 'data-packed',
-					container: '#posts-list',
-					sizes: sizes
-				});
-
-
-				bricksInstance.pack();
-
-				$('.lazy-load').click(function(e) {
-					console.log('lazy');
-					e.preventDefault();
-					var $btn = $(e.target);
-
-					if ($btn.hasClass('loading')) {
-						return;
-					}
-
-					$btn.html('Loading&hellip;');
-					$btn.addClass('loading');
-					var page = $btn.data('page');
-
-					page = parseInt(page);
-					page++;
-					$btn.data('page', page);
-					page = '&page=' + page;
-
-					var base = '/wp-admin/admin-ajax.php';
-					var action = 'action=eyebeam2018_lazy_load';
-					var load = $btn.data('load');
-					var load_arg = '&load=' + load;
-					var args = action + load_arg + page;
-					var url = base + '?' + args;
-
-					$.ajax(url, {
-						success: function(rsp) {
-							$btn.html('Load more');
-							var $ul = $('#' + load + '-list');
-							$ul.append(rsp);
-							$btn.removeClass('loading');
-
-							// run autocrop to fix changed widths and heights
-							// if (enable_autocrop){
-							// 	self.setup_autocrop();
-							// }
-							bricksInstance.update();
-						},
-						error: function() {
-							$btn.html('Error loading more.');
-						}
-					});
-
-				});
-
-			}
-
 
 		},
 	};
