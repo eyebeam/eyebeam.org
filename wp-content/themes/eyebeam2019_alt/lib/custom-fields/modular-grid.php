@@ -587,6 +587,61 @@ if(function_exists("register_field_group"))
 						'maxlength' => '',
 					),
 					array (
+						'key' => 'field_5a8dbdb674ec333',
+						'label' => 'Module subtitle',
+						'name' => 'module_subtitle',
+						'type' => 'text',
+						'instructions' => 'overrides page summary',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '!=',
+									'value' => 'toc',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'ideas',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'support',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '!=',
+									'value' => 'events',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '!=',
+									'value' => 'donate',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '!=',
+									'value' => 'related',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
 						'key' => 'field_5a8dbc52c2b77',
 						'label' => 'Module page',
 						'name' => 'module_page',
