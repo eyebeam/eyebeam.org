@@ -1630,7 +1630,6 @@ footer .bottom div {
 	width: 100%;
 }
 
-
 .module-container > ul {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -1646,19 +1645,18 @@ footer .bottom div {
 .module .module-title {
 	font-size: 2.5rem;
 	line-height: 3rem;
-	padding-bottom: 0;
+	padding-bottom: 1rem;
 	padding-top: 1rem;
 }
 .module .module-subtitle {
 	font-size: 2rem;
-	line-height: 2.5rem;
-	padding-bottom: 1rem;
+	line-height: 2.3rem;
 	padding-top: 0;
 }
 
 
 .module .module-description {
-	padding: 0;
+	padding: .5rem 0 0 0 ;
 }
 
 .module .module-description p:not(:first-child) {
