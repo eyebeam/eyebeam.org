@@ -376,10 +376,10 @@ header a {
 	text-decoration: none;
 }
 
-header a:hover {
+/* header a:hover {
 	font-family: "Work Sans", sans-serif;
 	font-weight: 500;
-	letter-spacing: -.05rem;}
+	letter-spacing: -.05rem;} */
 
 header nav .support {
 	padding: 7px 5px 5px 5px;
@@ -1157,7 +1157,7 @@ footer .bottom div {
 
 .logos #partners img {
 	flex: 0 0 50%;
-	padding: 1.5rem;
+	padding: 1rem;
 
 }
 
@@ -1200,9 +1200,8 @@ footer a {
 }
 
 footer form {
-	padding: 0 0 1rem 0;
-	border-top: 1px solid #231F20;
-	border-bottom: 1px solid #231F20;
+	padding: 0 0 0 0;
+	border-top: 3px solid #231F20;
 		display: flex;
 	flex-wrap: wrap;
 }
@@ -1327,7 +1326,7 @@ footer .social a.iconify.instagram {
 }
 
 footer .social a.iconify.youtube {
-	content: url('https://api.iconify.design/icomoon-free:youtube2.svg?height=36&color=%23231F20');
+	content: url('https://api.iconify.design/icomoon-free:youtube.svg?height=36&color=%23231F20');
 	height: 36px;
 }
 
@@ -1355,6 +1354,7 @@ footer h2, .logos h2 {
 .logos h2 {
 	color: white;
 }
+
 
 footer form p {
 	font-size: 1.2rem;
@@ -1400,7 +1400,6 @@ footer .bottom div {
 
 	footer form {
 		padding-top: 1rem;
-		padding-bottom: 1rem;
 		margin-bottom: 0;
 	}
 
@@ -1428,14 +1427,15 @@ footer .bottom div {
 		justify-content: space-between;
 	}
 	.logos #partners img {
-		flex: 0 0 20%;
+		flex: 0 0 17%;
 		width: 16.666%;
 	}
 
-	.logos #partners img.offset {
-		position: relative;
-		top: 4rem;
+	.logos #partners img.wider {
+		flex: 0 0 30%;
+		padding: 1rem 5rem
 	}
+
 
 	footer .bottom {
 		display: flex;
@@ -1464,7 +1464,6 @@ footer .bottom div {
 
 	footer .social {
 		display: flex;
-		justify-content: flex-end;
 
 		text-align:left;
 	}
@@ -1539,12 +1538,12 @@ footer .bottom div {
 .eyebeam-sans {
 	font-family: "EyebeamSans", sans-serif;
 }
-.eyebeam-sans:hover {
+/* .eyebeam-sans:hover {
 	font-family: "Work Sans", sans-serif;
 	font-weight: 500;
 	letter-spacing: -.05rem;
-}
-.image:hover + .eyebeam-sans {
+} */
+/* .image:hover + .eyebeam-sans {
 	font-family: "Work Sans", sans-serif;
 	font-weight: 500;
 	letter-spacing: -.05rem;
@@ -1553,7 +1552,7 @@ footer .bottom div {
 	font-family: "Work Sans", sans-serif;
 	font-weight: 500;
 	letter-spacing: -.05rem;
-}
+} */
 
 .hero-text {
 	/* font-family: "EyebeamSans", sans-serif; */
@@ -1647,9 +1646,16 @@ footer .bottom div {
 .module .module-title {
 	font-size: 2.5rem;
 	line-height: 3rem;
-	padding-bottom: 1rem;
+	padding-bottom: 0;
 	padding-top: 1rem;
 }
+.module .module-subtitle {
+	font-size: 2rem;
+	line-height: 2.5rem;
+	padding-bottom: 1rem;
+	padding-top: 0;
+}
+
 
 .module .module-description {
 	padding: 0;
@@ -1970,7 +1976,7 @@ Events
 		font-size: 2.5rem;
 		line-height: 3rem;
 		font-weight: 500;
-		padding: 1rem 0;
+		padding: 1rem 0 0 0;
 	}
 
 	.module-one_half .module-title,
@@ -3108,6 +3114,7 @@ table.ui-datepicker-calendar thead {
 		width: calc(8.333% * 8);
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 	}
 
 	.press-sidebar
