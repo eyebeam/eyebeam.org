@@ -79,6 +79,7 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 	include_once("$dir/lib/custom-fields/media-release.php");
 	include_once("$dir/lib/custom-fields/modular-grid.php");
 	include_once("$dir/lib/custom-fields/post.php");
+	include_once("$dir/lib/custom-fields/page.php");
 	include_once("$dir/lib/custom-fields/recent-press.php");
 	include_once("$dir/lib/custom-fields/residency.php");
 	include_once("$dir/lib/custom-fields/residents.php");
@@ -96,7 +97,9 @@ function eyebeam2018_setup() {
 	// Main navigation
 	register_nav_menus(array(
 		'top' => 'Top nav',
-		'bottom' => 'Bottom nav'
+		'bottom' => 'Bottom nav',
+		'bottom_middle' => 'Bottom nav middle',
+		'bottom_right' => 'Bottom nav right'
 	));
 
 	// Don't show the version of WordPress (security, yo)
@@ -128,7 +131,7 @@ function eyebeam2018_setup() {
 	register_taxonomy_for_object_type('category', 'archive');
 	register_taxonomy_for_object_type('category', 'resident');
 	register_taxonomy_for_object_type('category', 'project');
-	register_taxonomy_for_object_type('category', 'event');	
+	register_taxonomy_for_object_type('category', 'event');
 
 }
 add_action('init', 'eyebeam2018_setup');
@@ -151,17 +154,21 @@ function eyebeam2018_enqueue_js($path, $deps = array(), $bottom = true) {
 
 // Add our CSS and JavaScript tags
 function eyebeam2018_enqueue() {
-	
+
 	eyebeam2018_enqueue_css('fonts/eyebeamsans.css');
 	eyebeam2018_enqueue_css('lib/jquery-ui/jquery-ui.css');
+	eyebeam2018_enqueue_css('lib/swiper/dist/css/swiper.min.css');
 	eyebeam2018_enqueue_css('style.css');
 
-	eyebeam2018_enqueue_js('lib/jquery-ui/jquery-ui.js');
+	eyebeam2018_enqueue_js('lib/jquery-ui/jquery-ui.js', array('jquery'));
+	eyebeam2018_enqueue_js('lib/swiper/dist/js/swiper.min.js');
+	eyebeam2018_enqueue_js('lib/knot.js/knot.js');
+	// eyebeam2018_enqueue_js('lib/bricks.js/bricks.js');
+	eyebeam2018_enqueue_js('lib/macy/macy.js');
 	eyebeam2018_enqueue_js('js/eyebeam2018.js', array('jquery'));
-	
+
 }
 add_action('wp_enqueue_scripts', 'eyebeam2018_enqueue');
-
 
 // Update CSS within in Admin
 function admin_style() {
@@ -169,6 +176,11 @@ function admin_style() {
 }
 add_action('admin_enqueue_scripts', 'admin_style');
 
+// Enqueue dash icons
+add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
+function load_dashicons_front_end() {
+	wp_enqueue_style( 'dashicons' );
+}
 
 // Helper for theme images
 function eyebeam2018_img_src($path) {
@@ -180,43 +192,39 @@ function eyebeam2018_img_src($path) {
 function eyebeam2018_get_image($attachment_id, $size = 'large') {
 	$src = wp_get_attachment_image_src($attachment_id, $size);
 	$alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
+	$title = get_post_meta($attachment_id, '_wp_attachment_image_title', true);
 	return array(
 		'src' => $src[0],
 		'width' => $src[1],
 		'height' => $src[2],
-		'alt' => $alt
+		'alt' => $alt,
+		'title' => $title,
 	);
 }
 
 // Helper for outputting image uploads
-function eyebeam2018_get_image_html($attachment_id, $size = 'large', $class = null, $show_caption = null) {
+function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption = null) {
 
 	$image = eyebeam2018_get_image($attachment_id, $size);
-
-	if (! empty($class)) {
-		$image['class'] = $class;
-	}
 
 	if (! empty($show_caption)) {
 		$show_caption = true;
 	}
 
-	$attrs = array();
-	foreach ($image as $attr => $value) {
-		$esc_attr = htmlentities($attr);
-		$esc_value = htmlentities($value);
-		$attrs[] = "$esc_attr=\"$esc_value\"";
-	}
-
+	$image = $image['src'];
 	$caption = wp_get_attachment_caption($attachment_id);
+	$alt_text = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
+	$title_text = get_post($attachment_id);
+	$title_text = $title_text->title;
 
-	$attrs = implode(' ', $attrs);
 
-	$html = "<img $attrs>\n";
+	$html = "<img alt=\"$alt_text\" title=\"$title_text\" src=\"$image\">\n";
 
+	if (!empty($caption)){
 		$html .= ($show_caption) ? "<figcaption>\n" : "";
 		$html .= ($show_caption) ? $caption."\n" : "";
 		$html .= ($show_caption) ? "</figcaption>" : "";
+	}
 	return $html;
 }
 
@@ -278,6 +286,20 @@ function eyebeam2018_render_modules() {
 	echo "</div>\n";
 }
 
+function column_map($class = null){
+	$map = array(
+		"two-columns" => 2,
+		"three-columns" => 3,
+		"four-columns" => 4,
+		"five-columns" => 5,
+	);
+
+	if (!empty($class)){
+		return $map[$class];
+
+	}
+}
+
 // map post type to template
 function eyebeam2018_template_map($post_type = null) {
 
@@ -327,7 +349,7 @@ function eyebeam2018_get_related_readings($postid = null) {
 			'resident',
 			'project',
 		);
-	
+
 	// get the tags
 	$tags = wp_get_post_terms( get_queried_object_id(), 'post_tag', ['fields' => 'ids'] );
 
@@ -887,7 +909,8 @@ function eyebeam2018_get_projects($page = 1) {
 }
 
 // Returns an array of event posts
-function eyebeam2018_get_events($page = 1) {
+
+function eyebeam2018_get_events($page = 1, $posts_per_page = 8) {
 	$today = date('Ymd');
 	$args = array(
 		'post_type' => 'event',
@@ -896,13 +919,6 @@ function eyebeam2018_get_events($page = 1) {
 		'meta_key' => 'end_date',
 		'order' => 'DESC',
 		'paged' => $page,
-		'meta_query' => array(
-			array(
-				'key'=> 'end_date',
-				'value'=> $today,
-				'compare'=> '<'
-			),
-		)
 	);
 	return get_posts($args);
 
@@ -911,7 +927,7 @@ function eyebeam2018_get_events($page = 1) {
 // Returns an event post for a given day
 function eyebeam2018_get_event($day = null) {
 	if ($day){
-		$day = date('Ymd', strtotime($day) ); 
+		$day = date('Ymd', strtotime($day) );
 		$args = array(
 			'post_type' => 'event',
 			'posts_per_page' => 3,
@@ -923,7 +939,7 @@ function eyebeam2018_get_event($day = null) {
 					'key'=> 'start_date',
 					'value'=> $day,
 					'compare'=> '='
-				),			
+				),
 			)
 		);
 		return get_posts($args);
@@ -969,7 +985,7 @@ function eyebeam2018_lazy_load() {
 	}
 	$page = intval($_GET['page']);
 	if ($_GET['load'] == 'events') {
-		$posts = eyebeam2018_get_events($page);
+		$posts = eyebeam2018_get_events($page, $_GET['limit']);
 		foreach ($posts as $post) {
 			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
 			get_template_part('templates/collection-event-item');
@@ -1111,3 +1127,19 @@ function day_of_week($day = null) {
 	return $days[$day];
 }
 
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page();
+
+}
+
+function eyebeam2018_get_menu_by_location( $location ) {
+    if( empty($location) ) return false;
+
+    $locations = get_nav_menu_locations();
+    if( ! isset( $locations[$location] ) ) return false;
+
+    $menu_obj = get_term( $locations[$location], 'nav_menu' );
+
+    return $menu_obj;
+}

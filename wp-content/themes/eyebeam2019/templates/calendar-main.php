@@ -3,19 +3,19 @@
 <li id="module-calendar" class="module module-one_half">
 	<div class="item-container">
 
-	<h2 class="module-title one_half">Calendar</h2>
+	<h2 class="module-title one_half eyebeam-sans">Calendar</h2>
 	<div class="datepicker">
 	</div>
 	</div>
 </li>
 <li class="module module-one_half">
 	<div class="module-event">
-	<?php 
+	<?php
 	$today = date('Ymd');
 
 	$upcoming_args = array(
 		'post_type' => 'event',
-		'posts_per_page' => $collection_post_limit,
+		'posts_per_page' => 1,
 		'orderby'=> 'meta_value',
 		'meta_key' => 'end_date',
 		'order' => 'ASC',

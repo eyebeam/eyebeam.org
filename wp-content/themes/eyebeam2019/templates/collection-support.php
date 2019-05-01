@@ -48,23 +48,7 @@ echo "</ul>\n";
 echo "<br class=\"clear\">\n";
 echo "</div>\n";
 
-echo "<div class=\"support-interns\">\n";
-echo "<h2 class=\"module-title\">Interns</h2>\n";
-echo "<ul class=\"$collection_columns\">\n";
 
-$posts = get_posts(array(
-	'post_type' => 'intern',
-	'posts_per_page' => -1,
-	'orderby' => 'menu_order',
-	'order' => 'ASC'
-));
-
-foreach ($posts as $intern) {
-	$GLOBALS['eyebeam2018']['curr_collection_item'] = $intern;
-	get_template_part('templates/collection-support-intern');
-}
-
-echo "</ul>\n";
 echo "<br class=\"clear\">\n";
 echo "</div>\n";
 

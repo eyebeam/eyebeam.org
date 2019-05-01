@@ -5,7 +5,7 @@
 
 		$releases = get_posts(array(
 			'post_type' => 'mediarelease',
-			'posts_per_page' => 2
+			'posts_per_page' => 4
 		));
 
 		foreach ($releases as $release) {
@@ -35,4 +35,3 @@
 		?>
 	</ul>
 </div>
-<hr />
