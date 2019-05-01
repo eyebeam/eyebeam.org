@@ -1,8 +1,8 @@
 /*
-Theme Name: Eyebeam 2019 ALT
+Theme Name: Eyebeam 2019
 Author: Emma Levesque-Schaefer
 Author URI: https://emmalevesque.com/
-Description: Designed by Mother NYC. Built off of the work of Dan Phifffer (https://phiffer.org)
+Description: Designed by Mother NYC (https://mothernyc.org). Skined by Emma Levesque-Schaefer (https://emmalevesque.com). Built off of the work of Dan Phifffer (https://phiffer.org)
 
 Contents (breakpoints are mobile-first):
 * Reset
@@ -1432,7 +1432,7 @@ footer .bottom div {
 	}
 
 	.logos #partners img.wider {
-		flex: 0 0 30%;
+		flex: 0 0 33%;
 		padding: 1rem 5rem
 	}
 
