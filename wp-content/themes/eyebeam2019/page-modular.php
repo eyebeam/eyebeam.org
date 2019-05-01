@@ -19,7 +19,6 @@ while (have_posts()) {
 
 		$type = get_sub_field('type');
 		get_template_part("templates/item", $type);
-
 	}
 
 	get_template_part('templates/page-subnav');

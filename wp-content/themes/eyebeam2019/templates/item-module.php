@@ -2,6 +2,7 @@
 
 $type = get_sub_field('module_type');
 $title = null;
+$subtitle = null;
 $button_text = null;
 $url = null;
 $description = null;
@@ -17,6 +18,7 @@ $text_layout = null;
 $video_layout = null;
 $toc_status = null;
 $toc_title = null;
+$show_button = null;
 
 $page = get_sub_field('module_page');
 if (! empty($page)) {
@@ -34,8 +36,16 @@ if (! empty(get_sub_field('module_title'))) {
 	$title = get_sub_field('module_title');
 }
 
+if (! empty(get_sub_field('module_subtitle'))) {
+	$subtitle = get_sub_field('module_subtitle');
+}
+
 if (! empty(get_sub_field('module_url'))) {
 	$url = get_sub_field('module_url');
+}
+
+if (! empty(get_sub_field('show_button'))) {
+	$show_button = get_sub_field('show_button');
 }
 
 if (! empty(get_sub_field('button_text'))) {
@@ -121,7 +131,9 @@ eyebeam2018_module(array(
 	'type' => $type,
 	'hash' => $hash,
 	'title' => $title,
+	'subtitle' => $subtitle,
 	'button_text' => $button_text,
+	'show_button' => $show_button,
 	'url' => $url,
 	'description' => $description,
 	'image_id' => $image_id,

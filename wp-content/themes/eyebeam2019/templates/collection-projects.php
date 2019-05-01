@@ -10,7 +10,7 @@ echo "<div id=\"$id\" class=\"$class\">\n";
 
 echo "<h2 class=\"module-title\">$title</h2>\n";
 echo "$years\n";
-echo "<ul>\n";
+echo "<ul class=\"$collection_columns\">\n";
 
 $projects = eyebeam2018_get_projects();
 foreach ($projects as $project) {

@@ -21,25 +21,25 @@
 	<body <?php body_class(); ?>>
 		<header>
 			<div class="mobile-logo">
-				<a href="/">
-					<img src="<?php eyebeam2018_img_src('img/eyebeam_logo.png'); ?>" alt="Eyebeam" />
+				<a href="/" alt="Eyebeam" title="Eyebeam">
+					<img src="<?php eyebeam2018_img_src('img/eyebeam_logo.svg'); ?>" alt="Eyebeam" title="Eyebeam" />
 				</a>
 			</div>
-			<div class="logo-container" id="left">
+			<!-- <div class="logo-container" id="left">
 				<div class="matte"></div>
 				<h1>
 					<a href="/" id="eyebeam_3_left"><img src="<?php eyebeam2018_img_src('img/eyebeam_3_left.png'); ?>" alt="Eyebeam" /></a>
 					<a href="/" id="eyebeam_2_left"><img src="<?php eyebeam2018_img_src('img/eyebeam_2_left.png'); ?>" alt="Eyebeam" /></a>
 					<a href="/" id="eyebeam_1_left"><img src="<?php eyebeam2018_img_src('img/eyebeam_1_left.png'); ?>" alt="Eyebeam" /></a>
 				</h1>
-			</div>
+			</div> -->
 			<nav>
 				<div class="mobile-label">
 				Menu
 				</div>
 				<div class="menu-btn"></div>
 				<!-- <h1><a href="/"><img src="<?php eyebeam2018_img_src('img/eyebeam.svg'); ?>" alt="EYEBEAM" class="logo"></a></h1> -->
-				
+
 				<?php
 
 				// Edit nav items from the WordPress dashboard:
@@ -58,13 +58,13 @@
 					<span class="search-icon"></span>
 				</button>
 			</form>
-			<div class="logo-container" id="right">
+			<!-- <div class="logo-container" id="right">
 				<div class="matte"></div>
 				<h1>
 					<a href="/" id="eyebeam_1_right"><img src="<?php eyebeam2018_img_src('img/eyebeam_1.png'); ?>" alt="Eyebeam" /></a>
 					<a href="/" id="eyebeam_2_right"><img src="<?php eyebeam2018_img_src('img/eyebeam_2.png'); ?>" alt="Eyebeam" /></a>
 					<a href="/" id="eyebeam_3_right"><img src="<?php eyebeam2018_img_src('img/eyebeam_3.png'); ?>" alt="Eyebeam" /></a>
 				</h1>
-			</div>
+			</div> -->
 		</header>
 		<div id="page">
