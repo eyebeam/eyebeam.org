@@ -1,0 +1,233 @@
+                      __
+                     /\ \
+   __   __  __     __\ \ \____     __     __      ___ ___
+ /'__`\/\ \/\ \  /'__`\ \ '__`\  /'__`\ /'__`\  /' __` __`\
+/\  __/\ \ \_\ \/\  __/\ \ \L\ \/\  __//\ \L\.\_/\ \/\ \/\ \
+\ \____\\/`____ \ \____\\ \_,__/\ \____\ \__/.\_\ \_\ \_\ \_\
+ \/____/ `/___/> \/____/ \/___/  \/____/\/__/\/_/\/_/\/_/\/_/
+            /\___/
+            \/__/
+
+///// VIEW SOURCE BLOG: 01-hello-world /////
+
+Hello world,
+
+Thanks for viewing source, I appreciate that you care how this works. @dphiffer
+here, writing my first "secret" View Source blog post. You can ~only~ read this
+if you *view source*, it does not otherwise exist in the realm of visible
+hypertext. (I mean, sure, I bet you could find this text file on GitHub,
+rendered as a web page, but IMO it's more fun to read this next to the `<meta>`
+tags.)
+
+The idea for this blog is to help you understand how this site is built, what
+it is made out of. I learned how to build websites by using 'the source' command
+on Netscape. Having the source code be visible, but also *legible* is important.
+
+HTML source code doesn't include the range of stuff that constitutes a modern
+web page; back-end code, minified assets, AJAX requests. I'm hoping that these
+blog posts can help you discover and understand those otherwise hidden away
+aspects of how each page on here is built.
+
+I want you to understand how it all works and maybe you'll even decide to pitch
+in and contribute your own fixes! The Eyebeam website is here for you to learn
+from, and perhaps contribute to. If you know how to, you can suggest changes
+on GitHub as pull requests. Maybe I'll explain how that process works at some
+point. You can also submit bug reports for things that don't work for you, that
+is also a super helpful way to contribute.
+
+All of that happens on this GitHub repo:
+https://github.com/eyebeam/eyebeam.org
+
+Here is where the bug reports live:
+https://github.com/eyebeam/eyebeam.org/issues
+
+My belief is that running code is only part of the story. After you write and
+test and deploy the code, things can still go wrong. All Code Has Bugs something
+I have learned over the years, even for the simplest and most insignificant
+computer programs. Seemingly tiny changes can cascade to break things
+unexpectedly.
+
+In the long span of its life, software needs to be maintained to continue being
+useful. This View Source Blog will attempt to make the code that runs
+eyebeam.org more legible and productive for future maintainers. (And also for
+Future Me, for when I forget how everything works.)
+
+Okay that is all, back to post-launch fixes for me.
+
+The next blog post can be found by viewing source over here:
+https://www.eyebeam.org/archive/
+
+(20180308/dphiffer)
+
+///// VIEW SOURCE BLOG: 02-develop-intro /////
+
+Hello friend,
+
+You have made it to the second post! I wrote this one on the Archive page
+in part because it is easy to overlook it (there's no Archive nav item) and also
+just because I love archives. Over time there should be more items archived on
+this page, so check back in here later!
+
+This second blog post is here to encourage you to try running a development
+version of the website yourself. Having a running dev version of the site is an
+essential precursor to making any changes to the live website.
+
+I've automated some of the setup process, but you will need to install some
+stuff and use your computer's terminal. If the terminal is unfamiliar to you,
+don't panic, the steps described here should help you build up your confidence.
+
+Before we begin, there are three things you'll need to install:
+
+1. git. If you're on a Mac, you can just install the Xcode mega-package from the
+   App Store (found under the Apple menu), and that will take care of git.
+   Otherwise, take a look at https://git-scm.com/ for install instructions.
+2. VirtualBox: https://www.virtualbox.org/wiki/Downloads
+3. Vagrant: https://www.vagrantup.com/downloads.html
+
+Aside from the space used by these tools, you will also need some free disk
+space for the virtual machine itself. I measured my disk usage before and after
+setting up my VM (virtual machine) and it looks like you'll need at least 2GB
+of spare disk space.
+
+Ready? Let's do this. Before we start, you should decide on a place you want
+to store all the eyebeam.org files. I put mine in my Sites folder, but the files
+can live wherever you prefer, it doesn't really matter. I'll assume the Sites
+folder in these instructions, but feel free to adjust according to your own
+preferences.
+
+0. Open the terminal (on a Mac it's in Applications/Utilities).
+
+1. Clone the eyebeam.org repo:
+
+    cd ~/Sites
+    git clone https://github.com/eyebeam/eyebeam.org.git
+
+You should end up with a folder ~/Sites/eyebeam.org. We're going to do most of
+our setup work inside the 'develop' subfolder.
+
+2. Bring up the virtual machine:
+
+    cd eyebeam.org/develop
+    vagrant up
+
+You will see a bunch of Linux setup text scroll by. In film and TV, this is the
+kind of thing they show when a character is doing "hacker things." You should
+see a box that summarizes our next steps:
+
+    +--------------------------------------------------------+
+    |                                                        |
+    |   Congrats, you now have a Linux virtual machine       |
+    |   running. You're almost done!                         |
+    |                                                        |
+    |   Next steps:                                          |
+    |       sudo ./setup_host.sh                             |
+    |       vagrant ssh                                      |
+    |       cd eyebeam.org/develop                           |
+    |       sudo ./setup_vagrant.sh                          |
+    |                                                        |
+    +--------------------------------------------------------+
+
+Before you launch into that, let's take stock of what we have going right now.
+You are running a Linux virtual machine on your computer using VirtualBox
+and Vagrant. (The latter automates the former.) The machine is running Ubuntu
+14.04 (which is what the eyebeam.org server runs) and has been updated
+with software updates, but nothing has been installed yet.
+
+One last detail: the eyebeam.org folder is shared between your host machine and
+the VM, meaning any changes you make in one will appear in the other. It's kind
+of like a network share. Inside the VM, its file permissions are set so that
+everything is owned by Apache's user, www-data, in case you have trouble editing
+files within the VM.
+
+3. Setup your /etc/hosts file
+
+    sudo ./setup_host.sh
+
+This will add an entry in your /etc/hosts file to trick your computer into
+thinking the website dev.eyebeam.org lives at the VM's IP address,
+192.168.33.10.
+
+4. Login to the VM
+
+    vagrant ssh
+
+In the hacker movie, this is when the character says "....I'm in" to dramatic
+effect. It's a little weird, you are using your "host" computer terminal to
+log into the "guest" computer via SSH. Technically it's using localhost port
+2222, which could be helpful info if you want to do SSH tunneling with a tool
+like Sequel Pro (we'll get to that in a later post).
+
+The point is that when you type commands now, they are handled by Ubuntu, not
+macOS. Weird right? But also very useful! We can use all the Linux tools that
+are common to the live server, which means we can avoid platform-specific
+differences between your dev environment and the live server.
+
+5. Look around
+
+    ls -l
+    df
+
+Before we continue, take a look around the VM to see where things live. The
+`ls -l` command will show you that we have a convenient symlink to
+/var/www/eyebeam.org in the home directory. As mentioned before, this is a
+shared folder with the host machine, and the `df` command should show it mounted
+into Ubuntu as its own file system. Kind of like a network mounted drive.
+
+6. Run the Vagrant setup script
+
+    cd eyebeam.org/develop
+    sudo ./setup_vagrant.sh
+
+A bunch of things will happen next, and they may take some time to complete.
+You might want to leave your computer running for a while and check back in on
+it later. Here's a run-down of what the script is doing:
+
+1. Install Apache, MySQL, and PHP
+2. Download and unpack https://wordpress.org/latest.zip
+3. Configure wp-config.php
+4. Download and restore a nightly database backup
+5. Download and unpack all the 'wp-content/uploads' files
+
+This last step may prompt you about whether you want to overwrite a specific
+file that already exists. I ~think~ this has to do with case-sensitive vs.
+case-insensitive file systems, and I just chose capital-A for "overwrite all."
+I still need to look into why it has two copies of some files, but I think it's
+that there are two versions with different capitalizations (which is allowed in
+Linux, and not on most Mac file systems).
+
+7. Try it out
+
+When the dust settles, you should see another box that describes what to do
+next:
+
+    +--------------------------------------------------------+
+    |                                                        |
+    |   All done!                                            |
+    |                                                        |
+    |   - Load up http://dev.eyebeam.org/ in a browser       |
+    |   - Dashboard: http://dev.eyebeam.org/wp-admin/        |
+    |   - Username: eyebeam                                  |
+    |     Password: techbyartists                            |
+    |                                                        |
+    +--------------------------------------------------------+
+
+I'm sure many of you are thinking this: "wait, does this mean anyone can login
+with these credentials to the live website?" No, alas we are not *that* open
+with the Eyebeam website. Part of the nightly database backup process prepares
+a dev-specific edit of the SQL, which strips out the live user accounts and
+adds in the developer-specific login.
+
+One caveat before we call it a day: there is a specific configuration in
+wp-config.php that we *should* have enabled: define('WP_DEBUG', true);
+
+But we didn't, on purpose. The reason for this has to do with a plugin we use
+called Advanced Custom Fields, and the full explanation warrants its own
+separate blog post. So for now we will just leave WP_DEBUG turned off and try
+out the dev version of the site, running on our own local VM.
+
+Check back here later for a link to the *next* blog post! And please don't
+hesitate to get in touch if you run into any problems during the setup process.
+You can post issues to GitHub (https://github.com/eyebeam/eyebeam.org/issues)
+or just email me directly: dan@phiffer.org
+
+(20180318/dphiffer)

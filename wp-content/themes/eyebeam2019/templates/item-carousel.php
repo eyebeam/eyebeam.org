@@ -8,7 +8,7 @@ if ($carousel){
 
 	foreach($carousel as $row){
 			$target = get_permalink($row['slide_target'][0]);
-			$image = eyebeam2018_get_image_html($row['image'], 'large', false);
+			$image = eyebeam2018_get_image_html($row['image'], 'fullsize', false);
 			echo "<div class=\"swiper-slide\">\n";
 			echo "<a href=\"$target\">\n";
 			echo "$image\n";
