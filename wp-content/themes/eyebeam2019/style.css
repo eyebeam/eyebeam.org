@@ -554,7 +554,7 @@ header nav li:last-child {
 @media (min-width: 857px) {
 
 	header {
-		font-size: 20px;
+		font-size: 1.5rem;
 		width: 83.333vw;
 		margin: 0 8.333vw;
 		margin-bottom: 1rem;
@@ -907,7 +907,6 @@ header nav li:last-child {
 	}
 
 	header {
-		font-size: 16px;
 	}
 
 	header .support {
@@ -930,7 +929,6 @@ header nav li:last-child {
 	}
 
 	header {
-		font-size: 20px;
 	}
 
 	header .support {
@@ -951,7 +949,7 @@ header nav li:last-child {
 	}
 
 	header {
-		font-size: 28px;
+		font-size: 1.5rem;
 	}
 
 }
@@ -1395,7 +1393,7 @@ footer .bottom div {
 
 	.logos #partners img.wider {
 		flex: 1 0 33%;
-		padding: 1rem 4rem
+		padding: 1rem 2rem
 	}
 
 
@@ -2547,7 +2545,7 @@ hr.wp-block-separator, hr {
 	width: 100%;
 	background: #231F20;
 	border: 0;
-	margin: 0 0 1rem 0;
+	margin: 0 0 2rem 0;
 }
 
 
