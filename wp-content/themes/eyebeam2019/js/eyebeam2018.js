@@ -872,6 +872,9 @@ var eyebeam2018 = (function($) {
 					waitForImages: true,
 					margin: 36,
 					columns: columns,
+					breakAt: {
+						 940: 2,
+				 }
 				});
 
 		},
