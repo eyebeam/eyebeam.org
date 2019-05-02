@@ -335,6 +335,12 @@ header #search {
 
 }
 
+input {
+	-webkit-appearance: none !important;
+	-webkit-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+
 header #search input {
 	flex: 1 0 auto;
 	padding-left: 1rem;
@@ -1168,8 +1174,7 @@ font-family: "EyebeamSans", sans-serif;
     text-align: left;
     flex-grow: 2;
     padding: 0 0 0 1rem;
-		-webkit-appearance: none !important;
-		-webkit-border-radius: 0 !important;
+
 }
 
 footer input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
