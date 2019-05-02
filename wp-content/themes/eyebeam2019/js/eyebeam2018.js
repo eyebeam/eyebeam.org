@@ -165,8 +165,9 @@ var eyebeam2018 = (function($) {
 
 
 		setup_menu: function() {
-			$('.btn-anchor').click(function() {
+			$('.btn-anchor').click(function(e) {
 				$(document.body).toggleClass('show-menu');
+				e.preventDefault();
 			});
 		},
 
