@@ -328,6 +328,13 @@ header #search {
 	position: relative;
 }
 
+@media (min-width: 857px){
+	header #search {
+		margin: 0 0 1rem 0;
+	}
+
+}
+
 header #search input {
 	flex: 1 0 auto;
 	padding-left: 1rem;
