@@ -1220,6 +1220,8 @@ font-family: "EyebeamSans", sans-serif;
     text-align: left;
     flex-grow: 2;
     padding: 0 0 0 1rem;
+		-webkit-appearance: none;
+-webkit-border-radius: 0;
 }
 
 footer input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
