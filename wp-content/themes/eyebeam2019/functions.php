@@ -86,6 +86,7 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 
 	include_once("$dir/lib/custom-fields/archive-page.php");
 	include_once("$dir/lib/custom-fields/archive-post.php");
+	include_once("$dir/lib/custom-fields/auction-artwork.php");
 	include_once("$dir/lib/custom-fields/board.php");
 	include_once("$dir/lib/custom-fields/community.php");
 	include_once("$dir/lib/custom-fields/education.php");
