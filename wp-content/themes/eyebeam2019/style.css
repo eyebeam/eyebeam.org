@@ -3137,6 +3137,7 @@ table.ui-datepicker-calendar thead {
 
 .auction-artwork-artist-bio h4 {
 	background: rgb(255, 0, 0);
+	margin-top: 10px;
 }
 
 .auction-artwork-description {
