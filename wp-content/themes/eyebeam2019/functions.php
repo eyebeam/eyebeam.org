@@ -40,6 +40,21 @@ For your convenience, here is a list of all the functions in here:
 * dbug: kinda like error_log, but more flexible
 * eyebeam2018_db_migration_1: update resident links
 
+Auction-related functions:
+* auction_verify_id
+* auction_get_bidder_by_id
+* auction_get_bidder_by_email
+* auction_load_bidders
+* auction_mark_bids_as_verified
+* auction_next_amount
+* auction_name
+* auction_email
+* auction_normalize_email
+* auction_is_verified
+* auction_is_leading_bid
+* auction_send_verification
+* auction_bid
+
 */
 
 
@@ -1142,4 +1157,207 @@ function eyebeam2018_get_menu_by_location( $location ) {
     $menu_obj = get_term( $locations[$location], 'nav_menu' );
 
     return $menu_obj;
+}
+
+function auction_verify_id($id) {
+    $bidder = auction_get_bidder_by_id($id);
+    if (! empty($bidder)) {
+        $bidder['verified'] = true;
+        $option_key = "auction_{$bidder['email']}";
+        update_option($option_key, $bidder, false);
+        return true;
+    }
+    return false;
+}
+
+function auction_get_bidder_by_id($id) {
+    $id = strtolower($id);
+    if (empty($GLOBALS['auction_bidders'])) {
+        $GLOBALS['auction_bidders'] = auction_load_bidders();
+    }
+    if (empty($GLOBALS['auction_bidders']['id'][$id])) {
+        return null;
+    }
+    return $GLOBALS['auction_bidders']['id'][$id];
+}
+
+function auction_get_bidder_by_email($email) {
+    $email = auction_normalize_email($email);
+    if (empty($GLOBALS['auction_bidders'])) {
+        $GLOBALS['auction_bidders'] = auction_load_bidders();
+    }
+    if (empty($GLOBALS['auction_bidders']['email'][$email])) {
+        return null;
+    }
+    return $GLOBALS['auction_bidders']['email'][$email];
+}
+
+function auction_load_bidders() {
+    global $wpdb;
+
+    $bidders = array(
+        'id' => array(),
+        'email' => array()
+    );
+
+    $results = $wpdb->get_results("
+        SELECT *
+        FROM {$wpdb->prefix}options
+        WHERE option_name LIKE 'auction_%'
+    ", OBJECT);
+
+    foreach ($results as $row) {
+        $bidder = unserialize($row->option_value);
+        $id = $bidder['id'];
+        $email = $bidder['email'];
+        $bidders['id'][$id] = $bidder;
+        $bidders['email'][$email] = $bidder;
+    }
+    return $bidders;
+}
+
+function auction_mark_bids_as_verified($id) {
+    global $wpdb;
+
+    $bidders = array(
+        'id' => array(),
+        'email' => array()
+    );
+
+    $results = $wpdb->get_results("
+        SELECT *
+        FROM {$wpdb->prefix}postmeta
+        WHERE meta_key = 'auction_bids'
+    ", OBJECT);
+
+    foreach ($results as $row) {
+        $bid = unserialize($row->meta_value);
+        if ($bid['bidder_id'] == $id &&
+            empty($bid['verified'])) {
+            $bid['verified'] = true;
+            $meta_value = serialize($bid);
+            $wpdb->update("{$wpdb->prefix}postmeta", array(
+                'meta_value' => $meta_value
+            ), array(
+                'meta_id' => $row->meta_id
+            ));
+        }
+    }
+}
+
+function auction_next_amount($amount) {
+    $bid_increment = 25;
+    $amount = floatval($amount);
+    $amount = ceil(($amount + 1) / $bid_increment) * $bid_increment;
+    echo $amount;
+}
+
+function auction_name() {
+    $name = '';
+    if (! empty($_POST['name'])) {
+        $name = $_POST['name'];
+    } else if (! empty($_SESSION['auction_bidder_id'])) {
+        $bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
+        $name = $bidder['name'];
+    } else if (! empty($_SESSION['auction_name'])) {
+        $name = $_SESSION['auction_name'];
+    }
+    $name = htmlentities($name);
+    echo $name;
+}
+
+function auction_email() {
+    $email = '';
+    if (! empty($_POST['email'])) {
+        $email = $_POST['email'];
+    } else if (! empty($_SESSION['auction_bidder_id'])) {
+        $bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
+        $email = $bidder['email'];
+    } else if (! empty($_SESSION['auction_email'])) {
+        $email = $_SESSION['auction_email'];
+    }
+    $email = auction_normalize_email($email);
+    $email = htmlentities($email);
+    echo $email;
+}
+
+function auction_normalize_email($email) {
+    $email = strtolower($email);
+    $email = trim($email);
+    return $email;
+}
+
+function auction_is_verified($email) {
+    $email = auction_normalize_email($email);
+    $bidder = auction_get_bidder_by_email($email);
+    if (! empty($bidder['verified']) &&
+        $_SESSION['auction_bidder_id'] == $bidder['id']) {
+        return true;
+    }
+    return false;
+}
+
+function auction_is_leading_bid($curr, $new) {
+    if (floatval($new['amount']) > floatval($curr['amount'])) {
+        return true;
+    }
+    if (floatval($new['amount']) < floatval($curr['amount'])) {
+        return false;
+    }
+    if ($new['created'] < $curr['created']) {
+        return true;
+    }
+    return false;
+}
+
+function auction_send_verification($email) {
+    global $post;
+
+    $permalink = get_permalink($post->ID);
+    $id = wp_generate_uuid4();
+    $id = str_replace('-', '', $id);
+
+    $email = auction_normalize_email($email);
+    $email_subject = "Confirm your Eyebeam art auction bid!";
+    $email_body = "Hello,
+
+Thank you so much for supporting Eyebeam. Before we can process your auction
+bid, we just need you to confirm your email address. Please click on the link
+below and you'll be all set.
+
+$permalink?v=$id
+
+You only need to verify your email address the first time you bid (per browser).
+
+<3
+Thank you!
+";
+
+    $headers = 'From: Eyebeam <info@eyebeam.org>' . "\r\n";
+    //wp_mail($email, $email_subject, $email_body, $headers);
+
+    return $id;
+}
+
+function auction_bid($bid) {
+    $amount = floatval($bid['amount']);
+    $amount = number_format($amount, 2);
+    if (substr($amount, -3, 3) == '.00') {
+        $amount = substr($amount, 0, -3);
+    }
+    if (! empty($bid['bidder_id'])) {
+        $bidder = auction_get_bidder_by_id($bid['bidder_id']);
+        $name = $bidder['name'];
+    }
+    if (empty($name)) {
+        $name = $bid['name'];
+    }
+    if (empty($bid['verified'])) {
+        $name .= " (pending email verification)";
+    }
+
+    $amount = htmlentities($amount);
+    $name = htmlentities($name);
+
+    echo "\$$amount by $name";
 }

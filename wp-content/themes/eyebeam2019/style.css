@@ -18,6 +18,7 @@ Contents (breakpoints are mobile-first):
 * Donate
 * Sponsors
 * Press
+* Auction
 
 */
 
@@ -264,8 +265,6 @@ form.error .response-error {
 	}
 
 }
-
-
 
 /* -------------------------------------------------------------------------- */
 /* Header */
@@ -2868,6 +2867,7 @@ hr.wp-block-separator, hr {
 
 }
 
+
 /* -------------------------------------------------------------------------- */
 /* Press */
 
@@ -3075,7 +3075,7 @@ table.ui-datepicker-calendar thead {
 		flex-wrap: wrap;
 	}
 
-	.press-sidebar
+	.press-sidebar {
 		float: right;
 		width: calc(33.33% - 10px);
 		margin: 0 0 0 10px;
@@ -3097,4 +3097,122 @@ table.ui-datepicker-calendar thead {
 		display: block;
 	}
 
+}
+
+/* -------------------------------------------------------------------------- */
+/* Auction */
+
+.auction-artwork {
+	padding-top: 40px;
+}
+
+.auction-artwork:first-child {
+	padding-top: 0;
+	margin-top: -10px;
+}
+
+.auction-artwork .module-title {
+	color: rgb(255, 0, 0);
+}
+
+.auction-artwork h4 {
+	font-weight: bold;
+	color: #fff;
+	margin-left: -10px;
+	padding: 5px 0 5px 10px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.auction-description {
+	margin-top: 20px;
+	font-weight: 800;
+}
+
+.auction-artwork-artist-bio {
+	border-left: 10px solid rgb(255, 0, 0);
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+
+.auction-artwork-artist-bio h4 {
+	background: rgb(255, 0, 0);
+}
+
+.auction-artwork-description {
+	border-left: 10px solid rgb(0, 0, 255);
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+
+.auction-artwork-description h4 {
+	background: rgb(0, 0, 255);
+}
+
+.auction-artwork p {
+	margin-top: 1em;
+	font-weight: normal;
+}
+
+.auction-bids {
+	border-left: 10px solid rgb(0, 255, 0);
+	padding-left: 10px;
+	font-weight: normal;
+}
+
+.auction-bids h4 {
+	background: rgb(0, 255, 0);
+	color: #000;
+}
+
+.auction-bids .help {
+	font-size: 0.75rem;
+	margin-top: 5px;
+}
+
+.auction-bids fieldset {
+	margin-bottom: 20px;
+}
+
+.auction-bids label {
+	display: block;
+	margin-top: 15px;
+}
+
+.auction-bids input[type="text"],
+.auction-bids input[type="number"],
+.auction-bids input[type="email"] {
+	font-family: "EyebeamSans", sans-serif;
+	border: 1px solid #231F20;
+	background: transparent;
+	padding: 10px;
+	font-size: 1.5rem;
+	margin-top: 5px;
+}
+
+.auction-bids button {
+	padding: 10px;
+	border: 1px solid #231F20;
+	font-family: "EyebeamSans", sans-serif;
+	font-size: 1.5rem;
+	background: rgb(0, 255, 0);
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+.auction-bids .bid-amount {
+	position: relative;
+}
+
+.auction-bids .bid-amount input {
+	padding-left: 25px;
+}
+
+.auction-bids .bid-amount::before {
+	position: absolute;
+	content: "$";
+	top: 15px;
+	left: 10px;
+	font-family: "EyebeamSans", sans-serif;
+	font-size: 1.5rem;
 }
