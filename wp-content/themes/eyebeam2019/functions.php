@@ -1319,7 +1319,7 @@ You only need to verify your email address the first time you bid (per browser).
 Thank you!
 ";
 
-	$headers = null; //"From: $email_from\r\n";
+	$headers = "From: $email_from\r\n";
 	wp_mail($email, $email_subject, $email_body, $headers);
 
 	return $id;
@@ -1460,7 +1460,7 @@ function auction_create_bid() {
 			'email' => $email,
 			'verified' => false
 		), false);
-		$feedback[] = "We've received your bid, but must confirm your email address before it will be counted: $bidder_id";
+		$feedback[] = "We've received your bid, but must confirm your email address before it will be counted.";
 	}
 
 	add_post_meta($post->ID, 'auction_bids', $new_bid);
