@@ -1319,8 +1319,8 @@ You only need to verify your email address the first time you bid (per browser).
 Thank you!
 ";
 
-	$headers = "From: $email_from\r\n";
-	//wp_mail($email, $email_subject, $email_body, $headers);
+	$headers = null; //"From: $email_from\r\n";
+	wp_mail($email, $email_subject, $email_body, $headers);
 
 	return $id;
 }
