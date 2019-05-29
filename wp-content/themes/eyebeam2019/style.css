@@ -3102,17 +3102,23 @@ table.ui-datepicker-calendar thead {
 /* -------------------------------------------------------------------------- */
 /* Auction */
 
+.auction-list .module-two_thirds {
+	padding-left: 0;
+	padding-top: 0;
+}
+
 .auction-artwork {
 	padding-top: 40px;
 }
 
 .auction-artwork:first-child {
 	padding-top: 0;
-	margin-top: -10px;
 }
 
 .auction-artwork .module-title {
 	color: rgb(255, 0, 0);
+	line-height: 0.8em;
+	padding-bottom: 10px;
 }
 
 .auction-artwork h4 {
@@ -3153,6 +3159,7 @@ table.ui-datepicker-calendar thead {
 .auction-artwork p {
 	margin-top: 1em;
 	font-weight: normal;
+	line-height: 1.25em;
 }
 
 .auction-bids {
@@ -3189,6 +3196,8 @@ table.ui-datepicker-calendar thead {
 	padding: 10px;
 	font-size: 1.5rem;
 	margin-top: 5px;
+	max-width: 300px;
+	width: 100%;
 }
 
 .auction-bids button {
@@ -3198,7 +3207,7 @@ table.ui-datepicker-calendar thead {
 	font-size: 1.5rem;
 	background: rgb(0, 255, 0);
 	cursor: pointer;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .auction-bids .bid-amount {
@@ -3212,10 +3221,14 @@ table.ui-datepicker-calendar thead {
 .auction-bids .bid-amount::before {
 	position: absolute;
 	content: "$";
-	top: 15px;
+	top: 23px;
 	left: 10px;
 	font-family: "EyebeamSans", sans-serif;
 	font-size: 1.5rem;
+}
+
+.auction-bids .current-bid {
+	margin-top: 10px;
 }
 
 .auction-feedback {
@@ -3225,4 +3238,16 @@ table.ui-datepicker-calendar thead {
 
 .auction-feedback li {
 	margin-top: 10px;
+}
+
+@media (min-width: 857px) {
+
+	.auction-list .module-two_thirds {
+		padding-top: 17px;
+	}
+
+	.auction-bids .bid-amount::before {
+		top: 15px;
+	}
+
 }

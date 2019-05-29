@@ -22,12 +22,14 @@ $current_bid = auction_get_current_bid();
 	<form action="<?php echo get_permalink($post); ?>" method="post" class="auction-bids">
 		<h4>Bid on this artwork</h4>
 		<fieldset>
-			<strong>Current bid</strong><br>
-			<?php if (! empty($current_bid['minimum_bid'])) { ?>
-				<em>Be the first to bid on this!</em>
-			<?php } else { ?>
-				<?php auction_current_bid(); ?>
-			<?php } ?>
+			<strong>Current bid</strong>
+			<div class="current-bid">
+				<?php if (! empty($current_bid['minimum_bid'])) { ?>
+					<em>Be the first to bid on this!</em>
+				<?php } else { ?>
+					<?php auction_current_bid(); ?>
+				<?php } ?>
+			</div>
 		</fieldset>
 		<fieldset>
 			<strong>Place a bid</strong><br>
