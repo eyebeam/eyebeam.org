@@ -16,6 +16,13 @@
 		<h2 class="module-title one_half eyebeam-sans auction-title">
 			<a href="<?php the_permalink($post); ?>"><?php the_title(); ?></a>
 		</h2>
+		<?php
+
+		if (is_single()) {
+			echo '<a href="/auction/" class="auction-all">View all artworks</a>';
+		}
+
+		?>
 		<div class="auction-description">
 			<?php the_content(); ?>
 		</div>
