@@ -3217,3 +3217,12 @@ table.ui-datepicker-calendar thead {
 	font-family: "EyebeamSans", sans-serif;
 	font-size: 1.5rem;
 }
+
+.auction-feedback {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.auction-feedback li {
+	margin-top: 10px;
+}
