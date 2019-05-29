@@ -25,6 +25,15 @@
 <li class="module module-two_thirds">
 	<?php
 
+	if (is_archive()) {
+		query_posts(array(
+			'post_type' => 'auction',
+			'posts_per_page' => -1,
+			'orderby' => 'menu_order',
+			'order' => 'ASC'
+		));
+	}
+
 	while (have_posts()) {
 		the_post();
 		get_template_part('templates/auction-artwork');
