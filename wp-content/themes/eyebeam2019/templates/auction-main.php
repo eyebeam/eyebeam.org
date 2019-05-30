@@ -3,6 +3,8 @@
 <li id="module-auction" class="module module-one_third">
 	<?php
 
+	wp_reset_query();
+
 	$auction_query = new WP_Query(array(
 		'post_type' => 'page',
 		'posts_per_page' => 1,
@@ -27,7 +29,7 @@
 			<?php the_content(); ?>
 		</div>
 	</div>
-	<?php wp_reset_postdata(); ?>
+	<?php wp_reset_query(); ?>
 </li>
 <li class="module module-two_thirds">
 	<?php
