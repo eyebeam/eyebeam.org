@@ -3,6 +3,8 @@
 <li id="module-auction" class="module module-one_third">
 	<?php
 
+	$view_all = is_single() ? '<a href="/auction/" class="auction-all">View all artworks</a>' : '';
+
 	$auction_query = new WP_Query(array(
 		'post_type' => 'page',
 		'posts_per_page' => 1,
@@ -18,9 +20,7 @@
 		</h2>
 		<?php
 
-		if (is_single()) {
-			echo '<a href="/auction/" class="auction-all">View all artworks</a>';
-		}
+		echo $view_all;
 
 		?>
 		<div class="auction-description">

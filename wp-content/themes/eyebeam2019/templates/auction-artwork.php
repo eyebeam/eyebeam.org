@@ -21,11 +21,11 @@ $current_bid = auction_get_current_bid();
 		<?php the_field('artist_bio'); ?>
 	</div>
 	<div class="auction-artwork-description">
-		<h4>Artwork description</h4>
+		<h4>Description</h4>
 		<?php the_content(); ?>
 	</div>
 	<form action="<?php echo get_permalink($post); ?>" method="post" class="auction-bids">
-		<h4>Bid on this artwork</h4>
+		<h4>Bid on this experience</h4>
 		<fieldset>
 			<strong>Current bid</strong>
 			<div class="current-bid">
@@ -48,6 +48,6 @@ $current_bid = auction_get_current_bid();
 			<label for="email">Email</label>
 			<input type="email" name="email" value="<?php auction_email(); ?>">
 		</fieldset>
-		<button type="submit">Place bid</button>
+		<button type="submit">Place your bid</button>
 	</form>
 </div>
