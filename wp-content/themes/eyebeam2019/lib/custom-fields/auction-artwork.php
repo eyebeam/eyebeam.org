@@ -41,11 +41,11 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'options' => array (
-			'position' => 'normal',
+			'position' => 'acf_after_title',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 1,
+		'menu_order' => 0,
 	));
 }
