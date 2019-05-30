@@ -3,25 +3,22 @@
 <li id="module-auction" class="module module-one_third">
 	<?php
 
-	wp_reset_query();
-
-	$auction_query = new WP_Query(array(
+	query_posts(array(
 		'post_type' => 'page',
-		'posts_per_page' => 1,
 		'name' => 'auction'
 	));
-
-	$auction_query->the_post();
+	the_post();
 
 	?>
 	<div class="item-container">
 		<h2 class="module-title one_half eyebeam-sans auction-title">
-			<a href="<?php the_permalink($post); ?>"><?php the_title(); ?></a>
+			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 		</h2>
 		<?php
 
 		if (is_single()) {
-			echo '<a href="/auction/" class="auction-all">View all artworks</a>';
+			$url = get_permalink();
+			echo "<a href=\"$url\" class=\"auction-all\">View all artworks</a>";
 		}
 
 		?>
@@ -29,10 +26,11 @@
 			<?php the_content(); ?>
 		</div>
 	</div>
-	<?php wp_reset_query(); ?>
 </li>
 <li class="module module-two_thirds">
 	<?php
+
+	wp_reset_query();
 
 	if (is_archive()) {
 		query_posts(array(
