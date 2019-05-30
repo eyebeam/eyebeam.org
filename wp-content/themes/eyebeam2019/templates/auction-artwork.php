@@ -11,6 +11,11 @@ $current_bid = auction_get_current_bid();
 		</h3>
 	</div>
 	<?php do_action('auction_feedback'); ?>
+	<?php
+
+	the_post_thumbnail('large');
+
+	?>
 	<div class="auction-artwork-artist-bio">
 		<h4>Artist bio</h4>
 		<?php the_field('artist_bio'); ?>
