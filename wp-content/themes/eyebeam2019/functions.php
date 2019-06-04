@@ -1303,7 +1303,7 @@ function auction_send_verification($email) {
 	$id = str_replace('-', '', $id);
 
 	$email = auction_normalize_email($email);
-	$email_from = "Eyebeam <info@eyebeam.org>";
+	$email_from = "Eyebeam <give@eyebeam.org>";
 	$email_subject = "Confirm your Eyebeam art auction bid!";
 	$email_body = "Hello,
 
@@ -1462,6 +1462,13 @@ function auction_create_bid() {
 		), false);
 		$feedback[] = "We've received your bid, but must confirm your email address before it will be counted.";
 	}
+
+	$email = 'give@eyebeam.org';
+	$email_subject = "Auction: {$new_bid['amount']} bid from $name";
+	$email_body = "New bid on $post->post_title's artist experience:\n\n" . print_r($new_bid, true);
+	$email_from = "Eyebeam <give@eyebeam.org>";
+	$headers = "From: $email_from\r\n";
+	wp_mail($email, $email_subject, $email_body, $headers);
 
 	add_post_meta($post->ID, 'auction_bids', $new_bid);
 	return $feedback;
