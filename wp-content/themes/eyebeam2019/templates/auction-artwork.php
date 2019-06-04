@@ -16,13 +16,13 @@ $current_bid = auction_get_current_bid();
 	the_post_thumbnail('large');
 
 	?>
+	<div class="auction-artwork-description">
+		<h4>Artist Experience</h4>
+		<?php the_content(); ?>
+	</div>
 	<div class="auction-artwork-artist-bio">
 		<h4>Artist bio</h4>
 		<?php the_field('artist_bio'); ?>
-	</div>
-	<div class="auction-artwork-description">
-		<h4>Description</h4>
-		<?php the_content(); ?>
 	</div>
 	<form action="<?php echo get_permalink($post); ?>" method="post" class="auction-bids">
 		<h4>Bid on this experience</h4>
@@ -38,7 +38,7 @@ $current_bid = auction_get_current_bid();
 		</fieldset>
 		<fieldset>
 			<strong>Place a bid</strong><br>
-			<label for="amount">Maximum bid amount</label>
+			<label for="amount">Set your maximum bid amount</label>
 			<div class="bid-amount">
 				<input type="number" name="amount" step="<?php echo auction_bid_increment(); ?>" value="<?php echo auction_next_amount(); ?>" id="amount">
 			</div>
