@@ -1389,7 +1389,7 @@ function auction_check_id($id) {
 }
 
 function auction_bid_increment() {
-	return 50;
+	return 100;
 }
 
 function auction_get_current_bid() {
