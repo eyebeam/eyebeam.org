@@ -3237,6 +3237,8 @@ table.ui-datepicker-calendar thead {
 .auction-feedback {
 	margin-top: 20px;
 	margin-bottom: 20px;
+	background: rgb(0, 255, 0);
+	padding: 10px 20px 15px 20px;
 }
 
 .auction-feedback li {

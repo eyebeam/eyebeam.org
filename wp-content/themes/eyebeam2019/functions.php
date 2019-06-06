@@ -48,6 +48,7 @@ Auction-related functions:
 * auction_next_amount
 * auction_name
 * auction_email
+* auction_phone
 * auction_normalize_email
 * auction_is_verified
 * auction_is_leading_bid
@@ -1255,13 +1256,31 @@ function auction_email() {
 		$email = $_POST['email'];
 	} else if (! empty($_SESSION['auction_bidder_id'])) {
 		$bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
-		$email = $bidder['email'];
+		if (! empty($bidder['email'])) {
+			$email = $bidder['email'];
+		}
 	} else if (! empty($_SESSION['auction_email'])) {
 		$email = $_SESSION['auction_email'];
 	}
 	$email = auction_normalize_email($email);
 	$email = htmlentities($email);
 	echo $email;
+}
+
+function auction_phone() {
+	$phone = '';
+	if (! empty($_POST['phone'])) {
+		$phone = $_POST['phone'];
+	} else if (! empty($_SESSION['auction_bidder_id'])) {
+		$bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
+		if (! empty($bidder['phone'])) {
+			$phone = $bidder['phone'];
+		}
+	} else if (! empty($_SESSION['auction_phone'])) {
+		$phone = $_SESSION['auction_phone'];
+	}
+	$phone = htmlentities($phone);
+	echo $phone;
 }
 
 function auction_normalize_email($email) {
@@ -1355,14 +1374,19 @@ function auction_post_feedback() {
 	$feedback = array();
 	$current_bid = auction_get_current_bid();
 	if (empty($_POST['name'])) {
-		$feedback[] = 'Please write a name.';
+		$feedback[] = 'Please include a name.';
 	} else {
 		$_SESSION['auction_name'] = $_POST['name'];
 	}
 	if (empty($_POST['email'])) {
-		$feedback[] = 'Please write an email address.';
+		$feedback[] = 'Please include an email address.';
 	} else {
 		$_SESSION['auction_email'] = $_POST['email'];
+	}
+	if (empty($_POST['phone'])) {
+		$feedback[] = 'Please include a phone number.';
+	} else {
+		$_SESSION['auction_phone'] = $_POST['phone'];
 	}
 	if (empty($_POST['amount'])) {
 		$feedback[] = 'Please include a bid amount.';
@@ -1426,12 +1450,14 @@ function auction_create_bid() {
 
 	$name = $_POST['name'];
 	$email = auction_normalize_email($_POST['email']);
+	$phone = $_POST['phone'];
 	$verified = auction_is_verified($email);
 
 	$new_bid = array(
 		'bidder_id' => null,
 		'name' => $name,
 		'email' => $email,
+		'phone' => $phone,
 		'amount' => floatval($_POST['amount']),
 		'max_amount' => floatval($_POST['amount']),
 		'ip_addr' => $_SERVER['REMOTE_ADDR'],
@@ -1458,6 +1484,7 @@ function auction_create_bid() {
 			'id' => $bidder_id,
 			'name' => $name,
 			'email' => $email,
+			'phone' => $phone,
 			'verified' => false
 		), false);
 		$feedback[] = "We've received your bid, but must confirm your email address before it will be counted.";

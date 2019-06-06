@@ -47,6 +47,8 @@ $current_bid = auction_get_current_bid();
 			<input type="text" name="name" value="<?php auction_name(); ?>">
 			<label for="email">Email</label>
 			<input type="email" name="email" value="<?php auction_email(); ?>">
+			<label for="phone">Phone number</label>
+			<input type="text" name="phone" value="<?php auction_phone(); ?>">
 		</fieldset>
 		<button type="submit">Place your bid</button>
 	</form>

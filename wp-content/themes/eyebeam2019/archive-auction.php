@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function auction_archive_title($title) {
 	$page = get_page_by_path('auction');
 	return $page->page_title;
