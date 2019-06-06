@@ -1463,9 +1463,10 @@ function auction_create_bid() {
 		$feedback[] = "We've received your bid, but must confirm your email address before it will be counted.";
 	}
 
+	$url = get_permalink($post->ID);
 	$email = 'give@eyebeam.org';
 	$email_subject = "Auction: {$new_bid['amount']} bid from $name";
-	$email_body = "New bid on $post->post_title's artist experience:\n\n" . print_r($new_bid, true);
+	$email_body = "New bid on $post->post_title's artist experience:\n$url\n\n" . print_r($new_bid, true);
 	$email_from = "Eyebeam <give@eyebeam.org>";
 	$headers = "From: $email_from\r\n";
 	wp_mail($email, $email_subject, $email_body, $headers);
