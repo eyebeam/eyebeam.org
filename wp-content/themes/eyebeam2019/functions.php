@@ -1322,7 +1322,6 @@ function auction_send_verification($email) {
 	$id = str_replace('-', '', $id);
 
 	$email = auction_normalize_email($email);
-	$email_from = "Eyebeam <give@eyebeam.org>";
 	$email_subject = "Confirm your Eyebeam art auction bid!";
 	$email_body = "Hello,
 
@@ -1337,9 +1336,7 @@ You only need to verify your email address the first time you bid (per browser).
 <3
 Thank you!
 ";
-
-	$headers = "From: $email_from\r\n";
-	wp_mail($email, $email_subject, $email_body, $headers);
+	auction_send_mail($email, $email_subject, $email_body);
 
 	return $id;
 }
@@ -1361,7 +1358,7 @@ function auction_current_bid() {
 	if (empty($bid['verified']) &&
 	    (empty($_GET['v']) ||
 	    $_GET['v'] != $bid['bidder_id'])) {
-		$name .= " (pending email verification)";
+		//$name .= " (pending email verification)";
 	}
 
 	$amount = htmlentities($amount);
@@ -1405,7 +1402,7 @@ function auction_check_id($id) {
 	if ($is_verified == 'verified') {
 		auction_mark_bids_as_verified($id);
 		$_SESSION['auction_bidder_id'] = $id;
-		$feedback[] = "Your email address has been verified and your bid on this artwork will now be counted.";
+		$feedback[] = "Your email address has been verified, thank you!";
 	} else if ($is_verified == 'invalid') {
 		$feedback[] = "Sorry, we could not verify your email address.";
 	}
@@ -1426,10 +1423,32 @@ function auction_get_current_bid() {
 	$current_bid = $minimum_bid;
 	$bids = get_post_meta($post->ID, 'auction_bids');
 
+	// most recent first
 	usort($bids, function($a, $b) {
-		if ($a['max_amount'] > $b['max_amount']) {
+		if ($a['created'] > $b['created']) {
+			return -1;
+		} else if ($a['created'] < $b['created']) {
 			return 1;
-		} else if ($a['max_amount'] < $b['max_amount']) {
+		}
+		return 0;
+	});
+
+	// only take the most recent by a given bidder (dedupe)
+	$bidders = array();
+	$bids = array_filter($bids, function($item) use (&$bidders) {
+		$email = auction_normalize_email($item['email']);
+		if (empty($bidders[$email])) {
+			$bidders[$email] = true;
+			return true;
+		}
+		return false;
+	});
+
+	// oldest first
+	usort($bids, function($a, $b) {
+		if ($a['created'] > $b['created']) {
+			return 1;
+		} else if ($a['created'] < $b['created']) {
 			return -1;
 		}
 		return 0;
@@ -1489,17 +1508,42 @@ function auction_create_bid() {
 		), false);
 		$feedback[] = "We've received your bid, but must confirm your email address before it will be counted.";
 	}
+	$url = get_permalink($post->ID);
+	$amount = floatval($_POST['amount']);
+	$amount = number_format($amount);
+	$email_subject = "Thank you for your auction bid!";
+	$email_body = "Hi $name,
+
+We've received your bid on $post->post_title's artist experience, with
+a maximum bid amount of $$amount.
+
+Here is a link to the auction page:
+$url
+
+<3
+Thank you for your support!";
+	auction_send_mail($email, $email_subject, $email_body);
 
 	$url = get_permalink($post->ID);
 	$email = 'give@eyebeam.org';
 	$email_subject = "Auction: {$new_bid['amount']} bid from $name";
 	$email_body = "New bid on $post->post_title's artist experience:\n$url\n\n" . print_r($new_bid, true);
-	$email_from = "Eyebeam <give@eyebeam.org>";
-	$headers = "From: $email_from\r\n";
-	wp_mail($email, $email_subject, $email_body, $headers);
+	auction_send_mail($email, $email_subject, $email_body);
 
 	add_post_meta($post->ID, 'auction_bids', $new_bid);
 	return $feedback;
+}
+
+function auction_send_mail($to, $subject, $body) {
+	if (! defined('DO_NOT_SEND_EMAIL')) {
+		$email_from = "Eyebeam <give@eyebeam.org>";
+		$headers = "From: $email_from\r\n";
+		wp_mail($to, $subject, $body, $headers);
+	} else {
+		dbug("Email to: $to
+Subject: $subject
+$body");
+	}
 }
 
 if (! function_exists('dbug')) {
