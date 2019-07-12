@@ -20,10 +20,7 @@ if ($media){
 		}
 	}
 }
-<<<<<<< HEAD
-=======
 echo "</div>";
->>>>>>> dfb96ca19ec4d5b3555bde6f08f474023c3bff6f
 
 echo "<div class=\"post-content\">\n";
 
