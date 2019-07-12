@@ -9,6 +9,7 @@ $start_date = get_field('start_date', $event->ID);
 $end_date = get_field('end_date', $event->ID);
 $image_id = get_field('image', $event->ID);
 
+
 $category = get_the_terms($event->ID, 'category');
 
 $image = '';

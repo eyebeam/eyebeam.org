@@ -2,6 +2,9 @@
 echo "<div class=\"post-main\">\n";
 echo "<div class=\"post-media\">\n";
 // show and float all media
+
+
+
 $media = get_field('media');
 if ($media){
 
@@ -17,8 +20,6 @@ if ($media){
 		}
 	}
 }
-echo "</div>";
-echo "<div class=\"post-content\">\n";
 
 
 

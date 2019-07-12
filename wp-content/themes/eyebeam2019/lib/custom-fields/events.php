@@ -100,7 +100,7 @@ if(function_exists("register_field_group"))
 				'save_other_choice' => 0,
 				'default_value' => 'manual',
 				'layout' => 'horizontal',
-			),						
+			),
 			array (
 				'key' => 'field_586bce21ov37',
 				'label' => 'Related Readings',
@@ -132,7 +132,7 @@ if(function_exists("register_field_group"))
 					),
 					'allorany' => 'all',
 				),
-			),	
+			),
 			array (
 				'key' => 'field_5aa1b7e8b1f82349',
 				'label' => 'Display Tags',
@@ -146,6 +146,69 @@ if(function_exists("register_field_group"))
 				'save_other_choice' => 0,
 				'default_value' => 'show',
 				'layout' => 'horizontal',
+			),
+			array (
+				'key' => 'field_5aa1b7e8b1f82377',
+				'label' => 'Show Button',
+				'name' => 'show_button',
+				'type' => 'radio',
+				'choices' => array (
+					'show' => 'Show Button',
+					'hide' => 'Hide Button',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'show',
+				'layout' => 'horizontal',
+			),array (
+				'key' => 'field_5a9ae2f413b5299',
+				'label' => 'Button Text',
+				'name' => 'button_text',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5aa1b7e8b1f82377',
+							'operator' => '==',
+							'value' => 'show',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Text to display as a button on event page',
+				'column_width' => '',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5a9ae2f413b5288',
+				'label' => 'Button URL',
+				'name' => 'button_url',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5aa1b7e8b1f82377',
+							'operator' => '==',
+							'value' => 'show',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'URL for button to link to on event page',
+				'column_width' => '',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
 			),
 			array (
 				'key' => 'field_565aee13pi',
@@ -229,7 +292,7 @@ if(function_exists("register_field_group"))
 				'row_limit' => '',
 				'layout' => 'row',
 				'button_label' => 'Add Media',
-			),			
+			),
 		),
 		'location' => array (
 			array (
