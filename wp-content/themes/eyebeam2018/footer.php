@@ -39,7 +39,10 @@
 				<input type="submit" value="Subscribe">
 			</form>
 			<div class="partners">
+				<!-- This was the old jerome foundation logo - ct
 				<img src="<?php eyebeam2018_img_src('img/jerome.png'); ?>" alt="Jerome Foundation" width="120">
+				-->
+				<img src="https://www.eyebeam.org/wp-content/uploads/2018/07/Jerome-Fdn-Standard-Reverse.png" alt="Jerome Foundation" width="170">
 				<img src="<?php eyebeam2018_img_src('img/nyculture.png'); ?>" alt="NYCulture" width="128">
 				<img src="<?php eyebeam2018_img_src('img/artworks.png'); ?>" alt="Art Works" width="90">
 				<img src="<?php eyebeam2018_img_src('img/nysca.png'); ?>" alt="NYSCA" width="202">

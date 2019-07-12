@@ -37,8 +37,26 @@ For your convenience, here is a list of all the functions in here:
 * eyebeam2018_get_events: returns an array of event posts
 * eyebeam2018_get_ideas: returns an array of ideas posts
 * eyebeam2018_lazy_load: AJAX handler for lazy loading content
-* dbug: kinda like error_log, but more flexible
 * eyebeam2018_db_migration_1: update resident links
+
+Auction-related functions:
+* auction_verify_id
+* auction_get_bidder_by_id
+* auction_get_bidder_by_email
+* auction_load_bidders
+* auction_mark_bids_as_verified
+* auction_next_amount
+* auction_name
+* auction_email
+* auction_phone
+* auction_normalize_email
+* auction_is_verified
+* auction_is_leading_bid
+* auction_send_verification
+* auction_bid
+
+Dev functions:
+* dbug: kinda like error_log, but more flexible
 
 */
 
@@ -71,6 +89,7 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 
 	include_once("$dir/lib/custom-fields/archive-page.php");
 	include_once("$dir/lib/custom-fields/archive-post.php");
+	include_once("$dir/lib/custom-fields/auction-artwork.php");
 	include_once("$dir/lib/custom-fields/board.php");
 	include_once("$dir/lib/custom-fields/community.php");
 	include_once("$dir/lib/custom-fields/education.php");
@@ -1024,31 +1043,6 @@ function eyebeam2018_lazy_load() {
 add_action('wp_ajax_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
 add_action('wp_ajax_nopriv_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
 
-// This requires that DBUG_PATH is set in wp-config.php.
-function dbug() {
-	if (empty($GLOBALS['dbug_fh'])) {
-		if (! defined('DBUG_PATH')) {
-			return;
-		}
-		$fh = fopen(DBUG_PATH, "a");
-		$GLOBALS['dbug_fh'] = $fh;
-		$GLOBALS['dbug_start'] = microtime(true);
-		fwrite($fh, "----------------------\n");
-	}
-	$fh = $GLOBALS['dbug_fh'];
-	$sec = microtime(true) - $GLOBALS['dbug_start'];
-	$sec = number_format($sec, 2);
-	$sec = ($sec < 10) ? "0$sec" : $sec;
-	$args = func_get_args();
-	foreach ($args as $arg) {
-		if (! is_scalar($arg)) {
-			$arg = print_r($arg, true);
-			$arg = trim($arg);
-		}
-		fwrite($fh, "[$sec] $arg\n");
-	}
-}
-
 // Update resident links
 function eyebeam2018_db_migration_1() {
 	echo '<pre>';
@@ -1134,12 +1128,440 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 function eyebeam2018_get_menu_by_location( $location ) {
-    if( empty($location) ) return false;
+	if( empty($location) ) return false;
 
-    $locations = get_nav_menu_locations();
-    if( ! isset( $locations[$location] ) ) return false;
+	$locations = get_nav_menu_locations();
+	if( ! isset( $locations[$location] ) ) return false;
 
-    $menu_obj = get_term( $locations[$location], 'nav_menu' );
+	$menu_obj = get_term( $locations[$location], 'nav_menu' );
 
-    return $menu_obj;
+	return $menu_obj;
+}
+
+function auction_verify_id($id) {
+	$bidder = auction_get_bidder_by_id($id);
+	if (! empty($bidder)) {
+		if (! empty($bidder['verified'])) {
+			return 'already-verified';
+		}
+		$bidder['verified'] = true;
+		$option_key = "auction_{$bidder['email']}";
+		update_option($option_key, $bidder, false);
+		return 'verified';
+	}
+	return 'invalid';
+}
+
+function auction_get_bidder_by_id($id) {
+	$id = strtolower($id);
+	if (empty($GLOBALS['auction_bidders'])) {
+		$GLOBALS['auction_bidders'] = auction_load_bidders();
+	}
+	if (empty($GLOBALS['auction_bidders']['id'][$id])) {
+		return null;
+	}
+	return $GLOBALS['auction_bidders']['id'][$id];
+}
+
+function auction_get_bidder_by_email($email) {
+	$email = auction_normalize_email($email);
+	if (empty($GLOBALS['auction_bidders'])) {
+		$GLOBALS['auction_bidders'] = auction_load_bidders();
+	}
+	if (empty($GLOBALS['auction_bidders']['email'][$email])) {
+		return null;
+	}
+	return $GLOBALS['auction_bidders']['email'][$email];
+}
+
+function auction_load_bidders() {
+	global $wpdb;
+
+	$bidders = array(
+		'id' => array(),
+		'email' => array()
+	);
+
+	$results = $wpdb->get_results("
+		SELECT *
+		FROM {$wpdb->prefix}options
+		WHERE option_name LIKE 'auction_%'
+	", OBJECT);
+
+	foreach ($results as $row) {
+		$bidder = unserialize($row->option_value);
+		$id = $bidder['id'];
+		$email = $bidder['email'];
+		$bidders['id'][$id] = $bidder;
+		$bidders['email'][$email] = $bidder;
+	}
+	return $bidders;
+}
+
+function auction_mark_bids_as_verified($id) {
+	global $wpdb;
+
+	$bidders = array(
+		'id' => array(),
+		'email' => array()
+	);
+
+	$results = $wpdb->get_results("
+		SELECT *
+		FROM {$wpdb->prefix}postmeta
+		WHERE meta_key = 'auction_bids'
+	", OBJECT);
+
+	foreach ($results as $row) {
+		$bid = unserialize($row->meta_value);
+		if ($bid['bidder_id'] == $id &&
+		    empty($bid['verified'])) {
+			$bid['verified'] = true;
+			$meta_value = serialize($bid);
+			$wpdb->update("{$wpdb->prefix}postmeta", array(
+				'meta_value' => $meta_value
+			), array(
+				'meta_id' => $row->meta_id
+			));
+		}
+	}
+}
+
+function auction_next_amount() {
+	$current_bid = auction_get_current_bid();
+	$amount = $current_bid['amount'];
+	$bid_increment = auction_bid_increment();
+	$amount = floatval($amount);
+	$amount = ceil(($amount + 1) / $bid_increment) * $bid_increment;
+	echo $amount;
+}
+
+function auction_name() {
+	$name = '';
+	if (! empty($_POST['name'])) {
+		$name = $_POST['name'];
+	} else if (! empty($_SESSION['auction_bidder_id'])) {
+		$bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
+		$name = $bidder['name'];
+	} else if (! empty($_SESSION['auction_name'])) {
+		$name = $_SESSION['auction_name'];
+	}
+	$name = htmlentities($name);
+	echo $name;
+}
+
+function auction_email() {
+	$email = '';
+	if (! empty($_POST['email'])) {
+		$email = $_POST['email'];
+	} else if (! empty($_SESSION['auction_bidder_id'])) {
+		$bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
+		if (! empty($bidder['email'])) {
+			$email = $bidder['email'];
+		}
+	} else if (! empty($_SESSION['auction_email'])) {
+		$email = $_SESSION['auction_email'];
+	}
+	$email = auction_normalize_email($email);
+	$email = htmlentities($email);
+	echo $email;
+}
+
+function auction_phone() {
+	$phone = '';
+	if (! empty($_POST['phone'])) {
+		$phone = $_POST['phone'];
+	} else if (! empty($_SESSION['auction_bidder_id'])) {
+		$bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
+		if (! empty($bidder['phone'])) {
+			$phone = $bidder['phone'];
+		}
+	} else if (! empty($_SESSION['auction_phone'])) {
+		$phone = $_SESSION['auction_phone'];
+	}
+	$phone = htmlentities($phone);
+	echo $phone;
+}
+
+function auction_normalize_email($email) {
+	$email = strtolower($email);
+	$email = trim($email);
+	return $email;
+}
+
+function auction_is_verified($email) {
+	$email = auction_normalize_email($email);
+	$bidder = auction_get_bidder_by_email($email);
+	if (! empty($bidder['verified']) &&
+	    $_SESSION['auction_bidder_id'] == $bidder['id']) {
+		return true;
+	}
+	return false;
+}
+
+function auction_is_leading_bid(&$curr, &$new) {
+	if (floatval($new['max_amount']) > floatval($curr['max_amount'])) {
+		$new['amount'] = $curr['max_amount'] + auction_bid_increment();
+		return true;
+	}
+	if (floatval($new['max_amount']) < floatval($curr['max_amount'])) {
+		return false;
+	}
+	if ($new['created'] < $curr['created']) {
+		$new['amount'] = $curr['amount'];
+		return true;
+	}
+	return false;
+}
+
+function auction_send_verification($email) {
+	global $post;
+
+	$permalink = get_permalink($post->ID);
+	$id = wp_generate_uuid4();
+	$id = str_replace('-', '', $id);
+
+	$email = auction_normalize_email($email);
+	$email_subject = "Confirm your Eyebeam art auction bid!";
+	$email_body = "Hello,
+
+Thank you so much for supporting Eyebeam. Before we can process your auction
+bid, we just need you to confirm your email address. Please click on the link
+below and you'll be all set.
+
+$permalink?v=$id
+
+You only need to verify your email address the first time you bid (per browser).
+
+<3
+Thank you!
+";
+	auction_send_mail($email, $email_subject, $email_body);
+
+	return $id;
+}
+
+function auction_current_bid() {
+	$bid = auction_get_current_bid();
+	$amount = floatval($bid['amount']);
+	$amount = number_format($amount, 2);
+	if (substr($amount, -3, 3) == '.00') {
+		$amount = substr($amount, 0, -3);
+	}
+	if (! empty($bid['bidder_id'])) {
+		$bidder = auction_get_bidder_by_id($bid['bidder_id']);
+		$name = $bidder['name'];
+	}
+	if (empty($name)) {
+		$name = $bid['name'];
+	}
+	if (empty($bid['verified']) &&
+	    (empty($_GET['v']) ||
+	    $_GET['v'] != $bid['bidder_id'])) {
+		//$name .= " (pending email verification)";
+	}
+
+	$amount = htmlentities($amount);
+	$name = htmlentities($name);
+
+	echo "\$$amount by $name";
+}
+
+function auction_post_feedback() {
+	$feedback = array();
+	$current_bid = auction_get_current_bid();
+	if (empty($_POST['name'])) {
+		$feedback[] = 'Please include a name.';
+	} else {
+		$_SESSION['auction_name'] = $_POST['name'];
+	}
+	if (empty($_POST['email'])) {
+		$feedback[] = 'Please include an email address.';
+	} else {
+		$_SESSION['auction_email'] = $_POST['email'];
+	}
+	if (empty($_POST['phone'])) {
+		$feedback[] = 'Please include a phone number.';
+	} else {
+		$_SESSION['auction_phone'] = $_POST['phone'];
+	}
+	if (empty($_POST['amount'])) {
+		$feedback[] = 'Please include a bid amount.';
+	}
+	if (floatval($_POST['amount']) <= floatval($current_bid['amount'])) {
+		$feedback[] = 'Please bid an amount greater than the current bid.';
+	}
+	return $feedback;
+}
+
+function auction_check_id($id) {
+	$feedback = array();
+	$id = strtolower($id);
+	$is_verified = auction_verify_id($id);
+
+	if ($is_verified == 'verified') {
+		auction_mark_bids_as_verified($id);
+		$_SESSION['auction_bidder_id'] = $id;
+		$feedback[] = "Your email address has been verified, thank you!";
+	} else if ($is_verified == 'invalid') {
+		$feedback[] = "Sorry, we could not verify your email address.";
+	}
+	return $feedback;
+}
+
+function auction_bid_increment() {
+	return 100;
+}
+
+function auction_get_current_bid() {
+	global $post;
+	$minimum_bid = array(
+		'minimum_bid' => true,
+		'amount' => get_field('minimum_bid') - auction_bid_increment(),
+		'max_amount' => get_field('minimum_bid') - auction_bid_increment()
+	);
+	$current_bid = $minimum_bid;
+	$bids = get_post_meta($post->ID, 'auction_bids');
+
+	// most recent first
+	usort($bids, function($a, $b) {
+		if ($a['created'] > $b['created']) {
+			return -1;
+		} else if ($a['created'] < $b['created']) {
+			return 1;
+		}
+		return 0;
+	});
+
+	// only take the most recent by a given bidder (dedupe)
+	$bidders = array();
+	$bids = array_filter($bids, function($item) use (&$bidders) {
+		$email = auction_normalize_email($item['email']);
+		if (empty($bidders[$email])) {
+			$bidders[$email] = true;
+			return true;
+		}
+		return false;
+	});
+
+	// oldest first
+	usort($bids, function($a, $b) {
+		if ($a['created'] > $b['created']) {
+			return 1;
+		} else if ($a['created'] < $b['created']) {
+			return -1;
+		}
+		return 0;
+	});
+
+	foreach ($bids as $bid) {
+		if (auction_is_leading_bid($current_bid, $bid)) {
+			$current_bid = $bid;
+		}
+	}
+	return $current_bid;
+}
+
+function auction_create_bid() {
+	global $post;
+
+	$feedback = array();
+
+	$name = $_POST['name'];
+	$email = auction_normalize_email($_POST['email']);
+	$phone = $_POST['phone'];
+	$verified = auction_is_verified($email);
+
+	$new_bid = array(
+		'bidder_id' => null,
+		'name' => $name,
+		'email' => $email,
+		'phone' => $phone,
+		'amount' => floatval($_POST['amount']),
+		'max_amount' => floatval($_POST['amount']),
+		'ip_addr' => $_SERVER['REMOTE_ADDR'],
+		'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+		'verified' => $verified,
+		'created' => current_time('mysql')
+	);
+
+	if (! empty($_SESSION['auction_bidder_id'])) {
+		$bidder = auction_get_bidder_by_id($_SESSION['auction_bidder_id']);
+		if (! empty($bidder)) {
+			$new_bid['bidder_id'] = $_SESSION['auction_bidder_id'];
+			$feedback[] = "We've received your bid, thank you!";
+		} else {
+			$_SESSION['auction_bidder_id'] = null;
+		}
+	}
+
+	if (empty($new_bid['bidder_id'])) {
+		$bidder_id = auction_send_verification($email);
+		$new_bid['bidder_id'] = $bidder_id;
+		$option_key = "auction_$email";
+		update_option($option_key, array(
+			'id' => $bidder_id,
+			'name' => $name,
+			'email' => $email,
+			'phone' => $phone,
+			'verified' => false
+		), false);
+		$feedback[] = "We've received your bid, but must confirm your email address before it will be counted.";
+	}
+	$url = get_permalink($post->ID);
+	$amount = floatval($_POST['amount']);
+	$amount = number_format($amount);
+	$email_subject = "Thank you for your auction bid!";
+	$email_body = "Hi $name,
+
+We've received your bid on $post->post_title's artist experience, with
+a maximum bid amount of $$amount.
+
+Here is a link to the auction page:
+$url
+
+<3
+Thank you for your support!";
+	auction_send_mail($email, $email_subject, $email_body);
+
+	$url = get_permalink($post->ID);
+	$email = 'give@eyebeam.org';
+	$email_subject = "Auction: {$new_bid['amount']} bid from $name";
+	$email_body = "New bid on $post->post_title's artist experience:\n$url\n\n" . print_r($new_bid, true);
+	auction_send_mail($email, $email_subject, $email_body);
+
+	add_post_meta($post->ID, 'auction_bids', $new_bid);
+	return $feedback;
+}
+
+function auction_send_mail($to, $subject, $body) {
+	if (! defined('DO_NOT_SEND_EMAIL')) {
+		$email_from = "Eyebeam <give@eyebeam.org>";
+		$headers = "From: $email_from\r\n";
+		wp_mail($to, $subject, $body, $headers);
+	} else {
+		dbug("Email to: $to
+Subject: $subject
+$body");
+	}
+}
+
+if (! function_exists('dbug')) {
+
+	// A simple debugging function, for logging variables regardless of type.
+	// Usage: dbug($object, $array, $string);
+	// (20190529/dphiffer)
+
+	function dbug() {
+		$args = func_get_args();
+		$out = array();
+		foreach ($args as $arg) {
+			if (! is_scalar($arg)) {
+				$arg = print_r($arg, true);
+			}
+			$out[] = $arg;
+		}
+		$out = implode("\n", $out);
+		error_log("\n$out");
+	}
 }

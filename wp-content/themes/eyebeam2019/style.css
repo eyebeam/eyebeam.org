@@ -19,6 +19,7 @@ Contents (breakpoints are mobile-first):
 * Donate
 * Sponsors
 * Press
+* Auction
 
 */
 /* -------------------------------------------------------------------------- */
@@ -266,6 +267,10 @@ form.error .response-error {
     padding: 0;
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dfb96ca19ec4d5b3555bde6f08f474023c3bff6f
 /* -------------------------------------------------------------------------- */
 /* Header */
 header {
@@ -2641,6 +2646,11 @@ hr.wp-block-separator, hr {
     padding-bottom: 30px;
   }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dfb96ca19ec4d5b3555bde6f08f474023c3bff6f
 /* -------------------------------------------------------------------------- */
 /* Press */
 .press h2 {
@@ -2803,6 +2813,7 @@ table.ui-datepicker-calendar thead {
 }
 
 @media (min-width: 857px) {
+<<<<<<< HEAD
   .press {
     font-size: 1.2rem;
     line-height: 1.5rem;
@@ -2851,3 +2862,210 @@ table.ui-datepicker-calendar thead {
 }
 
 /*# sourceMappingURL=style.css.map */
+=======
+
+	.press {
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+	}
+
+	.press h2 {
+		font-size: 48px;
+		line-height: 1em;
+		margin-bottom: 2rem;
+	}
+
+	.press-main {
+		width: calc(100% - 10px);
+		padding: 1rem 0 1rem 0;
+	}
+
+	.press-main ul {
+		width: calc(8.333% * 8);
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.press-sidebar {
+		float: right;
+		width: calc(33.33% - 10px);
+		margin: 0 0 0 10px;
+	}
+
+	.press-release {
+		width: calc(50% - 1rem);
+	}
+
+	.press-recent ul {
+		width: calc(8.333% * 7);
+		columns: 2;
+	}
+	.press-recent li {
+		page-break-inside: avoid;
+	}
+
+	.press .clear {
+		display: block;
+	}
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* Auction */
+
+.auction-list .module-two_thirds {
+	padding-left: 0;
+	padding-top: 0;
+}
+
+.auction-artwork {
+	padding-top: 40px;
+}
+
+.auction-artwork:first-child {
+	padding-top: 0;
+}
+
+.auction-artwork .module-title {
+	color: rgb(255, 0, 0);
+	line-height: 0.8em;
+	padding-bottom: 10px;
+}
+
+.auction-artwork h4 {
+	font-weight: bold;
+	color: #fff;
+	margin-left: -10px;
+	padding: 5px 0 5px 10px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.auction-artwork h3 {
+	margin-bottom: 10px;
+}
+
+.auction-description {
+	margin-top: 20px;
+	font-weight: 800;
+}
+
+.auction-artwork-artist-bio {
+	border-left: 10px solid rgb(255, 0, 0);
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+
+.auction-artwork-artist-bio h4 {
+	background: rgb(255, 0, 0);
+}
+
+.auction-artwork-description {
+	border-left: 10px solid rgb(0, 0, 255);
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+
+.auction-artwork-description h4 {
+	background: rgb(0, 0, 255);
+}
+
+.auction-artwork p {
+	margin-top: 1em;
+	font-weight: normal;
+	line-height: 1.33em;
+}
+
+.auction-bids {
+	border-left: 10px solid rgb(0, 255, 0);
+	padding-left: 10px;
+	font-weight: normal;
+}
+
+.auction-bids h4 {
+	background: rgb(0, 255, 0);
+	color: #000;
+}
+
+.auction-bids .help {
+	font-size: 0.75rem;
+	margin-top: 5px;
+}
+
+.auction-bids fieldset {
+	margin-bottom: 20px;
+}
+
+.auction-bids label {
+	display: block;
+	margin-top: 15px;
+}
+
+.auction-bids input[type="text"],
+.auction-bids input[type="number"],
+.auction-bids input[type="email"] {
+	font-family: "EyebeamSans", sans-serif;
+	border: 1px solid #231F20;
+	background: transparent;
+	padding: 10px;
+	font-size: 1.5rem;
+	margin-top: 5px;
+	max-width: 300px;
+	width: 100%;
+}
+
+.auction-bids button {
+	padding: 10px;
+	border: 1px solid #231F20;
+	font-family: "EyebeamSans", sans-serif;
+	font-size: 1.5rem;
+	background: rgb(0, 255, 0);
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.auction-bids .bid-amount {
+	position: relative;
+}
+
+.auction-bids .bid-amount input {
+	padding-left: 25px;
+}
+
+.auction-bids .bid-amount::before {
+	position: absolute;
+	content: "$";
+	top: 23px;
+	left: 10px;
+	font-family: "EyebeamSans", sans-serif;
+	font-size: 1.5rem;
+}
+
+.auction-bids .current-bid {
+	margin-top: 10px;
+}
+
+.auction-feedback {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background: rgb(0, 255, 0);
+	padding: 10px 20px 15px 20px;
+}
+
+.auction-feedback li {
+	margin-top: 10px;
+}
+
+@media (min-width: 857px) {
+
+	.auction-list .module-two_thirds {
+		padding-top: 17px;
+	}
+
+	.auction-bids .bid-amount::before {
+		top: 15px;
+	}
+
+}
+>>>>>>> dfb96ca19ec4d5b3555bde6f08f474023c3bff6f
