@@ -70,13 +70,13 @@ if ($show_date == 'show') {
 if (! empty(get_field('button_text'))){
 	$button_text = get_field('button_text');
 	$button_url = get_field('button_url');
-}
+
 echo "<a class=\"btn\" href=\"$button_url\">\n";
 echo $button_text;
 echo "</a>\n";
 echo "</div>";
 echo "<div class=\"post-content\">\n";
-
+}
 
 echo "</div>\n";
 
