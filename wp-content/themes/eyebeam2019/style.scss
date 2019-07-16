@@ -156,6 +156,11 @@ a.btn {
  }
 }
 
+a:focus {
+outline: 2px solid rgba(0,255,0);
+
+}
+
 .toggle-bio.img:hover + h3 a {
 	background: rgb(0,255,0);
 }
@@ -197,7 +202,6 @@ form .response-error {
 	color: #fff;
 	text-align: center;
 	width: 100%;
-	max-width: 420px;
 }
 
 form.loading .response-loading,
@@ -325,6 +329,8 @@ header h1 {
 header .mobile-logo {
 	padding: 1rem;
 }
+
+
 
 header .mobile-logo a:hover {
 	background: none;
@@ -1799,6 +1805,16 @@ Carousel
 .swiper-button-prev {
 	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FFFFFF'%2F%3E%3C%2Fsvg%3E");
 
+}
+
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+	outline: 2px rgb(0,255,0);
+
+}
+
+input:focus {
+	outline: 2px solid rgb(0,255,0);
 }
 
 @media (min-width: 857px){
