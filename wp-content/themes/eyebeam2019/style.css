@@ -1993,7 +1993,8 @@ Events
   .module-collection .bio {
     margin-top: 0.5rem;
     transition: all 0.3s ease-out;
-    max-height: 400px;
+    overflow: hidden;
+    height: 0;
   }
 
   .module-collection .staff {
