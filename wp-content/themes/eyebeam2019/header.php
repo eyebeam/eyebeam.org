@@ -21,18 +21,18 @@
 	<body <?php body_class(); ?>>
 		<header>
 			<div class="mobile-logo">
-				<a href="/" alt="Eyebeam" title="Eyebeam">
+				<a tabindex="0" href="/" alt="Eyebeam" title="Eyebeam">
 					<img role="banner" src="<?php eyebeam2018_img_src('img/eyebeam_logo.svg'); ?>" alt="Eyebeam" title="Eyebeam" />
 				</a>
 			</div>
 			<nav role="navigation">
 
 				<div class="mobile-label">
-					<a class="btn-anchor" aria-label="Click this button to expand the menu" href="#">
-					Click to show menu
+					<a tabindex="1" class="btn-anchor" aria-label="Click this Button to Show the Menu" href="#">
+					Click to Show the Menu
 				</a>
 				<div class="menu-btn">
-					<a class="btn-anchor" aria-label="Click this button to expand the menu" href="#"></a>
+					<a class="btn-anchor-icon" aria-label="Click this button to Show the Menu" href="#"></a>
 				</div>
 				</div>
 

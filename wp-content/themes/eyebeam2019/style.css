@@ -19,7 +19,6 @@ Contents (breakpoints are mobile-first):
 * Donate
 * Sponsors
 * Press
-* Auction
 
 */
 /* -------------------------------------------------------------------------- */
@@ -142,7 +141,7 @@ em, i {
 
 a {
   color: #231F20;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a.btn {
@@ -151,6 +150,19 @@ a.btn {
   text-decoration: none;
   padding: 1rem 2rem;
   border: 1px solid #262626;
+}
+
+.toggle-bio a:after {
+  content: "+";
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  left: 0.25rem;
+  transform: translateY(-100%);
+}
+
+.toggle-bio.img:hover + h3 a {
+  background: lime;
 }
 
 a:hover {
@@ -267,10 +279,6 @@ form.error .response-error {
     padding: 0;
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> dfb96ca19ec4d5b3555bde6f08f474023c3bff6f
 /* -------------------------------------------------------------------------- */
 /* Header */
 header {
@@ -467,7 +475,7 @@ body.show-menu header.headroom nav .menu-header-container {
   top: calc(60px + 46px);
 }
 
-body.show-menu header nav {
+body header nav {
   font-size: 1.6rem;
   line-height: 2rem;
   text-align: left;
@@ -1546,8 +1554,8 @@ footer .social {
 
 .module-collection .module-title {
   width: 100%;
-  font-size: 2rem;
-  line-height: 2.25rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
   padding: 1rem 0;
 }
 
@@ -1600,14 +1608,21 @@ h5.post-label, .label {
 }
 
 .module-collection .bio {
-  display: none;
-  padding-bottom: 15px;
+  display: block;
+  overflow: hidden;
+  height: 0;
+  padding-top: 16px;
   font-size: 1.1rem;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
+  -moz-transition: height 300ms ease-out;
+  -webkit-transition: height 300ms ease-out;
 }
 
 .module-collection li.show-bio .bio {
-  display: block;
+  height: auto;
+  hyphens: auto;
+  -moz-transition: height 300ms ease-out;
+  -webkit-transition: height 300ms ease-out;
 }
 
 .module-ideas .ideas-title {
@@ -1737,7 +1752,7 @@ Events
 
 .module-collection h4.module-title {
   font-size: 1.3rem;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
 }
 
 @media (min-width: 857px) {
@@ -1957,10 +1972,6 @@ Events
     width: calc(50% - 1rem);
   }
 
-  .module-collection#module-staff ul {
-    justify-content: left;
-  }
-
   .module-collection h2.module-title {
     width: 100%;
     font-size: 3rem;
@@ -1980,11 +1991,22 @@ Events
   }
 
   .module-collection .bio {
+    margin-top: 0.5rem;
     transition: all 0.3s ease-out;
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+
+  .module-collection .staff {
+    position: relative;
+    transition: height 0.3s ease-out;
   }
 
   .module-collection .staff.show-bio {
-    transition: all 0.3s ease-out;
+    transition: height 0.3s ease-out;
+    background: white;
+    z-index: 200;
+    height: auto;
   }
 
   .support-advisory ul {
@@ -2646,11 +2668,6 @@ hr.wp-block-separator, hr {
     padding-bottom: 30px;
   }
 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> dfb96ca19ec4d5b3555bde6f08f474023c3bff6f
 /* -------------------------------------------------------------------------- */
 /* Press */
 .press h2 {
@@ -2662,6 +2679,12 @@ hr.wp-block-separator, hr {
 .press img {
   width: 100%;
   height: auto;
+}
+
+.press-main,
+.press-sidebar {
+  flex: 1 0 100%;
+  width: 100%;
 }
 
 .press-release {
@@ -2680,12 +2703,13 @@ hr.wp-block-separator, hr {
   margin-top: 1rem;
 }
 
-.press-sidebar {
-  padding: 1rem 0 0 1rem;
-  width: 33.333%;
-  float: right;
+@media (min-width: 857px) {
+  .press-sidebar {
+    padding: 1rem 0 0 1rem;
+    width: 33.333%;
+    float: right;
+  }
 }
-
 .press-sidebar p {
   margin-top: 15px;
 }
@@ -2813,7 +2837,6 @@ table.ui-datepicker-calendar thead {
 }
 
 @media (min-width: 857px) {
-<<<<<<< HEAD
   .press {
     font-size: 1.2rem;
     line-height: 1.5rem;
@@ -2862,210 +2885,3 @@ table.ui-datepicker-calendar thead {
 }
 
 /*# sourceMappingURL=style.css.map */
-=======
-
-	.press {
-		font-size: 1.2rem;
-		line-height: 1.5rem;
-	}
-
-	.press h2 {
-		font-size: 48px;
-		line-height: 1em;
-		margin-bottom: 2rem;
-	}
-
-	.press-main {
-		width: calc(100% - 10px);
-		padding: 1rem 0 1rem 0;
-	}
-
-	.press-main ul {
-		width: calc(8.333% * 8);
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
-
-	.press-sidebar {
-		float: right;
-		width: calc(33.33% - 10px);
-		margin: 0 0 0 10px;
-	}
-
-	.press-release {
-		width: calc(50% - 1rem);
-	}
-
-	.press-recent ul {
-		width: calc(8.333% * 7);
-		columns: 2;
-	}
-	.press-recent li {
-		page-break-inside: avoid;
-	}
-
-	.press .clear {
-		display: block;
-	}
-
-}
-
-/* -------------------------------------------------------------------------- */
-/* Auction */
-
-.auction-list .module-two_thirds {
-	padding-left: 0;
-	padding-top: 0;
-}
-
-.auction-artwork {
-	padding-top: 40px;
-}
-
-.auction-artwork:first-child {
-	padding-top: 0;
-}
-
-.auction-artwork .module-title {
-	color: rgb(255, 0, 0);
-	line-height: 0.8em;
-	padding-bottom: 10px;
-}
-
-.auction-artwork h4 {
-	font-weight: bold;
-	color: #fff;
-	margin-left: -10px;
-	padding: 5px 0 5px 10px;
-	margin-top: 0;
-	margin-bottom: 20px;
-}
-
-.auction-artwork h3 {
-	margin-bottom: 10px;
-}
-
-.auction-description {
-	margin-top: 20px;
-	font-weight: 800;
-}
-
-.auction-artwork-artist-bio {
-	border-left: 10px solid rgb(255, 0, 0);
-	padding-left: 10px;
-	padding-bottom: 20px;
-}
-
-.auction-artwork-artist-bio h4 {
-	background: rgb(255, 0, 0);
-}
-
-.auction-artwork-description {
-	border-left: 10px solid rgb(0, 0, 255);
-	padding-left: 10px;
-	padding-bottom: 20px;
-}
-
-.auction-artwork-description h4 {
-	background: rgb(0, 0, 255);
-}
-
-.auction-artwork p {
-	margin-top: 1em;
-	font-weight: normal;
-	line-height: 1.33em;
-}
-
-.auction-bids {
-	border-left: 10px solid rgb(0, 255, 0);
-	padding-left: 10px;
-	font-weight: normal;
-}
-
-.auction-bids h4 {
-	background: rgb(0, 255, 0);
-	color: #000;
-}
-
-.auction-bids .help {
-	font-size: 0.75rem;
-	margin-top: 5px;
-}
-
-.auction-bids fieldset {
-	margin-bottom: 20px;
-}
-
-.auction-bids label {
-	display: block;
-	margin-top: 15px;
-}
-
-.auction-bids input[type="text"],
-.auction-bids input[type="number"],
-.auction-bids input[type="email"] {
-	font-family: "EyebeamSans", sans-serif;
-	border: 1px solid #231F20;
-	background: transparent;
-	padding: 10px;
-	font-size: 1.5rem;
-	margin-top: 5px;
-	max-width: 300px;
-	width: 100%;
-}
-
-.auction-bids button {
-	padding: 10px;
-	border: 1px solid #231F20;
-	font-family: "EyebeamSans", sans-serif;
-	font-size: 1.5rem;
-	background: rgb(0, 255, 0);
-	cursor: pointer;
-	margin-top: 10px;
-}
-
-.auction-bids .bid-amount {
-	position: relative;
-}
-
-.auction-bids .bid-amount input {
-	padding-left: 25px;
-}
-
-.auction-bids .bid-amount::before {
-	position: absolute;
-	content: "$";
-	top: 23px;
-	left: 10px;
-	font-family: "EyebeamSans", sans-serif;
-	font-size: 1.5rem;
-}
-
-.auction-bids .current-bid {
-	margin-top: 10px;
-}
-
-.auction-feedback {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	background: rgb(0, 255, 0);
-	padding: 10px 20px 15px 20px;
-}
-
-.auction-feedback li {
-	margin-top: 10px;
-}
-
-@media (min-width: 857px) {
-
-	.auction-list .module-two_thirds {
-		padding-top: 17px;
-	}
-
-	.auction-bids .bid-amount::before {
-		top: 15px;
-	}
-
-}
->>>>>>> dfb96ca19ec4d5b3555bde6f08f474023c3bff6f

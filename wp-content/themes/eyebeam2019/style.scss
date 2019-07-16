@@ -131,11 +131,10 @@ em, i {
 
 a {
 	color: #231F20;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
-a:hover {
-}
+
 
 a.btn {
 	margin-top: 1rem;
@@ -144,6 +143,21 @@ a.btn {
 	padding: 1rem 2rem;
 	border: 1px solid #262626;
 
+}
+
+.toggle-bio {
+ a:after {
+	 content: "+";
+	 width: 2rem;
+	 height: 2rem;
+	 position: relative;
+	 left: .25rem;
+	 transform: translateY(-100%);
+ }
+}
+
+.toggle-bio.img:hover + h3 a {
+	background: rgb(0,255,0);
 }
 a:hover {
 	background-color: rgb(0,255,0);
@@ -473,7 +487,7 @@ body.show-menu header.headroom nav .menu-header-container {
 	top: calc(60px + 46px);
 }
 
-body.show-menu header nav {
+body header nav {
 	font-size: 1.6rem;
 	line-height: 2rem;
 	text-align: left;
@@ -1671,8 +1685,8 @@ footer .bottom div {
 
 .module-collection .module-title {
 	width: 100%;
-	font-size: 2rem;
-	line-height: 2.25rem;
+	font-size: 1.6rem;
+line-height: 2rem;
 	padding: 1rem 0;
 }
 
@@ -1725,14 +1739,21 @@ h5.post-label, .label {
 }
 
 .module-collection .bio {
-	display: none;
-	padding-bottom: 15px;
+	display: block;
+	overflow: hidden;
+	height:0;
+	padding-top: 16px;
 	font-size: 1.1rem;
-	line-height: 1.4rem;
+	line-height: 1.6rem;
+	-moz-transition: height 300ms ease-out;
+	-webkit-transition: height 300ms ease-out;
 }
 
 .module-collection li.show-bio .bio {
-	display: block;
+	height: auto;
+	hyphens: auto;
+	-moz-transition: height 300ms ease-out;
+	-webkit-transition: height 300ms ease-out;
 }
 
 .module-ideas .ideas-title {
@@ -1871,7 +1892,7 @@ Events
 
 .module-collection h4.module-title {
 	font-size: 1.3rem;
-	line-height: 1.4rem;
+	line-height: 1.6rem;
 }
 
 @media (min-width: 857px) {
@@ -2103,7 +2124,6 @@ Events
 
 
 	.module-collection#module-staff ul{
-		justify-content: left;
 
 	}
 
@@ -2126,11 +2146,24 @@ Events
 	}
 
 	.module-collection .bio {
+		margin-top: .5rem;
 		transition: all .3s ease-out;
+		max-height: 400px;
+		overflow-y: scroll;
 	}
 
+	.module-collection .staff {
+		position: relative;
+		transition: height .3s ease-out;
+
+	}
+
+
 	.module-collection .staff.show-bio {
-		transition: all .3s ease-out;
+		transition: height .3s ease-out;
+		background: white;
+		z-index: 200;
+		height: auto;
 	}
 
 	.module-collection
@@ -2881,6 +2914,8 @@ hr.wp-block-separator, hr {
 
 .press-main,
 .press-sidebar {
+	flex: 1 0 100%;
+	width: 100%;
 }
 
 .press-release {
@@ -2899,12 +2934,15 @@ hr.wp-block-separator, hr {
 	margin-top: 1rem;
 }
 
-.press-sidebar {
-	padding: 1rem 0 0 1rem;
-	width: 33.333%;
-	float: right;
+	@media (min-width: 857px){
 
-}
+		.press-sidebar {
+			padding: 1rem 0 0 1rem;
+			width: 33.333%;
+			float: right;
+
+		}
+	}
 
 .press-sidebar p {
 	margin-top: 15px;

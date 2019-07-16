@@ -7,7 +7,7 @@ $class = 'module module-collection module-full_width';
 echo "<div id=\"$id\" class=\"$class\">\n";
 
 echo "<h2 class=\"module-title\">$title</h2>\n";
-echo "<ul class=\"$collection_columns\">\n";
+echo "<ul data-columns=\"$collection_columns\" class=\"masonry\">\n";
 
 $posts = get_posts(array(
 	'post_type' => 'staff',

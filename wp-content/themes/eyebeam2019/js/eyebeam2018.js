@@ -165,8 +165,16 @@ var eyebeam2018 = (function($) {
 
 
 		setup_menu: function() {
-			$('.btn-anchor').click(function(e) {
+			$('.btn-anchor, .btn-anchor-icon').click(function(e) {
 				$(document.body).toggleClass('show-menu');
+				if ($(document.body).hasClass('show-menu')){
+					$(".btn-anchor:first-child").attr("aria-label", "Click this Button to Hide the Menu");
+					$(".btn-anchor:first-child").html("Click to Hide the Menu");
+				}
+				else {
+					$(".btn-anchor:first-child").attr("aria-label", "Click this Button to Show the Menu");
+					$(".btn-anchor:first-child").html("Click to Show the Menu");
+				}
 				e.preventDefault();
 			});
 		},
@@ -175,6 +183,7 @@ var eyebeam2018 = (function($) {
 			$('.toggle-bio').click(function(e) {
 				e.preventDefault();
 				$(e.target).closest('li').toggleClass('show-bio');
+				window.macyInstance.recalculate(true);
 				self.align_modules();
 			});
 		},
@@ -867,13 +876,21 @@ var eyebeam2018 = (function($) {
 				console.log('test');
 
 				var columns = $(".masonry").data('columns');
+				console.log(columns);
+
+				var columnSwitch = {
+					"one-column": 1,
+					"two-columns": 2,
+					"three-columns": 3,
+					"four-columns": 4,
+				};
 
 				window.macyInstance = Macy({
 					container: '.masonry',
 					trueOrder: true,
 					waitForImages: true,
 					margin: 36,
-					columns: columns,
+					columns: columnSwitch[columns],
 					breakAt: {
 						 940: 2,
 				 }
