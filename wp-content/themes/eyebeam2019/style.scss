@@ -1749,7 +1749,7 @@ h5.post-label, .label {
 }
 
 .module-collection li.show-bio .bio {
-	max-height: 400px;
+	height: auto;
 	hyphens: auto;
 	-moz-transition: height 300ms ease-out;
 	-webkit-transition: height 300ms ease-out;
