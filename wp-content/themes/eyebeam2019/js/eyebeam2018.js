@@ -873,28 +873,29 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_masonry: function() {
-				console.log('test');
 
-				var columns = $(".masonry").data('columns');
-				console.log(columns);
 
-				var columnSwitch = {
-					"one-column": 1,
-					"two-columns": 2,
-					"three-columns": 3,
-					"four-columns": 4,
-				};
+				$(".masonry").each(function(){
 
-				window.macyInstance = Macy({
-					container: '.masonry',
-					trueOrder: true,
-					waitForImages: true,
-					margin: 36,
-					columns: columnSwitch[columns],
-					breakAt: {
-						 940: 2,
-				 }
+					var columns = $(this).data('columns');
+					console.log("columns");
+					console.log(columns);
+					var selector = $(this).attr("id");
+					console.log(selector);
+
+					window.macyInstance = Macy({
+						container: '#'+selector,
+						trueOrder: true,
+						waitForImages: true,
+						margin: 36,
+						columns: columns,
+						breakAt: {
+							 940: 2,
+					 }
+					});
 				});
+
+
 
 		},
 	};

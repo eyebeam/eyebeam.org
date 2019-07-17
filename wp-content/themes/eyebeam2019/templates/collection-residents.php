@@ -21,8 +21,8 @@ echo "<div id=\"$id\" class=\"$class\">\n";
 
 echo "<h2 class=\"module-title\">$title</h2>\n";
 echo "$years\n";
-$columns = column_map($collection_columns);
-echo "<ul class=\"$collection_columns masonry\" data-columns=\"$columns\">\n";
+$columns = $collection_columns;
+echo "<ul class=\"$collection_columns masonry\" id=\"collection_residents\" data-columns=\"$columns\">\n";
 if ($title == 'Alumni'){
 	$residents = eyebeam2018_get_residents(2017);
 }
