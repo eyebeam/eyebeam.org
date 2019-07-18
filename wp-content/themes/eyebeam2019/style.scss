@@ -341,15 +341,18 @@ header .mobile-logo img {
 }
 
 header #search {
-	display: none;
-	height: 3rem;
+	display: flex;
+	height: 0;
 	margin: 1rem;
 	position: relative;
+
 }
 
 @media (min-width: 857px){
 	header #search {
-		margin: 0 0 1rem 0;
+		margin: 0;
+		overflow: hidden;
+		transition: height 250ms ease-out;
 	}
 
 }
@@ -362,6 +365,8 @@ input {
 
 header #search input {
 	flex: 1 0 auto;
+	padding:0;
+	margin:0;
 	padding-left: 1rem;
 }
 
@@ -408,7 +413,9 @@ header #search button span {
 }
 
 header.show-search #search {
-	display: flex;
+	height: 3rem;
+	margin-bottom: 1rem;
+	transition: height 250ms ease-out;
 }
 
 
