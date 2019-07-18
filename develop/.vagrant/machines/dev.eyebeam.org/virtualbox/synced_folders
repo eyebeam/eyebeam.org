@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/eyebeam.org":{"owner":"www-data","group":"www-data","guestpath":"/var/www/eyebeam.org","hostpath":"/Applications/AMPPS/www/eyebeam.org","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Applications/AMPPS/www/eyebeam.org/develop","disabled":false,"__vagrantfile":true}}}
