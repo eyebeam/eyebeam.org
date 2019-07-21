@@ -340,6 +340,7 @@ header #search {
   height: 0;
   margin: 1rem;
   position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 857px) {
@@ -465,7 +466,9 @@ header nav .support {
 
 header nav div .menu {
   overflow: hidden;
-  display: none;
+  transition: height 250ms ease-out;
+  -moz-transition: height 250ms ease-out;
+  height: 0;
 }
 
 body.show-menu .menu-btn a {
@@ -474,7 +477,8 @@ body.show-menu .menu-btn a {
 }
 
 body.show-menu header nav div .menu {
-  display: block;
+  height: auto;
+  -moz-transition: height 250ms ease-out;
   padding: 0.5rem 0;
   border-bottom: 1px solid #231F20;
   margin: 0 1rem;
@@ -592,6 +596,7 @@ header nav {
 
   header nav div .menu {
     display: flex;
+    height: auto;
   }
 
   .logo-container#left {
@@ -1451,7 +1456,7 @@ footer .social {
   .hero-text {
     margin: 0 auto;
     text-align: left;
-    padding: 2rem 0;
+    padding: 0 0 2rem 0;
     width: 100%;
   }
 
@@ -1496,14 +1501,15 @@ footer .social {
 .module .module-title {
   font-size: 2.5rem;
   line-height: 3rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0rem;
 }
 
 .module .module-subtitle {
   font-size: 2rem;
   line-height: 2.3rem;
   padding-top: 0;
+  padding-bottom: 0.5rem;
 }
 
 .module .module-description {
@@ -1565,7 +1571,7 @@ footer .social {
   width: 100%;
   font-size: 1.6rem;
   line-height: 2rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 .module-collection li {
@@ -1661,6 +1667,7 @@ Carousel
   height: calc(100% / 3);
   overflow-x: hidden;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .carousel-container .swiper-wrapper .swiper-slide a img {
