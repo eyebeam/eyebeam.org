@@ -1,6 +1,3 @@
 [submodule "wp-content/themes/eyebeam2019/lib/swiper"]
 	path = wp-content/themes/eyebeam2019/lib/swiper
 	url = https://github.com/nolimits4web/swiper.git
-[submodule "wp-content/themes/eyebeam2019/lib/lazyload"]
-	path = wp-content/themes/eyebeam2019/lib/lazyload
-	url = https://github.com/verlok/lazyload.git
