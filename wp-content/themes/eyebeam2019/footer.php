@@ -88,6 +88,7 @@
 				</div>
 				<div class="contact">
 					<a href="tel:13473789163" class="phone">+1 347.378.9163</a>
+					<a href="mailto:info@eyebeam.org" class="email">info@eyebeam.org</a>
 					<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a>
 					<a href="https://www.eyebeam.org/">eyebeam.org</a>
 				</div>
