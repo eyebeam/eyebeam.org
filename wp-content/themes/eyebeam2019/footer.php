@@ -10,7 +10,7 @@
 			}
 
 			?>
-			<form action="/wp-admin/admin-ajax.php" method="post" id="subscribe" class="<?php echo $form_class; ?>">
+			<form action="https://eyebeam.us4.list-manage.com/subscribe?u=c72c271895f3f76b36105229c" method="get" id="subscribe" class="<?php echo $form_class; ?>">
 				<h2 class="eyebeam-sans" alt="Subscribe to our Newsletter" title="Subscribe to our Newsletter">
 					Stay Updated
 				</h2>
@@ -26,10 +26,11 @@
 				<div class="response-error">
 					That didn’t work for some reason.
 				</div>
-				<input type="hidden" name="action" value="eyebeam2018_subscribe">
-				<input type="text" name="first_name" placeholder="First Name">
-				<input type="text" name="last_name" placeholder="Last Name">
-				<input type="email" name="email" placeholder="Email">
+				<input type="hidden" name="u" value="c72c271895f3f76b36105229c">
+				<input type="hidden" name="id" value="bb4e74c232">
+				<input type="text" name="MERGE1" placeholder="First Name">
+				<input type="text" name="MERGE2" placeholder="Last Name">
+				<input type="email" name="MERGE0" placeholder="Email">
 				<input type="submit" value="Subscribe">
 			</form>
 			<nav>
