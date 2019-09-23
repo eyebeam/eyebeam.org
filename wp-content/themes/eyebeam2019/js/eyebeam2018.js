@@ -11,7 +11,7 @@ var eyebeam2018 = (function($) {
 
 		init: function() {
 			self.setup_nav();
-			self.setup_subscribe();
+			// self.setup_subscribe();
 			// self.setup_modules();
 			self.setup_random_footer();
 			self.setup_link();
