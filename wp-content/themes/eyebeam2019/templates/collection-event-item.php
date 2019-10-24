@@ -49,9 +49,10 @@ else {
 
 	echo "<li class=\"event collection-item\">\n";
 	echo "<div class=\"item-container\">\n";
-	if (!is_search()){
+	/*if (!is_search()){
 		echo "<h2 class=\"event-dates module-title eyebeam-sans\">$dates</h2>\n";
 	}
+*/
 	echo "$image\n";
 	echo ($label) ?  "<h5 class=\"post-label $label_slug\">$label</h5>" : '';
 	echo ($category_label) ? "<h5>$category_label</h5>" : "";

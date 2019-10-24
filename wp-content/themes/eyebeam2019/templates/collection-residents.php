@@ -5,10 +5,11 @@ extract($GLOBALS['eyebeam2018']['curr_module']);
 $id = "module-alumni";
 $class = 'module module-collection module-full_width';
 
+$query_year = date('Y') + 1;
 $years = '';
 if ($residents_date != 'hide') {
 	$years = array('All');
-	for ($y = (date('Y') + 1); $y > 1999; $y--) {
+	for ($y = ($query_year); $y > 1999; $y--) {
 		$years[] = $y;
 	}
 
@@ -24,10 +25,10 @@ echo "$years\n";
 $columns = $collection_columns;
 echo "<ul class=\"$collection_columns masonry\" id=\"collection_residents\" data-columns=\"$columns\">\n";
 if ($title == 'Alumni'){
-	$residents = eyebeam2018_get_residents(2017);
+	$residents = eyebeam2018_get_residents($query_year);
 }
 else {
-	$residents = eyebeam2018_get_residents();
+	$residents = eyebeam2018_get_residents($query_year);
 }
 
 foreach ($residents as $resident) {
