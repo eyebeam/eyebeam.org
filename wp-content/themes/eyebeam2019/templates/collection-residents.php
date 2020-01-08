@@ -5,7 +5,7 @@ extract($GLOBALS['eyebeam2018']['curr_module']);
 $id = "module-alumni";
 $class = 'module module-collection module-full_width';
 
-$query_year = date('Y') + 1;
+$query_year = date('Y');
 $years = '';
 if ($residents_date != 'hide') {
 	$years = array('All');
