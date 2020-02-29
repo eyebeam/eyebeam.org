@@ -421,11 +421,11 @@ if(function_exists("register_field_group"))
 						'type' => 'select',
 						'column_width' => '',
 						'choices' => array (
-							'two-columns' => '2',
-							'three-columns' => '3',
-							'four-columns' => '4',
-							'five-columns' => '5',
-							'six-columns' => '6',
+							'2' => '2',
+							'3' => '3',
+							'4' => '4',
+							'5' => '5',
+							'6' => '6',
 						),
 						'conditional_logic' => array (
 							'status' => 1,

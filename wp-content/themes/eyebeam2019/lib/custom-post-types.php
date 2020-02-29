@@ -269,3 +269,30 @@ register_post_type('intern', array(
 	'capability_type' => 'post',
 	'rewrite' => array('slug' => 'intern'),
 ));
+
+$labels = array(
+	'name' => 'Auction',
+	'singular_name' => 'Auction Artwork',
+	'add_new' => 'Add New Artwork',
+	'add_new_item' => 'Add Auction Artwork',
+	'edit_item' => 'Edit Auction Artwork',
+	'new_item' => 'New Auction Artwork',
+	'all_items' => 'All Auction Artworks',
+	'view_item' => 'View Auction Artwork',
+	'search_items' => 'Search Auction Artworks',
+	'not_found' =>  'No Auction Artworks Found',
+	'not_found_in_trash' => 'No Auction Artworks found in Trash',
+	'parent_item_colon' => '',
+	'menu_name' => 'Auction',
+);
+register_post_type('auction', array(
+	'labels' => $labels,
+	'has_archive' => true,
+	'public' => true,
+	'query_var' => true,
+	'supports' => array('title', 'editor', 'thumbnail', 'page-attributes', 'custom-fields'),
+	'taxonomies' => array('post_tag', 'category'),
+	'exclude_from_search' => false,
+	'capability_type' => 'post',
+	'rewrite' => array( 'slug' => 'auction' ),
+));

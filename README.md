@@ -2,39 +2,24 @@
 
 eyebeam dot org website.
 
-## Hello, friends
+## Basics
 
-This is the GitHub repo for [eyebeam.org](https://eyebeam.org/), whose motto is
-Technology by Artists. If you want to help us improve the site, please don't
-hesitate to [file new issues](https://github.com/eyebeam/eyebeam.org/issues/)
-or get in touch at [info@eyebeam.org](mailto:info@eyebeam.org).
+* Uses [WordPress](https://wordpress.org/)
+* Hosted by [Dreamhost](https://dreamhost.com/)
+* Cached by [Cloudflare](https://cloudflare.com/)
+* [Custom WordPress theme](https://github.com/eyebeam/eyebeam.org/tree/master/wp-content/themes/eyebeam2019)
+* [Advanced Custom Fields](https://advancedcustomfields.com/) plugin
 
-## Statements of bias
-
-The website is a work in progress and inevitably things will go wrong. We should
-endeavor to deploy working fixes as quickly as possible. We should not go about
-building a perfect, timeless cathedral. Useful mottos include "better than
-yesterday" and "build the simplest, dumbest thing first," and "optimize for
-speed-of-deployment."
+## Open Source Packages
+* [Macy](https://github.com/bigbite/macy.js)
+* [Swiper](https://github.com/nolimits4web/swipe)
+*
 
 ## Credits
 
-This site is built on [WordPress](https://wordpress.org/). The theme was made
-from scratch by [@dphiffer](https://github.com/dphiffer) and designed by
-[@leigler](https://github.com/leigler). Props to Eyebeam staff
-[@joannagould](https://github.com/joannagould),
-[@madpenny](https://github.com/madpenny), and
-[@poohlaga](https://github.com/poohlaga).
+This wordpress theme was built by [Emma Levesque-Schaefer](https://github.com/emmalevesque) after the work of [@dphiffer](https://github.com/dphiffer) and was designbed by [Mother NYC](https://mothernyc.com). Special thanks to Maddie Pinney structuring the website in the beautiful and accessible way that it is.
 
-Also thanks to [@straup](https://github.com/straup) for teaching me the biases
-described above.
 
-## Tech stuff
+## Develop Setup
 
-* We are hosted by [Dreamhost](https://dreamhost.com/)
-* We use [Cloudflare](https://cloudflare.com/) for edge caching
-* [Advanced Custom Fields](https://advancedcustomfields.com/) is an important
-  plugin we use
-* If you're looking to explore how this works, maybe start
-  [here](https://github.com/eyebeam/eyebeam.org/blob/master/wp-content/themes/eyebeam2018/index.php)
-  or view source on the [Eyebeam home page](https://www.eyebeam.org/)
+Coming Very Soon We Promise

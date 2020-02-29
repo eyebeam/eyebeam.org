@@ -141,7 +141,7 @@ em, i {
 
 a {
   color: #231F20;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a.btn {
@@ -150,6 +150,23 @@ a.btn {
   text-decoration: none;
   padding: 1rem 2rem;
   border: 1px solid #262626;
+}
+
+.toggle-bio a:after {
+  content: "+";
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  left: 0.25rem;
+  transform: translateY(-100%);
+}
+
+a:focus {
+  outline: 2px solid lime;
+}
+
+.toggle-bio.img:hover + h3 a {
+  background: lime;
 }
 
 a:hover {
@@ -188,7 +205,6 @@ form .response-error {
   color: #fff;
   text-align: center;
   width: 100%;
-  max-width: 420px;
 }
 
 form.loading .response-loading,
@@ -320,15 +336,18 @@ header .mobile-logo img {
 }
 
 header #search {
-  display: none;
-  height: 3rem;
+  display: flex;
+  height: 0;
   margin: 1rem;
   position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 857px) {
   header #search {
-    margin: 0 0 1rem 0;
+    margin: 0;
+    overflow: hidden;
+    transition: height 250ms ease-out;
   }
 }
 input {
@@ -339,6 +358,8 @@ input {
 
 header #search input {
   flex: 1 0 auto;
+  padding: 0;
+  margin: 0;
   padding-left: 1rem;
 }
 
@@ -386,7 +407,9 @@ header #search button span {
 }
 
 header.show-search #search {
-  display: flex;
+  height: 3rem;
+  margin-bottom: 1rem;
+  transition: height 250ms ease-out;
 }
 
 header .mobile-label {
@@ -443,7 +466,9 @@ header nav .support {
 
 header nav div .menu {
   overflow: hidden;
-  display: none;
+  transition: height 250ms ease-out;
+  -moz-transition: height 250ms ease-out;
+  height: 0;
 }
 
 body.show-menu .menu-btn a {
@@ -452,7 +477,8 @@ body.show-menu .menu-btn a {
 }
 
 body.show-menu header nav div .menu {
-  display: block;
+  height: auto;
+  -moz-transition: height 250ms ease-out;
   padding: 0.5rem 0;
   border-bottom: 1px solid #231F20;
   margin: 0 1rem;
@@ -462,7 +488,7 @@ body.show-menu header.headroom nav .menu-header-container {
   top: calc(60px + 46px);
 }
 
-body.show-menu header nav {
+body header nav {
   font-size: 1.6rem;
   line-height: 2rem;
   text-align: left;
@@ -570,6 +596,7 @@ header nav {
 
   header nav div .menu {
     display: flex;
+    height: auto;
   }
 
   .logo-container#left {
@@ -1429,7 +1456,7 @@ footer .social {
   .hero-text {
     margin: 0 auto;
     text-align: left;
-    padding: 2rem 0;
+    padding: 0 0 2rem 0;
     width: 100%;
   }
 
@@ -1474,14 +1501,15 @@ footer .social {
 .module .module-title {
   font-size: 2.5rem;
   line-height: 3rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0rem;
 }
 
 .module .module-subtitle {
   font-size: 2rem;
   line-height: 2.3rem;
   padding-top: 0;
+  padding-bottom: 0.5rem;
 }
 
 .module .module-description {
@@ -1541,9 +1569,9 @@ footer .social {
 
 .module-collection .module-title {
   width: 100%;
-  font-size: 2rem;
-  line-height: 2.25rem;
-  padding: 1rem 0;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 .module-collection li {
@@ -1595,14 +1623,21 @@ h5.post-label, .label {
 }
 
 .module-collection .bio {
-  display: none;
-  padding-bottom: 15px;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 16px;
   font-size: 1.1rem;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
+  -moz-transition: height 300ms ease-out;
+  -webkit-transition: height 300ms ease-out;
 }
 
 .module-collection li.show-bio .bio {
-  display: block;
+  height: auto;
+  hyphens: auto;
+  -moz-transition: height 300ms ease-out;
+  -webkit-transition: height 300ms ease-out;
 }
 
 .module-ideas .ideas-title {
@@ -1632,6 +1667,7 @@ Carousel
   height: calc(100% / 3);
   overflow-x: hidden;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .carousel-container .swiper-wrapper .swiper-slide a img {
@@ -1647,6 +1683,15 @@ Carousel
 .swiper-container-rtl .swiper-button-prev,
 .swiper-button-prev {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FFFFFF'%2F%3E%3C%2Fsvg%3E");
+}
+
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+  outline: 2px lime;
+}
+
+input:focus {
+  outline: 2px solid lime;
 }
 
 @media (min-width: 857px) {
@@ -1732,7 +1777,7 @@ Events
 
 .module-collection h4.module-title {
   font-size: 1.3rem;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
 }
 
 @media (min-width: 857px) {
@@ -1960,10 +2005,6 @@ Events
   -moz-columns: 3;
   }
 
-  .module-collection#module-staff ul {
-    justify-content: left;
-  }
-
   .module-collection h2.module-title {
     width: 100%;
     font-size: 3rem;
@@ -1983,11 +2024,22 @@ Events
   }
 
   .module-collection .bio {
+    margin-top: 0.5rem;
     transition: all 0.3s ease-out;
+    overflow: hidden;
+    height: 0;
+  }
+
+  .module-collection .staff {
+    position: relative;
+    transition: height 0.3s ease-out;
   }
 
   .module-collection .staff.show-bio {
-    transition: all 0.3s ease-out;
+    transition: height 0.3s ease-out;
+    background: white;
+    z-index: 200;
+    height: auto;
   }
 
   .support-advisory ul {
@@ -2662,6 +2714,12 @@ hr.wp-block-separator, hr {
   height: auto;
 }
 
+.press-main,
+.press-sidebar {
+  flex: 1 0 100%;
+  width: 100%;
+}
+
 .press-release {
   margin-top: 20px;
 }
@@ -2678,12 +2736,13 @@ hr.wp-block-separator, hr {
   margin-top: 1rem;
 }
 
-.press-sidebar {
-  padding: 1rem 0 0 1rem;
-  width: 33.333%;
-  float: right;
+@media (min-width: 857px) {
+  .press-sidebar {
+    padding: 1rem 0 0 1rem;
+    width: 33.333%;
+    float: right;
+  }
 }
-
 .press-sidebar p {
   margin-top: 15px;
 }

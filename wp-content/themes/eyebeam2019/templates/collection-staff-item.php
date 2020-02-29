@@ -14,8 +14,8 @@ if (! empty($image_id)) {
 }
 
 echo "<li class=\"staff\">\n";
-echo "<a href=\"#\">$image</a>\n";
-echo "<h3 class=\"staff-name module-title toggle-bio\"><a href=\"#\">$name</a></h3>\n";
+echo "<a href=\"#\" class=\"toggle-bio img\">$image</a>\n";
+echo "<h3 class=\"staff-name module-title toggle-bio\"><a aria-label=\"Click Here to Toggle Their Bio\" href=\"#\">$name</a></h3>\n";
 echo "<h4 class=\"staff-title person-title module-title\">$title</h4>\n";
 echo "<div class=\"bio staff-bio\">$bio</div>\n";
 echo "</li>\n";

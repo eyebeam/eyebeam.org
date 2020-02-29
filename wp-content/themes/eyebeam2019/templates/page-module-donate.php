@@ -1,4 +1,3 @@
 <li id="module-donate" class="module module-donate module-one_third">
-	<script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe src="https://donorbox.org/embed/eyebeam" height="685px" width="100%" style="max-width:500px; min-width:310px; max-height:none!important" seamless="seamless" name="donorbox" frameborder="0" scrolling="no" allowpaymentrequest></iframe>
+	<iframe width="300" height="500" src= "https://www.mightycause.com/forms/Eyebeam?embed=donation_widget" scrolling="no" marginHeight="0" marginWidth="0" frameBorder="0" ></iframe>
 </li>
-

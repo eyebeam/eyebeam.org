@@ -20,16 +20,18 @@ if ($media){
 		}
 	}
 }
+echo "</div>";
+
+echo "<div class=\"post-content\">\n";
 
 
-
+do_action('pre-post_content');
 
 echo $GLOBALS['eyebeam2018']['post_content'];
 
+do_action('post-post_content');
+
 // find related projects
-
-
-
 
 echo "</div>\n";
 echo "</div>\n";

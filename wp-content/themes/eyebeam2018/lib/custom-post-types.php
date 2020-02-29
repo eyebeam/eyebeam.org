@@ -1,5 +1,4 @@
 <?php
-
 $labels = array(
 	'name' => 'Residents',
 	'singular_name' => 'Resident',

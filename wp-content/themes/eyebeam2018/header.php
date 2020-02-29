@@ -30,7 +30,7 @@
 				));
 
 				?>
-				<a href="/donate/" class="support red">Support Eyebeam!</a>
+				<a href="/support/" class="support red">Support Eyebeam</a>
 			</nav>
 			<form id="search" action="/" method="GET">
 				<input type="text" name="s"/>

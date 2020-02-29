@@ -6,10 +6,11 @@ extract($GLOBALS['eyebeam2018']['curr_module']);
 $id = "module-alumni";
 $class = 'module module-collection module-full_width';
 
+$query_year = date('Y');
 $years = '';
 if ($residents_date != 'hide') {
 	$years = array('All');
-	for ($y = date('Y'); $y > 1999; $y--) {
+	for ($y = ($query_year); $y > 1999; $y--) {
 		$years[] = $y;
 	}
 

@@ -11,7 +11,7 @@ var eyebeam2018 = (function($) {
 
 		init: function() {
 			self.setup_nav();
-			self.setup_subscribe();
+			// self.setup_subscribe();
 			// self.setup_modules();
 			self.setup_random_footer();
 			self.setup_link();
@@ -165,8 +165,16 @@ var eyebeam2018 = (function($) {
 
 
 		setup_menu: function() {
-			$('.btn-anchor').click(function(e) {
+			$('.btn-anchor, .btn-anchor-icon').click(function(e) {
 				$(document.body).toggleClass('show-menu');
+				if ($(document.body).hasClass('show-menu')){
+					$(".btn-anchor:first-child").attr("aria-label", "Click this Button to Hide the Menu");
+					$(".btn-anchor:first-child").html("Click to Hide the Menu");
+				}
+				else {
+					$(".btn-anchor:first-child").attr("aria-label", "Click this Button to Show the Menu");
+					$(".btn-anchor:first-child").html("Click to Show the Menu");
+				}
 				e.preventDefault();
 			});
 		},
@@ -175,6 +183,7 @@ var eyebeam2018 = (function($) {
 			$('.toggle-bio').click(function(e) {
 				e.preventDefault();
 				$(e.target).closest('li').toggleClass('show-bio');
+				window.macyInstance.recalculate(true);
 				self.align_modules();
 			});
 		},
@@ -337,8 +346,8 @@ var eyebeam2018 = (function($) {
 			$(".search-btn").live('click', function(event){
 				console.log('clicked');
 				$("header").toggleClass("show-search");
-
 			});
+			event.preventDefault();
 		},
 
 		archive_scroll: function() {
@@ -864,20 +873,29 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_masonry: function() {
-				console.log('test');
 
-				var columns = $(".masonry").data('columns');
 
-				window.macyInstance = Macy({
-					container: '.masonry',
-					trueOrder: true,
-					waitForImages: true,
-					margin: 36,
-					columns: columns,
-					breakAt: {
-						 940: 2,
-				 }
+				$(".masonry").each(function(){
+
+					var columns = $(this).data('columns');
+					console.log("columns");
+					console.log(columns);
+					var selector = $(this).attr("id");
+					console.log(selector);
+
+					window.macyInstance = Macy({
+						container: '#'+selector,
+						trueOrder: true,
+						waitForImages: true,
+						margin: 36,
+						columns: columns,
+						breakAt: {
+							 940: 2,
+					 }
+					});
 				});
+
+
 
 		},
 	};

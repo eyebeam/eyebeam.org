@@ -10,7 +10,7 @@
 			}
 
 			?>
-			<form action="/wp-admin/admin-ajax.php" method="post" id="subscribe" class="<?php echo $form_class; ?>">
+			<form action="https://eyebeam.us4.list-manage.com/subscribe?u=c72c271895f3f76b36105229c" method="get" id="subscribe" class="<?php echo $form_class; ?>">
 				<h2 class="eyebeam-sans" alt="Subscribe to our Newsletter" title="Subscribe to our Newsletter">
 					Stay Updated
 				</h2>
@@ -26,10 +26,11 @@
 				<div class="response-error">
 					That didn’t work for some reason.
 				</div>
-				<input type="hidden" name="action" value="eyebeam2018_subscribe">
-				<input type="text" name="first_name" placeholder="First Name">
-				<input type="text" name="last_name" placeholder="Last Name">
-				<input type="email" name="email" placeholder="Email">
+				<input type="hidden" name="u" value="c72c271895f3f76b36105229c">
+				<input type="hidden" name="id" value="bb4e74c232">
+				<input type="text" name="MERGE1" placeholder="First Name">
+				<input type="text" name="MERGE2" placeholder="Last Name">
+				<input type="email" name="MERGE0" placeholder="Email">
 				<input type="submit" value="Subscribe">
 			</form>
 			<nav>
@@ -83,11 +84,12 @@
 			<div class="bottom">
 				<div class="address">
 					199 Cook St<br />
-					Brooklyn, NY 11206<br />
+					Brooklyn,  NY 11206<br />
 					<a href="https://www.google.com/maps/search/?api=1&query=199+Cook+St,+Brooklyn,+NY+11206">View on Map</a>
 				</div>
 				<div class="contact">
 					<a href="tel:13473789163" class="phone">+1 347.378.9163</a>
+					<a href="mailto:info@eyebeam.org" class="email">info@eyebeam.org</a>
 					<a href="https://twitter.com/eyebeamnyc">@eyebeamnyc</a>
 					<a href="https://www.eyebeam.org/">eyebeam.org</a>
 				</div>

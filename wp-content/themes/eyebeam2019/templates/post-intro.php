@@ -63,7 +63,7 @@ if ($show_date == 'show') {
 			$end_date = date('F j, Y', strtotime($end_date));
 			$dates = "$start_date&ndash;$end_date";
 		}
-		echo "<h3 class=\"event-dates\">$dates</h3>\n";
+		//echo "<h3 class=\"event-dates\">$dates</h3>\n";
 	}
 }
 
@@ -77,7 +77,7 @@ echo "</a>\n";
 }
 echo "</div>";
 echo "<div class=\"post-content\">\n";
-
+}
 
 echo "</div>\n";
 
