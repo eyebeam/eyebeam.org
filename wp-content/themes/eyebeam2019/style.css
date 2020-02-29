@@ -1900,10 +1900,10 @@ Events
   }
 
   .module-collection li {
-    float: left;
-    width: calc(50% - 1rem);
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+    /* float: left; */
+    /* width: calc(50% - 1rem); */
+    /* margin-bottom: 1rem; */
+    /* margin-right: 1rem; */
   }
 
   .module-collection#module-alumni .five-columns li:nth-child(5n) {
@@ -1935,21 +1935,29 @@ Events
   		margin-left: 1vw;
   	}
   */
-  .module-collection .five-columns li {
-    width: calc(20% - 1.6rem);
+  .module-collection .five-columns {
+    columns: 5;
+  -webkit-columns: 5;
+  -moz-columns: 5;
   }
 
-  .module-collection .four-columns li,
-.module-collection div .four-columns li {
-    width: calc(25% - 1rem);
+  .module-collection .four-columns,
+  .module-collection div .four-columns {
+    columns: 4;
+  -webkit-columns: 4;
+  -moz-columns: 4;
   }
 
-  .module-collection .three-columns li {
-    width: calc(33% - 1rem);
+  .module-collection .three-columns {
+    columns: 3;
+  -webkit-columns: 3;
+  -moz-columns: 3;
   }
 
-  .module-collection .two-columns li {
-    width: calc(50% - 1rem);
+  .module-collection .two-columns{
+    columns: 3;
+  -webkit-columns: 3;
+  -moz-columns: 3;
   }
 
   .module-collection#module-staff ul {
@@ -2175,7 +2183,7 @@ Events
   }
 
   .resident {
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
   }
 
   .resident-name,

@@ -372,10 +372,12 @@ function eyebeam2018_get_related_readings($postid = null) {
 }
 
 // Returns an array of resident posts for a given year
-function eyebeam2018_get_residents($year = null) {
-
-	if (empty($year)) {
-		$year = date('Y');
+function eyebeam2018_get_residents($start_year = null, $end_year = null) {
+	if (empty($start_year)) {
+		$start_year = date('Y')-1;
+	}
+	if (empty($end_year)) {
+		$end_year = date('Y');
 	}
 
 	$args = array(
@@ -386,17 +388,18 @@ function eyebeam2018_get_residents($year = null) {
 	);
 
 	if (strtolower($year) != 'all') {
-		$year = intval($year);
+		$start_year = intval($start_year);
+		$end_year = intval($end_year);
 		$args['meta_query'] = array(
 			'relation' => 'AND',
 			'start_clause' => array(
 				'key'=> 'start_year',
-				'value'=> $year,
+				'value'=> $start_year,
 				'compare'=> '<='
 			),
 			'end_clause' => array(
 				'key'=> 'end_year',
-				'value' => $year,
+				'value' => $end_year,
 				'compare'=> '>='
 			),
 		);
