@@ -74,6 +74,7 @@ if (! empty(get_field('button_text'))){
 echo "<a class=\"btn\" href=\"$button_url\">\n";
 echo $button_text;
 echo "</a>\n";
+}
 echo "</div>";
 echo "<div class=\"post-content\">\n";
 }

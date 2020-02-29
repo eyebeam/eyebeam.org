@@ -196,33 +196,33 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_residents: function() {
-			if ($('#residents-year select').length < 1) {
-				return;
-			}
+			// if ($('#residents-year select').length < 1) {
+			// 	return;
+			// }
 
-			var select = $('#residents-year select')[0];
-
-			// choose the second option (the current year)
-			var first_year = select.options[1].value;
-			$('#residents-year select').val(first_year);
-
-			$('#residents-year select').change(function(e) {
-				console.log('year changed');
-				var year = $('#residents-year select').val();
-				var path = '/wp-admin/admin-ajax.php';
-				var args = '?action=eyebeam2018_residents&year=' + year;
-				$('#module-alumni ul').html('Loading...');
-				$('#module-alumni ul').addClass('loading');
-				$.get(path + args, function(rsp) {
-					console.log(rsp);
-					$('#module-alumni ul').removeClass('loading');
-					$('#module-alumni ul').html(rsp);
-					window.macyInstance.runOnImageLoad(function(){
-						window.macyInstance.recalculate(true);
-					});
-					self.setup_bio_toggle();
-				});
-			});
+			// var select = $('#residents-year select')[0];
+			//
+			// // choose the second option (the current year)
+			// var first_year = select.options[1].value;
+			// $('#residents-year select').val(first_year);
+			//
+			// $('#residents-year select').change(function(e) {
+			// 	console.log('year changed');
+			// 	var year = $('#residents-year select').val();
+			// 	var path = '/wp-admin/admin-ajax.php';
+			// 	var args = '?action=eyebeam2018_residents&year=' + year;
+			// 	$('#module-alumni ul').html('Loading...');
+			// 	$('#module-alumni ul').addClass('loading');
+			// 	$.get(path + args, function(rsp) {
+			// 		console.log(rsp);
+			// 		$('#module-alumni ul').removeClass('loading');
+			// 		$('#module-alumni ul').html(rsp);
+			// 		window.macyInstance.runOnImageLoad(function(){
+			// 			window.macyInstance.recalculate(true);
+			// 		});
+			// 		self.setup_bio_toggle();
+			// 	});
+			// });
 		},
 
 		setup_archive: function() {

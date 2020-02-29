@@ -13,7 +13,8 @@ $event_timing = null;
 $collection = null;
 $collection_post_limit = null;
 $collection_columns = null;
-$residents_date = null;
+$residents_start_year = null;
+$residents_end_year = null;
 $text_layout = null;
 $video_layout = null;
 $toc_status = null;
@@ -80,8 +81,11 @@ if (! empty(get_sub_field('collection_columns'))) {
 	$collection_columns = get_sub_field('collection_columns');
 }
 
-if (! empty(get_sub_field('residents_date'))) {
-	$residents_date = get_sub_field('residents_date');
+if (! empty(get_sub_field('residents_start_year'))) {
+	$residents_start_year = get_sub_field('residents_start_year');
+}
+if (! empty(get_sub_field('residents_end_year'))) {
+	$residents_end_year = get_sub_field('residents_end_year');
 }
 
 if (! empty(get_sub_field('video_layout'))) {
@@ -143,7 +147,8 @@ eyebeam2018_module(array(
 	'collection' => $collection,
 	'collection_post_limit' => $collection_post_limit,
 	'collection_columns' => $collection_columns,
-	'residents_date' => $residents_date,
+	'residents_start_year' => $residents_start_year,
+	'residents_end_year' => $residents_end_year,
 	'video_layout' => $video_layout,
 	'text_layout' => $text_layout,
 	'toc_status' => $toc_status,

@@ -447,42 +447,11 @@ if(function_exists("register_field_group"))
 						'allow_null' => 0,
 						'multiple' => 0,
 					),
-					// array (
-					// 	'key' => 'field_z3zGgnRQCDRnO',
-					// 	'label' => 'Event Timing',
-					// 	'name' => 'event_timing',
-					// 	'type' => 'select',
-					// 	'column_width' => '',
-					// 	'choices' => array (
-					// 		'upcoming' => 'Upcoming',
-					// 		'past' => 'Past',
-					// 		'all' => 'All',
-					// 	),
-					// 	'conditional_logic' => array (
-					// 		'status' => 1,
-					// 		'rules' => array(
-					// 			array (
-					// 				'field' => 'field_5a8dbca1c2b78',
-					// 				'operator' => '==',
-					// 				'value' => 'module',
-					// 			),
-					// 			array (
-					// 				'field' => 'field_5a99c21321c37',
-					// 				'operator' => '==',
-					// 				'value' => 'collection',
-					// 			),
-					// 		),
-					// 		'allorany' => 'all',
-					// 	),
-					// 	'default_value' => 'All',
-					// 	'allow_null' => 0,
-					// 	'multiple' => 0,
-					// ),
 					array (
-						'key' => 'field_5a9ad8c251f7e',
-						'label' => 'Residents date',
-						'name' => 'residents_date',
-						'type' => 'radio',
+						'key' => 'field_5a8dbdb674ec31',
+						'label' => 'Residents Start year',
+						'name' => 'residents_start_year',
+						'type' => 'text',
 						'conditional_logic' => array (
 							'status' => 1,
 							'rules' => array (
@@ -505,15 +474,48 @@ if(function_exists("register_field_group"))
 							'allorany' => 'all',
 						),
 						'column_width' => '',
-						'choices' => array (
-							'show' => 'Show date selector',
-							'hide' => 'Hide date selector',
-						),
-						'other_choice' => 0,
-						'save_other_choice' => 0,
 						'default_value' => '',
-						'layout' => 'vertical',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
 					),
+					array (
+						'key' => 'field_5a8dbdb674ec399',
+						'label' => 'Residents End Year',
+						'name' => 'residents_end_year',
+						'type' => 'text',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '==',
+									'value' => 'collection',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '==',
+									'value' => 'residents',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+
 					array (
 						'key' => 'field_pnYDOqEsQdTUO',
 						'label' => 'Module Page',

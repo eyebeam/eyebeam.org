@@ -2,6 +2,7 @@
 
 extract($GLOBALS['eyebeam2018']['curr_module']);
 
+
 $id = "module-alumni";
 $class = 'module module-collection module-full_width';
 
@@ -13,22 +14,21 @@ if ($residents_date != 'hide') {
 		$years[] = $y;
 	}
 
-	$years = '<option>' . implode("</option>\n<option>", $years) . "</option>\n";
-	$years = "<select id=\"years-select\">$years</select>";
-	$years = "<div id=\"residents-year\"><label for=\"years-select\">$years Select Year</label></div>";
+	// $years = '<option>' . implode("</option>\n<option>", $years) . "</option>\n";
+	// $years = "<select id=\"years-select\">$years</select>";
+	// $years = "<div id=\"residents-year\"><label for=\"years-select\">$years Select Year</label></div>";
 }
 
 echo "<div id=\"$id\" class=\"$class\">\n";
 
 echo "<h2 class=\"module-title\">$title</h2>\n";
-echo "$years\n";
-$columns = $collection_columns;
-echo "<ul class=\"$collection_columns masonry\" id=\"collection_residents\" data-columns=\"$columns\">\n";
+$columns = column_map($collection_columns);
+echo "<ul class=\"$collection_columns\" data-columns=\"$columns\">\n";
 if ($title == 'Alumni'){
-	$residents = eyebeam2018_get_residents($query_year);
+	$residents = eyebeam2018_get_residents($residents_start_year, $residents_end_year);
 }
 else {
-	$residents = eyebeam2018_get_residents($query_year);
+	$residents = eyebeam2018_get_residents($residents_start_year, $residents_end_year);
 }
 
 foreach ($residents as $resident) {
