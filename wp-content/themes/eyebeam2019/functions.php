@@ -277,7 +277,6 @@ function eyebeam2018_render_modules() {
 		// See this curr_module global? It's important! It's how the
 		// page template knows what stuff to show.
 		$GLOBALS['eyebeam2018']['curr_module'] = $module;
-
 		get_template_part('templates/page-module', $module['type']);
 	}
 
