@@ -1,5 +1,7 @@
 <?php
 extract($GLOBALS['eyebeam2018']['curr_module']);
+
+
 if (! empty($toc_title)) {
 	$hash = sanitize_title($toc_title);
 }
@@ -14,11 +16,15 @@ else {
 
 	if (! empty($video_url) &&
 	    ! empty($video_layout) && $video_layout == 'full_width') {
+
 		eyebeam2018_video_embed($video_url);
+
 	} else {
+
 		echo "<div class=\"module-image\">\n";
 		eyebeam2018_video_embed($video_url);
 		echo "</div>\n";
+
 	}
 
 
@@ -82,7 +88,6 @@ else {
 	// }
 
 	if ( !empty($button_text) || !empty ($description) || !empty($url) ){
-		echo "</div>";
 	}
 
 	//
