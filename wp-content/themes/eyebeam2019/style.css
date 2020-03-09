@@ -2251,6 +2251,8 @@ Events
   font-family: "Work Sans", sans-serif;
   font-size: 20px;
   line-height: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .post .post-title {
@@ -2307,7 +2309,6 @@ figcaption {
   .post .post-media {
     max-width: calc(8.333% * 6);
     float: right;
-    padding-left: 1vw;
   }
 
   .post .float-image {
@@ -2349,15 +2350,22 @@ figcaption {
 
   .post-main.post-main-top figure {
     width: 50%;
-    float: right;
+    flex: 1 0 50%;
   }
 
   .post .post-title {
+    /* font-size: 3rem; */
+    /* line-height: 3rem; */
+    width: 50%;
+    flex: 1 0 50%;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .post .post-title h2 {
     font-size: 3rem;
     line-height: 3rem;
-    width: 50%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
   }
 
   .post .post-meta {

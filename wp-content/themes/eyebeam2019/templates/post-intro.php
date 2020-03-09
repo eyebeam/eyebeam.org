@@ -9,10 +9,10 @@ $tags = get_the_tags();
 $show_tags = (get_field('show_tags') == 'show' ? true : false);
 
 echo "<div class=\"post-main post-main-top\">\n";
-echo "<h2 class=\"post-title eyebeam-sans\">";
+echo "<div class=\"post-title eyebeam-sans\">";
+echo "<h2>";
 the_title();
-
-echo "</h2>\n";
+echo "</h2>";
 
 echo "<div class=\"post-info\">\n";
 // show date and author
@@ -75,10 +75,10 @@ echo "<a class=\"btn\" href=\"$button_url\">\n";
 echo $button_text;
 echo "</a>\n";
 echo "</div>";
-echo "<div class=\"post-content\">\n";
 }
 
 echo "</div>\n";
+
 
 
 $image_id = get_field('image', $post->ID);
@@ -90,11 +90,13 @@ $image = '';
 if (! empty($image_id)) {
 
 	$size = 'large';
-	$image = eyebeam2018_get_image_html($image_id, $size);
+	$image = eyebeam2018_get_image_html($image_id, $size, true);
 
 	echo "<figure class=\"post-image\">$image</figure>\n";
 
 }
+
+
 
 if (! empty($GLOBALS['eyebeam2018']['post_intro'])) {
 	echo "<div class=\"post-intro\">\n";

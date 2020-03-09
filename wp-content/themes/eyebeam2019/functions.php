@@ -222,12 +222,12 @@ function eyebeam2018_get_image($attachment_id, $size = 'large') {
 }
 
 // Helper for outputting image uploads
-function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption = null) {
+function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption) {
 
 	$image = eyebeam2018_get_image($attachment_id, $size);
 
-	if (! empty($show_caption)) {
-		$show_caption = true;
+	if (empty($show_caption)) {
+		$show_caption = false;
 	}
 
 	$image = $image['src'];

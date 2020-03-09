@@ -23,3 +23,12 @@ dist
 /wp-signup.php
 /wp-trackback.php
 /xmlrpc.php
+wp-content/plugins/wordpress-importer/wordpress-importer.php
+wp-content/plugins/wordpress-importer/readme.txt
+wp-content/plugins/wordpress-importer/parsers/class-wxr-parser.php
+wp-content/plugins/wordpress-importer/parsers/class-wxr-parser-xml.php
+wp-content/plugins/wordpress-importer/parsers/class-wxr-parser-simplexml.php
+wp-content/plugins/wordpress-importer/parsers/class-wxr-parser-regex.php
+wp-content/plugins/wordpress-importer/parsers.php
+wp-content/plugins/wordpress-importer/compat.php
+wp-content/plugins/wordpress-importer/class-wp-import.php
