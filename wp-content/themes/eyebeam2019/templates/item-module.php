@@ -13,6 +13,8 @@ $event_timing = null;
 $collection = null;
 $collection_post_limit = null;
 $collection_columns = null;
+$show_resident_image = null;
+$show_resident_info = null;
 $residents_start_year = null;
 $residents_end_year = null;
 $text_layout = null;
@@ -81,6 +83,13 @@ if (! empty(get_sub_field('collection_columns'))) {
 	$collection_columns = get_sub_field('collection_columns');
 }
 
+if (! empty(get_sub_field('show_resident_image'))) {
+	$show_resident_image = get_sub_field('show_resident_image');
+}
+if (! empty(get_sub_field('show_resident_info'))) {
+	$show_resident_info = get_sub_field('show_resident_info');
+}
+
 if (! empty(get_sub_field('residents_start_year'))) {
 	$residents_start_year = get_sub_field('residents_start_year');
 }
@@ -147,6 +156,8 @@ eyebeam2018_module(array(
 	'collection' => $collection,
 	'collection_post_limit' => $collection_post_limit,
 	'collection_columns' => $collection_columns,
+	'show_resident_image' => $show_resident_image,
+	'show_resident_info' => $show_resident_info,
 	'residents_start_year' => $residents_start_year,
 	'residents_end_year' => $residents_end_year,
 	'video_layout' => $video_layout,
