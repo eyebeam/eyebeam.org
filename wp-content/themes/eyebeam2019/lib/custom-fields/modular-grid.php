@@ -447,6 +447,58 @@ if(function_exists("register_field_group"))
 						'multiple' => 0,
 					),
 					array (
+						'key' => 'field_5a8dbdb674ec34',
+						'label' => 'Show Image',
+						'name' => 'show_resident_image',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'choices' => array (
+							'show' => 'Show Image',
+							'hide' => 'Hide Image',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'hide',
+						'layout' => 'vertical',
+					),
+					array (
+						'key' => 'field_5a8dbdb674ec35',
+						'label' => 'Show Info',
+						'name' => 'show_resident_info',
+						'type' => 'radio',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'choices' => array (
+							'show' => 'Show Info',
+							'hide' => 'Hide Info',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'hide',
+						'layout' => 'vertical',
+					),
+					array (
 						'key' => 'field_5a8dbdb674ec31',
 						'label' => 'Residents Start year',
 						'name' => 'residents_start_year',
