@@ -83,6 +83,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Image',
 				'name' => 'image',
 				'type' => 'image',
+				'required' => 1,
 				'save_format' => 'id',
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
