@@ -1,6 +1,8 @@
 <?php
 echo "<div class=\"post-main\">\n";
+
 echo "<div class=\"post-media\">\n";
+
 // show and float all media
 
 
@@ -20,6 +22,7 @@ if ($media){
 		}
 	}
 }
+
 echo "</div>";
 
 echo "<div class=\"post-content\">\n";
@@ -34,5 +37,7 @@ do_action('post-post_content');
 // find related projects
 
 echo "</div>\n";
+
 echo "</div>\n";
-echo "<br class=\"clear\">\n";
+
+// echo "<br class=\"clear\">\n";

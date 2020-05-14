@@ -32,3 +32,7 @@ wp-content/plugins/wordpress-importer/parsers/class-wxr-parser-regex.php
 wp-content/plugins/wordpress-importer/parsers.php
 wp-content/plugins/wordpress-importer/compat.php
 wp-content/plugins/wordpress-importer/class-wp-import.php
+latest.zip
+wp-content/uploads.zip
+develop/dev_eyebeam_org.sql*
+wp-config-sample.php

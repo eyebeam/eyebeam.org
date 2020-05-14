@@ -9,12 +9,14 @@ $tags = get_the_tags();
 $show_tags = (get_field('show_tags') == 'show' ? true : false);
 
 echo "<div class=\"post-main post-main-top\">\n";
-echo "<div class=\"post-title eyebeam-sans\">";
-echo "<h2>";
-the_title();
-echo "</h2>";
 
-echo "<div class=\"post-info\">\n";
+	echo "<div class=\"post-title eyebeam-sans\">";
+
+	echo "<h2>";
+	the_title();
+	echo "</h2>";
+
+		echo "<div class=\"post-info\">\n";
 // show date and author
 if ($show_date == 'show') {
 
@@ -74,8 +76,11 @@ if (! empty(get_field('button_text'))){
 echo "<a class=\"btn\" href=\"$button_url\">\n";
 echo $button_text;
 echo "</a>\n";
-echo "</div>";
+
 }
+
+echo "</div>";
+
 
 echo "</div>\n";
 
