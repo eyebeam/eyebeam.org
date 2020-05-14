@@ -1945,10 +1945,10 @@ Events
   }
 
   .module-collection li {
-    /* float: left; */
-    /* width: calc(50% - 1rem); */
-    /* margin-bottom: 1rem; */
-    /* margin-right: 1rem; */
+    float: left;
+    width: calc(50% - 1rem);
+    margin-bottom: 1rem;
+    margin-right: 1rem;
   }
 
   .module-collection#module-alumni .five-columns li:nth-child(5n) {
@@ -1980,56 +1980,21 @@ Events
   		margin-left: 1vw;
   	}
   */
-
-  .module-collection .five-columns ,
-  .module-collection .four-columns,
-  .module-collection .three-columns,
-  .module-collection .two-columns , {
-
-    display: flex;
-    flex-wrap: wrap;
-
-
-  }
-
-  .module-collection .five-columns {
-    columns: 5;
-  -webkit-columns: 5;
-  -moz-columns: 5;
-  }
-
-  .module-collection .four-columns,
-  .module-collection div .four-columns {
-    columns: 4;
-  -webkit-columns: 4;
-  -moz-columns: 4;
-  display: flex;
-  flex-wrap: wrap;
-  }
-
-  .module-collection .three-columns {
-    columns: 3;
-  -webkit-columns: 3;
-  -moz-columns: 3;
-  }
-
-  .module-collection .two-columns{
-    columns: 3;
-  -webkit-columns: 3;
-  -moz-columns: 3;
-  }
-
   .module-collection .five-columns li {
-    flex: 20% 0;
+    width: calc(20% - 1.6rem);
   }
-  .module-collection .four-columns li {
-    flex: 25% 0;
+
+  .module-collection .four-columns li,
+.module-collection div .four-columns li {
+    width: calc(25% - 1rem);
   }
+
   .module-collection .three-columns li {
-    flex: 33% 0;
+    width: calc(33% - 1rem);
   }
+
   .module-collection .two-columns li {
-    flex: 50% 0;
+    width: calc(50% - 1rem);
   }
 
   .module-collection h2.module-title {
@@ -2073,12 +2038,12 @@ Events
     justify-content: left !important;
   }
 
-  .module-collection .support-advisory ul li {
+  .module-collection .support-advisory li {
     width: calc(50% - 10px);
     margin-bottom: 2rem;
   }
 
-  .module-collection .support-interns ul li {
+  .module-collection .support-interns li {
     width: calc(100% - 10px);
   }
 
@@ -2262,7 +2227,7 @@ Events
   }
 
   .resident {
-    /* padding-bottom: 15px; */
+    padding-bottom: 15px;
   }
 
   .resident-name,
@@ -2278,8 +2243,6 @@ Events
   font-family: "Work Sans", sans-serif;
   font-size: 20px;
   line-height: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .post .post-title {
@@ -2330,12 +2293,12 @@ figcaption {
 
   .post .post-image {
     /*max-width: 700px;*/
-    margin-left: auto;
   }
 
   .post .post-media {
     max-width: calc(8.333% * 6);
     float: right;
+    padding-left: 1vw;
   }
 
   .post .float-image {
@@ -2377,22 +2340,14 @@ figcaption {
 
   .post-main.post-main-top figure {
     width: 50%;
-    flex: 1 0 50%;
   }
 
   .post .post-title {
-    /* font-size: 3rem; */
-    /* line-height: 3rem; */
-    width: 50%;
-    flex: 1 0 50%;
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .post .post-title h2 {
     font-size: 3rem;
     line-height: 3rem;
+    width: 50%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .post .post-meta {
