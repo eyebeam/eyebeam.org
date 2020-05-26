@@ -35,15 +35,15 @@ else {
 		$size = 'large';
 		$image = eyebeam2018_get_image_html($image_id, $size, true);
 
-
 		if (! empty($url)) {
 			$image = "<a href=\"$url\">$image</a>";
 		}
 
 		$figure_class = ($layout == 'text_first') ? 'float-right' : 'float-left';
 
-
+		if (! empty($image)){
 			$image = "<figure class=\"module-image $figure_class\">$image</figure>\n";
+		}
 
 	}
 

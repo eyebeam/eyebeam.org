@@ -256,6 +256,7 @@ form.error .response-error {
 
   .module-title {
     color: #262626;
+    padding: 1rem 0;
   }
 
   .module-title a {
@@ -1399,6 +1400,7 @@ footer .social {
 
 .eyebeam-sans {
   font-family: "EyebeamSans", sans-serif;
+  padding-bottom: 1rem;
 }
 
 /* .eyebeam-sans:hover {
@@ -1431,7 +1433,6 @@ footer .social {
 .hero-text .text {
   font-size: 20px;
   line-height: 1.5rem;
-  padding-top: 1rem;
 }
 
 @media (min-width: 857px) {
@@ -1501,23 +1502,22 @@ footer .social {
 .module .module-title {
   font-size: 2.5rem;
   line-height: 3rem;
-  padding-bottom: 0.5rem;
-  padding-top: 0rem;
 }
 
 .module .module-subtitle {
   font-size: 2rem;
   line-height: 2.3rem;
-  padding-top: 0;
-  padding-bottom: 0.5rem;
 }
 
-.module .module-description {
-  padding: 0.5rem 0 0 0;
+.module-image,
+.module-description,
+.module-title,
+.module-subtitle {
+  padding-bottom: 1rem;
 }
 
 .module .module-description p:not(:first-child) {
-  margin: 2rem 1rem 0 0;
+  margin: 1rem 1rem 0 0;
 }
 
 .module-two_thirds {
@@ -1866,6 +1866,9 @@ Events
     width: calc(100%);
     border-bottom: 0;
     padding-bottom: 0;
+  }
+  .module-section_header .module-title {
+    display: none;
   }
 
   .module-section_header .item-container {
