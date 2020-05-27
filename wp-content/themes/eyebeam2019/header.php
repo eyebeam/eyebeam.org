@@ -17,11 +17,15 @@
 		<!-- This seems like the best way to add google fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500" rel="stylesheet">
 
-		 <?php global $post;
-	    if ($post->post_name == 'digital-day-camp-2020') {
-				include("module/fbpixel.php");
-			}
-		?>
+		<?php global $post;
+
+		// add facebook pixel for digital day camp
+		if ($post->post_name == 'digital-day-camp-2020') {
+			include("module/fbpixel.php");
+		} ?>
+
+
+
 	</head>
 	<body <?php body_class(); ?>>
 		<header>
