@@ -1,9 +1,6 @@
 <?php
-echo "<div class=\"post-main post-main-top\">\n";
-echo "<h2 class=\"post-title\">";
-the_title();
+echo "<div class=\"post-main-top\">\n";
 
-echo "</h2>\n";
 
 $image_id = get_field('image', $post->ID);
 if (! $image_id) {
@@ -20,9 +17,9 @@ if (! empty($image_id)) {
 
 }
 
-if (! empty($GLOBALS['eyebeam2018']['post_intro'])) {
+if (! empty($GLOBALS['eyebeam2018']['post_intro']) && ($GLOBALS["eyebeam2018"]["post_intro"] != "") ) {
 	echo "<div class=\"post-intro\">\n";
-	echo $GLOBALS['eyebeam2018']['post_intro'];
+		echo $GLOBALS['eyebeam2018']['post_intro'];
 	echo "</div>\n";
 }
 

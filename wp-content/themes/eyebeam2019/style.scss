@@ -157,7 +157,7 @@ a.btn {
 }
 
 a:focus {
-outline: 2px solid rgba(0,255,0);
+outline: 2px solid rgba(0,255,0,1);
 
 }
 
@@ -567,7 +567,7 @@ header.show-search nav {
 	background: #00ff00;
 }
 .category-label#from-eyebeam {
-	background: #231F200FF;
+	// background: #231F200FF;
 	color: white;
 }
 
@@ -1694,13 +1694,13 @@ footer .bottom div {
 	font-size: 28px;
 	line-height: 28px;
 	text-transform: uppercase;
-	color: #231F20000;
+	// color: #231F20000;
 	list-style: disc;
 	margin-left: 1.2em;
 }
 
 .module-toc.red li {
-	color: #231F20000;
+	// color: #231F20000;
 }
 
 .module-toc li a {
@@ -2101,6 +2101,7 @@ Events
 
 
 
+
 	.module-collection#module-alumni ul {
 		justify-content: left;
 	}
@@ -2128,6 +2129,17 @@ Events
 	.module-collection#module-staff .four-columns li {
 		margin-right: 2rem;
 	}
+
+	.module-collection#module-alumni .three-columns li {
+		margin-right: 1rem;
+		break-inside: avoid-column;
+		margin-bottom: 0;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
 
 	.module-collection #posts-list {
 		justify-content: space-between;
@@ -2439,7 +2451,7 @@ Events
 	}
 
 	.resident {
-		padding-bottom: 15px;
+		// padding-bottom: 15px;
 	}
 
 	.resident-name,
@@ -2461,6 +2473,11 @@ Events
 	line-height: 1.5rem;
 }
 
+.post .post-main-top {
+	width: 50%;
+	flex: 0 0 50%;
+}
+
 .post .post-title {
 	font-size: 1.5rem;
 	line-height: 1.1em;
@@ -2472,7 +2489,7 @@ Events
 }
 
 .post-info {
-	padding: 1rem 0;
+	margin: 1rem 0;
 }
 
 .post img {
@@ -2514,6 +2531,8 @@ figcaption {
 
 	.post {
 		padding: 0;
+		display: flex;
+		flex-direction: row-reverse;
 	}
 
 	.post .post-image {
@@ -2570,8 +2589,9 @@ figcaption {
 	}
 
 	.post-main.post-main-top figure {
-		width: 50%;
+		// width: 50%;
 		// float: right;
+		margin-bottom: 3vmin;
 	}
 
 	.post .post-title {
@@ -2591,7 +2611,6 @@ figcaption {
 
 	.post .post-content {
 		padding: 0 2rem 4rem 0;
-		max-width: calc(8.333% * 6);
 	}
 
 	.post.gutenberg .post-content {

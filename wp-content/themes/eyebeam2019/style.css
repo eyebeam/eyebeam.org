@@ -544,7 +544,6 @@ body.show-menu header nav .support {
 }
 
 .category-label#from-eyebeam {
-  background: #231F200F F;
   color: white;
 }
 
@@ -1554,13 +1553,8 @@ footer .social {
   font-size: 28px;
   line-height: 28px;
   text-transform: uppercase;
-  color: #231F2000 0;
   list-style: disc;
   margin-left: 1.2em;
-}
-
-.module-toc.red li {
-  color: #231F2000 0;
 }
 
 .module-toc li a {
@@ -1970,6 +1964,15 @@ Events
     margin-right: 2rem;
   }
 
+  .module-collection#module-alumni .three-columns li {
+    margin-right: 1rem;
+    break-inside: avoid-column;
+    margin-bottom: 0;
+  }
+  .module-collection#module-alumni .three-columns li a {
+    text-decoration: underline;
+  }
+
   .module-collection #posts-list {
     justify-content: space-between;
   }
@@ -2229,10 +2232,6 @@ Events
     padding-top: 15px;
   }
 
-  .resident {
-    padding-bottom: 15px;
-  }
-
   .resident-name,
 .resident-type {
     font-size: 1.5rem !important;
@@ -2248,6 +2247,11 @@ Events
   line-height: 1.5rem;
 }
 
+.post .post-main-top {
+  width: 50%;
+  flex: 0 0 50%;
+}
+
 .post .post-title {
   font-size: 1.5rem;
   line-height: 1.1em;
@@ -2255,7 +2259,7 @@ Events
 }
 
 .post-info {
-  padding: 1rem 0;
+  margin: 1rem 0;
 }
 
 .post img {
@@ -2292,6 +2296,8 @@ figcaption {
 @media (min-width: 857px) {
   .post {
     padding: 0;
+    display: flex;
+    flex-direction: row-reverse;
   }
 
   .post .post-image {
@@ -2342,7 +2348,7 @@ figcaption {
   }
 
   .post-main.post-main-top figure {
-    width: 50%;
+    margin-bottom: 3vmin;
   }
 
   .post .post-title {
@@ -2362,7 +2368,6 @@ figcaption {
 
   .post .post-content {
     padding: 0 2rem 4rem 0;
-    max-width: calc(8.333% * 6);
   }
 
   .post.gutenberg .post-content {
