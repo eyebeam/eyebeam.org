@@ -1728,7 +1728,12 @@ footer .bottom div {
 
 h5.post-label, .label {
 	margin: .5rem 0 0 0;
+	padding: 0 .25rem;
 	display: inline-block;
+	text-transform: uppercase;
+	background: #000;
+	color: #FFF;
+	text-decoration: none;
 	font-family: "EyebeamSans", sans-serif;
 }
 

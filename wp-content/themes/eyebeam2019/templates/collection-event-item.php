@@ -10,10 +10,6 @@ $end_date = get_field('end_date', $event->ID);
 $image_id = get_field('image', $event->ID);
 $permalink = get_permalink($event->ID);
 
-// if there is no image it's probably in the featured image spot >.<
-if (!$image_id){
-	$image_id = get_the_post_thumbnail($event->ID);
-}
 
 $category = get_the_terms($event->ID, 'category');
 
@@ -28,7 +24,7 @@ $image = "<a class=\"image\" href=\"$url\">$image</a>";
 if ($category){
 	$category = $category[0];
 	$category_name = $category->name;
-	$category_label = ($category) ? "<a class=\"label\" href=\"\">$category_name</a>\n" : "";
+	$category_label = ($category) ? "<a class=\"label\">$category_name</a>\n" : "";
 }
 
 
@@ -63,9 +59,10 @@ else {
 	}
 */
 	echo "$image\n";
+	echo "<h3 class=\"event-title module-title eyebeam-sans\"><a href=\"$permalink\">$title</a></h3>\n";
+
 	echo ($label) ?  "<h5 class=\"post-label $label_slug\">$label</h5>" : '';
 	echo ($category) ? "<h5>$category_label</h5>" : "";
-	echo "<h3 class=\"event-title module-title eyebeam-sans\"><a href=\"$permalink\">$title</a></h3>\n";
 	echo "</div>\n";
 	echo "</li>\n";
 
