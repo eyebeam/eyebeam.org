@@ -1749,7 +1749,6 @@ Events
 
 .item-container a.image {
   width: 100%;
-  height: 100%;
   display: block;
 }
 
@@ -2067,6 +2066,19 @@ Events
     margin-bottom: 0;
   }
 }
+#search {
+  display: flex;
+  flex-wrap: wrap;
+}
+#search li {
+  width: unset;
+  flex: 0 0 calc(33% - 1rem);
+}
+#search li span {
+  display: block;
+  padding: 0.25rem 0;
+}
+
 @media (min-width: 1050px) {
   .module-toc li {
     font-size: 42px;
@@ -2305,9 +2317,7 @@ figcaption {
   }
 
   .post .post-media {
-    max-width: calc(8.333% * 6);
     float: right;
-    padding-left: 1vw;
   }
 
   .post .float-image {

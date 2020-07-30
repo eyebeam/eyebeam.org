@@ -17,8 +17,8 @@ global $wp_query;
 get_header();
 if (count($wp_query->posts) > 0){
 echo "<div class=\"module module-collection related-readings\">";
-	echo "<h2 class=\"module-title\">Search Results: $query</h2>";
-	echo "<ul>";
+	echo "<h2 class=\"module-title eyebeam-sans\">Search Results: $query</h2>";
+	echo "<ul id=\"search\">";
 	foreach($wp_query->posts as $post){
 
 		$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;

@@ -38,7 +38,7 @@ else {
 	$name = "<a href=\"$url\">$name</a>";
 
 	if (! empty($image)) {
-		$image = "<a href=\"$url\">$image</a>";
+		$image = "<a class=\"image\" href=\"$url\">$image</a>";
 	}
 }
 }
@@ -61,24 +61,36 @@ if ($start_year == $end_year) {
 }
 
 
-echo "<li class=\"resident collection-item\">\n";
-echo "<div class=\"item-container\">\n";
-
-if (!empty($show_resident_image) && $show_resident_image == "show"){
+if (is_search()){
+	echo "<li>\n";
 	echo "$image\n";
+	echo "<h3 class=\"event-title module-title eyebeam-sans\">$name</h3>\n";
+	echo "</li>\n";
+}
+else {
+
+	echo "<li class=\"resident collection-item\">\n";
+	echo "<div class=\"item-container\">\n";
+
+	if (!empty($show_resident_image) && $show_resident_image == "show"){
+		echo "$image\n";
+	}
+
+	echo ($label) ? "<h5 class=\"post-label $label_slug\">$label</h5>" : '';
+	echo "<h3 class=\"resident-name module-title\">$name</h3>\n";
+
+	if (!empty($show_resident_info) && $show_resident_info == "show"){
+		echo "<h4 class=\"resident-type person-title module-title\">$type</h4>\n";
+		echo "<div class=\"resident-years\">$years</div>\n";
+		//echo "<a href=\"#bio\" class=\"toggle-bio\">$bio_toggle</a>\n";
+		echo "<div class=\"bio\">$bio</div>\n";
+		//echo "$bio\n";
+	}
+	echo "</div>\n";
+	echo "</li>\n";
+
 }
 
-echo ($label) ? "<h5 class=\"post-label $label_slug\">$label</h5>" : '';
-echo "<h3 class=\"resident-name module-title\">$name</h3>\n";
 
-if (!empty($show_resident_info) && $show_resident_info == "show"){
-	echo "<h4 class=\"resident-type person-title module-title\">$type</h4>\n";
-	echo "<div class=\"resident-years\">$years</div>\n";
-	//echo "<a href=\"#bio\" class=\"toggle-bio\">$bio_toggle</a>\n";
-	echo "<div class=\"bio\">$bio</div>\n";
-	//echo "$bio\n";
-}
-echo "</div>\n";
-echo "</li>\n";
 
 ?>

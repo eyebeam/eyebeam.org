@@ -1904,7 +1904,6 @@ Events
 
 .item-container  a.image {
 	width: 100%;
-	height: 100%;
 	display: block;
 }
 
@@ -2258,6 +2257,20 @@ Events
 
 }
 
+#search {
+	display: flex;
+	flex-wrap: wrap;
+
+	li {
+		width: unset;
+		flex: 0 0 calc(33% - 1rem);
+		span {
+			display: block;
+			padding: .25rem 0;
+		}
+	}
+}
+
 @media (min-width: 1050px) {
 
 	.module-toc li {
@@ -2542,9 +2555,7 @@ figcaption {
 
 
 	.post .post-media {
-		max-width: calc(8.333% * 6);
 		float: right;
-		padding-left: 1vw;
 	}
 
 
