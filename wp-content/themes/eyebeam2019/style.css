@@ -2078,6 +2078,7 @@ Events
 #search li {
   width: unset;
   flex: 0 0 100%;
+  margin-bottom: 1rem;
 }
 #search li span {
   display: block;
@@ -2092,6 +2093,7 @@ Events
   #search li {
     width: unset;
     flex: 0 0 calc(33% - 1rem);
+    margin: 0;
   }
   #search li span {
     display: block;

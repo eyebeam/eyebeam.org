@@ -2269,6 +2269,7 @@ Events
 	li {
 		width: unset;
 		flex: 0 0 100%;
+		margin-bottom: 1rem;
 		span {
 			display: block;
 			padding: .25rem 0;
@@ -2283,6 +2284,8 @@ Events
 		li {
 			width: unset;
 			flex: 0 0 calc(33% - 1rem);
+			margin:0;
+
 			span {
 				display: block;
 				padding: .25rem 0;
