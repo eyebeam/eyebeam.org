@@ -2268,14 +2268,28 @@ Events
 
 	li {
 		width: unset;
-		flex: 0 0 calc(33% - 1rem);
+		flex: 0 0 100%;
 		span {
 			display: block;
 			padding: .25rem 0;
 		}
 	}
 }
+@media(min-width: 1050px){
+	#search {
+		display: flex;
+		flex-wrap: wrap;
 
+		li {
+			width: unset;
+			flex: 0 0 calc(33% - 1rem);
+			span {
+				display: block;
+				padding: .25rem 0;
+			}
+		}
+	}
+}
 @media (min-width: 1050px) {
 
 	.module-toc li {

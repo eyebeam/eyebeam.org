@@ -2077,13 +2077,27 @@ Events
 }
 #search li {
   width: unset;
-  flex: 0 0 calc(33% - 1rem);
+  flex: 0 0 100%;
 }
 #search li span {
   display: block;
   padding: 0.25rem 0;
 }
 
+@media (min-width: 1050px) {
+  #search {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #search li {
+    width: unset;
+    flex: 0 0 calc(33% - 1rem);
+  }
+  #search li span {
+    display: block;
+    padding: 0.25rem 0;
+  }
+}
 @media (min-width: 1050px) {
   .module-toc li {
     font-size: 42px;
