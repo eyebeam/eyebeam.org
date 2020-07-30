@@ -13,7 +13,6 @@ $permalink = get_permalink($event->ID);
 // if there is no image it's probably in the featured image spot >.<
 if (!$image_id){
 	$image_id = get_the_post_thumbnail($event->ID);
-	var_dump($image_id);
 }
 
 $category = get_the_terms($event->ID, 'category');
