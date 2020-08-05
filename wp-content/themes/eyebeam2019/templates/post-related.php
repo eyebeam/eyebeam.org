@@ -20,7 +20,7 @@ if ($related_readings){
 	shuffle($related_readings);
 	$related_readings = array_slice($related_readings, 0,3);
 	echo "<div class=\"module module-collection related-readings\">";
-	echo "<h2 class=\"module-title\">Related Reading</h2>";
+	echo "<h2 class=\"module-title eyebeam-sans\">Related Reading</h2>";
 	echo "<ul>";
 	foreach($related_readings as $post){
 

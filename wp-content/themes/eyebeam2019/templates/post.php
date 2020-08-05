@@ -15,6 +15,6 @@ echo "<div class=\"post\">\n";
 get_template_part('templates/post-intro');
 get_template_part('templates/post-meta');
 get_template_part('templates/post-content');
-get_template_part('templates/post-related');
-
 echo "</div>\n";
+
+get_template_part('templates/post-related');

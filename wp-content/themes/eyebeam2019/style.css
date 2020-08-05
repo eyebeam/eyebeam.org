@@ -2017,6 +2017,7 @@ Events
 .module-collection h4.module-title {
     font-size: 1.5rem;
     line-height: 1.9rem;
+    font-weight: 500;
     width: 100%;
     padding: 0.25rem 0 0 0;
   }
