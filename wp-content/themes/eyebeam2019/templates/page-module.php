@@ -14,14 +14,9 @@ else {
 	echo "<div class=\"item-container\">\n";
 
 
-	if (! empty($video_url) &&
-	    ! empty($video_layout) && $video_layout == 'full_width') {
+	if ( !is_null($video_url) ) {
 
-		eyebeam2018_video_embed($video_url);
-
-	} else {
-
-		echo "<div class=\"module-image\">\n";
+		echo "<div class=\"module-video\">\n";
 		eyebeam2018_video_embed($video_url);
 		echo "</div>\n";
 
@@ -84,7 +79,7 @@ else {
 		// echo $text_description.$image;
 	// }
 	// else {
-		echo $image.$text_description;
+		echo "$image<div class=\"module-flex\">$text_description</div>";
 	// }
 
 	if ( !empty($button_text) || !empty ($description) || !empty($url) ){

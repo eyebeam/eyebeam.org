@@ -254,6 +254,11 @@ form.error .response-error {
 	color: #262626;
 	padding: 1rem 0;
 }
+@media (min-width: 857px){
+	.module-title {
+		padding: 0;
+	}
+}
 	.module-title a {
 		text-decoration: none;
 	}
@@ -1641,16 +1646,24 @@ footer .bottom div {
 .module .module-subtitle {
 	font-size: 2rem;
 	line-height: 2.3rem;
+	padding-top: 1rem;
 }
 
 .module .module-image {
+	flex: 1 0 100%;
 }
+@media(min-width: 857px){
+	.module .module-image {
+		flex: 1 0 50%;
+		margin-right: 2rem;
+	}
+}
+
 
 .module-image,
 .module-description,
 .module-title,
 .module-subtitle {
-	padding-bottom: 1rem;
 }
 
 .module .module-description {
@@ -1661,7 +1674,6 @@ footer .bottom div {
 }
 
 .module-two_thirds {
-	padding-left: 19px;
 	padding-top: 15px;
 	font-family: "Work Sans", sans-serif;
 	/*font-size: 20px;*/
@@ -1904,6 +1916,8 @@ Events
 
 .item-container {
 	padding: 0 0 0 0;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 
@@ -1921,6 +1935,41 @@ Events
 
 .google-map  iframe{
 	width: 100%;
+}
+
+.module-full_width {
+	.module-flex {
+		display: flex;
+		flex-wrap: wrap;
+		flex: 1 0 100%;
+		align-content: flex-start;
+
+		.module-title {
+			margin:0;
+		}
+	}
+}
+
+
+@media (min-width: 857px){
+	.module-full_width{
+		.module-flex {
+			flex: 1 0 calc(50% - 2rem);
+		}
+	}
+
+}
+
+.module-video {
+	height: auto;
+	flex: 1 0 100%;
+}
+@media (min-width: 857px){
+	.module-video {
+		flex: 1 0 calc(50% - 2rem);
+		margin-right: 2rem;
+
+	}
 }
 
 .module-collection ul {
@@ -1959,6 +2008,7 @@ Events
 	.module-one_third .module-title {
 		font-size: 2rem;
 		line-height: 1.1em;
+		padding-top: 1rem;
 
 	}
 
@@ -2060,19 +2110,19 @@ Events
 		float: right;
 	}
 
-	.module-full_width .module-image {
-		float: left;
-		width: calc(8.333% * 6);
-		margin-right: 2rem;
-	}
+	// .module-full_width .module-image {
+	// 	flex: 0 0 calc(8.333% * 6);
+	// 	margin-right: 2rem;
+	// 	align-self: flex-start;
+	// }
 
-	.module-full_width .module-image.float-left {
-		float: left;
-	}
-	.module-full_width .module-image.float-right {
-		float: right;
-		margin-right: 0;
-	}
+	// .module-full_width .module-image.float-left {
+	// 	float: left;
+	// }
+	// .module-full_width .module-image.float-right {
+	// 	float: right;
+	// 	margin-right: 0;
+	// }
 
 	.module-full_width .module-image::after {
 		content: "";
