@@ -1642,11 +1642,13 @@ footer .bottom div {
 .module .module-title {
 	font-size: 2.5rem;
 	line-height: 3rem;
+	flex: 1 0 auto;
 }
 .module .module-subtitle {
 	font-size: 2rem;
 	line-height: 2.3rem;
 	padding-top: 1rem;
+	flex: 1 0 auto;
 }
 
 .module .module-image {
@@ -1946,6 +1948,9 @@ Events
 
 		.module-title {
 			margin:0;
+		}
+		.module-description {
+			flex: 1 0 100%;
 		}
 	}
 }
@@ -2710,6 +2715,10 @@ figcaption {
 
 /* -------------------------------------------------------------------------- */
 /* Gutenberg Styles */
+
+.wp-block {
+	max-width: calc(1280px*.8);
+}
 
 hr.wp-block-separator, hr {
 	height: 1px;
