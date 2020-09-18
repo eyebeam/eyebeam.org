@@ -2080,7 +2080,7 @@ Events
 		padding-bottom: 0;
 
 		.module-title {
-			display: none;
+			// display: none;
 		}
 
 	}
@@ -2098,6 +2098,7 @@ Events
 	.module-full_width .module-title {
 		font-size: 3rem;
 		line-height: 3.25rem;
+		width: 100%;
 	}
 
 	.module-full_width .module-title.one_half {

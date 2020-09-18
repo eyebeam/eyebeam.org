@@ -1815,9 +1815,6 @@ Events
     border-bottom: 0;
     padding-bottom: 0;
   }
-  .module-section_header .module-title {
-    display: none;
-  }
   .module-section_header .item-container {
     padding: 0;
     margin: 0;
@@ -1828,6 +1825,7 @@ Events
   .module-full_width .module-title {
     font-size: 3rem;
     line-height: 3.25rem;
+    width: 100%;
   }
   .module-full_width .module-title.one_half {
     width: calc(50% - 2rem);
