@@ -2605,6 +2605,13 @@ figcaption {
 
 
 .post-content {
+	blockquote {
+		p {
+			font-family: "EyebeamSans", sans-serif;
+			font-size: 2rem;
+			line-height: 2.2rem;
+		}
+	}
 }
 
 .post-content p {

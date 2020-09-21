@@ -2215,6 +2215,12 @@ figcaption {
   padding: 8px 0;
 }
 
+.post-content blockquote p {
+  font-family: "EyebeamSans", sans-serif;
+  font-size: 2rem;
+  line-height: 2.2rem;
+}
+
 .post-content p {
   margin: 1rem 0;
 }
