@@ -1430,7 +1430,7 @@ footer form p {
   font-size: 2rem;
   line-height: 2.3rem;
   padding-top: 1rem;
-  flex: 1 0 auto;
+  flex: 1 0 100%;
 }
 
 .module .module-image {
