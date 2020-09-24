@@ -2566,8 +2566,14 @@ Events
 }
 
 .post .post-main-top {
-	width: 50%;
-	flex: 0 0 50%;
+	width: 100%;
+	flex: 0 0 100%;
+}
+
+@media(min-width: 857px){
+	.post .post-main-top {
+		flex: 0 0 50%;
+	}
 }
 
 .post .post-title {
@@ -2608,8 +2614,8 @@ figcaption {
 	.pullquote {
 		p {
 			font-family: "EyebeamSans", sans-serif;
-			font-size: 2rem;
-			line-height: 2.2rem;
+			font-size: 1.8rem;
+	    line-height: 1.2em;
 		}
 		margin-bottom: 1rem;
 	}
