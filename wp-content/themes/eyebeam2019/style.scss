@@ -2604,6 +2604,16 @@ figcaption {
 }
 
 
+.post-main {
+	.pullquote {
+		p {
+			font-family: "EyebeamSans", sans-serif;
+			font-size: 2rem;
+			line-height: 2.2rem;
+		}
+		margin-bottom: 1rem;
+	}
+}
 .post-content {
 	blockquote {
 		p {

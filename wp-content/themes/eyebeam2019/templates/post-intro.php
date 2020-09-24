@@ -1,20 +1,17 @@
 <?php
 
-
 global $post;
 $show_date = get_field('show_date');
 $meta = get_field('meta');
 $author = get_field('author');
 $tags = get_the_tags();
 $show_tags = (get_field('show_tags') == 'show' ? true : false);
+$resident_pullquote = get_field('resident_pullquote');
 
 echo "<div class=\"post-main post-main-top\">\n";
 
-	echo "<div class=\"post-title eyebeam-sans\">";
-
-
-
-
+echo "<div class=\"post-title eyebeam-sans\">";
+// nothing here for now
 echo "</div>\n";
 
 
@@ -27,6 +24,7 @@ if (! $image_id) {
 $image = '';
 if (! empty($image_id)) {
 
+	// get the image
 	$size = 'large';
 	$image = eyebeam2018_get_image_html($image_id, $size, true);
 
@@ -35,12 +33,16 @@ if (! empty($image_id)) {
 }
 echo "<div class=\"post-media\">\n";
 
+// show the pull quote
+echo "<div class=\"pullquote\">";
+echo $resident_pullquote;
+echo "</div>";
+
 // show and float all media
-
-
-
 $media = get_field('media');
 if ($media){
+
+
 
 	foreach($media as $row){
 		if ($row['media_type'] == 'video_url'){

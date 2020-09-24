@@ -125,6 +125,16 @@ if(function_exists("register_field_group"))
 				'media_upload' => 'no',
 			),
 			array (
+				'key' => 'field_5aa43f17ed68799',
+				'label' => 'Resident Pullquote',
+				'name' => 'resident_pullquote',
+				'type' => 'wysiwyg',
+				'column_width' => '',
+				'default_value' => '',
+				'toolbar' => 'basic',
+				'media_upload' => 'no',
+			),
+			array (
 				'key' => 'field_5aa4383c6d939',
 				'label' => 'Link to Artist Website',
 				'name' => 'link_target',
