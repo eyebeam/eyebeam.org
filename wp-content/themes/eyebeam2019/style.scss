@@ -1592,7 +1592,7 @@ footer .bottom div {
 	.hero-text {
 		margin: 0 auto;
 		text-align: left;
-		padding: 0 0 2rem 0;
+		padding: 0 0 1rem 0;
 		width: 100%;
 	}
 
@@ -1647,7 +1647,6 @@ footer .bottom div {
 .module .module-subtitle {
 	font-size: 2rem;
 	line-height: 2.2rem;
-	padding-top: 1rem;
 	flex: 1 0 100%;
 }
 
@@ -2303,32 +2302,39 @@ Events
 	}
 
 
-		.module-frame {
-			.item-container {
-				.module-title {
-				}
-				.module-description {
-					border: 1px solid #000;
-					padding: 1rem;
-					max-height: 50vh;
-					overflow: scroll;
-				}
+	.module-frame {
+		.item-container {
+			.module-title {
+			}
+			.module-description {
+				border: 1px solid #000;
+				padding: 1rem;
+				max-height: 50vh;
+				overflow: scroll;
 			}
 		}
-		.module-full_width.module-frame {
-			.item-container {
-				.module-title {
-					flex: 0 0 50%;
-				}
-				.module-description {
-					flex: 0 0 50%;
-					border: 1px solid #000;
-					padding: 1rem;
-					max-height: 50vh;
-					overflow: scroll;
-				}
+		.item-container:after {
+			content: "Scroll to read more";
+			display: flex;
+			justify-content: flex-end;
+			flex: 1 0 100%;
+			padding: 1rem 0 0 0;
+		}
+	}
+	.module-full_width.module-frame {
+		.item-container {
+			.module-title {
+				flex: 0 0 50%;
+			}
+			.module-description {
+				flex: 0 0 50%;
+				border: 1px solid #000;
+				padding: 1rem;
+				max-height: 50vh;
+				overflow: scroll;
 			}
 		}
+	}
 
 }
 
