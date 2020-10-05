@@ -1641,12 +1641,12 @@ footer .bottom div {
 
 .module .module-title {
 	font-size: 2.5rem;
-	line-height: 3rem;
+	line-height: 2.75rem;
 	flex: 1 0 auto;
 }
 .module .module-subtitle {
 	font-size: 2rem;
-	line-height: 2.3rem;
+	line-height: 2.2rem;
 	padding-top: 1rem;
 	flex: 1 0 100%;
 }
@@ -1661,15 +1661,6 @@ footer .bottom div {
 	}
 }
 
-
-.module-image,
-.module-description,
-.module-title,
-.module-subtitle {
-}
-
-.module .module-description {
-}
 
 .module .module-description p:not(:first-child) {
 	margin: 1rem 1rem 0 0;
@@ -1692,9 +1683,7 @@ footer .bottom div {
 .module-two_thirds .module-title {
 	font-family: "EyebeamSans", sans-serif;
 	/*font-size: 1.5rem;*/
-	font-size: 40px;
 	/*line-height: 28px;*/
-	line-height: 14px;
 	padding: 0;
 }
 
@@ -2044,10 +2033,8 @@ Events
 	}
 
 	.module-one_half .module-title {
-		font-size: 2.5rem;
-		line-height: 3rem;
 		font-weight: 500;
-		padding: 1rem 0 0 0;
+		padding: 1rem 0;
 	}
 
 	.module-one_half .module-title,
@@ -2066,8 +2053,7 @@ Events
 	}
 
 	.module-two_thirds .module-title {
-		font-size: 3rem;
-		line-height: 4rem;
+		padding: 0 0 1rem 0;
 	}
 
 	#module-donate-to-eyebeam {
@@ -2317,6 +2303,53 @@ Events
 	}
 
 
+		.module-frame {
+			.item-container {
+				.module-title {
+				}
+				.module-description {
+					border: 1px solid #000;
+					padding: 1rem;
+					max-height: 50vh;
+					overflow: scroll;
+				}
+			}
+		}
+		.module-full_width.module-frame {
+			.item-container {
+				.module-title {
+					flex: 0 0 50%;
+				}
+				.module-description {
+					flex: 0 0 50%;
+					border: 1px solid #000;
+					padding: 1rem;
+					max-height: 50vh;
+					overflow: scroll;
+				}
+			}
+		}
+
+}
+
+@media (min-width: 1279px){
+	.module-frame {
+		.item-container {
+			.module-description {
+				max-height: 50vh;
+			}
+		}
+	}
+}
+
+@media (min-width: 1599px){
+	.module-frame {
+		.item-container {
+			.module-description {
+				max-height: 25vh;
+			}
+		}
+	}
 }
 
 #search {

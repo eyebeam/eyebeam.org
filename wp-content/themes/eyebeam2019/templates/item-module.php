@@ -3,6 +3,7 @@
 $type = get_sub_field('module_type');
 $title = null;
 $subtitle = null;
+$module_frame = null;
 $button_text = null;
 $url = null;
 $description = null;
@@ -41,6 +42,10 @@ if (! empty(get_sub_field('module_title'))) {
 
 if (! empty(get_sub_field('module_subtitle'))) {
 	$subtitle = get_sub_field('module_subtitle');
+}
+
+if (! empty(get_sub_field('module_frame'))) {
+	$module_frame = get_sub_field('module_frame');
 }
 
 if (! empty(get_sub_field('module_url'))) {
@@ -145,6 +150,7 @@ eyebeam2018_module(array(
 	'hash' => $hash,
 	'title' => $title,
 	'subtitle' => $subtitle,
+	'module_frame' => $module_frame,
 	'button_text' => $button_text,
 	'show_button' => $show_button,
 	'url' => $url,

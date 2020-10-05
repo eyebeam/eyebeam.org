@@ -1,6 +1,9 @@
 <?php
 extract($GLOBALS['eyebeam2018']['curr_module']);
 
+if (! empty($module_frame)){
+	$frame_class = ($module_frame == "true") ? 'module-frame' : '';
+}
 
 if (! empty($toc_title)) {
 	$hash = sanitize_title($toc_title);
@@ -10,7 +13,7 @@ if ($type == 'separator'){
 }
 else {
 
-	echo "<li id=\"module-$hash\" class=\"module module-$type\">\n";
+	echo "<li id=\"module-$hash\" class=\"module module-$type $frame_class\">\n";
 	echo "<div class=\"item-container\">\n";
 
 
