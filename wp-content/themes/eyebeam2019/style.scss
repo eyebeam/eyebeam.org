@@ -1007,7 +1007,7 @@ header nav li:last-child {
 @media (min-width: 1441px){
 	header {
 		max-width: calc(1280px);
-		margin: 0 auto;
+		margin: 1rem auto;
 	}
 	#menu-header.menu {
 		margin: 0 auto;
@@ -1420,8 +1420,19 @@ footer .bottom div {
 		margin-right: 0 !important;
 	}
 
+	.logos {
+		text-align: center;
+	}
+
+	.logos h2 {
+		max-width: 1280px;
+    margin: 0 auto;
+    text-align: left;
+	}
+
 	.logos #partners {
 		justify-content: space-between;
+		max-width: 1280px;
 	}
 	.logos #partners img {
 		flex: 0 0 17%;
@@ -1492,7 +1503,7 @@ footer .bottom div {
 	}
 
 	.logos {
-		padding: 2rem 16.666vw;
+		padding: 2rem 0;
 	}
 
 
@@ -1642,7 +1653,7 @@ footer .bottom div {
 .module .module-title {
 	font-size: 2.5rem;
 	line-height: 2.75rem;
-	flex: 1 0 auto;
+	flex: 1 0 100%;
 }
 .module .module-subtitle {
 	font-size: 2rem;
@@ -2084,6 +2095,7 @@ Events
 		font-size: 3rem;
 		line-height: 3.25rem;
 		width: 100%;
+		padding: 0 1rem 1rem 0;
 	}
 
 	.module-full_width .module-title.one_half {
@@ -2307,7 +2319,7 @@ Events
 			.module-title {
 			}
 			.module-description {
-				border: 1px solid #000;
+				border: 4px solid #000;
 				padding: 1rem;
 				max-height: 50vh;
 				overflow: scroll;
@@ -2328,16 +2340,25 @@ Events
 			}
 			.module-description {
 				flex: 0 0 50%;
-				border: 1px solid #000;
+				border: 4px solid #000;
 				padding: 1rem;
 				max-height: 50vh;
 				overflow: scroll;
+				max-height: 400px;
 			}
 		}
 	}
 
 }
-
+@media (min-height: 1000px){
+	.module-frame {
+		.item-container {
+			.module-description {
+				max-height: 35vh !important;
+			}
+		}
+	}
+}
 @media (min-width: 1279px){
 	.module-frame {
 		.item-container {
@@ -2348,11 +2369,11 @@ Events
 	}
 }
 
-@media (min-width: 1599px){
+@media (min-width: 1441px){
 	.module-frame {
 		.item-container {
 			.module-description {
-				max-height: 25vh;
+				max-height: 35vh !important;
 			}
 		}
 	}
