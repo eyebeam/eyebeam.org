@@ -102,13 +102,13 @@ h1,h2,h3 {
 
 
 p {
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	line-height: 1.2em;
 }
 
 @media (min-width: 768px){
 	p {
-
+		font-size: 1.8rem;
 	}
 }
 @media (min-width: 1280px){
@@ -1747,8 +1747,6 @@ footer .bottom div {
 
 .module-collection .module-title {
 	width: 100%;
-	font-size: 1.6rem;
-	line-height: 2rem;
 	padding: .5rem 0 .5rem 0;
 	font-family: "EyebeamSans", sans-serif;
 }
@@ -2625,7 +2623,8 @@ Events
 					flex: 1 0 100%;
 					padding: 2rem;
 					color: white;
-					font-size: 1.2rem;
+					font-size: 1rem;
+					font-weight: 600;
 					font-weight: 500;
 					text-decoration: none;
 					line-height: 1.2em;
@@ -2674,7 +2673,7 @@ Events
 			.resident {
 				.resident-name {
 					a {
-						font-size: 1.4rem !important;
+						font-size: 1.3rem !important;
 						line-height: 1.2em;
 						padding: 2rem !important;
 					}

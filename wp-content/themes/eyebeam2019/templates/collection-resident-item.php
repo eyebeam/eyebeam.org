@@ -32,7 +32,7 @@ if (! empty($image_id)) {
 
 // if there's a link and it's internal
 if (! empty($permalink) && ( $link_target == 'internal' ) ){
-	$name = (!empty($featured_video)) ? "<a data-micromodal-open=\"modal-$image_id\" href=\"$permalink\">$name</a>" : "<a href=\"$permalink\">$name</a>";
+	$name = (!empty($featured_video)) ? "<a data-micromodal-open=\"modal-$image_id\" href=\"$permalink\">$name &rarr;</a>" : "<a href=\"$permalink\">$name &rarr;</a>";
 		if (! empty($image)) {
 		$image = "<a class=\"image\" href=\"$permalink\">$image</a>";
 	}
