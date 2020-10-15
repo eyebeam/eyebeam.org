@@ -342,12 +342,12 @@ var eyebeam2018 = (function($) {
 		// 	}
 		// },
 
-		setup_searchform: function(event) {
-			$(".search-btn").on('click', function(event){
+		setup_searchform: function() {
+			$(".search-btn").on('click', function(e){
 				console.log('search clicked');
 				$("header").toggleClass("show-search");
 			});
-			event.preventDefault();
+			e.preventDefault();
 		},
 
 		archive_scroll: function() {
