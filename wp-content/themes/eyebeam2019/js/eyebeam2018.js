@@ -346,8 +346,8 @@ var eyebeam2018 = (function($) {
 			$(".search-btn").on('click', function(e){
 				console.log('search clicked');
 				$("header").toggleClass("show-search");
+				e.preventDefault();
 			});
-			e.preventDefault();
 		},
 
 		archive_scroll: function() {
