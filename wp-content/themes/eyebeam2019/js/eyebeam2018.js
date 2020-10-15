@@ -29,7 +29,7 @@ var eyebeam2018 = (function($) {
 			self.setup_calendar();
 			self.setup_carousel();
 			self.setup_lazy_load();
-			self.setup_masonry();
+			// self.setup_masonry();
 			// self.setup_bricks();
 
 		},
@@ -342,9 +342,9 @@ var eyebeam2018 = (function($) {
 		// 	}
 		// },
 
-		setup_searchform: function() {
-			$(".search-btn").live('click', function(event){
-				console.log('clicked');
+		setup_searchform: function(event) {
+			$(".search-btn").on('click', function(event){
+				console.log('search clicked');
 				$("header").toggleClass("show-search");
 			});
 			event.preventDefault();
