@@ -19,11 +19,11 @@ if ($tags){
 		// $tagnames[] = $tag->name;
 
 	}
-}
 
-if (count($tagnames) && $show_tags){
-	echo "Tags: " . implode($tagnames, ',');
-}
+	if (count($tagnames) && $show_tags){
+		echo "Tags: " . implode($tagnames, ',');
+	}
 
+}
 
 echo "</div>\n";

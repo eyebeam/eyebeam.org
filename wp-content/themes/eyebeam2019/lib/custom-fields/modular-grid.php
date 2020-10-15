@@ -447,6 +447,42 @@ if(function_exists("register_field_group"))
 						'multiple' => 0,
 					),
 					array (
+						'key' => 'field_5a8dbdb674ec3399',
+						'label' => 'Show Videos in Popup',
+						'name' => 'module_modal_video',
+						'type' => 'radio',
+						'instructions' => 'Displays resident video in a popup window On Click.',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '==',
+									'value' => 'residents',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '==',
+									'value' => 'collection',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'choices' => array (
+							'true' => 'Show Videos in Popup',
+							'false' => 'Don\'t Show Videos in Popup',
+						),
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+						'default_value' => 'false',
+						'layout' => 'vertical',
+					),
+					array (
 						'key' => 'field_5a8dbdb674ec34',
 						'label' => 'Show Image',
 						'name' => 'show_resident_image',
@@ -566,7 +602,51 @@ if(function_exists("register_field_group"))
 						'formatting' => 'html',
 						'maxlength' => '',
 					),
-
+					array (
+						'key' => 'field_5a8dbc52c2b7799',
+						'label' => 'Featured Residents',
+						'name' => 'featured_residents',
+						'type' => 'relationship',
+						'instructions' => 'Maximum 8',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_5a8dbca1c2b78',
+									'operator' => '==',
+									'value' => 'module',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '==',
+									'value' => 'collection',
+								),
+								array (
+									'field' => 'field_5a9a13961c280',
+									'operator' => '==',
+									'value' => 'residents',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'return_format' => 'object',
+						'post_type' => array (
+							0 => 'resident',
+						),
+						'taxonomy' => array (
+							0 => 'all',
+						),
+						'filters' => array (
+							0 => 'search',
+						),
+						'result_elements' => array (
+							0 => 'post_type',
+							1 => 'post_title',
+							2 => 'resident_start_year',
+						),
+						'max' => 8,
+					),
 					array (
 						'key' => 'field_pnYDOqEsQdTUO',
 						'label' => 'Module Page',
@@ -1029,6 +1109,11 @@ if(function_exists("register_field_group"))
 									'field' => 'field_5a99c21321c37',
 									'operator' => '!=',
 									'value' => 'separator',
+								),
+								array (
+									'field' => 'field_5a99c21321c37',
+									'operator' => '!=',
+									'value' => 'collection',
 								),
 							),
 							'allorany' => 'all',

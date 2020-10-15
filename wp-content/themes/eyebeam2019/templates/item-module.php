@@ -18,6 +18,7 @@ $show_resident_image = null;
 $show_resident_info = null;
 $residents_start_year = null;
 $residents_end_year = null;
+$featured_residents = null;
 $text_layout = null;
 $video_layout = null;
 $toc_status = null;
@@ -102,6 +103,10 @@ if (! empty(get_sub_field('residents_end_year'))) {
 	$residents_end_year = get_sub_field('residents_end_year');
 }
 
+if (! empty(get_sub_field('featured_residents'))) {
+	$featured_residents = get_sub_field('featured_residents');
+}
+
 if (! empty(get_sub_field('video_layout'))) {
 	$video_layout = get_sub_field('video_layout');
 }
@@ -166,6 +171,7 @@ eyebeam2018_module(array(
 	'show_resident_info' => $show_resident_info,
 	'residents_start_year' => $residents_start_year,
 	'residents_end_year' => $residents_end_year,
+	'featured_residents' => $featured_residents,
 	'video_layout' => $video_layout,
 	'text_layout' => $text_layout,
 	'toc_status' => $toc_status,

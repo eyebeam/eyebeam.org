@@ -184,6 +184,7 @@ function eyebeam2018_enqueue() {
 	eyebeam2018_enqueue_js('lib/knot.js/knot.js');
 	// eyebeam2018_enqueue_js('lib/bricks.js/bricks.js');
 	eyebeam2018_enqueue_js('lib/macy/macy.js');
+	eyebeam2018_enqueue_js('lib/micromodal/micromodal.min.js');
 	eyebeam2018_enqueue_js('js/eyebeam2018.js', array('jquery'));
 
 }
@@ -222,13 +223,9 @@ function eyebeam2018_get_image($attachment_id, $size = 'large') {
 }
 
 // Helper for outputting image uploads
-function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption) {
+function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption = false) {
 
 	$image = eyebeam2018_get_image($attachment_id, $size);
-
-	if (empty($show_caption)) {
-		$show_caption = false;
-	}
 
 	$image = $image['src'];
 	$caption = wp_get_attachment_caption($attachment_id);
@@ -238,11 +235,10 @@ function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_capti
 
 
 	$html = "<img alt=\"$alt_text\" title=\"$title_text\" src=\"$image\">\n";
-
-	if (!empty($caption)){
-		$html .= ($show_caption) ? "<figcaption>\n" : "";
-		$html .= ($show_caption) ? $caption."\n" : "";
-		$html .= ($show_caption) ? "</figcaption>" : "";
+	if ($show_caption){
+		$html .= "<figcaption>\n";
+		$html .= $caption."\n";
+		$html .= "</figcaption>";
 	}
 	return $html;
 }
@@ -391,7 +387,7 @@ function eyebeam2018_get_related_readings($postid = null) {
 }
 
 // Returns an array of resident posts for a given year
-function eyebeam2018_get_residents($start_year = null, $end_year = null) {
+function eyebeam2018_get_residents($start_year = null, $end_year = null, $limit = null) {
 	if (empty($start_year)) {
 		$start_year = date('Y')-1;
 	}
@@ -399,12 +395,18 @@ function eyebeam2018_get_residents($start_year = null, $end_year = null) {
 		$end_year = date('Y');
 	}
 
+
 	$args = array(
 		'post_type' => 'resident',
 		'posts_per_page' => -1,
 		'orderby'=> 'meta_value_num',
-		'meta_key' => 'end_year'
+		'meta_key' => 'end_year',
 	);
+
+	if (!is_null($limit) || $limit > 0 ){
+		$args['posts_per_page'] = $limit;
+	}
+
 
 	if (strtolower($year) != 'all') {
 		$start_year = intval($start_year);

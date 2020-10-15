@@ -111,6 +111,17 @@ h1, h2, h3 {
   font-weight: 400;
 }
 
+p {
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+@media (min-width: 1280px) {
+  p {
+    font-size: 1.2rem;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* Globals */
 body {
@@ -129,6 +140,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.2rem;
+    line-height: 1.4em;
+  }
 }
 
 strong, b {
@@ -253,6 +271,7 @@ form.error .response-error {
   .module-title {
     color: #262626;
     padding: 1rem 0;
+    font-family: "EyebeamSans", sans-serif;
   }
 }
 
@@ -1500,10 +1519,16 @@ footer form p {
   font-size: 1.6rem;
   line-height: 2rem;
   padding: .5rem 0 .5rem 0;
+  font-family: "EyebeamSans", sans-serif;
 }
 
 .module-collection li {
   width: calc(100% - 1rem);
+}
+
+.module-collection .show-resident-image li {
+  width: calc(100%);
+  margin-bottom: 1rem;
 }
 
 .module-collection li .module-title {
@@ -1686,6 +1711,7 @@ Events
   padding: 0 0 0 0;
   display: flex;
   flex-wrap: wrap;
+  height: 100%;
 }
 
 .item-container a.image {
@@ -1874,13 +1900,13 @@ Events
     width: 100%;
   }
   .module-collection#module-alumni ul {
-    justify-content: left;
+    display: flex;
+    flex-flow: row wrap;
   }
   .module-collection li {
     float: left;
     width: calc(50% - 1rem);
     margin-bottom: 1rem;
-    margin-right: 1rem;
   }
   .module-collection#module-alumni .five-columns li:nth-child(5n) {
     margin-right: 0;
@@ -1914,7 +1940,7 @@ Events
 	}
 */
   .module-collection .five-columns li {
-    width: calc(20% - 1.6rem);
+    width: calc(20% - 1rem);
   }
   .module-collection .four-columns li,
   .module-collection div .four-columns li {
@@ -1925,6 +1951,26 @@ Events
   }
   .module-collection .two-columns li {
     width: calc(50% - 1rem);
+  }
+  .module-collection .five-columns.show-resident-image li {
+    width: calc(20%);
+    max-height: calc(83.333vw / 5);
+  }
+  .module-collection .four-columns.show-resident-image li,
+  .module-collection div .four-columns .show-resident-image li {
+    width: calc(25%);
+    max-height: calc(83.333vw / 4);
+  }
+  .module-collection .four-columns.show-resident-image li .item-container {
+    max-height: calc(83.333vw / 4);
+  }
+  .module-collection .three-columns.show-resident-image li {
+    width: calc(33%);
+    max-height: calc(83.333vw / 3);
+  }
+  .module-collection .two-columns.show-resident-image li {
+    width: calc(50%);
+    max-height: calc(83.333vw / 2);
   }
   .module-collection h2.module-title {
     width: 100%;
@@ -2152,6 +2198,80 @@ Events
 
 /* -------------------------------------------------------------------------- */
 /* Residents */
+#module-alumni {
+  padding: 0;
+}
+
+#module-alumni ul.show-resident-image {
+  height: auto;
+  justify-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#module-alumni ul.show-resident-image li.resident {
+  padding: 0;
+  background: #000;
+  position: relative;
+}
+
+#module-alumni ul.show-resident-image li.resident a.image {
+  height: inherit;
+  opacity: .5;
+  overflow: hidden;
+}
+
+#module-alumni ul.show-resident-image li.resident .resident-name {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#module-alumni ul.show-resident-image li.resident .resident-name a {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  flex: 1 0 100%;
+  padding: 2rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.2em;
+}
+
+#module-alumni ul.show-resident-image li.resident .resident-name a:hover, #module-alumni ul.show-resident-image li.resident .resident-name a:focus {
+  background: #000;
+}
+
+@media (min-width: 768px) {
+  #module-alumni .show-resident-image .resident .resident-name a {
+    font-size: 3rem !important;
+    line-height: 1.2em;
+    padding: 4rem !important;
+  }
+}
+
+@media (min-width: 1000px) {
+  #module-alumni .show-resident-image .resident .resident-name a {
+    font-size: 1rem !important;
+    line-height: 1.2em;
+    padding: 2rem !important;
+  }
+}
+
+@media (min-width: 1279px) {
+  #module-alumni .show-resident-image .resident .resident-name a {
+    font-size: 1.4rem !important;
+    line-height: 1.2em;
+    padding: 2rem !important;
+  }
+}
+
 #residents-year {
   padding: 2rem 0;
   font-family: "EyebeamSans", sans-serif;
@@ -2217,10 +2337,39 @@ Events
     font-size: 20px;
     padding-top: 15px;
   }
+  .show-resident-image {
+    background: #000;
+  }
+  .show-resident-image .resident {
+    margin-bottom: 0 !important;
+  }
+  .show-resident-image .resident .item-container {
+    position: relative;
+  }
+  .show-resident-image .resident .item-container .resident-name {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    flex: 1 0 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .show-resident-image .resident .item-container .resident-name a {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    flex: 1 0 100%;
+    padding: 2rem;
+    color: white;
+  }
   .resident-name,
   .resident-type {
-    font-size: 1.5rem !important;
-    line-height: 28px !important;
+    font-size: 1rem !important;
+    line-height: 1.2em !important;
+    font-weight: 500;
   }
 }
 
@@ -2245,7 +2394,7 @@ Events
 }
 
 .post .post-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1.1em;
   padding-top: 1rem;
 }
@@ -2272,6 +2421,20 @@ Events
 
 figcaption {
   padding: 8px 0;
+}
+
+@media (min-width: 768px) {
+  figcaption {
+    font-size: 1.4rem;
+    line-height: 1.2em;
+  }
+}
+
+@media (min-width: 1279px) {
+  figcaption {
+    font-size: 1.1rem;
+    line-height: 1.2em;
+  }
 }
 
 .post-main .pullquote {
@@ -2302,11 +2465,21 @@ figcaption {
   margin: 15px 0;
 }
 
+.post .featured-video iframe {
+  width: 100%;
+  height: calc(83.334vw / (16/9));
+}
+
 @media (min-width: 857px) {
   .post {
     padding: 0;
     display: flex;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
+  }
+  .post .featured-video iframe {
+    width: 100%;
+    height: calc(83.334vw / (16/9));
   }
   .post .post-image {
     /*max-width: 700px;*/
@@ -2319,13 +2492,13 @@ figcaption {
     margin-bottom: 4rem;
   }
   .post .float-image figcaption {
-    font-size: 16px;
+    font-size: 1.4rem;
     line-height: 1.3em;
     margin: 1rem 0;
   }
   .post .post-main {
     /*float: left;*/
-    width: 100%;
+    flex: 1 0 50%;
   }
   .post.gutenberg .post-main {
     float: left;
@@ -2349,8 +2522,8 @@ figcaption {
     margin-bottom: 3vmin;
   }
   .post .post-title {
-    font-size: 3rem;
-    line-height: 3rem;
+    font-size: 2.2rem;
+    line-height: 1em;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
@@ -2900,4 +3073,191 @@ table.ui-datepicker-calendar thead {
   .press .clear {
     display: block;
   }
+}
+
+/** begin modal window styles */
+.modal {
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal {
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+}
+
+.modal__overlay {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__container {
+  background-color: #fff;
+  padding: 30px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #00449e;
+  box-sizing: border-box;
+}
+
+.modal__close {
+  background: transparent;
+  border: 0;
+}
+
+.modal__header .modal__close:before {
+  content: "\2715";
+}
+
+.modal__content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.modal__btn:focus, .modal__btn:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.modal__btn-primary {
+  background-color: #00449e;
+  color: #fff;
+}
+
+/**************************\
+ Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mmfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mmslideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+
+.micromodal-slide {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  animation: mmfadeOut 300ms 1;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+  animation: mmfadeIn 300ms 1;
+}
+
+.micromodal-slide {
+  position: fixed;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+  padding: 5vw;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+}
+
+.micromodal-slide h2 {
+  color: white;
+  width: 75vw;
+}
+
+.micromodal-slide a {
+  color: white;
+}
+
+.micromodal-slide a[data-micromodal-close] {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.micromodal-slide .modal-content {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.micromodal-slide .modal-content iframe {
+  width: 75vw;
+  height: calc(75vw / 1.7778);
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform;
 }

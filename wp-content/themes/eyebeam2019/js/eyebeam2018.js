@@ -1,7 +1,7 @@
 var eyebeam2018 = (function($) {
 
 	// This should be kept in sync with the style.css mobile breakpoint.
-	var mobile_width = 856;
+	var mobile_width = 1025;
 
 	// For handling donations
 	var stripe_card = null;
@@ -31,6 +31,10 @@ var eyebeam2018 = (function($) {
 			self.setup_lazy_load();
 			// self.setup_masonry();
 			// self.setup_bricks();
+
+			if ($(window).width() > mobile_width){
+				self.setup_micromodal();
+			}
 
 		},
 		setup_nav: function() {
@@ -897,6 +901,28 @@ var eyebeam2018 = (function($) {
 
 
 
+		},
+		setup_micromodal: function(){
+			MicroModal.init({
+				onShow: modal => console.info(`${modal.id} is shown`), // [1]
+				onClose: modal => $(".is-open").find('iframe').attr('src', $(".is-open").find('iframe').attr('src')), // [2]
+				openTrigger: 'data-micromodal-open', // [3]
+				closeTrigger: 'data-micromodal-close', // [4]
+				openClass: 'is-open', // [5]
+				disableScroll: true, // [6]
+				disableFocus: false, // [7]
+				awaitOpenAnimation: false, // [8]
+				awaitCloseAnimation: false, // [9]
+				debugMode: true // [10]
+			});
+
+			$('a[data-micromodal-open').click(function(e){
+				e.preventDefault();
+			});
+
+			$('a[data-micromodal-close').click(function(e){
+				e.preventDefault();
+			});
 		},
 	};
 
