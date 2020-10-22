@@ -1452,6 +1452,8 @@ footer form p {
 .module img {
   width: 100%;
   height: auto;
+  min-height: 100%;
+  object-fit: cover;
 }
 
 .module .module-title {
@@ -1912,15 +1914,6 @@ Events
     width: calc(50% - 1rem);
     margin-bottom: 1rem;
   }
-  .module-collection#module-alumni .five-columns li:nth-child(5n) {
-    margin-right: 0;
-  }
-  .module-collection#module-alumni .five-columns li {
-    margin-right: 2rem;
-  }
-  .module-collection#module-staff .four-columns li:nth-child(4n) {
-    margin-right: 0;
-  }
   .module-collection#module-staff .four-columns li {
     margin-right: 2rem;
   }
@@ -1931,6 +1924,9 @@ Events
   }
   .module-collection#module-alumni .three-columns li a {
     text-decoration: underline;
+  }
+  .module-collection#module-alumni .show-resident-image.three-columns li {
+    margin-right: 0;
   }
   .module-collection #posts-list {
     justify-content: space-between;
@@ -1969,7 +1965,8 @@ Events
     max-height: calc(83.333vw / 4);
   }
   .module-collection .three-columns.show-resident-image li {
-    width: calc(33%);
+    width: calc(33.333%);
+    margin: 0;
     max-height: calc(83.333vw / 3);
   }
   .module-collection .two-columns.show-resident-image li {
@@ -2219,9 +2216,13 @@ Events
   position: relative;
 }
 
+#module-alumni ul.show-resident-image li.resident:hover a.image {
+  opacity: .4;
+}
+
 #module-alumni ul.show-resident-image li.resident a.image {
   height: inherit;
-  opacity: .5;
+  opacity: .75;
   overflow: hidden;
 }
 
@@ -2250,7 +2251,7 @@ Events
 }
 
 #module-alumni ul.show-resident-image li.resident .resident-name a:hover, #module-alumni ul.show-resident-image li.resident .resident-name a:focus {
-  background: #000;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {

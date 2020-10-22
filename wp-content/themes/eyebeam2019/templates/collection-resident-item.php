@@ -32,15 +32,23 @@ if (! empty($image_id)) {
 
 // if there's a link and it's internal
 if (! empty($permalink) && ( $link_target == 'internal' ) ){
-	$name = (!empty($featured_video)) ? "<a data-micromodal-open=\"modal-$image_id\" href=\"$permalink\">$name &rarr;</a>" : "<a href=\"$permalink\">$name &rarr;</a>";
+
+	if ($show_resident_image == "show"){
+		$displayname = "$name &rarr;";
+	}
+	else {
+		$displayname = "$name";
+	}
+
+	$name = (!empty($featured_video)) ? "<a data-micromodal-open=\"modal-$image_id\" href=\"$permalink\">$displayname</a>" : "<a href=\"$permalink\">$displayname</a>";
 		if (! empty($image)) {
 		$image = "<a class=\"image\" href=\"$permalink\">$image</a>";
 	}
 }
-else {
-	if (! empty($links)) {
+else if (! empty($links)) {
 	$first_link = $links[0];
 	$url = $first_link['link_url'];
+
 	if (!empty($featured_video)){
 		$name = "<a data-microodal-open=\"modal-$image_id\" href=\"$url\">$name</a>";
 	}
@@ -52,6 +60,9 @@ else {
 		$image = "<a class=\"image\" href=\"$url\">$image</a>";
 	}
 }
+else if(empty($links)) {
+	$name = "<a>$name</a>";
+	$image = "<a>$image</a>";
 }
 
 $label = ($is_related_reading) ? eyebeam2018_label_map($resident->post_type) : false;
