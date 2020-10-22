@@ -55,6 +55,15 @@ else {
 
 	}
 
+
+	if (!empty($section_header)){
+		$title = $section_header;
+		if (!empty($section_header_link)){
+			$link = $section_header_link;
+		}
+		echo (!empty($link)) ? "<h2 class=\"module-title\"><a href=\"$link\">$title</a></h2>" : "<h2 class=\"module-title\">$title</h2>";
+	}
+
 	// if there's a title
 	if (! empty($title)) {
 
@@ -100,10 +109,11 @@ else {
 	if (! empty($description)) {
 		echo "<div class=\"module-flex\">$text_description</div>";
 
-		
+
 		echo "</div>\n";
 
 	}
+
 	echo "</li>\n";
 
 }

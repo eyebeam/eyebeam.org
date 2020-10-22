@@ -1855,7 +1855,7 @@ Events
   .module-section_header {
     width: calc(100%);
     border-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 2rem;
   }
   .module-section_header .item-container {
     padding: 0;
