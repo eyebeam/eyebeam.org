@@ -184,12 +184,17 @@ var eyebeam2018 = (function($) {
 		},
 
 		setup_bio_toggle: function() {
-			$('.toggle-bio').click(function(e) {
-				e.preventDefault();
-				$(e.target).closest('li').toggleClass('show-bio');
-				window.macyInstance.recalculate(true);
-				self.align_modules();
-			});
+			if ( $("body").hasClass("page-id-8700") && $(window).width() > mobile_width ){
+					return;
+			}
+			else {
+				$('.toggle-bio').click(function(e) {
+					e.preventDefault();
+					$(e.target).closest('li').toggleClass('show-bio');
+					self.align_modules();
+				});
+			}
+
 		},
 
 		setup_hash: function() {

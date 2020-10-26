@@ -170,14 +170,7 @@ a.btn {
 }
 
 .toggle-bio {
- a:after {
-	 content: "+";
-	 width: 2rem;
-	 height: 2rem;
-	 position: relative;
-	 left: .25rem;
-	 transform: translateY(-100%);
- }
+
 }
 
 a:focus {
@@ -328,7 +321,7 @@ header {
 	font-family: "EyebeamSans", sans-serif;
 	font-weight: 400;
 	font-size: 1.6rem;
-	z-index: 2;
+	z-index: 1;
 	width: 100vw;
 	margin: 0 auto;
 }
@@ -1673,7 +1666,6 @@ footer .bottom div {
 .module img {
 	width: 100%;
 	height: auto;
-	min-height: 100%;
 	object-fit: cover;
 }
 
@@ -2190,6 +2182,8 @@ Events
 
 
 	.module-collection ul {
+		display: flex;
+		flex-flow: row wrap;
 		/* display: inline-flex;
 		flex-wrap: wrap;
 		justify-content: left; */
@@ -3731,6 +3725,13 @@ table.ui-datepicker-calendar thead {
  width: 100vw;
  height: 100vh;
  color: white;
+ header {
+	 background: none;
+	 border: none;
+ }
+ img {
+	 width: 25vw;
+ }
  h2 {
 	 color: white;
 	 width: 75vw;
@@ -3748,11 +3749,13 @@ table.ui-datepicker-calendar thead {
  .modal-content {
 	 display: flex;
 	 justify-content: center;
+	 flex-flow: row wrap;
 	 margin: 2rem;
 	 iframe {
 		 width: 75vw;
 		 height: calc(75vw / 1.7778);
 	}
+
  }
 
 }
