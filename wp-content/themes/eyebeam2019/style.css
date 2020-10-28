@@ -116,9 +116,9 @@ p {
   line-height: 1.2em;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   p {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 }
 @media (min-width: 1280px) {
@@ -1537,6 +1537,7 @@ footer .social {
   font-size: 2.5rem;
   line-height: 2.75rem;
   flex: 1 0 100%;
+  font-family: "EyebeamSans", sans-serif;
 }
 
 .module .module-subtitle {
@@ -1547,6 +1548,7 @@ footer .social {
 
 .module .module-image {
   flex: 1 0 100%;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 857px) {
@@ -1794,17 +1796,22 @@ Events
   display: flex;
   flex-wrap: wrap;
   height: 100%;
+  flex: 1 0 100%;
+  margin-bottom: 1rem;
 }
 
 .item-container a.image {
   width: 100%;
   display: block;
+  min-height: 200px;
+  border: 2px solid #00FF00;
+  margin: 0;
+  padding: 0;
 }
-
-.item-container a.image {
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+.item-container a.image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .google-map iframe {
@@ -2200,7 +2207,7 @@ Events
 }
 #search li {
   width: unset;
-  flex: 0 0 100%;
+  flex: 1 0 33.333%;
   margin-bottom: 1rem;
 }
 #search li span {
@@ -2212,10 +2219,11 @@ Events
   #search {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   #search li {
     width: unset;
-    flex: 0 0 calc(33% - 1rem);
+    flex: 0 0 calc(33.333% - 1rem);
     margin: 0;
   }
   #search li span {
