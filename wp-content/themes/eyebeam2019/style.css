@@ -3349,7 +3349,7 @@ table.ui-datepicker-calendar thead {
   transform: translateX(-50%) translateY(-50%);
   top: 50%;
   left: 50%;
-  padding: 1rem 5rem;
+  padding: 1rem 8.333vw;
   background: rgba(0, 0, 0, 0.9);
   z-index: 1000;
   width: 100vw;
@@ -3361,7 +3361,7 @@ table.ui-datepicker-calendar thead {
   border: none;
 }
 .micromodal-slide img {
-  width: 25vw;
+  width: 320px;
   margin-bottom: 2rem;
 }
 .micromodal-slide h2 {
@@ -3373,7 +3373,7 @@ table.ui-datepicker-calendar thead {
 }
 .micromodal-slide a[data-micromodal-close] {
   position: absolute;
-  top: 1rem;
+  top: 0;
   right: 1rem;
 }
 .micromodal-slide .modal-content {
