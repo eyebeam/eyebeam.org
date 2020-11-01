@@ -1551,10 +1551,18 @@ footer .social {
   margin-bottom: 1rem;
 }
 
+.module.has-image .module-image {
+  flex: 0 0 50%;
+}
+
 @media (min-width: 857px) {
   .module .module-image {
     flex: 1 0 50%;
     margin-right: 2rem;
+  }
+
+  .module.has-image .module-image {
+    flex: 0 0 50%;
   }
 }
 .module .module-description p:not(:first-child) {
@@ -1829,6 +1837,10 @@ Events
 }
 .module-full_width .module-flex .module-description {
   flex: 1 0 100%;
+}
+
+.module-full_width.has-image .module-description {
+  flex: 1 0 calc(50% - 2rem);
 }
 
 @media (min-width: 857px) {

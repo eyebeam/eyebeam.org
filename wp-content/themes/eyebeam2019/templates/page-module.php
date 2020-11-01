@@ -8,6 +8,13 @@ if (! empty($module_frame)){
 	$frame_class = ($module_frame == "true") ? 'module-frame' : '';
 }
 
+if (! empty ($image_id)){
+	$has_image = 'has-image';
+}
+else {
+	$has_image = '';
+}
+
 if (! empty($toc_title)) {
 	$hash = sanitize_title($toc_title);
 }
@@ -19,7 +26,7 @@ if ($type == 'separator'){
 // if not separator run the rest of the logic
 else {
 
-	echo "<li id=\"module-$hash\" class=\"module module-$type $frame_class\">\n";
+	echo "<li id=\"module-$hash\" class=\"module module-$type $frame_class $has_image\">\n";
 	echo "<div class=\"item-container\">\n";
 
 
@@ -47,10 +54,8 @@ else {
 			$image = "<a href=\"$url\">$image</a>";
 		}
 
-		$figure_class = ($layout == 'text_first') ? 'float-right' : 'float-left';
-
 		if (! empty($image)){
-			$image = "<figure class=\"module-image $figure_class\">$image</figure>\n";
+			$image = "<figure class=\"module-image\">$image</figure>\n";
 		}
 
 	}
@@ -94,7 +99,7 @@ else {
 	}
 
 	// if there's a button set and the setting to show it is true
-	if ( (! empty($show_button)) && ($show_button == 'show') && (! empty($url)) ) {
+	if ( $show_button == 'show' && ! empty($url) ) {
 
 		$text_description .= "<a class=\"btn\" href=\"$url\">\n";
 		$text_description .= $button_text;
@@ -103,11 +108,22 @@ else {
 
 
 	// image always comes before description
-	echo "$image";
 
 
 	if (! empty($description)) {
-		echo "<div class=\"module-flex\">$text_description</div>";
+
+		if ($layout == 'text_first'){
+			echo "<div class=\"module-flex\">$text_description</div>";
+			if (!empty($image)) {
+				echo "$image";
+			}
+		}
+		else {
+			if (!empty($image)) {
+				echo "$image";
+			}
+			echo "<div class=\"module-flex\">$text_description</div>";
+		}
 
 
 		echo "</div>\n";
