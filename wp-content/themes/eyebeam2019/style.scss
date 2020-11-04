@@ -2128,9 +2128,12 @@ Events
 		border-bottom: 0;
 		padding-bottom: 2rem;
 
-		.module-title {
-			// display: none;
+		.module-flex {
+			.module-title {
+				display: none;
+			}
 		}
+
 
 	}
 
