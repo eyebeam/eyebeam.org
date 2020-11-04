@@ -1548,7 +1548,6 @@ footer .social {
 
 .module .module-image {
   flex: 1 0 100%;
-  margin-bottom: 1rem;
 }
 
 .module.has-image .module-image {
@@ -1557,12 +1556,12 @@ footer .social {
 
 @media (min-width: 857px) {
   .module .module-image {
-    flex: 1 0 50%;
+    flex: 1 0 calc(50% - 2rem);
     margin-right: 2rem;
   }
 
   .module.has-image .module-image {
-    flex: 0 0 50%;
+    flex: 1 0 calc(50% - 2rem);
   }
 }
 .module .module-description p:not(:first-child) {
@@ -1803,7 +1802,6 @@ Events
   padding: 0 0 0 0;
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
   flex: 1 0 100%;
   margin-bottom: 1rem;
 }
@@ -3375,6 +3373,7 @@ table.ui-datepicker-calendar thead {
 .micromodal-slide img {
   width: 25vw;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 .micromodal-slide h2 {
   color: white;

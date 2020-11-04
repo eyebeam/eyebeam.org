@@ -110,25 +110,23 @@ else {
 	// image always comes before description
 
 
-	if (! empty($description)) {
 
-		if ($layout == 'text_first'){
-			echo "<div class=\"module-flex\">$text_description</div>";
-			if (!empty($image)) {
-				echo "$image";
-			}
+	if ($layout == 'text_first'){
+		echo "<div class=\"module-flex\">$text_description</div>";
+		if (!empty($image)) {
+			echo "$image";
 		}
-		else {
-			if (!empty($image)) {
-				echo "$image";
-			}
-			echo "<div class=\"module-flex\">$text_description</div>";
+	}
+	else {
+		if (!empty($image)) {
+			echo "$image";
 		}
+		echo "<div class=\"module-flex\">$text_description</div>";
+	}
 
 
 		echo "</div>\n";
 
-	}
 
 	echo "</li>\n";
 
