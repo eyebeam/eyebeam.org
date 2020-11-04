@@ -61,7 +61,7 @@ else {
 	}
 
 
-	if (!empty($section_header)){
+	if ($section_header != ""){
 		$title = $section_header;
 		if (!empty($section_header_link)){
 			$link = $section_header_link;
