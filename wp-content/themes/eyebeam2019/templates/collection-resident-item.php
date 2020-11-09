@@ -41,7 +41,7 @@ if (! empty($permalink) && ( $link_target == 'internal' ) ){
 	}
 
 	//create micromodal attribute if the featured video is set
-	$micromodal = (!empty($featured_video)) ? "data-micromodal-open=\"modal-$image_id\"" : "";
+	$micromodal = (!empty($featured_video) && !is_search()) ? "data-micromodal-open=\"modal-$image_id\"" : "";
 
 	$name = "<a $micromodal href=\"$permalink\">$displayname</a>";
 		if (! empty($image)) {
