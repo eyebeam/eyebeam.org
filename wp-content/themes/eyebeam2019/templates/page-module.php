@@ -85,7 +85,7 @@ else {
 		}
 
 		// set the description
-		$text_description .= "<h2 class=\"module-title eyebeam-sans\" alt=\"$title\" title=\"$title\">$title_text</h2>\n";
+		$text_description .= (empty($section_header)) ? "<h2 class=\"module-title eyebeam-sans\" alt=\"$title\" title=\"$title\">$title_text</h2>\n" : "";
 	}
 
 

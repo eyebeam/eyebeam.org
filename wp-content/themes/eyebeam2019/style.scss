@@ -272,6 +272,14 @@ form.error .response-error {
 	padding: 1rem 0;
 	font-family: "EyebeamSans", sans-serif;
 }
+
+.module-section_header {
+	.module-flex {
+		.module-title {
+			display: none;
+		}
+	}
+}
 @media (min-width: 857px){
 	.module-title {
 		padding: 0;
