@@ -36,10 +36,10 @@ echo "<div class=\"modal micromodal-slide\" id=\"modal-$image_id\" aria-hidden=\
 						<div id=\"modal-1-content\" class=\"modal-content\">
 							$image
 							<div style=\"flex: 1 0 100%;\">
-								$name
+								<strong class=\"eyebeam-sans\">$name</strong>
 							</div>
 							<div style=\"flex: 1 0 100%;\">
-								$title
+								<span class=\"eyebeam-sans\">$title</span>
 							</div>
 							<div>
 								$bio

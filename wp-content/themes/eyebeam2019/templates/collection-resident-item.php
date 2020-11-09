@@ -26,7 +26,7 @@ $image = '';
 
 // if the image id is set
 if (! empty($image_id)) {
-	$size = 'medium';
+	$size = 'small';
 	$image = eyebeam2018_get_image_html($image_id, $size, false);
 }
 
@@ -40,9 +40,12 @@ if (! empty($permalink) && ( $link_target == 'internal' ) ){
 		$displayname = "$name";
 	}
 
-	$name = (!empty($featured_video)) ? "<a data-micromodal-open=\"modal-$image_id\" href=\"$permalink\">$displayname</a>" : "<a href=\"$permalink\">$displayname</a>";
+	//create micromodal attribute if the featured video is set
+	$micromodal = (!empty($featured_video)) ? "data-micromodal-open=\"modal-$image_id\"" : "";
+
+	$name = "<a $micromodal href=\"$permalink\">$displayname</a>";
 		if (! empty($image)) {
-		$image = "<a class=\"image\" href=\"$permalink\">$image</a>";
+		$image = "<a $micromodal class=\"image\" href=\"$permalink\">$image</a>";
 	}
 }
 else if (! empty($links)) {
@@ -50,7 +53,7 @@ else if (! empty($links)) {
 	$url = $first_link['link_url'];
 
 	if (!empty($featured_video)){
-		$name = "<a data-microodal-open=\"modal-$image_id\" href=\"$url\">$name</a>";
+		$name = "<a $micromodal href=\"$url\">$name</a>";
 	}
 	else {
 		$name = "<a href=\"$url\">$name</a>";
@@ -61,7 +64,7 @@ else if (! empty($links)) {
 	}
 }
 else if(empty($links)) {
-	$name = "<a>$name</a>";
+	$name = "$name";
 	$image = "<a>$image</a>";
 }
 
@@ -113,12 +116,6 @@ else {
 
 	if (!empty($featured_video)){
 
-
-		parse_str( parse_url( $featured_video, PHP_URL_QUERY ), $video_vars );
-		$video_id =  $video_vars['v'];
-		$embed_url = "https://youtube.com/embed/$video_id";
-
-
 		echo "<div class=\"modal micromodal-slide\" id=\"modal-$image_id\" aria-hidden=\"true\">
 
 						<!-- [2] -->
@@ -135,11 +132,12 @@ else {
 									<a href=\"#\" aria-label=\"Close modal\" data-micromodal-close>[Close]</a>
 								</header>
 
-								<div id=\"modal-1-content\" class=\"modal-content\">
-								<div class=\"featured-video\" style=\"flex: 1 0 100%;justify-content: center;display: flex;flex-flow: column wrap;\">
-								<iframe style=\"margin: 0 auto;\" src=\"$embed_url\"></iframe>
+								<div id=\"modal-1-content\" class=\"modal-content\">";
+
+								eyebeam2018_video_embed($featured_video);
+
+								echo "
 								<p style=\"text-align: center;\"><a href=\"$permalink\">Click Here to read more</a></p>
-								</div>
 								</div>
 
 							</div>

@@ -2088,13 +2088,8 @@ Events
     max-height: calc(83.333vw / 5);
   }
 
-  .module-collection .four-columns.show-resident-image li,
-.module-collection div .four-columns .show-resident-image li {
-    width: calc(25%);
-    max-height: calc(83.333vw / 4);
-  }
-
-  .module-collection .four-columns.show-resident-image li .item-container {
+  .module-collection .four-columns.show-resident-image li a.image,
+.module-collection div .four-columns .show-resident-image li a.image {
     max-height: calc(83.333vw / 4);
   }
 
@@ -2355,62 +2350,41 @@ Events
 }
 #module-alumni ul.show-resident-image li.resident {
   padding: 0;
-  background: #000;
   position: relative;
 }
 #module-alumni ul.show-resident-image li.resident:hover a.image {
   opacity: 0.4;
 }
-#module-alumni ul.show-resident-image li.resident a.image {
+#module-alumni ul.show-resident-image li.resident .item-container a.image {
   height: inherit;
-  opacity: 0.75;
-  overflow: hidden;
+  opacity: 1;
+  border: 0;
+  margin-bottom: 0.5rem;
 }
-#module-alumni ul.show-resident-image li.resident .resident-name {
-  position: absolute;
+#module-alumni ul.show-resident-image li.resident .item-container a.image img {
+  object-fit: cover;
+}
+#module-alumni ul.show-resident-image li.resident .item-container a.image:hover + h3.resident-name a {
+  background: #00FF00;
+}
+#module-alumni ul.show-resident-image li.resident .item-container .resident-name {
   display: flex;
-  height: 100%;
   margin: 0;
   padding: 0;
 }
-#module-alumni ul.show-resident-image li.resident .resident-name a {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 100%;
+#module-alumni ul.show-resident-image li.resident .item-container .resident-name a {
+  display: inline;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   flex: 1 0 100%;
-  padding: 2rem;
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
   font-weight: 500;
   text-decoration: none;
-  line-height: 1.2em;
-}
-#module-alumni ul.show-resident-image li.resident .resident-name a:hover, #module-alumni ul.show-resident-image li.resident .resident-name a:focus {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-@media (min-width: 768px) {
-  #module-alumni .show-resident-image .resident .resident-name a {
-    font-size: 3rem !important;
-    line-height: 1.2em;
-    padding: 4rem !important;
-  }
-}
-@media (min-width: 1000px) {
-  #module-alumni .show-resident-image .resident .resident-name a {
-    font-size: 1rem !important;
-    line-height: 1.2em;
-    padding: 2rem !important;
-  }
 }
 @media (min-width: 1279px) {
   #module-alumni .show-resident-image .resident .resident-name a {
     font-size: 1.3rem !important;
     line-height: 1.2em;
-    padding: 2rem !important;
   }
 }
 #residents-year {
@@ -2479,9 +2453,6 @@ Events
     padding-top: 15px;
   }
 
-  .show-resident-image {
-    background: #000;
-  }
   .show-resident-image .resident {
     margin-bottom: 0 !important;
   }
@@ -2489,9 +2460,7 @@ Events
     position: relative;
   }
   .show-resident-image .resident .item-container .resident-name {
-    position: absolute;
     display: flex;
-    height: 100%;
     flex: 1 0 100%;
     width: 100%;
     margin: 0;
@@ -2499,13 +2468,11 @@ Events
   }
   .show-resident-image .resident .item-container .resident-name a {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100%;
     width: 100%;
     flex: 1 0 100%;
-    padding: 2rem;
-    color: white;
   }
 
   .resident-name,
@@ -2602,6 +2569,9 @@ figcaption {
   margin: 15px 0;
 }
 
+.post .featured-video {
+  flex: 1 0 100%;
+}
 .post .featured-video iframe {
   width: 100%;
   height: calc(83.334vw / (16/9));
@@ -3396,8 +3366,8 @@ table.ui-datepicker-calendar thead {
   justify-content: center;
   flex-flow: row wrap;
   margin: 0 auto;
-  max-width: 1280px;
-  align-content: flex-start;
+  max-width: 840px;
+  align-content: center;
   padding-bottom: 1rem;
   overflow-y: scroll;
   height: calc(100vh - 2rem);

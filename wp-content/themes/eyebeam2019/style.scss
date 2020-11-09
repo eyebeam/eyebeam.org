@@ -2301,11 +2301,14 @@ Events
 
 	.module-collection .four-columns.show-resident-image li,
 	.module-collection div .four-columns .show-resident-image li {
-		width: calc(25%);
-		max-height: calc(83.333vw / 4);
+		// width: calc(25%);
+		a.image {
+			max-height: calc(83.333vw / 4);
+
+		}
 	}
 	.module-collection .four-columns.show-resident-image li .item-container{
-		max-height: calc(83.333vw / 4);
+		// max-height: calc(83.333vw / 4);
 	}
 
 
@@ -2625,7 +2628,7 @@ Events
 
 		li.resident {
 			padding:0;
-			background: #000;
+			// background: #000;
 				position: relative;
 
 			&:hover {
@@ -2634,38 +2637,53 @@ Events
 				}
 			}
 
-			a.image {
-				height: inherit;
-				opacity: .75;
-				overflow: hidden;
-			}
+			.item-container {
+
+				// height: 100%;
+				a.image {
+					height: inherit;
+					opacity: 1;
+					// overflow: hidden;
+					border: 0;
+					margin-bottom: .5rem;
+
+					img {
+						object-fit: cover;
+					}
+
+					&:hover + h3.resident-name a {
+						background: #00FF00;
+					}
+				}
 
 
-			.resident-name {
-				position: absolute;
-				display: flex;
-				height: 100%;
-				margin: 0;
-				padding: 0;
-				a {
+				.resident-name {
+					// position: absolute;
 					display: flex;
-					justify-content: center;
-					align-items: flex-end;
-					height: 100%;
-					width: 100%;
-					flex: 1 0 100%;
-					padding: 2rem;
-					color: white;
-					font-size: 1rem;
-					font-weight: 600;
-					font-weight: 500;
-					text-decoration: none;
-					line-height: 1.2em;
-					&:hover, &:focus {
-						background: rgba(0,0,0,0.5);
+					// height: 100%;
+					margin: 0;
+					padding: 0;
+					a {
+						display: inline;
+						justify-content: flex-start;
+						align-items: flex-start;
+						// height: 100%;
+						width: 100%;
+						flex: 1 0 100%;
+						// padding: 2rem;
+						// color: white;
+						// font-size: 1rem;
+						font-weight: 500;
+						text-decoration: none;
+						// line-height: 1.2em;
+						&:hover, &:focus {
+							// background: rgba(0,0,0,0.5);
+						}
 					}
 				}
 			}
+
+
 		}
 	}
 }
@@ -2676,9 +2694,9 @@ Events
 			.resident {
 				.resident-name {
 					a {
-						font-size: 3rem !important;
-						line-height: 1.2em;
-						padding: 4rem !important;
+						// font-size: 3rem !important;
+						// line-height: 1.2em;
+						// padding: 4rem !important;
 					}
 				}
 			}
@@ -2691,9 +2709,9 @@ Events
 			.resident {
 				.resident-name {
 					a {
-						font-size: 1rem !important;
-						line-height: 1.2em;
-						padding: 2rem !important;
+						// font-size: 1rem !important;
+						// line-height: 1.2em;
+						// padding: 2rem !important;
 					}
 				}
 			}
@@ -2708,7 +2726,7 @@ Events
 					a {
 						font-size: 1.3rem !important;
 						line-height: 1.2em;
-						padding: 2rem !important;
+						// padding: 2rem !important;
 					}
 				}
 			}
@@ -2798,7 +2816,7 @@ Events
 	}
 
 	.show-resident-image {
-		background: #000;
+		// background: #000;
 		.resident {
 			// padding-bottom: 15px;
 			margin-bottom: 0 !important;
@@ -2810,9 +2828,9 @@ Events
 				.image {
 				}
 				.resident-name {
-					position: absolute;
+					// position: absolute;
 					display: flex;
-					height: 100%;
+					// height: 100%;
 					flex: 1 0 100%;
 					width: 100%;
 					margin: 0;
@@ -2820,13 +2838,13 @@ Events
 
 					a {
 						display: flex;
-						justify-content: center;
-						align-items: flex-end;
+						justify-content: flex-start;
+						align-items: flex-start;
 						height: 100%;
 						width: 100%;
 						flex: 1 0 100%;
-						padding: 2rem;
-						color: white;
+						// padding: 2rem;
+						// color: white;
 					}
 				}
 			}
@@ -2948,6 +2966,7 @@ figcaption {
 
 
 .post .featured-video {
+	flex: 1 0 100%;
 	iframe {
 		width: 100%;
 		height: calc(83.334vw / (16/9));
@@ -3779,8 +3798,8 @@ table.ui-datepicker-calendar thead {
 	 justify-content: center;
 	 flex-flow: row wrap;
 	 margin: 0 auto;
-	 max-width: 1280px;
-	 align-content: flex-start;
+	 max-width: 840px;
+	 align-content: center;
 	 padding-bottom: 1rem;
 	 overflow-y: scroll;
 	 height: calc(100vh - 2rem);
