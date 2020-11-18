@@ -935,11 +935,11 @@ function eyebeam2018_get_projects($page = 1) {
 
 // Returns an array of event posts
 
-function eyebeam2018_get_events($page = 1, $posts_per_page = 8) {
+function eyebeam2018_get_events($page = 1, $posts_per_page = 6) {
 	$today = date('Ymd');
 	$args = array(
 		'post_type' => 'event',
-		'posts_per_page' => 9,
+		'posts_per_page' => $posts_per_page,
 		'orderby'=> 'meta_value',
 		'meta_key' => 'end_date',
 		'order' => 'DESC',

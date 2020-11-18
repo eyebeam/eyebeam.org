@@ -7,7 +7,6 @@ $class = 'module module-collection module-full_width';
 
 $today = date('Ymd');
 
-
 $upcoming_args = array(
 	'post_type' => 'event',
 	'posts_per_page' => $collection_post_limit,

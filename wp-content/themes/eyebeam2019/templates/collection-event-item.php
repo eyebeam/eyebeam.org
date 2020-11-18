@@ -16,7 +16,7 @@ $category = get_the_terms($event->ID, 'category');
 $image = '';
 if (! empty($image_id)) {
 	$size = 'medium';
-	$image = eyebeam2018_get_image_html($image_id, $size, 'event-image', false);
+	$image = eyebeam2018_get_image_html($image_id, $size, false);
 }
 
 $image = "<a class=\"image\" href=\"$url\">$image</a>";
