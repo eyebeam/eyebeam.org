@@ -87,9 +87,11 @@ if ($start_year == $end_year) {
 
 
 if (is_search()){
-	echo "<li>\n";
-	echo "$image\n";
+	echo "<li class=\"resident collection-item\">\n";
+	echo "<div class=\"item-container\">";
+	echo ($image) ? "$image\n" : "<a class=\"image\"></a>";
 	echo "<h3 class=\"event-title module-title eyebeam-sans\">$name</h3>\n";
+	echo "</div>";
 	echo "</li>\n";
 }
 else {
