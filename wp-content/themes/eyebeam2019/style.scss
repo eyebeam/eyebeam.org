@@ -187,6 +187,7 @@ a.btn-anchor:hover {
 	transition: all 0.2s ease-in;
 	z-index: 1;
 	position: relative;
+
 }
 
 
@@ -257,11 +258,6 @@ form.error .response-error {
 }
 
 .module-section_header {
-	.module-flex {
-		.module-title {
-			display: none;
-		}
-	}
 	.item-container {
 		.module-title {
 			font-family: "EyebeamSans", sans-serif;
@@ -920,43 +916,6 @@ header nav li:last-child {
 
 }
 
-@media (min-width: 1075px) {
-
-	/* so basically in order to get the typeface flush to the size of one column we need to do some maths
-	 *
-	 * the ratio of line-eight to font-size should equal 0.6615384615
-	 * which means we can use calc for that
-	 * and that's procedural font sizing for you bih
-	*/
-	header h1 {
-	    font-size: calc(6.666vw * 1.6);
-	    line-height: 7.333vw;
-	}
-
-
-	header .support {
-		right: 55px;
-	}
-
-
-}
-
-@media (min-width: 1184px) {
-
-	header {
-		font-size: 1.5rem;
-	}
-
-}
-
-@media (min-width: 1398px) {
-
-	header {
-		font-size: 1.5rem;
-	}
-
-}
-
 
 @media (min-width: 1441px){
 	header {
@@ -1144,10 +1103,11 @@ footer a {
 }
 
 footer form {
-	padding: 0 0 0 0;
-	border-top: 3px solid #231F20;
-		display: flex;
+	padding: 1rem 0 0 0;
+	display: flex;
 	flex-wrap: wrap;
+	border-top: 3px solid #231F20;
+	
 }
 
 footer input {
@@ -1292,7 +1252,7 @@ footer h2, .logos h2 {
 	font-size: 3rem;
 	font-family: "EyebeamSans", sans-serif;
 	line-height: 3.25rem;
-	margin-top: 1rem;
+	margin: 1rem 0;
 }
 .logos h2 {
 	color: white;
@@ -1302,7 +1262,7 @@ footer h2, .logos h2 {
 footer form p {
 	font-size: 1.2rem;
 	line-height: 1.5rem;
-	padding: 1rem 0;
+	padding-bottom: 1rem;
 	width: 100%;
 	font-weight: 500;
 	font-family: "Work Sans", sans-serif;
@@ -1445,7 +1405,7 @@ footer .bottom div {
 
 
 
-	/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 /* Hero */
 
 .hero-image {
@@ -1478,26 +1438,9 @@ footer .bottom div {
 
 .eyebeam-sans {
 	font-family: "EyebeamSans", sans-serif;
-	padding-bottom: 1rem;
 }
-/* .eyebeam-sans:hover {
-	font-family: "Work Sans", sans-serif;
-	font-weight: 500;
-	letter-spacing: -.05rem;
-} */
-/* .image:hover + .eyebeam-sans {
-	font-family: "Work Sans", sans-serif;
-	font-weight: 500;
-	letter-spacing: -.05rem;
-}
-.image:hover + .event-dates {
-	font-family: "Work Sans", sans-serif;
-	font-weight: 500;
-	letter-spacing: -.05rem;
-} */
 
 .hero-text {
-	/* font-family: "EyebeamSans", sans-serif; */
 	margin: 0 0 1rem 0;
 	padding: 0;
 }
@@ -1509,8 +1452,9 @@ footer .bottom div {
 }
 
 .hero-text .text {
-	font-size: 20px;
+	font-size: 1.4rem;
 	line-height: 1.5rem;
+	font-family: "Work Sans" sans-serif !important;
 }
 
 @media (min-width: 857px) {
@@ -1584,6 +1528,7 @@ footer .bottom div {
 	font-size: 3rem;
 	line-height: 3.25rem;
 	flex: 1 0 100%;
+	padding-bottom: 1rem;
 }
 .module h3.module-title {
 	font-size: 1.5rem;
@@ -1609,6 +1554,7 @@ footer .bottom div {
 	font-size: 2rem;
 	line-height: 2.2rem;
 	flex: 1 0 100%;
+	padding-bottom: 1rem;
 }
 
 .module .module-image {
@@ -1873,7 +1819,6 @@ Events
 	display: flex;
 	flex-wrap: wrap;
 	flex: 1 0 100%;
-	margin-bottom: 1rem;
 }
 
 
@@ -2029,7 +1974,7 @@ Events
 	.module-section_header {
 		width: calc(100%);
 		border-bottom: 0;
-		padding-bottom: 2rem;
+		padding-bottom: 1rem;
 
 		.module-flex {
 			.module-title {

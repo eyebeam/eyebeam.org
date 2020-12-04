@@ -67,6 +67,7 @@ else {
 			$link = $section_header_link;
 		}
 		echo (!empty($link)) ? "<h2 class=\"module-title\"><a href=\"$link\">$title</a></h2>" : "<h2 class=\"module-title\">$title</h2>";
+		echo (!empty($link)) ?  "<a class=\"btn\" href=\"$link\">Read More</a>" : "";
 	}
 
 	// if there's a title
@@ -110,22 +111,22 @@ else {
 	// image always comes before description
 
 
-
-	if ($layout == 'text_first'){
-		echo "<div class=\"module-flex\">$text_description</div>";
-		if (!empty($image)) {
-			echo "$image";
+	if (!$section_header) {
+		if ($layout == 'text_first'){
+			echo "<div class=\"module-flex\">$text_description</div>";
+			if (!empty($image)) {
+				echo "$image";
+			}
+		}
+		else {
+			if (!empty($image)) {
+				echo "$image";
+			}
+			echo "<div class=\"module-flex\">$text_description</div>";
 		}
 	}
-	else {
-		if (!empty($image)) {
-			echo "$image";
-		}
-		echo "<div class=\"module-flex\">$text_description</div>";
-	}
 
-
-		echo "</div>\n";
+	echo "</div>\n";
 
 
 	echo "</li>\n";
