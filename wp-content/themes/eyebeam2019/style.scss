@@ -3525,7 +3525,7 @@ table.ui-datepicker-calendar thead {
  background: rgba(0,0,0,0.9);
  z-index: 1000;
  width: 100vw;
- height: 100vh;
+ height: 101vh;
  color: white;
  header {
 	 background: none;
@@ -3555,7 +3555,7 @@ table.ui-datepicker-calendar thead {
 	 justify-content: center;
 	 flex-flow: row wrap;
 	 margin: 0 auto;
-	 max-width: 840px;
+	//  max-width: 840px;
 	 align-content: center;
 	 padding-bottom: 1rem;
 	 overflow-y: scroll;
@@ -3588,4 +3588,10 @@ table.ui-datepicker-calendar thead {
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
  will-change: transform;
+}
+
+#collection_staff {
+	.modal-content {
+		max-width: 840px;
+	}
 }
