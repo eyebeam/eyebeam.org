@@ -111,6 +111,7 @@ h1, h2, h3 {
 p {
   font-size: 1.2rem;
   line-height: 1.2em;
+  padding-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -1738,6 +1739,11 @@ Events
   flex: 1 0 100%;
 }
 
+@media (min-width: 857px) {
+  .item-container {
+    height: 100%;
+  }
+}
 .item-container a.image {
   width: 100%;
   display: block;
@@ -1875,7 +1881,7 @@ Events
   .module-section_header {
     width: calc(100%);
     border-bottom: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 1rem !important;
   }
   .module-section_header .module-flex .module-title {
     display: none;
@@ -2253,9 +2259,6 @@ Events
 }
 /* -------------------------------------------------------------------------- */
 /* Residents */
-#module-alumni {
-  padding: 0;
-}
 #module-alumni ul.show-resident-image {
   height: auto;
   justify-content: space-between;
@@ -2269,11 +2272,16 @@ Events
 #module-alumni ul.show-resident-image li.resident:hover a.image {
   opacity: 0.4;
 }
+#module-alumni ul.show-resident-image li.resident .item-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
 #module-alumni ul.show-resident-image li.resident .item-container a.image {
   height: inherit;
   opacity: 1;
   border: 0;
   margin-bottom: 0.5rem;
+  flex: 1 0 auto;
 }
 #module-alumni ul.show-resident-image li.resident .item-container a.image img {
   object-fit: cover;
@@ -2282,14 +2290,12 @@ Events
   background: #00FF00;
 }
 #module-alumni ul.show-resident-image li.resident .item-container .resident-name {
-  display: flex;
+  flex: 0 0 auto;
   margin: 0;
   padding: 0;
 }
 #module-alumni ul.show-resident-image li.resident .item-container .resident-name a {
   display: inline;
-  justify-content: flex-start;
-  align-items: flex-start;
   width: 100%;
   flex: 1 0 100%;
   font-weight: 500;

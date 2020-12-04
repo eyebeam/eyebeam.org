@@ -102,6 +102,7 @@ h1,h2,h3 {
 p {
 	font-size: 1.2rem;
 	line-height: 1.2em;
+	padding-bottom: 1rem;
 }
 
 @media (max-width: 768px){
@@ -1821,6 +1822,12 @@ Events
 	flex: 1 0 100%;
 }
 
+@media(min-width: 857px){
+	.item-container {
+		height: 100%;
+	}
+}
+
 
 .item-container  a.image {
 	width: 100%;
@@ -1974,7 +1981,7 @@ Events
 	.module-section_header {
 		width: calc(100%);
 		border-bottom: 0;
-		padding-bottom: 1rem;
+		padding-bottom: 1rem !important;
 
 		.module-flex {
 			.module-title {
@@ -2442,7 +2449,6 @@ Events
 /* Residents */
 
 #module-alumni {
-	padding: 0;
 
 	ul.show-resident-image {
 		height: auto;
@@ -2461,12 +2467,15 @@ Events
 			}
 
 			.item-container {
+				display: flex;
+				flex-flow: column nowrap;
 
 				a.image {
 					height: inherit;
 					opacity: 1;
 					border: 0;
 					margin-bottom: .5rem;
+					flex: 1 0 auto;
 
 					img {
 						object-fit: cover;
@@ -2479,13 +2488,11 @@ Events
 
 
 				.resident-name {
-					display: flex;
+					flex: 0 0 auto;
 					margin: 0;
 					padding: 0;
 					a {
 						display: inline;
-						justify-content: flex-start;
-						align-items: flex-start;
 						width: 100%;
 						flex: 1 0 100%;
 						font-weight: 500;
