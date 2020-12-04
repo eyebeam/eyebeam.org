@@ -1387,8 +1387,8 @@ footer .social {
 }
 
 .hero-text .text {
-  font-size: 1.4rem;
-  line-height: 1.5rem;
+  font-size: 3rem;
+  line-height: 2.8rem;
 }
 
 @media (min-width: 857px) {
@@ -1995,6 +1995,7 @@ Events
   .module-collection .four-columns li,
 .module-collection div .four-columns li {
     width: calc(25% - 1rem);
+    height: calc(25vw + 3rem);
   }
 
   .module-collection .three-columns li {
