@@ -1966,7 +1966,7 @@ Events
   .module-collection#module-alumni .three-columns li {
     margin-right: 1rem;
     break-inside: avoid-column;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
   .module-collection#module-alumni .three-columns li a {
     text-decoration: underline;
