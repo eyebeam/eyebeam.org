@@ -1818,7 +1818,6 @@ Events
 	padding: 0 0 0 0;
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: column;
 	flex: 1 0 100%;
 }
 
@@ -3180,6 +3179,9 @@ hr.wp-block-separator, hr {
 /* -------------------------------------------------------------------------- */
 /* Press */
 
+.press .item-container {
+	flex-direction: column;
+}
 .press h2 {
 	font-family: "EyebeamSans", sans-serif;
 	font-size: 1.5rem;
