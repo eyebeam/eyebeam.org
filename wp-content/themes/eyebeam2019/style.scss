@@ -100,20 +100,12 @@ h1,h2,h3 {
 
 
 p {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	line-height: 1.2em;
 	padding-bottom: 1rem;
 }
-
-@media (max-width: 768px){
-	p {
-		font-size: 1.4rem;
-	}
-}
-@media (min-width: 1280px){
-	p {
-		font-size: 1.2rem;
-	}
+p:last-child {
+	padding-bottom: 0 !important;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -122,8 +114,8 @@ p {
 body {
 	font-family: "Work Sans", sans-serif;
 	font-weight: 500;
-	font-size: 1.2rem;
-	line-height: 1.5rem;
+	font-size: 1.1rem;
+	line-height: 1.2rem;
 	background-color: #ffffff;
 	background-size: 94.3% auto;
 	background-position: center center;
@@ -233,8 +225,6 @@ form.error .response-error {
 @media (min-width: 857px) {
 
 	body {
-		font-size: 1.2rem;
-		line-height: 1.5rem;
 		font-weight: 500;
 		-webkit-font-smoothing: antialiased;
 	}
@@ -252,24 +242,21 @@ form.error .response-error {
 	a:hover img {
 		background: white;
 	}
-.module-title {
-	color: #262626;
-	padding: 1rem 0;
-	font-family: "EyebeamSans", sans-serif !important;
-}
 
-.module-section_header {
-	.item-container {
-		.module-title {
-			font-family: "EyebeamSans", sans-serif;
+	.module-title {
+		color: #262626;
+		padding: 1rem 0;
+		font-family: "EyebeamSans", sans-serif !important;
+	}
+
+	.module-section_header {
+		.item-container {
+			.module-title {
+				font-family: "EyebeamSans", sans-serif;
+			}
 		}
 	}
-}
-@media (min-width: 857px){
-	.module-title {
-		padding: 0;
-	}
-}
+
 	.module-title a {
 		text-decoration: none;
 	}
@@ -1250,9 +1237,9 @@ footer .tagline {
 }
 
 footer h2, .logos h2 {
-	font-size: 3rem;
+	font-size: 2rem;
 	font-family: "EyebeamSans", sans-serif;
-	line-height: 3.25rem;
+	line-height: 2rem;
 	margin: 1rem 0;
 }
 .logos h2 {
@@ -1453,8 +1440,8 @@ footer .bottom div {
 }
 
 .hero-text .text {
-	font-size: 3rem;
-	line-height: 2.8rem;
+	font-size: 2rem;
+	line-height: 2rem;
 }
 
 @media (min-width: 857px) {
@@ -1525,34 +1512,17 @@ footer .bottom div {
 }
 
 .module h2.module-title {
-	font-size: 3rem;
-	line-height: 3.25rem;
+	font-size: 2.25rem;
+	line-height: 2.5rem;
 	flex: 1 0 100%;
 	padding-bottom: 1rem;
 }
-.module h3.module-title {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	flex: 1 0 100%;
-}
 
-@media (min-width: 768px){
-	.module h2.module-title {
-		font-size: 3rem;
-		line-height: 3.25rem;
-		flex: 1 0 100%;
-	}
-	.module h3.module-title {
-		font-size: 2rem;
-		line-height: 2.25rem;
-		flex: 1 0 100%;
-	}
-	
-}
+
 
 .module .module-subtitle {
-	font-size: 2rem;
-	line-height: 2.2rem;
+	font-size: 1.8rem;
+	line-height: 2rem;
 	flex: 1 0 100%;
 	padding-bottom: 1rem;
 }
@@ -2002,8 +1972,8 @@ Events
 	}
 
 	.module-full_width .module-title {
-		font-size: 3rem;
-		line-height: 3.25rem;
+		font-size: 2rem;
+		line-height: 2rem;
 		width: 100%;
 		padding: 0 1rem 1rem 0;
 	}
@@ -2178,7 +2148,6 @@ Events
 	.module-collection h2.module-title {
 		width: 100%;
 		font-size: 3rem;
-		line-height: 3.3rem;
 	}
 
 	.module-collection h3.module-title,
