@@ -15,7 +15,7 @@ if (! empty($image_id)) {
 
 echo "<li class=\"staff\">\n";
 echo "<a data-micromodal-open=\"modal-$image_id\" href=\"#\" class=\"toggle-bio img\">$image</a>\n";
-echo "<h3 class=\"staff-name module-title toggle-bio\"><a aria-label=\"Click Here to Toggle Their Bio\" href=\"#\">$name</a></h3>\n";
+echo "<h3 class=\"staff-name module-title toggle-bio\"><a aria-label=\"Click Here to Toggle Their Bio\" data-micromodal-open=\"modal-$image_id\" href=\"#\">$name</a></h3>\n";
 echo "<h4 class=\"staff-title person-title module-title\">$title</h4>\n";
 echo "<div class=\"bio staff-bio\">$bio</div>\n";
 echo "</li>\n";
