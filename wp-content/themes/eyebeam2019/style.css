@@ -1465,10 +1465,6 @@ footer .social {
   .module-full_width.has-image .module-image {
     flex: 0 0 calc(50% - 1rem);
   }
-
-  .module-full_width.has-image .module-flex {
-    flex: 0 0 calc(50% - 1rem);
-  }
 }
 .module-two_thirds {
   padding-top: 15px;
@@ -1478,10 +1474,6 @@ footer .social {
   /*line-height: 1.5rem;*/
   line-height: 14px;
   padding-bottom: 15px;
-}
-
-.module-description + .module-image {
-  margin-top: 15px;
 }
 
 .module-two_thirds .module-title {
