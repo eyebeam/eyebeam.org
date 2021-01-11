@@ -2109,6 +2109,12 @@ Events
 		height: calc(25vw + 3rem);
 	}
 
+	// advisory board specific
+	.module-collection .four-columns li.board,
+	.module-collection .four-columns li.advisory {
+		height: unset;
+	}
+
 
 	.module-collection .three-columns li {
 		width: calc(33% - 1rem);
