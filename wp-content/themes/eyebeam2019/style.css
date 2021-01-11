@@ -1731,8 +1731,8 @@ Events
   flex: 1 0 100%;
 }
 
-.module-full_width.has-image .module-description {
-  flex: 1 0 calc(50% - 2rem);
+.module-full_width.has-image .module-flex {
+  flex: 0 0 calc(50% - 1rem);
 }
 
 .module-video {
@@ -3041,6 +3041,7 @@ table.ui-datepicker-calendar thead {
   .press h2 {
     font-size: 2rem;
     line-height: 2.25rem;
+    margin-bottom: 1rem;
   }
 
   .press-main {
@@ -3055,6 +3056,10 @@ table.ui-datepicker-calendar thead {
     flex-wrap: wrap;
   }
 
+  .press-main .item-container {
+    justify-content: flex-start;
+  }
+
   .press-sidebar {
     float: right;
     width: calc(33.33% - 10px);
@@ -3066,7 +3071,7 @@ table.ui-datepicker-calendar thead {
   }
 
   .press-recent ul {
-    width: calc(8.333% * 7);
+    width: calc(8.333% * 8);
     columns: 2;
   }
 
