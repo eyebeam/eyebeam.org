@@ -132,6 +132,7 @@ strong, b {
 
 em, i {
 	font-style: italic;
+	font-weight: 500 !important;
 }
 
 a {
@@ -1531,23 +1532,26 @@ footer .bottom div {
 	flex: 1 0 100%;
 }
 
-// .module.has-image .module-image {
-// 	flex: 0 0 50%;
-// }
+
 @media(min-width: 857px){
-	.module .module-image {
-		flex: 1 0 calc(50% - 2rem);
-		margin-right: 2rem;
-	}
+	
 	.module.has-image .module-image {
-		flex: 1 0 calc(50% - 2rem);
+		flex: 0 0 calc(100%);
 	}
+
+	.module-full_width.has-image .module-image {
+		flex: 0 0 calc(50% - 1rem);
+	}
+
+	.module-full_width.has-image .module-flex {
+		flex: 0 0 calc(50% - 1rem);
+	}
+
+
 }
 
 
-.module .module-description p:not(:first-child) {
-	margin: 1rem 1rem 0 0;
-}
+
 
 .module-two_thirds {
 	padding-top: 15px;
@@ -1794,6 +1798,7 @@ Events
 @media(min-width: 857px){
 	.item-container {
 		height: 100%;
+		justify-content: space-between;
 	}
 }
 
@@ -1840,11 +1845,7 @@ Events
 
 
 @media (min-width: 857px){
-	.module-full_width{
-		.module-flex {
-			flex: 1 0 calc(50% - 2rem);
-		}
-	}
+	
 
 }
 
@@ -1882,8 +1883,7 @@ Events
 	}
 
 	.module-one_third {
-		width: calc(33.33%);
-		padding-right: 2rem;
+		width: calc(33.33% - 1rem);
 	}
 
 	.module-one_third .module-title {
@@ -1911,6 +1911,8 @@ Events
 		display: block;
 	}
 
+	// module one_half styles
+
 	.module-one_half {
 		width: calc(50%);
 		padding-right: 2rem;
@@ -1929,6 +1931,12 @@ Events
 	.module-one_half .module-image {
 		width: 100%;
 	}
+
+	.module-one_half.has-image .module-image {
+		flex: 0 0 100%;
+	}
+
+	// module two_thirds styles
 
 	.module-two_thirds {
 		width: calc(66.66%);
@@ -1967,6 +1975,8 @@ Events
 
 	}
 
+	// full width styles
+
 	.module-full_width {
 		width: calc(100%);
 	}
@@ -1993,25 +2003,14 @@ Events
 		float: right;
 	}
 
-	// .module-full_width .module-image {
-	// 	flex: 0 0 calc(8.333% * 6);
-	// 	margin-right: 2rem;
-	// 	align-self: flex-start;
-	// }
 
-	// .module-full_width .module-image.float-left {
-	// 	float: left;
-	// }
-	// .module-full_width .module-image.float-right {
-	// 	float: right;
-	// 	margin-right: 0;
-	// }
-
+	// i think we can delete this
 	.module-full_width .module-image::after {
 		content: "";
 		display: table-cell;
 		clear: both;
 	}
+
 
 	.module-swap-toc .module:first-child {
 		float: right;
