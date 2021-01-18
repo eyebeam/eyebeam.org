@@ -47,12 +47,7 @@ else {
 		// set the image size
 		$size = 'large';
 		// get the image using our helper function
-		$image = eyebeam2018_get_image_html($image_id, $size, true);
-
-		// if it worked
-		if (! empty($url)) {
-			$image = "<a href=\"$url\">$image</a>";
-		}
+		$image = eyebeam2018_get_image_html($image_id, $size, true, $url);
 
 		if (! empty($image)){
 			$image = "<figure class=\"module-image\">$image</figure>\n";
