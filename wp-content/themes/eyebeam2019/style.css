@@ -1459,6 +1459,10 @@ footer .social {
   flex: 1 0 100%;
 }
 
+.module .module-image a {
+  display: block;
+}
+
 @media (min-width: 857px) {
   .module.has-image .module-image {
     flex: 0 0 calc(100%);

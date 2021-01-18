@@ -223,7 +223,7 @@ function eyebeam2018_get_image($attachment_id, $size = 'large') {
 }
 
 // Helper for outputting image uploads
-function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption = false) {
+function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_caption = false, $url = false) {
 
 	$image = eyebeam2018_get_image($attachment_id, $size);
 
@@ -233,8 +233,10 @@ function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_capti
 	$title_text = get_post($attachment_id);
 	$title_text = $title_text->title;
 
-
-	$html = "<img alt=\"$alt_text\" title=\"$title_text\" src=\"$image\">\n";
+	$html;
+	$html .= ($url) ? "<a href=\"$url\">\n" : "";
+	$html .= "<img alt=\"$alt_text\" title=\"$title_text\" src=\"$image\">\n";
+	$html .= ($url) ? "</a>\n" : "";
 	if ($show_caption && $caption){
 		$html .= "<figcaption>\n";
 		$html .= $caption."\n";
