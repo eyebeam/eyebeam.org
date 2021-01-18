@@ -102,7 +102,7 @@ h1,h2,h3 {
 p {
 	font-size: 1.1rem;
 	line-height: 1.2em;
-	padding: 5rem 0;
+	padding: .5rem 0;
 }
 p:last-child {
 	padding-bottom: 0 !important;
@@ -453,6 +453,7 @@ header nav {
 header a {
 	color: #272425;
 	text-decoration: none;
+	line-height: 2rem;
 }
 
 /* header a:hover {
