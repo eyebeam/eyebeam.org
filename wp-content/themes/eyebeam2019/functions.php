@@ -235,7 +235,7 @@ function eyebeam2018_get_image_html($attachment_id, $size = 'large', $show_capti
 
 
 	$html = "<img alt=\"$alt_text\" title=\"$title_text\" src=\"$image\">\n";
-	if ($show_caption){
+	if ($show_caption && $caption){
 		$html .= "<figcaption>\n";
 		$html .= $caption."\n";
 		$html .= "</figcaption>";
