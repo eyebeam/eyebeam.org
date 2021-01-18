@@ -2253,7 +2253,7 @@ Events
 		}
 	}
 }
-@media (min-width: 1279px){
+@media (min-width: 1281px){
 	.module-frame {
 		.item-container {
 			.module-description {
@@ -2262,9 +2262,7 @@ Events
 		}
 	}
 
-	.module-collection .four-columns li a {
-		height: calc(1280px / 4);
-	}
+	
 }
 
 @media (min-width: 1441px){
@@ -2481,23 +2479,14 @@ Events
 }
 
 @media (min-width: 768px){
-	
+	.module-collection#module-alumni .four-columns li a {
+		height: calc(83.333vw / 4);
+	}
 }
-@media (min-width: 1000px){
-	
-}
-@media (min-width: 1279px){
-	#module-alumni {
-		.show-resident-image {
-			.resident {
-				.resident-name {
-					a {
-						font-size: 1.3rem !important;
-						line-height: 1.2em;
-					}
-				}
-			}
-		}
+
+@media (min-width: 1281px){
+	.module-collection#module-alumni .four-columns li a {
+		height: calc(1280px / 4);
 	}
 }
 
@@ -2580,7 +2569,6 @@ Events
 
 				.resident-name {
 					// position: absolute;
-					display: flex;
 					// height: 100%;
 					flex: 1 0 100%;
 					width: 100%;

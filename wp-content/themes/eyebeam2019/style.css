@@ -2079,13 +2079,9 @@ Events
     max-height: 35vh !important;
   }
 }
-@media (min-width: 1279px) {
+@media (min-width: 1281px) {
   .module-frame .item-container .module-description {
     max-height: 50vh;
-  }
-
-  .module-collection .four-columns li a {
-    height: calc(1280px / 4);
   }
 }
 @media (min-width: 1441px) {
@@ -2266,10 +2262,14 @@ Events
   text-decoration: none;
 }
 
-@media (min-width: 1279px) {
-  #module-alumni .show-resident-image .resident .resident-name a {
-    font-size: 1.3rem !important;
-    line-height: 1.2em;
+@media (min-width: 768px) {
+  .module-collection#module-alumni .four-columns li a {
+    height: calc(83.333vw / 4);
+  }
+}
+@media (min-width: 1281px) {
+  .module-collection#module-alumni .four-columns li a {
+    height: calc(1280px / 4);
   }
 }
 #residents-year {
@@ -2342,7 +2342,6 @@ Events
     position: relative;
   }
   .show-resident-image .resident .item-container .resident-name {
-    display: flex;
     flex: 1 0 100%;
     width: 100%;
     margin: 0;
