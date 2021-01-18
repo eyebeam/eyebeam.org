@@ -111,7 +111,7 @@ h1, h2, h3 {
 p {
   font-size: 1.1rem;
   line-height: 1.2em;
-  padding-bottom: 1rem;
+  padding: 5rem 0;
 }
 
 p:last-child {
@@ -543,7 +543,7 @@ header nav li:last-child a {
 }
 
 header nav li:last-child {
-  line-height: 3rem;
+  line-height: 2rem;
 }
 
 @media (min-width: 857px) {
@@ -776,7 +776,8 @@ header nav .support {
   }
 
   header nav li {
-    display: inline;
+    display: flex;
+    align-items: center;
     margin-right: 5px;
     line-height: 2.5rem;
   }
@@ -786,7 +787,7 @@ header nav .support {
   }
 
   header nav li:last-child a {
-    width: 25%;
+    width: 100%;
     padding: 3px 2vw;
     border: 1px solid #231F20;
     background: #00ff00;
