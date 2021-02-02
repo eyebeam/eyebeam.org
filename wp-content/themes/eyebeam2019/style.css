@@ -2541,6 +2541,12 @@ figcaption {
     display: none;
   }
 
+  .post-main h3 {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin-top: 1rem;
+  }
   .post-main img.alignright,
 .post-main img.alignleft {
     width: 50%;
