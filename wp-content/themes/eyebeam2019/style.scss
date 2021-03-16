@@ -186,7 +186,7 @@ header.search form {
 h1,
 h2,
 h3 {
-	font-weight: 400;
+	font-weight: 500;
 }
 
 p {
@@ -2580,7 +2580,7 @@ Events
 // }
 
 .post-info {
-	margin: 1rem 0;
+	margin: 0 0 .5rem 0;
 }
 
 .post img {
@@ -2626,10 +2626,16 @@ figcaption {
 		max-width: 100%;
 		width: 100% !important;
 	}
+
+	.post-date {
+		margin-bottom: .5rem;
+		display: inline-block;
+	}
 }
 
 .post-content p {
 	margin: 1rem 0 0 0;
+	line-height: 1.3em;
 }
 
 .post .clear {
@@ -2659,7 +2665,6 @@ figcaption {
 			font-family: "Work Sans", sans-serif;
 			font-size: 1.4rem;
 			line-height: 1.8rem;
-			margin-top: 1rem;
 		}
 		img.alignright,
 		img.alignleft {
@@ -2740,8 +2745,9 @@ figcaption {
 	}
 
 	.post .post-title {
+		max-width: 66.666%;
 		font-size: 2.2rem;
-		line-height: 1em;
+		line-height: 1.1em;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 	}
@@ -2754,7 +2760,7 @@ figcaption {
 	}
 
 	.post .post-content {
-		padding: 0 2rem 4rem 0;
+		padding: 0 0 4rem 0;
 	}
 
 	.post.gutenberg .post-content {
