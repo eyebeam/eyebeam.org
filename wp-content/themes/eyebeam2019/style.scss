@@ -2,7 +2,7 @@
 Theme Name: Eyebeam 2019
 Author: Emma Levesque-Schaefer
 Author URI: https://emmalevesque.com/
-Description: Designed by Mother NYC (https://mothernyc.org). Skined by Emma Levesque-Schaefer (https://emmalevesque.com). Built off of the work of Dan Phifffer (https://phiffer.org)
+Description: Designed by Mother NYC (https://mothernyc.org). Developed by Emma Levesque-Schaefer (https://emmalevesque.com). Built off of the work of Dan Phifffer (https://phiffer.org)
 
 Contents (breakpoints are mobile-first):
 * Reset
@@ -2620,6 +2620,10 @@ figcaption {
 			font-size: 2rem;
 			line-height: 2.2rem;
 		}
+	}
+
+	figure {
+		max-width: 100%;
 	}
 }
 
