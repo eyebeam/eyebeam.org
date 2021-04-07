@@ -389,6 +389,9 @@ header .menu-btn a {
   background-position: center center;
   cursor: pointer;
 }
+header .menu-btn a:hover {
+  background-color: none !important;
+}
 
 header h1 {
   position: absolute;
@@ -587,6 +590,7 @@ body.show-menu header.headspace .menu {
 body.show-menu header nav li {
   display: block;
   margin-right: 0;
+  margin-bottom: 0.5rem;
 }
 
 /* nav li:last-child a {
@@ -1547,6 +1551,7 @@ footer .social {
 
 .module .module-image {
   flex: 1 0 100%;
+  margin-bottom: 1rem;
 }
 
 .module .module-image a {
@@ -1886,7 +1891,6 @@ Events
     /*float: right;*/
     /*padding: 2rem 0;*/
     /*text-align: right;*/
-    min-height: 660px;
     padding: 2rem 0;
   }
 
@@ -1901,8 +1905,7 @@ Events
   }
 
   .module-one_half {
-    width: calc(50%);
-    padding-right: 2rem;
+    width: calc(50% - 1rem);
   }
 
   .module-one_half.end {
