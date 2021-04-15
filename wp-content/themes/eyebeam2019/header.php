@@ -31,14 +31,14 @@
 	<body <?php body_class(); ?>>
 		<header>
 			<div class="mobile-logo">
-				<a tabindex="0" href="/" alt="Eyebeam" title="Eyebeam">
+				<a href="/" alt="Eyebeam" title="Eyebeam">
 					<img role="banner" src="<?php eyebeam2018_img_src('img/eyebeam_logo.svg'); ?>" alt="Eyebeam" title="Eyebeam" />
 				</a>
 			</div>
 			<nav role="navigation">
 
 				<div class="mobile-label">
-					<a tabindex="1" class="btn-anchor" aria-label="Click this Button to Show the Menu" href="#">
+					<a class="btn-anchor" aria-label="Click this Button to Show the Menu" href="#">
 					Click to Show the Menu
 				</a>
 				<div class="menu-btn">
