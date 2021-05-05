@@ -171,6 +171,7 @@ html {
 
 img {
   vertical-align: top;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 /* header sizing for the search page */
@@ -1540,6 +1541,10 @@ footer .social {
   line-height: 2.5rem;
   flex: 1 0 100%;
   padding-bottom: 1rem;
+}
+
+.module.section-header h2 {
+  padding-bottom: 0;
 }
 
 .module .module-subtitle {
