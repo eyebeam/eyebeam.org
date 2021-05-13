@@ -105,9 +105,6 @@
 		<?php wp_footer(); ?>
 		<!-- using an svg incase we want programatically change the color, is that excessive and over- programmed? maybe, yes -->
 		<div class="logos">
-			<h2 class="eyebeam-sans">
-				Featured Sponsors
-			</h2>
 			<div id="partners">
 				<img src="<?php eyebeam2018_img_src('img/partners/ab-bernstein.png'); ?>" alt="AB Bernstein" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/nyc-cultural-affairs.png'); ?>" alt="NYCulture" width="auto">
