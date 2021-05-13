@@ -112,17 +112,17 @@
 				<img src="<?php eyebeam2018_img_src('img/partners/ab-bernstein.png'); ?>" alt="AB Bernstein" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/nyc-cultural-affairs.png'); ?>" alt="NYCulture" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/capital-one.png'); ?>" alt="Capital One" width="auto">
-
 				<img src="<?php eyebeam2018_img_src('img/partners/andy-warhol.png'); ?>" alt="Andy Warhol Foundation" width="auto">
+				<img src="<?php eyebeam2018_img_src('img/partners/Ford_Foundation_Logo.png'); ?>" alt="Ford Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/hyde-watson.png'); ?>" alt="The Hyde and Watson Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/jerome.png'); ?>" alt="Jerome Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/macarthur-foundation.png'); ?>" alt="MacArthur Foundation" width="auto">
+				<img src="<?php eyebeam2018_img_src('img/partners/mellon.png'); ?>" alt="The Andrew W. Mellon Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/nea-white.png'); ?>" alt="National Endowment for the Arts" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/nysca.png'); ?>" alt="NYSCA" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/open-society.png'); ?>" alt="Open Society Foundations" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/atlantic-foundation.png'); ?>" class="wider" alt="Atlantic Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/craig-newmark.png'); ?>" class="wider" alt="Capital One" width="auto">
-
 				<img src="<?php eyebeam2018_img_src('img/partners/surdna.png'); ?>" class="wider" alt="Surdna Foundation" width="auto">
 			</div>
 			<!-- <a href="/">
