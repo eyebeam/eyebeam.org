@@ -64,8 +64,8 @@
 					Download our logo 
 				</p>
 				<div class="buttons">
-					<a href="<?php echo get_template_directory_uri() . '/img/eyebeam-logo-black.zip'; ?>">Logo in Black</a>
-					<a href="<?php echo get_template_directory_uri() . '/img/eyebeam-logo-white.zip'; ?>">Logo in White</a>
+					<a href="<?php echo get_template_directory_uri() . '/img/eyebeam_logo_black.zip'; ?>">Logo in Black</a>
+					<a href="<?php echo get_template_directory_uri() . '/img/eyebeam_logo_white.zip'; ?>">Logo in White</a>
 				</div>
 			</div>
 		</div>
