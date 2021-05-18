@@ -2989,7 +2989,7 @@ hr {
 }
 
 .press-info {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   display: grid;
   grid-template-columns: 1fr;
 }
