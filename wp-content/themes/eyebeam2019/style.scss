@@ -185,8 +185,10 @@ Typography
 }
 
 @mixin heading-three {
-	font-size: 30px;
-	line-height: 40px;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 30px;
+	margin: 1rem 0;
 }
 
 @mixin body {
@@ -3109,6 +3111,11 @@ hr {
 					text-decoration: none;
 				}
 			}
+
+			.press-publication {
+				@include heading-three;
+			}
+			
 
 		}
 	}

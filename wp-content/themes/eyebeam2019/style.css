@@ -2961,6 +2961,12 @@ hr {
 .press-releases .press-releases-list li.press-release .press-release-heading a {
   text-decoration: none;
 }
+.press-releases .press-releases-list li.press-release .press-publication {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 30px;
+  margin: 1rem 0;
+}
 
 .press-info {
   margin-bottom: 1rem;
