@@ -1113,7 +1113,7 @@ footer .bottom div {
 	padding: 1rem 0 0 0;
 	align-items: center;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
 	flex-wrap: wrap;
 	margin: auto;
 	width: 100%;
@@ -1388,12 +1388,12 @@ footer form p {
 	}
 	.logos #partners img {
 		object-fit: fill;
-		width: 65%;
+		width: 90%;
 	}
 
 	.logos #partners img.wider {
-		width: 85%;
-		padding: 1rem 2rem;
+		width: 100%;
+		transform: scale(1.1);
 	}
 
 	footer .bottom {
