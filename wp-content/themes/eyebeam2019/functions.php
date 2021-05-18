@@ -85,7 +85,7 @@ include_once("$dir/lib/custom-post-types.php");
 // WP_DEBUG = false / custom fields are included via PHP
 if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 
-	define('ACF_LITE', true); // hide the editing UI
+	// define('ACF_LITE', true); // hide the editing UI
 
 	include_once("$dir/lib/custom-fields/archive-page.php");
 	include_once("$dir/lib/custom-fields/archive-post.php");
@@ -209,7 +209,7 @@ function eyebeam2018_img_src($path) {
 }
 
 // Helper for image uploads
-function eyebeam2018_get_image($attachment_id, $size = 'large') {
+function eyebeam2018_get_image($attachment_id, $size = 'fullsize') {
 	$src = wp_get_attachment_image_src($attachment_id, $size);
 	$alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
 	$title = get_post_meta($attachment_id, '_wp_attachment_image_title', true);

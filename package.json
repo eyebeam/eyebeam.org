@@ -1,0 +1,19 @@
+{
+  "name": "eyebeam.local",
+  "version": "1.0.0",
+  "description": "eyebeam dot org website.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch wp-content/themes/eyebeam2019/style.scss wp-content/themes/eyebeam2019/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyebeam/eyebeam.org.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eyebeam/eyebeam.org/issues"
+  },
+  "homepage": "https://github.com/eyebeam/eyebeam.org#readme"
+}

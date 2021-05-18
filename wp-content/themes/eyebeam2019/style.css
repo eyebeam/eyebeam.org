@@ -172,8 +172,12 @@ html {
 img {
   vertical-align: top;
   image-rendering: -webkit-optimize-contrast;
+  max-width: 100%;
 }
 
+/***
+Typography
+***/
 /* header sizing for the search page */
 header.search {
   height: 120px;
@@ -249,7 +253,7 @@ a:focus {
   outline: 2px solid lime;
 }
 
-a:hover {
+a::not(.img):hover {
   background-color: lime;
 }
 
@@ -2871,76 +2875,124 @@ hr {
 }
 /* -------------------------------------------------------------------------- */
 /* Press */
-.press .item-container {
-  flex-direction: column;
+.media-releases {
+  width: 100%;
 }
-
-.press h2 {
+.media-releases h2 {
+  font-family: "EyebeamSans", "Work Sans", sans-serif;
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 1rem;
+}
+.media-releases .media-releases-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+.media-releases .media-releases-list li.media-release {
+  max-width: 100%;
+}
+.media-releases .media-releases-list li.media-release .media-release-image {
+  transition: background 0.1s ease-out;
+  height: 400px;
+  width: 100%;
+}
+.media-releases .media-releases-list li.media-release .media-release-image img {
+  height: inherit;
+  width: 100%;
+  object-fit: cover;
+}
+.media-releases .media-releases-list li.media-release .media-release-image:hover + .media-release-heading a {
+  background-color: #00ff00;
+  transition: background 0.1s ease-out;
+}
+.media-releases .media-releases-list li.media-release .media-release-heading {
   font-family: "EyebeamSans", sans-serif;
-  font-size: 1.5rem;
-  line-height: 28px;
-}
-
-.press img {
-  width: 100%;
-  height: auto;
-}
-
-.press-main,
-.press-sidebar {
-  flex: 1 0 100%;
-  width: 100%;
-}
-
-.press-release {
-  margin-top: 20px;
-}
-
-.press-release-title {
-  font-weight: bold;
-}
-
-.press-release-date {
-  margin-top: 5px;
-}
-
-.press-release-image {
+  font-size: 24px;
+  line-height: 27px;
+  transition: background 0.1s ease-out;
   margin-top: 1rem;
 }
-
-@media (min-width: 857px) {
-  .press-sidebar {
-    padding: 1rem 0 0 1rem;
-    width: 33.333%;
-    float: right;
-  }
-}
-.press-sidebar p {
-  margin-top: 15px;
+.media-releases .media-releases-list li.media-release .media-release-heading a {
+  text-decoration: none;
 }
 
-.press-recent h2 {
-  line-height: 72px;
+.press-releases {
+  width: 100%;
+}
+.press-releases h2 {
+  font-family: "EyebeamSans", "Work Sans", sans-serif;
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 1rem;
+}
+.press-releases .press-releases-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+.press-releases .press-releases-list li.press-release {
+  max-width: 100%;
+}
+.press-releases .press-releases-list li.press-release .press-release-image {
+  transition: background 0.1s ease-out;
+  height: 400px;
+  width: 100%;
+  background-color: none !important;
+}
+.press-releases .press-releases-list li.press-release .press-release-image img {
+  height: inherit;
+  width: 100%;
+  object-fit: cover;
+}
+.press-releases .press-releases-list li.press-release .press-release-image:hover + .press-release-heading a {
+  background-color: #00ff00;
+  transition: background 0.1s ease-out;
+}
+.press-releases .press-releases-list li.press-release .press-release-heading {
+  font-family: "EyebeamSans", sans-serif;
+  font-size: 24px;
+  line-height: 27px;
+  transition: background 0.1s ease-out;
+  margin-top: 1rem;
+}
+.press-releases .press-releases-list li.press-release .press-release-heading a {
+  text-decoration: none;
 }
 
-.press-recent li {
-  padding-bottom: 3rem;
+.press-info {
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-
-.press-recent-title {
-  font-weight: bold;
+.press-info .press-contact h3, .press-info .press-kit h3 {
+  font-family: "EyebeamSans", "Work Sans", sans-serif;
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 1rem;
 }
-
-.press-recent-publication {
-  margin-top: 10px;
+.press-info .press-contact .press-contact-name {
+  font-weight: 800;
 }
-
-.press-recent blockquote p {
-  margin-top: 10px;
+.press-info .press-kit .press-kit-logo {
+  font-family: "EyebeamSans", "Work Sans", sans-serif;
+  font-size: 36px;
+  line-height: 50px;
+  margin-bottom: 1rem;
+  width: 250px;
 }
-
-.press .clear {
-  display: none;
+.press-info .press-kit .press-kit-download .buttons {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.press-info .press-kit .press-kit-download .buttons a {
+  text-decoration: none;
+  display: inline-flex;
+  padding: 1rem;
+  border: 1px solid #000;
+  margin-right: 1rem;
 }
 
 /* How to get Here */
@@ -3051,57 +3103,6 @@ table.ui-datepicker-calendar thead {
   border-bottom: 1px solid #231f20;
 }
 
-@media (min-width: 857px) {
-  .press {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-  }
-
-  .press h2 {
-    font-size: 2rem;
-    line-height: 2.25rem;
-    margin-bottom: 1rem;
-  }
-
-  .press-main {
-    width: calc(100% - 10px);
-    padding: 1rem 0 1rem 0;
-  }
-
-  .press-main ul {
-    width: calc(8.333% * 8);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .press-main .item-container {
-    justify-content: flex-start;
-  }
-
-  .press-sidebar {
-    float: right;
-    width: calc(33.33% - 10px);
-    margin: 0 0 0 10px;
-  }
-
-  .press-release {
-    width: calc(50% - 1rem);
-  }
-
-  .press-recent ul {
-    width: calc(8.333% * 8);
-    columns: 2;
-  }
-
-  .press-recent li {
-    page-break-inside: avoid;
-  }
-
-  .press .clear {
-    display: block;
-  }
-}
 /** begin modal window styles */
 .modal {
   display: none;

@@ -169,6 +169,30 @@ html {
 img {
 	vertical-align: top;
 	image-rendering: -webkit-optimize-contrast;
+	max-width: 100%;
+}
+
+/***
+Typography
+***/
+
+@mixin heading-two {
+	font-family: 'EyebeamSans', 'Work Sans', sans-serif;
+	font-size: 36px;
+	line-height: 50px;
+	margin-bottom: 1rem;
+
+}
+
+@mixin heading-three {
+	font-size: 30px;
+	line-height: 40px;
+}
+
+@mixin body {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 22px;
+	line-height: 30px;
 }
 
 /* header sizing for the search page */
@@ -245,7 +269,7 @@ a:focus {
 	outline: 2px solid rgba(0, 255, 0, 1);
 }
 
-a:hover {
+a::not(.img):hover {
 	background-color: rgb(0, 255, 0);
 }
 
@@ -2994,76 +3018,143 @@ hr {
 /* -------------------------------------------------------------------------- */
 /* Press */
 
-.press .item-container {
-	flex-direction: column;
-}
-.press h2 {
-	font-family: "EyebeamSans", sans-serif;
-	font-size: 1.5rem;
-	line-height: 28px;
-}
-
-.press img {
+.media-releases {
 	width: 100%;
-	height: auto;
-}
+	h2 {
+		@include heading-two;
+	}
+	.media-releases-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 2rem;
+		row-gap: 2rem;
 
-.press-main,
-.press-sidebar {
-	flex: 1 0 100%;
-	width: 100%;
-}
+		li.media-release {
+			max-width: 100%;
 
-.press-release {
-	margin-top: 20px;
-}
+			.media-release-image {
+				transition: background 0.1s ease-out;
+				height: 400px;
+				width: 100%;
 
-.press-release-title {
-	font-weight: bold;
-}
+				img {
+					height: inherit;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
 
-.press-release-date {
-	margin-top: 5px;
-}
+			.media-release-image:hover + .media-release-heading a {
+				background-color: #00ff00;
+				transition: background 0.1s ease-out;
+			}
+			.media-release-heading {
+				font-family: 'EyebeamSans', sans-serif;
+				font-size: 24px;
+				line-height: 27px;
+				transition: background 0.1s ease-out;
+				margin-top: 1rem;
 
-.press-release-image {
-	margin-top: 1rem;
-}
 
-@media (min-width: 857px) {
-	.press-sidebar {
-		padding: 1rem 0 0 1rem;
-		width: 33.333%;
-		float: right;
+				a {
+					text-decoration: none;
+				}
+			}
+
+		}
 	}
 }
 
-.press-sidebar p {
-	margin-top: 15px;
+.press-releases {
+	width: 100%;
+	h2 {
+		@include heading-two;
+	}
+	.press-releases-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 2rem;
+		row-gap: 2rem;
+
+		li.press-release {
+			max-width: 100%;
+
+			.press-release-image {
+				transition: background 0.1s ease-out;
+				height: 400px;
+				width: 100%;
+				background-color: none !important;
+
+
+				img {
+					height: inherit;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+
+			.press-release-image:hover + .press-release-heading a {
+				background-color: #00ff00;
+				transition: background 0.1s ease-out;
+			}
+			.press-release-heading {
+				font-family: 'EyebeamSans', sans-serif;
+				font-size: 24px;
+				line-height: 27px;
+				transition: background 0.1s ease-out;
+				margin-top: 1rem;
+
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+		}
+	}
 }
 
-.press-recent h2 {
-	line-height: 72px;
-}
+.press-info {
+	margin-bottom: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	.press-contact, .press-kit {
+		h3 {
+			@include heading-two;
+		}
+		
+	}
 
-.press-recent li {
-	padding-bottom: 3rem;
-}
+	.press-contact {
+		.press-contact-name {
+			font-weight: 800;
+		}
+	}
 
-.press-recent-title {
-	font-weight: bold;
-}
+	.press-kit {
+		
+		.press-kit-logo {
+			@include heading-two;
+			width: 250px;
 
-.press-recent-publication {
-	margin-top: 10px;
-}
+		}
+		.press-kit-download {
+			
+			.buttons {
+				display: flex;
+				flex-wrap: nowrap;
 
-.press-recent blockquote p {
-	margin-top: 10px;
-}
+				a {
+					text-decoration: none;
+					display: inline-flex;
+					padding: 1rem;
+					border: 1px solid #000;
+					margin-right: 1rem;
+				}
+			}
 
-.press .clear {
-	display: none;
+		}
+	}
 }
 
 /* How to get Here */
@@ -3170,57 +3261,6 @@ a.ui-button:active,
 
 table.ui-datepicker-calendar thead {
 	border-bottom: 1px solid #231f20;
-}
-
-@media (min-width: 857px) {
-	.press {
-		font-size: 1.2rem;
-		line-height: 1.5rem;
-	}
-
-	.press h2 {
-		font-size: 2rem;
-		line-height: 2.25rem;
-		margin-bottom: 1rem;
-	}
-
-	.press-main {
-		width: calc(100% - 10px);
-		padding: 1rem 0 1rem 0;
-	}
-
-	.press-main ul {
-		width: calc(8.333% * 8);
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
-
-	.press-main .item-container {
-		justify-content: flex-start;
-	}
-
-	.press-sidebar {
-		float: right;
-		width: calc(33.33% - 10px);
-		margin: 0 0 0 10px;
-	}
-
-	.press-release {
-		width: calc(50% - 1rem);
-	}
-
-	.press-recent ul {
-		width: calc(8.333% * 8);
-		columns: 2;
-	}
-	.press-recent li {
-		page-break-inside: avoid;
-	}
-
-	.press .clear {
-		display: block;
-	}
 }
 
 /** begin modal window styles */

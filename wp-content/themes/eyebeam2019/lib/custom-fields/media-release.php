@@ -7,6 +7,18 @@ if(function_exists("register_field_group"))
 		'title' => 'Media Release',
 		'fields' => array (
 			array (
+				'key' => 'field_5a8dbc52c2b7709999',
+				'label' => 'Media Release Page',
+				'name' => 'media_release_page',
+				'type' => 'relationship',
+				'column_width' => '',
+				'return_format' => 'url',
+				'post_type' => array (
+					1 => 'page',
+				),
+				'max' => 1,
+			),
+			array (
 				'key' => 'field_56b565d272d11',
 				'label' => 'Title',
 				'name' => 'title',
@@ -32,6 +44,17 @@ if(function_exists("register_field_group"))
 				'save_format' => 'id',
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
+			),
+			array (
+				'key' => 'field_5a8dbe81400699',
+				'label' => 'Summary',
+				'name' => 'summary',
+				'type' => 'wysiwyg',
+				'instructions' => 'Add a summary of this media release',
+				'column_width' => '',
+				'default_value' => '',
+				'toolbar' => 'basic',
+				'media_upload' => 'no',
 			),
 		),
 		'location' => array (

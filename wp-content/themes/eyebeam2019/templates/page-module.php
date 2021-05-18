@@ -49,7 +49,7 @@ else {
 	if (! empty($image_id)) {
 
 		// set the image size
-		$size = 'medium';
+		$size = 'large';
 		// get the image using our helper function
 		$image = eyebeam2018_get_image_html($image_id, $size, true, $url);
 

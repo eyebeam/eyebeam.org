@@ -10,7 +10,6 @@ while (have_posts()) {
 	the_post();
 
 	echo "<div class=\"press\">\n";
-	get_template_part('templates/press-sidebar');
 
 	get_template_part('templates/press-main');
 

@@ -9,11 +9,26 @@ $image_id = get_field('image', $release->ID);
 $date = date('F j, Y', strtotime($date));
 $image = eyebeam2018_get_image_html($image_id, 'medium', 'press-release-image');
 
-echo "<li class=\"collection-item press-release\">\n";
-echo "<div class=\"item-container\">\n";
-echo "$image\n";
+$summary = get_field('summary', $release->ID); 
 
-echo "<h3 class=\"press-release-title\">$title</h3>\n";
-// echo "<div class=\"press-release-date\">$date</div>\n";
-echo "</div>\n";
-echo "</li>\n";
+$page = get_field('media_release_page', $release->ID);
+
+?>
+
+
+<li class="media-release">
+
+    <a class="media-release-image image" href="<?php echo get_permalink($page[0]); ?>">
+        <?php echo $image; ?>
+    </a>
+
+    <h3 class="media-release-heading">
+        <a href="<?php echo get_permalink($page[0]); ?>">
+            <?php echo $release->post_title; ?>
+        </a>
+    </h3>
+    <p>
+        <?php echo $summary; ?>
+    </p>
+
+</li>
