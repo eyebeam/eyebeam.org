@@ -3021,6 +3021,7 @@ hr {
 /* Press */
 
 .media-releases {
+	margin-bottom: 2rem;
 	width: 100%;
 	h2 {
 		@include heading-two;
@@ -3077,6 +3078,7 @@ hr {
 
 .press-releases {
 	width: 100%;
+	margin-bottom: 2rem;
 	h2 {
 		@include heading-two;
 	}
