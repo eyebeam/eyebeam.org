@@ -1111,15 +1111,16 @@ footer .bottom div {
 
 .logos #partners {
 	padding: 1rem 0 0 0;
-	display: inline-flex;
 	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	flex-wrap: wrap;
 	margin-left: auto;
 	width: 100%;
 }
 
 .logos #partners img {
-	flex: 0 0 50%;
+	width: 100%;
 	padding: 1rem;
 }
 
@@ -1386,12 +1387,12 @@ footer form p {
 		max-width: 1280px;
 	}
 	.logos #partners img {
-		flex: 0 0 21%;
-		width: 15%;
+		object-fit: fill;
+		width: 65%;
 	}
 
 	.logos #partners img.wider {
-		flex: 1 0 18%;
+		width: 85%;
 		padding: 1rem 2rem;
 	}
 
