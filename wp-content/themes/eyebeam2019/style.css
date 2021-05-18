@@ -2886,17 +2886,27 @@ hr {
 }
 .media-releases .media-releases-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 2rem;
   row-gap: 2rem;
+}
+@media (min-width: 768px) {
+  .media-releases .media-releases-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .media-releases .media-releases-list li.media-release {
   max-width: 100%;
 }
 .media-releases .media-releases-list li.media-release .media-release-image {
   transition: background 0.1s ease-out;
-  height: 400px;
+  height: 200px;
   width: 100%;
+}
+@media (min-width: 768px) {
+  .media-releases .media-releases-list li.media-release .media-release-image {
+    height: 400px;
+  }
 }
 .media-releases .media-releases-list li.media-release .media-release-image img {
   height: inherit;
@@ -2929,9 +2939,14 @@ hr {
 }
 .press-releases .press-releases-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 2rem;
   row-gap: 2rem;
+}
+@media (min-width: 768px) {
+  .press-releases .press-releases-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .press-releases .press-releases-list li.press-release {
   max-width: 100%;
@@ -2943,9 +2958,14 @@ hr {
   background-color: none !important;
 }
 .press-releases .press-releases-list li.press-release .press-release-image img {
-  height: inherit;
+  height: 200px;
   width: 100%;
   object-fit: cover;
+}
+@media (min-width: 768px) {
+  .press-releases .press-releases-list li.press-release .press-release-image img {
+    height: inherit;
+  }
 }
 .press-releases .press-releases-list li.press-release .press-release-image:hover + .press-release-heading a {
   background-color: #00ff00;
@@ -2971,7 +2991,12 @@ hr {
 .press-info {
   margin-bottom: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .press-info {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .press-info .press-contact h3, .press-info .press-kit h3 {
   font-family: "EyebeamSans", "Work Sans", sans-serif;
