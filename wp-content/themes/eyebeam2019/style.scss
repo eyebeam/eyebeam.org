@@ -1597,7 +1597,7 @@ footer form p {
 	}
 
 	.module-full_width.has-image .module-image {
-		flex: 0 0 calc(50% - 1rem);
+		flex: 0 0 calc(50% - 2rem);
 	}
 }
 
@@ -1733,6 +1733,10 @@ h5.post-label,
 
 .module-ideas .ideas-image {
 	margin: 9px 0;
+}
+
+#module-featured h2.module-title {
+	padding-bottom: 0 !important;
 }
 
 /**
@@ -1888,6 +1892,15 @@ Events
 }
 
 @media (min-width: 857px) {
+
+	.module-full_width.has-image {
+		.item-container {
+			&:hover .module-flex a.btn {
+				background: #00ff00;
+			}
+		}
+	}
+
 	.module-full_width.has-image .module-flex {
 		flex: 0 0 calc(50%);
 	}
