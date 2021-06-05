@@ -21,6 +21,7 @@ register_post_type('resident', array(
 	'public' => true,
 	'query_var' => true,
 	'supports' => array('title', 'thumbnail', 'page-attributes'),
+	'show_in_rest' => true,
 	'taxonomies' => array('post_tag', 'category'),
 	'exclude_from_search' => false,
 	'capability_type' => 'post',

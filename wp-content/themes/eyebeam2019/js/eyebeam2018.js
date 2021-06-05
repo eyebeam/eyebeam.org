@@ -1,3 +1,6 @@
+
+
+
 var eyebeam2018 = (function ($) {
 
 	// This should be kept in sync with the style.css mobile breakpoint.
@@ -7,8 +10,23 @@ var eyebeam2018 = (function ($) {
 	var stripe_card = null;
 	var enable_autocrop = true;
 
+	let alumniArchive = {
+		residentType: false,
+	}
+
 	var self = {
 
+		// state for the alumni archive
+		alumniArchive: {
+			page: 1,
+			residentType: 'all',
+			searchQuery: '',
+			nameSort: 'asc',
+			sortByName: false,
+			dateSort: 'desc',
+			sortByDate: true,
+			view: 'name',
+		},
 		init: function () {
 			self.setup_nav();
 			// self.setup_subscribe();
@@ -34,6 +52,10 @@ var eyebeam2018 = (function ($) {
 
 			if ($(window).width() > mobile_width) {
 				self.setup_micromodal();
+			}
+
+			if ($("body").hasClass("page-template-page-alumni-archive")){
+				self.setup_alumni_archive();
 			}
 
 		},
@@ -932,6 +954,221 @@ var eyebeam2018 = (function ($) {
 				});
 			}
 
+		},
+		handleAlumniCreate: function(name, url){
+
+			alumniResidentContainer = $(".alumni-resident.clone").clone();
+
+			alumniResidentLink = $("<a></a>").attr("href", url).html(name.rendered);
+
+			alumniResidentContainer.find('.alumni-resident-name').html(alumniResidentLink);
+
+			alumniResidentContainer.removeClass('clone').appendTo('.alumni-archive-results');
+		},
+		handleAlumniPagination: function(){
+
+		},
+		handleAlumniRequest: function(page = 1){
+
+			const settings = {
+				posts_per_page: 24,
+				page: page
+			}
+
+			const tags = {
+				223: 'rapid-response',
+				224: 'resident'
+			}
+
+			let archiveOrderBy = (self.alumniArchive.sortByDate) ? 'date' : 'title';
+			let archiveSortDirection;
+
+			// date sort here is weird but i just need it to work right now
+
+			let data = {
+				orderby: archiveOrderBy,
+				order: self.alumniArchive.nameSort,
+				per_page: settings.posts_per_page,
+				page: page,
+			};
+
+			if (self.alumniArchive.sortByDate)
+				data["order"] = self.alumniArchive.dateSort;
+
+			if (self.alumniArchive.searchQuery)
+				data["search"] = self.alumniArchive.searchQuery
+
+			if (self.alumniArchive.residentType && self.alumniArchive.residentType != 'all')
+				data["tags"] = self.getKeyByValue(tags, self.alumniArchive.residentType);
+
+
+			console.log(data)
+
+			// make initial request to the REST API
+			$.get('/wp-json/wp/v2/resident', data, function(response, status, xhr) {
+
+				$('.alumni-resident:not(.clone)').remove();
+
+				// loop overa all the entries
+				for(let i = 0; i < response.length; i++){
+
+					// destructure the returned data
+					const { title, tags, link } = response[i];
+					// const acf = acf;
+					const totalAlumniPages = xhr.getResponseHeader("X-WP-TotalPages");
+
+					self.handleAlumniCreate(title, link);
+
+					// self.handleAlumniPagination();
+				}
+
+				self.updateButtonStates();
+
+			});
+		},
+		setup_alumni_archive: function() {
+
+			// if enter is pressed on the search bar
+			$('.alumni-archive-controls-form-search').submit(function(e){
+				e.preventDefault();
+			});
+			
+			// category buttons
+			$('.alumni-archive-controls-form-search').find('button').click(function(e){
+
+				$('.alumni-archive-controls-form-search').find('button').removeClass('active');
+
+				e.preventDefault();
+
+				self.alumniArchive.residentType = $(this).data("type");
+
+				$(this).addClass("active");
+
+				self.handleAlumniRequest();
+			})
+
+			// search keypress
+			$('.alumni-archive-controls-form-search').find('input').keyup(function(e){
+
+				let search = $(this).val();
+
+				console.log(search);
+
+				self.alumniArchive.searchQuery = search;
+
+				self.handleAlumniRequest()
+			})
+
+			$('button[data-sort="name"]').click(function(e){
+				e.preventDefault();
+
+				// set sort by
+				self.alumniArchive.sortByName = true;
+				self.alumniArchive.sortByDate = false;
+
+				// set sort direction
+
+				if (!self.alumniArchive.nameSort)
+					$(this).data('direction', 'asc');
+						
+				if (self.alumniArchive.nameSort == 'asc'){
+					
+					self.alumniArchive.nameSort = 'desc'
+					$('button[data-sort="name"]').removeClass('asc');
+					$('button[data-sort="name"]').addClass('desc');
+
+				} else if (self.alumniArchive.nameSort == 'desc'){
+					
+					self.alumniArchive.nameSort = 'asc'
+					$('button[data-sort="name"]').removeClass('desc');
+					$('button[data-sort="name"]').addClass('asc');
+				}
+				
+				console.log(self.alumniArchive);
+
+				self.handleAlumniRequest();
+
+			});
+
+			$('button[data-sort="date"]').click(function(e){
+				e.preventDefault();
+
+				// set sort by
+				self.alumniArchive.sortByName = false;
+				self.alumniArchive.sortByDate = true;
+
+				// set sort direction
+
+				if (!self.alumniArchive.dateSort)
+					$(this).data('direction', 'asc');
+						
+				if (self.alumniArchive.dateSort == 'asc'){
+					
+					self.alumniArchive.dateSort = 'desc'
+					$('button[data-sort="date"]').removeClass('asc');
+					$('button[data-sort="date"]').addClass('desc');
+
+				} else if (self.alumniArchive.dateSort == 'desc'){
+					
+					self.alumniArchive.dateSort = 'asc'
+					$('button[data-sort="date"]').removeClass('desc');
+					$('button[data-sort="date"]').addClass('asc');
+				}
+				
+				console.log(self.alumniArchive);
+
+				self.handleAlumniRequest();
+
+			});
+
+			// init results
+			self.handleAlumniRequest();
+			
+		},
+		updateButtonStates: function(button){
+			
+			if (self.alumniArchive.dateSort == 'desc'){
+				$('button[data-sort="date"]').data('direction', 'desc');
+			}
+
+			if (self.alumniArchive.dateSort == 'asc'){
+				$('button[data-sort="date"]').data('direction', 'asc');
+			}
+
+			if (self.alumniArchive.nameSort == 'desc'){
+				$('button[data-sort="name"]').data('direction', 'desc');
+			}
+
+			if (self.alumniArchive.nameSort == 'asc'){
+				$('button[data-sort="name"]').data('direction', 'asc');
+			}
+
+			if (self.alumniArchive.sortByDate == true){
+				$('button[data-sort="name"]').removeClass('active');
+				$('button[data-sort="date"]').addClass('active');
+			}
+
+			if (self.alumniArchive.sortByName == true){
+				$('button[data-sort="date"]').removeClass('active');
+				$('button[data-sort="name"]').addClass('active');
+			}
+
+			if (self.alumniArchive.residentType == 'all'){
+				$('button.form-search').removeClass('active');
+				$('button[data-type="all"]').addClass('active');
+			}
+			if (self.alumniArchive.residentType == 'rapid-response'){
+				$('button.form-search').removeClass('active');
+				$('button[data-type="rapid-response"]').addClass('active');
+			}
+			if (self.alumniArchive.residentType == 'resident'){
+				$('button.form-search').removeClass('active');
+				$('button[data-type="resident"]').addClass('active');
+			}
+
+		},
+		getKeyByValue: function(object, value) {
+			return Object.keys(object).find(key => object[key] === value);
 		},
 	};
 
