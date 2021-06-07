@@ -91,7 +91,7 @@ while (have_posts()) {
         // $alumni = get_posts($args);
             ?>
 
-        <div class="alumni-archive-results">
+        <div class="alumni-archive-results" id="alumni-archive">
 
             <?php //foreach($alumni as $resident){ ?>
             
@@ -100,6 +100,22 @@ while (have_posts()) {
             <?php //} ?>
 
 
+        </div>
+
+        <hr />
+
+        <div class="alumni-archive-pagination">
+            <a href="pagination-link previous" alt="View Previous Page of Residents">
+                &larr;
+            </a>
+            <div class="pagination-pages">
+                <a href="#" alt="Page 1" class="disabled">
+                    1
+                </a>
+            </div>
+            <a class="pagination-link next" alt="View Next Page of Residents">
+                &rarr;
+            </a>
         </div>
 
     </div>

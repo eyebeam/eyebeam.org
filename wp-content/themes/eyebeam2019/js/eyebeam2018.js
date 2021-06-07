@@ -970,6 +970,8 @@ var eyebeam2018 = (function ($) {
 		},
 		handleAlumniRequest: function(page = 1){
 
+			$('.alumni-archive-results').css({opacity: .3})
+
 			const settings = {
 				posts_per_page: 24,
 				page: page
@@ -1007,15 +1009,20 @@ var eyebeam2018 = (function ($) {
 			// make initial request to the REST API
 			$.get('/wp-json/wp/v2/resident', data, function(response, status, xhr) {
 
+				console.log(response);
+
+				let totalPages = xhr.getResponseHeader('x-wp-TotalPages');
+
+				self.alumniArchive.totalPages = totalPages;
+
 				$('.alumni-resident:not(.clone)').remove();
 
 				// loop overa all the entries
 				for(let i = 0; i < response.length; i++){
-
 					// destructure the returned data
+					
 					const { title, tags, link } = response[i];
 					// const acf = acf;
-					const totalAlumniPages = xhr.getResponseHeader("X-WP-TotalPages");
 
 					self.handleAlumniCreate(title, link);
 
@@ -1024,9 +1031,51 @@ var eyebeam2018 = (function ($) {
 
 				self.updateButtonStates();
 
+				self.updateAlumniArchivePagination(self.alumniArchive.page, self.alumniArchive.totalPages);
+
+				$('.alumni-archive-results').css("opacity", 1);
+
 			});
 		},
+		handlePaginationLink: function(){
+			
+			$('body').on("click", ".pagination-link", function(){
+
+				let thisPage = $(this).data("page");
+
+				self.alumniArchive.page = thisPage;
+				self.handleAlumniRequest(thisPage);
+
+			})
+		},
+		updateAlumniArchivePagination: function(page, pages){
+
+			// clear the container
+			let paginationPages = $('.pagination-pages');
+			paginationPages.html("");
+
+			for(i=1;i<=pages; i++){
+
+				let paginationLink = $('<a></a>').
+					addClass("pagination-link").
+					attr("alt", `View page ${i}`).
+					data("page", i).
+					html(i);
+
+				console.log(page);
+				if (page === i){
+					paginationLink.addClass('current');
+				}
+
+				paginationLink.appendTo(paginationPages);
+			}
+
+			$('.previous').data("page", page-1);
+			$('.next').data("page", page+1);
+		},
 		setup_alumni_archive: function() {
+			
+			self.handlePaginationLink();
 
 			// if enter is pressed on the search bar
 			$('.alumni-archive-controls-form-search').submit(function(e){
@@ -1044,7 +1093,7 @@ var eyebeam2018 = (function ($) {
 
 				$(this).addClass("active");
 
-				self.handleAlumniRequest();
+				self.handleAlumniRequest(1);
 			})
 
 			// search keypress
