@@ -66,15 +66,15 @@ while (have_posts()) {
                 </button>
                 
             </div>
-<!--             
+            
             <div class="right">
-                <button class="btn-light">
+                <button data-view="name" class="btn-light view-btn">
                     Names
                 </button>
-                <button class="btn-light">
+                <button data-view="image" class="btn-light view-btn">
                     Thumbnails
                 </button>
-            </div> -->
+            </div>
         </div>
 
         </div>

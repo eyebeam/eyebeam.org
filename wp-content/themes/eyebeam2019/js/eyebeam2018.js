@@ -1,6 +1,3 @@
-
-
-
 var eyebeam2018 = (function ($) {
 
 	// This should be kept in sync with the style.css mobile breakpoint.
@@ -18,6 +15,7 @@ var eyebeam2018 = (function ($) {
 
 		// state for the alumni archive
 		alumniArchive: {
+			per_page: 24,
 			page: 1,
 			residentType: 'all',
 			searchQuery: '',
@@ -955,25 +953,41 @@ var eyebeam2018 = (function ($) {
 			}
 
 		},
-		handleAlumniCreate: function(name, url){
+		handleAlumniCreate: function(name, url, image, view){
 
-			alumniResidentContainer = $(".alumni-resident.clone").clone();
+			if (!view || view == 'name'){
 
-			alumniResidentLink = $("<a></a>").attr("href", url).html(name.rendered);
+				alumniResidentContainer = $(".alumni-resident.clone").clone();
 
-			alumniResidentContainer.find('.alumni-resident-name').html(alumniResidentLink);
+				alumniResidentLink = $("<a></a>").attr("href", url).html(name.rendered);
+	
+				alumniResidentContainer.find('.alumni-resident-name').html(alumniResidentLink);
+	
+				alumniResidentContainer.removeClass('clone').appendTo('.alumni-archive-results');
+			}
+			else if (view == 'image'){
+				console.log('image view')
+				alumniResidentContainer = $(".alumni-resident.clone").clone();
 
-			alumniResidentContainer.removeClass('clone').appendTo('.alumni-archive-results');
+				alumniResidentLink = $("<a></a>").attr("href", url).html(name.rendered);
+	
+				alumniResidentImage = $('<img />').attr("src", image);
+
+				alumniResidentContainer.find('.alumni-resident-name').html(alumniResidentLink);
+				alumniResidentContainer.find('.alumni-resident-image').html(alumniResidentImage);
+	
+				alumniResidentContainer.removeClass('clone').appendTo('.alumni-archive-results');
+			}
+			
 		},
 		handleAlumniPagination: function(){
 
 		},
 		handleAlumniRequest: function(page = 1){
-
 			$('.alumni-archive-results').css({opacity: .3})
 
 			const settings = {
-				posts_per_page: 24,
+				posts_per_page: self.alumniArchive.per_page,
 				page: page
 			}
 
@@ -1004,8 +1018,6 @@ var eyebeam2018 = (function ($) {
 				data["tags"] = self.getKeyByValue(tags, self.alumniArchive.residentType);
 
 
-			console.log(data)
-
 			// make initial request to the REST API
 			$.get('/wp-json/wp/v2/resident', data, function(response, status, xhr) {
 
@@ -1021,10 +1033,10 @@ var eyebeam2018 = (function ($) {
 				for(let i = 0; i < response.length; i++){
 					// destructure the returned data
 					
-					const { title, tags, link } = response[i];
-					// const acf = acf;
+					const { title, tags, link, image } = response[i];
 
-					self.handleAlumniCreate(title, link);
+					// const acf = acf;
+					self.handleAlumniCreate(title, link, image, self.alumniArchive.view);
 
 					// self.handleAlumniPagination();
 				}
@@ -1062,7 +1074,6 @@ var eyebeam2018 = (function ($) {
 					data("page", i).
 					html(i);
 
-				console.log(page);
 				if (page === i){
 					paginationLink.addClass('current');
 				}
@@ -1073,9 +1084,34 @@ var eyebeam2018 = (function ($) {
 			$('.previous').data("page", page-1);
 			$('.next').data("page", page+1);
 		},
+		handleViewButton: function(){
+			$('body').on("click", ".view-btn", function(){
+				let thisView = $(this).data("view");
+
+				self.alumniArchive.view = thisView;
+
+				self.handleViewChange(self.alumniArchive.view);
+			} );
+		},
+		handleViewChange: function(view){
+			
+			self.alumniArchive.view = view;
+
+			if (view == 'image'){
+				self.alumniArchive.per_page = 8;
+			}
+			else if (view == 'name') {
+				self.alumniArchive.per_page = 24;
+			}
+
+			self.handleAlumniRequest(self.alumniArchive.page);
+
+			console.log(self.alumniArchive.view);
+		},
 		setup_alumni_archive: function() {
 			
 			self.handlePaginationLink();
+			self.handleViewButton();
 
 			// if enter is pressed on the search bar
 			$('.alumni-archive-controls-form-search').submit(function(e){

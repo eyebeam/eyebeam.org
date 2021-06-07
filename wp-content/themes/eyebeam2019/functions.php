@@ -1573,3 +1573,43 @@ if (! function_exists('dbug')) {
 		error_log("\n$out");
 	}
 }
+
+function create_ACF_meta_in_REST() {
+    $postypes_to_exclude = ['acf-field-group','acf-field'];
+    $extra_postypes_to_include = ["page"];
+    $post_types = array_diff(get_post_types(["_builtin" => false], 'names'),$postypes_to_exclude);
+
+    array_push($post_types, $extra_postypes_to_include);
+
+    foreach ($post_types as $post_type) {
+        register_rest_field( $post_type, 'ACF', [
+            'get_callback'    => 'expose_ACF_fields',
+            'schema'          => null,
+       ]
+     );
+
+	 register_rest_field('resident', 'image', [
+		 'get_callback'		=> 'expose_image_field',
+		 'schema'			=> null,
+	 ]);
+    }
+
+}
+
+function expose_ACF_fields( $object ) {
+    $ID = $object['id'];
+    return get_fields($ID);
+}
+
+function expose_image_field( $object ){
+
+	$ID = $object['id'];
+	$image_ID = get_field('image', $ID);
+
+	return wp_get_original_image_url( $image_ID );
+
+}
+
+
+
+add_action( 'rest_api_init', 'create_ACF_meta_in_REST' );
