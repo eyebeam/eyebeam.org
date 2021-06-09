@@ -2498,6 +2498,11 @@ Alumni Archive 2.0
 
 .alumni-archive {
 	.alumni-archive-controls {
+		position: sticky;
+		top: 0;
+		background: white;
+		border-bottom: 1px solid black;
+		z-index: 200;
 		.alumni-archive-controls-form-search {
 
 			padding: 1rem 0;
@@ -2587,6 +2592,7 @@ Alumni Archive 2.0
 		.pagination-pages {
 			flex: 1 0 auto;
 			align-items: center;
+			justify-content: center;
 			display: flex;
 
 			a {
@@ -2594,6 +2600,7 @@ Alumni Archive 2.0
 				text-decoration: none;
 				&.disabled {
 					opacity: .3;
+					background: none !important;
 				}
 				&.current {
 					font-weight: 800;

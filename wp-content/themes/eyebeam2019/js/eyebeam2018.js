@@ -1053,33 +1053,72 @@ var eyebeam2018 = (function ($) {
 			
 			$('body').on("click", ".pagination-link", function(){
 
-				let thisPage = $(this).data("page");
+				if (!$(this).hasClass("disabled")){
+					let thisPage = $(this).data("page");
 
-				self.alumniArchive.page = thisPage;
-				self.handleAlumniRequest(thisPage);
+					self.alumniArchive.page = thisPage;
+					self.handleAlumniRequest(thisPage);
+				}
 
 			})
 		},
-		updateAlumniArchivePagination: function(page, pages){
+		getPageList: function (totalPages, page, maxLength) {
+			if (maxLength < 5) throw "maxLength must be at least 5";
+		
+			function range(start, end) {
+				return Array.from(Array(end - start + 1), (_, i) => i + start); 
+			}
+		
+			var sideWidth = maxLength < 9 ? 1 : 2;
+			var leftWidth = (maxLength - sideWidth*2 - 3) >> 1;
+			var rightWidth = (maxLength - sideWidth*2 - 2) >> 1;
+			if (totalPages <= maxLength) {
+				// no breaks in list
+				return range(1, totalPages);
+			}
+			if (page <= maxLength - sideWidth - 1 - rightWidth) {
+				// no break on left of page
+				return range(1, maxLength - sideWidth - 1)
+					.concat(0, range(totalPages - sideWidth + 1, totalPages));
+			}
+			if (page >= totalPages - sideWidth - 1 - rightWidth) {
+				// no break on right of page
+				return range(1, sideWidth)
+					.concat(0, range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages));
+			}
+			// Breaks on both sides
+			return range(1, sideWidth)
+				.concat(0, range(page - leftWidth, page + rightWidth),
+						0, range(totalPages - sideWidth + 1, totalPages));
+		},
+		updateAlumniArchivePagination: function(page, pages, maxLength = 12){
+
+			let paginationLinks = self.getPageList(pages, page, 12);
+
+			if (maxLength < 5) throw "Max Length must be greater than 5"
 
 			// clear the container
 			let paginationPages = $('.pagination-pages');
 			paginationPages.html("");
 
-			for(i=1;i<=pages; i++){
+			let min = page - (maxLength / 2);
+			let max = page + (maxLength / 2);
 
+			paginationLinks.forEach(link => {
 				let paginationLink = $('<a></a>').
 					addClass("pagination-link").
-					attr("alt", `View page ${i}`).
-					data("page", i).
-					html(i);
+					attr("alt", `View page ${link}`).
+					data("page", link).
+					html(link);
 
-				if (page === i){
+				if (link == 0) link = paginationLink.html("...").addClass("disabled");
+
+				if (page === link){
 					paginationLink.addClass('current');
 				}
 
 				paginationLink.appendTo(paginationPages);
-			}
+			});	
 
 			$('.previous').data("page", page-1);
 			$('.next').data("page", page+1);

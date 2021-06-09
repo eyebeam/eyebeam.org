@@ -2352,6 +2352,13 @@ Alumni Archive 2.0
   margin-bottom: 1rem;
 }
 
+.alumni-archive .alumni-archive-controls {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid black;
+  z-index: 200;
+}
 .alumni-archive .alumni-archive-controls .alumni-archive-controls-form-search {
   padding: 1rem 0;
   display: flex;
@@ -2446,6 +2453,7 @@ Alumni Archive 2.0
 .alumni-archive .alumni-archive-pagination .pagination-pages {
   flex: 1 0 auto;
   align-items: center;
+  justify-content: center;
   display: flex;
 }
 .alumni-archive .alumni-archive-pagination .pagination-pages a {
@@ -2453,6 +2461,7 @@ Alumni Archive 2.0
 }
 .alumni-archive .alumni-archive-pagination .pagination-pages a.disabled {
   opacity: 0.3;
+  background: none !important;
 }
 .alumni-archive .alumni-archive-pagination .pagination-pages a.current {
   font-weight: 800;
