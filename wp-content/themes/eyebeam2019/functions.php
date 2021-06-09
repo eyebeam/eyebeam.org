@@ -1607,7 +1607,7 @@ function expose_image_field( $object ){
 	$image_ID = get_field('image', $ID);
 
 	if ($image_ID){
-		return wp_get_original_image_url( $image_ID );
+		return wp_get_attachment_image_url( $image_ID );
 	}
 
 }
