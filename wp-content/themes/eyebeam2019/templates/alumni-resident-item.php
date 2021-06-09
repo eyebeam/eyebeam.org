@@ -31,7 +31,7 @@ if (! empty($image_id)) {
 </div> -->
 
 <div class="alumni-resident clone">
-    <a>
+    <a class="alumni-resident-link">
         <div class="alumni-resident-image">
         </div>
         <div class="alumni-resident-name">

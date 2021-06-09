@@ -973,8 +973,10 @@ var eyebeam2018 = (function ($) {
 	
 				alumniResidentImage = $('<img />').attr("src", image);
 
+				alumniResidentImageLink = $('<a></a>').attr("href", url).addClass('alumni-resident-image-link').html(alumniResidentImage);
+
 				alumniResidentContainer.find('.alumni-resident-name').html(alumniResidentLink);
-				alumniResidentContainer.find('.alumni-resident-image').html(alumniResidentImage);
+				alumniResidentContainer.find('.alumni-resident-image').html(alumniResidentImageLink);
 	
 				alumniResidentContainer.removeClass('clone').appendTo('.alumni-archive-results');
 			}

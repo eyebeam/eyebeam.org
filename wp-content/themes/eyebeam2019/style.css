@@ -2477,12 +2477,21 @@ Alumni Archive 2.0
 .alumni-archive .alumni-archive-results .alumni-resident .alumni-resident-image {
   margin-bottom: 0.5rem;
 }
+.alumni-archive .alumni-archive-results .alumni-resident .alumni-resident-image a {
+  background: none !important;
+}
 .alumni-archive .alumni-archive-results .alumni-resident .alumni-resident-image img {
   height: calc( calc(83.333vw / 4) - 2rem);
   object-fit: cover;
 }
+.alumni-archive .alumni-archive-results .alumni-resident .alumni-resident-name a {
+  text-decoration: none;
+}
 .alumni-archive .alumni-archive-results .alumni-resident.clone {
   display: none;
+}
+.alumni-archive .alumni-archive-results .alumni-resident:hover .alumni-resident-name a {
+  background: lime;
 }
 
 /* -------------------------------------------------------------------------- */

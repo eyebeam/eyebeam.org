@@ -2621,6 +2621,9 @@ Alumni Archive 2.0
 
 		.alumni-resident {
 			.alumni-resident-image {
+				a {
+					background: none !important;
+				}
 				margin-bottom: .5rem;
 				img {
 					height: calc( calc(83.333vw / 4) - 2rem);
@@ -2628,8 +2631,16 @@ Alumni Archive 2.0
 
 				}
 			}
+			.alumni-resident-name {
+				a { 
+					text-decoration: none;
+				}
+			}
 			&.clone {
 				display: none;
+			}
+			&:hover .alumni-resident-name a {
+				background:rgb(0, 255, 0);
 			}
 		}
 	}
