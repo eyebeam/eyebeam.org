@@ -37,15 +37,15 @@ while (have_posts()) {
 
         <form action="" class="alumni-archive-controls-form-search">
 
-            <input type="text" name="filter" class="alumni-filter" placeholder="Start typing a name..." />
+            <input type="text" name="filter" class="alumni-filter" alt="Search Alumni Archive" placeholder="Start typing a name..." />
 
-            <button class="form-search" data-type="all">
+            <button alt="View All Alumni" class="form-search" data-type="all">
                 View All
             </button>
-            <button class="form-search" data-type="residents">
+            <button alt="View Eyebeam Residents" class="form-search" data-type="residents">
                 Residents
             </button>
-            <button class="form-search" data-type="rapid-response">
+            <button alt="View Eyebeam Rapid Response Fellows" class="form-search" data-type="rapid-response">
                 Rapid Response Fellows
             </button>
 
@@ -54,12 +54,12 @@ while (have_posts()) {
         <div class="alumni-archive-controls-form-sort">
             <div class="left">
                 
-                <button data-sort="name" data-direction="asc" class="btn-light desc" value="true">
+                <button alt="Sort Alumni by Name" data-sort="name" data-direction="asc" class="btn-light desc" value="true">
                     A-Z
                     <span class="asc">&uarr;</span>
                     <span class="desc">&darr;</span>
                 </button>
-                <button data-sort="date" data-direction="asc" class="btn-light desc" value="true">
+                <button alt="Sort Alumni by Date" data-sort="date" data-direction="asc" class="btn-light desc" value="true">
                     Date
                     <span class="asc">&uarr;</span>
                     <span class="desc">&darr;</span>
@@ -68,10 +68,10 @@ while (have_posts()) {
             </div>
             
             <div class="right">
-                <button data-view="name" class="btn-light view-btn">
+                <button alt="View Alumni Names Only" data-view="name" class="btn-light view-btn">
                     Names
                 </button>
-                <button data-view="image" class="btn-light view-btn">
+                <button alt="View Alumni Thumbnails" data-view="image" class="btn-light view-btn active">
                     Thumbnails
                 </button>
             </div>

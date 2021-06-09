@@ -15,7 +15,7 @@ var eyebeam2018 = (function ($) {
 
 		// state for the alumni archive
 		alumniArchive: {
-			per_page: 24,
+			per_page: 8,
 			page: 1,
 			residentType: 'all',
 			searchQuery: '',
@@ -23,7 +23,7 @@ var eyebeam2018 = (function ($) {
 			sortByName: false,
 			dateSort: 'desc',
 			sortByDate: true,
-			view: 'name',
+			view: 'image',
 		},
 		init: function () {
 			self.setup_nav();
@@ -1127,6 +1127,9 @@ var eyebeam2018 = (function ($) {
 			$('body').on("click", ".view-btn", function(){
 				let thisView = $(this).data("view");
 
+				$('.view-btn').removeClass('active');
+				$(this).addClass("active");
+
 				self.alumniArchive.view = thisView;
 
 				self.handleViewChange(self.alumniArchive.view);
@@ -1281,10 +1284,12 @@ var eyebeam2018 = (function ($) {
 				$('button.form-search').removeClass('active');
 				$('button[data-type="all"]').addClass('active');
 			}
+			
 			if (self.alumniArchive.residentType == 'rapid-response'){
 				$('button.form-search').removeClass('active');
 				$('button[data-type="rapid-response"]').addClass('active');
 			}
+
 			if (self.alumniArchive.residentType == 'resident'){
 				$('button.form-search').removeClass('active');
 				$('button[data-type="resident"]').addClass('active');
