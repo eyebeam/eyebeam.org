@@ -68,12 +68,12 @@ while (have_posts()) {
             </div>
             
             <div class="right">
-                <button alt="View Alumni Names Only" data-view="name" class="btn-light view-btn">
+                <!-- <button alt="View Alumni Names Only" data-view="name" class="btn-light view-btn">
                     Names
                 </button>
                 <button alt="View Alumni Thumbnails" data-view="image" class="btn-light view-btn active">
                     Thumbnails
-                </button>
+                </button> -->
             </div>
         </div>
 

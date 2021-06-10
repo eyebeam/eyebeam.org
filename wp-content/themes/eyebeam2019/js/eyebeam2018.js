@@ -15,7 +15,7 @@ var eyebeam2018 = (function ($) {
 
 		// state for the alumni archive
 		alumniArchive: {
-			per_page: 8,
+			per_page: 24,
 			page: 1,
 			residentType: 'all',
 			searchQuery: '',
@@ -23,7 +23,7 @@ var eyebeam2018 = (function ($) {
 			sortByName: false,
 			dateSort: 'desc',
 			sortByDate: true,
-			view: 'image',
+			view: 'name',
 		},
 		init: function () {
 			self.setup_nav();
@@ -1122,7 +1122,17 @@ var eyebeam2018 = (function ($) {
 				paginationLink.appendTo(paginationPages);
 			});	
 
+
 			$('.previous').data("page", page-1);
+
+			if (page == 1) {
+				$('.previous').addClass('disabled');
+			}
+			else {
+				$('.previous').removeClass('disabled');
+			}
+			
+
 			$('.next').data("page", page+1);
 		},
 		handleViewButton: function(){
