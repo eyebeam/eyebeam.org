@@ -15,7 +15,7 @@ var eyebeam2018 = (function ($) {
 
 		// state for the alumni archive
 		alumniArchive: {
-			per_page: 24,
+			per_page: 36,
 			page: 1,
 			residentType: 'all',
 			searchQuery: '',
@@ -1155,7 +1155,7 @@ var eyebeam2018 = (function ($) {
 				self.alumniArchive.per_page = 8;
 			}
 			else if (view == 'name') {
-				self.alumniArchive.per_page = 24;
+				self.alumniArchive.per_page = 36;
 			}
 
 			self.handleAlumniRequest(self.alumniArchive.page);
