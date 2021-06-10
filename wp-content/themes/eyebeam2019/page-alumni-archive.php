@@ -105,7 +105,7 @@ while (have_posts()) {
         <hr />
 
         <div class="alumni-archive-pagination">
-            <a href="pagination-link previous" alt="View Previous Page of Residents">
+            <a class="pagination-link previous" alt="View Previous Page of Residents">
                 &larr;
             </a>
             <div class="pagination-pages">
