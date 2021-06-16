@@ -1592,6 +1592,11 @@ function create_ACF_meta_in_REST() {
 		 'get_callback'		=> 'expose_image_field',
 		 'schema'			=> null,
 	 ]);
+
+	 register_rest_field('resident', 'year', [
+		 'get_callback'		=> 'expose_year_field',
+		 'schema'			=> null,
+	 ]);
     }
 
 }
@@ -1609,6 +1614,15 @@ function expose_image_field( $object ){
 	if ($image_ID){
 		return wp_get_attachment_image_url( $image_ID );
 	}
+
+}
+
+function expose_year_field( $object ){
+
+	$ID = $object['id'];
+	$start_year = get_field('start_year', $ID);
+
+	return $start_year;
 
 }
 

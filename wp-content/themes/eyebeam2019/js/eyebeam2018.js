@@ -15,7 +15,7 @@ var eyebeam2018 = (function ($) {
 
 		// state for the alumni archive
 		alumniArchive: {
-			per_page: 36,
+			per_page: 16,
 			page: 1,
 			residentType: 'all',
 			searchQuery: '',
@@ -953,7 +953,7 @@ var eyebeam2018 = (function ($) {
 			}
 
 		},
-		handleAlumniCreate: function(name, url, image, view){
+		handleAlumniCreate: function(name, year, url, image, view){
 
 			if (!view || view == 'name'){
 
@@ -962,6 +962,7 @@ var eyebeam2018 = (function ($) {
 				alumniResidentLink = $("<a></a>").attr("href", url).html(name.rendered);
 	
 				alumniResidentContainer.find('.alumni-resident-name').html(alumniResidentLink);
+				alumniResidentContainer.find('.alumni-resident-year').html(year);
 	
 				alumniResidentContainer.removeClass('clone').appendTo('.alumni-archive-results');
 			}
@@ -976,6 +977,7 @@ var eyebeam2018 = (function ($) {
 				alumniResidentImageLink = $('<a></a>').attr("href", url).addClass('alumni-resident-image-link').html(alumniResidentImage);
 
 				alumniResidentContainer.find('.alumni-resident-name').html(alumniResidentLink);
+				alumniResidentContainer.find('.alumni-resident-year').html(year);
 				alumniResidentContainer.find('.alumni-resident-image').html(alumniResidentImageLink);
 	
 				alumniResidentContainer.removeClass('clone').appendTo('.alumni-archive-results');
@@ -1011,7 +1013,9 @@ var eyebeam2018 = (function ($) {
 			};
 
 			if (self.alumniArchive.sortByDate)
+				// data["order"] = self.alumniArchive.dateSort;
 				data["order"] = self.alumniArchive.dateSort;
+				data["filter[meta_key]"] = "start_year";
 
 			if (self.alumniArchive.searchQuery)
 				data["search"] = self.alumniArchive.searchQuery
@@ -1035,10 +1039,10 @@ var eyebeam2018 = (function ($) {
 				for(let i = 0; i < response.length; i++){
 					// destructure the returned data
 					
-					const { title, tags, link, image } = response[i];
+					const { title, tags, link, image, year } = response[i];
 
 					// const acf = acf;
-					self.handleAlumniCreate(title, link, image, self.alumniArchive.view);
+					self.handleAlumniCreate(title, year, link, image, self.alumniArchive.view);
 
 					// self.handleAlumniPagination();
 				}
@@ -1155,7 +1159,7 @@ var eyebeam2018 = (function ($) {
 				self.alumniArchive.per_page = 8;
 			}
 			else if (view == 'name') {
-				self.alumniArchive.per_page = 36;
+				self.alumniArchive.per_page = 16;
 			}
 
 			self.handleAlumniRequest(self.alumniArchive.page);

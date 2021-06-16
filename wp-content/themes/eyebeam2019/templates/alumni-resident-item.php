@@ -36,5 +36,7 @@ if (! empty($image_id)) {
         </div>
         <div class="alumni-resident-name">
         </div>
+        <div class="alumni-resident-year">
+        </div>
     </a>
 </div>

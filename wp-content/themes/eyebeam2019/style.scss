@@ -2613,29 +2613,39 @@ Alumni Archive 2.0
 
 	.alumni-archive-results {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
 		grid-column-gap: 1rem;
 		grid-row-gap: 1rem;
 		margin-bottom: 2rem;
 		transition: all 500ms ease-in-out;
 
 		.alumni-resident {
-			.alumni-resident-image {
-				a {
-					background: none !important;
-				}
-				margin-bottom: .5rem;
-				img {
-					height: calc( calc(83.333vw / 4) - 2rem);
-					object-fit: cover;
 
+			.alumni-resident-link {
+				text-decoration: none;
+				.alumni-resident-image {
+					a {
+						background: none !important;
+					}
+					margin-bottom: .5rem;
+					img {
+						height: calc( calc(83.333vw / 4) - 2rem);
+						object-fit: cover;
+	
+					}
+				}
+				.alumni-resident-name {
+					a { 
+						text-decoration: none !important;
+					}
+				}
+				.alumni-resident-year {
+					text-decoration: none !important;
+					font-size: .75rem;
+					margin-top: .25rem;
 				}
 			}
-			.alumni-resident-name {
-				a { 
-					text-decoration: none;
-				}
-			}
+			
 			&.clone {
 				display: none;
 			}
