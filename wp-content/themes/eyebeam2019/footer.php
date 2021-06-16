@@ -110,6 +110,7 @@
 				<img src="<?php eyebeam2018_img_src('img/partners/henry-luce.png'); ?>" alt="MacArthur Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/craig-newmark.png'); ?>" class="wider" alt="Capital One" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/mellon.png'); ?>" alt="The Andrew W. Mellon Foundation" width="auto">
+				<img src="<?php eyebeam2018_img_src('img/partners/nysca.png'); ?>" alt="The New York State Council for the Arts" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/Ford_Foundation_Logo.png'); ?>" class="wider" alt="Ford Foundation" width="auto">
 				<img src="<?php eyebeam2018_img_src('img/partners/nea-white.png'); ?>" alt="National Endowment for the Arts" width="auto">
 			</div>
