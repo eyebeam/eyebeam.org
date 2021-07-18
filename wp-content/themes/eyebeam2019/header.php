@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 	<head>
 		<meta charset="utf-8">
 		<?php do_action('eyebeam2018_view_source'); ?>
