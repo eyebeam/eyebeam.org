@@ -28,9 +28,9 @@
 				</div>
 				<input type="hidden" name="u" value="c72c271895f3f76b36105229c">
 				<input type="hidden" name="id" value="bb4e74c232">
-				<input type="text" name="MERGE1" placeholder="First Name">
-				<input type="text" name="MERGE2" placeholder="Last Name">
-				<input type="email" name="MERGE0" placeholder="Email">
+				<label for="MERGE1"><input type="text" name="MERGE1" placeholder="First Name"></label>
+				<label for="MERGE2"><input type="text" name="MERGE2" placeholder="Last Name"></label>
+				<label for="MERGE0"><input type="email" name="MERGE0" placeholder="Email"></label>
 				<input type="submit" value="Subscribe">
 			</form>
 			<nav>

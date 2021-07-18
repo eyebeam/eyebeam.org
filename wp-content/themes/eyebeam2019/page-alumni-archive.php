@@ -37,7 +37,7 @@ while (have_posts()) {
 
         <form action="" class="alumni-archive-controls-form-search">
 
-            <input type="text" name="filter" class="alumni-filter" alt="Search Alumni Archive" placeholder="Start typing a name..." />
+            <label for="filter"><input type="text" name="filter" class="alumni-filter" alt="Search Alumni Archive" placeholder="Start typing a name..." /></label>
 
             <button alt="View All Alumni" class="form-search" data-type="all">
                 View All

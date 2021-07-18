@@ -438,14 +438,19 @@ input {
   border-radius: 0 !important;
 }
 
-header #search input {
+header #search label {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+header #search label input {
   flex: 1 0 auto;
   padding: 0;
   margin: 0;
   padding-left: 1rem;
 }
 
-header #search input[type=text] {
+header #search label input[type=text] {
   font-size: 1.5rem;
   font-family: "EyebeamSans", sans-serif;
   background: white;
@@ -456,13 +461,13 @@ header #search input[type=text] {
   z-index: 2;
 }
 
-header #search input[type=text].visible {
+header #search label input[type=text].visible {
   display: block;
   right: 0;
   transition: 0.2s ease-out;
 }
 
-header #search input[type=text]:focus {
+header #search label input[type=text]:focus {
   outline: 0 !important;
 }
 
@@ -1142,6 +1147,12 @@ footer form {
   display: flex;
   flex-wrap: wrap;
   border-top: 3px solid #231f20;
+}
+
+footer form label {
+  display: flex;
+  flex: 1 0 auto;
+  margin-right: 1rem;
 }
 
 footer input {
@@ -1825,6 +1836,7 @@ Events
 
   .module-one_third .item-container .module-image {
     flex: 0 0 auto;
+    overflow: hidden;
   }
 
   .module-one_third:hover .module-flex .module-title a {

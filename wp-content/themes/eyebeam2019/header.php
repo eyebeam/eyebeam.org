@@ -61,7 +61,7 @@
 				<!-- <a href="/donate/" class="support red">Support Eyebeam!</a> -->
 			</nav>
 			<form id="search" action="/" method="GET">
-				<input type="text" name="s" placeholder="Search" />
+				<label for="s"><input type="text" name="s" placeholder="Search" /></label>
 				<button type="submit">
 					<span class="search-icon"></span>
 				</button>
