@@ -3761,3 +3761,21 @@ table.ui-datepicker-calendar thead {
 		max-width: 840px;
 	}
 }
+
+#module-donate {
+	iframe {
+		width: 101% !important;
+	}
+	h2 {
+		font-size: 24px;
+		line-height: 30px;
+		margin: 16px 0 16px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	&.module-one_third {
+		padding-top: 15px;
+	}
+}
