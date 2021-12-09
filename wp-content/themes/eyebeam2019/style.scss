@@ -3779,3 +3779,13 @@ table.ui-datepicker-calendar thead {
 		padding-top: 15px;
 	}
 }
+
+#module-tech-fellow, #module-chief-fundraiser {
+	ul {
+		list-style-type: disc;
+		padding-left: 16px;
+		li {
+			margin-bottom: 8px;
+		}
+	}
+}

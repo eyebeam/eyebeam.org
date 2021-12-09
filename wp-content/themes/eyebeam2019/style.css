@@ -3536,4 +3536,12 @@ table.ui-datepicker-calendar thead {
   padding-top: 15px;
 }
 
+#module-tech-fellow ul, #module-chief-fundraiser ul {
+  list-style-type: disc;
+  padding-left: 16px;
+}
+#module-tech-fellow ul li, #module-chief-fundraiser ul li {
+  margin-bottom: 8px;
+}
+
 /*# sourceMappingURL=style.css.map */
