@@ -3766,20 +3766,40 @@ table.ui-datepicker-calendar thead {
 	&.module-full_width {
 		display: flex;
 		flex-direction: row;
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
+
 		justify-content: space-between;
+
+		@media (min-width: 768px){
+			flex-wrap: nowrap;
+
+		}
 	}
 	iframe {
 		width: 101% !important;
 	}
-	div {
-		flex-basis: calc(33.333% - 1rem);
+	div.one_third {
+
+		margin-top: 20px;
+
+		flex-basis: 100%;
+		@media (min-width: 768px){
+			flex-basis: calc(33.333% - 1rem);
+
+		}
 		justify-content: center;
 
 		h2 {
 			font-size: 24px;
 			line-height: 30px;
-			margin: 16px 0 16px;
+
+
+			@media (min-width: 768px){
+				margin: 16px 0 16px;
+
+			}
+
+
 
 			&:first-child {
 				margin-top: 0;

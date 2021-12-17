@@ -1,6 +1,6 @@
 <li id="module-donate" class="module module-donate module-full_width">
 
-	<div>
+	<div class="one_third">
 		<label for="cash-donation">
 			<h2>
 				Make a Cash Donation
@@ -14,7 +14,7 @@
 		</div>
 	</div>
 
-	<div>
+	<div class="one_third">
 		<label for="crypto-donation">
 			<h2>
 				Make a Crypto Donation
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<div>
+	<div class="one_third">
 
 		<label for="stock-donation">
 			<h2>

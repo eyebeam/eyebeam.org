@@ -3524,34 +3524,49 @@ table.ui-datepicker-calendar thead {
 #module-donate.module-full_width {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+@media (min-width: 768px) {
+  #module-donate.module-full_width {
+    flex-wrap: nowrap;
+  }
 }
 #module-donate iframe {
   width: 101% !important;
 }
-#module-donate div {
-  flex-basis: calc(33.333% - 1rem);
+#module-donate div.one_third {
+  margin-top: 20px;
+  flex-basis: 100%;
   justify-content: center;
 }
-#module-donate div h2 {
+@media (min-width: 768px) {
+  #module-donate div.one_third {
+    flex-basis: calc(33.333% - 1rem);
+  }
+}
+#module-donate div.one_third h2 {
   font-size: 24px;
   line-height: 30px;
-  margin: 16px 0 16px;
 }
-#module-donate div h2:first-child {
+@media (min-width: 768px) {
+  #module-donate div.one_third h2 {
+    margin: 16px 0 16px;
+  }
+}
+#module-donate div.one_third h2:first-child {
   margin-top: 0;
 }
-#module-donate div label {
+#module-donate div.one_third label {
   cursor: pointer;
 }
-#module-donate div input {
+#module-donate div.one_third input {
   visibility: hidden;
 }
-#module-donate div input:checked + div {
+#module-donate div.one_third input:checked + div {
   transition: all 500ms ease-in-out;
 }
-#module-donate div div {
+#module-donate div.one_third div {
   flex-basis: 100%;
   max-height: 100vh;
   overflow: hidden;
