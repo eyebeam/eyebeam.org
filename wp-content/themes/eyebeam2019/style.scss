@@ -3806,19 +3806,6 @@ table.ui-datepicker-calendar thead {
 			}
 		}
 
-		label {
-			cursor: pointer;
-		}
-
-		input {
-			visibility: hidden;
-
-			&:checked + div {
-				// height: auto;
-				transition: all 500ms ease-in-out;
-			}
-		}
-
 		div {
 			// display: flex;
 			// justify-content: center;
