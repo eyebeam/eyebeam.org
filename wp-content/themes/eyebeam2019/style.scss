@@ -178,6 +178,21 @@ img {
 	max-width: 100%;
 }
 
+// Response Mixins
+$mobile-breakpoint: 768px;
+
+@mixin desktop {
+	@media (min-width: #{$mobile-breakpoint}) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{$mobile-breakpoint}) {
+		@content;
+	}
+}
+
 // Typography
 
 @mixin heading-two {
@@ -3872,6 +3887,11 @@ table.ui-datepicker-calendar thead {
 		flex-direction: row;
 		flex-wrap: wrap;
 
+		@include mobile {
+			flex-direction: row-reverse;
+
+		}
+
 		justify-content: space-between;
 
 		@media (min-width: 768px) {
@@ -3882,10 +3902,23 @@ table.ui-datepicker-calendar thead {
 
 	figure {
 		flex: 0 0 calc(50% - 2rem);
+
+		@include mobile {
+			flex: 0 0 100%;
+		}
+
+		iframe {
+			height: 100%;
+		}
 	}
 
 	.module-flex {
 		flex: 0 0 50%;
+
+		@include mobile() {
+			flex: 0 0 100%;
+			margin-top: 1rem;
+		}
 	}
 
 	iframe {
@@ -3904,6 +3937,14 @@ table.ui-datepicker-calendar thead {
 		flex: 0 0 auto;
 	}
 
+}
+
+#module-donate_crypto {
+	figure {
+		iframe {
+			min-height: 600px;
+		}
+	}
 }
 
 #module-tech-fellow,

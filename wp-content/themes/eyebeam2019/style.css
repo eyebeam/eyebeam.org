@@ -3533,6 +3533,14 @@ table.ui-datepicker-calendar thead {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  #module-donate.module-full_width,
+#module-donate_cash.module-full_width,
+#module-donate_crypto.module-full_width,
+#module-donate_stock.module-full_width {
+    flex-direction: row-reverse;
+  }
+}
 @media (min-width: 768px) {
   #module-donate.module-full_width,
 #module-donate_cash.module-full_width,
@@ -3547,11 +3555,34 @@ table.ui-datepicker-calendar thead {
 #module-donate_stock figure {
   flex: 0 0 calc(50% - 2rem);
 }
+@media (max-width: 768px) {
+  #module-donate figure,
+#module-donate_cash figure,
+#module-donate_crypto figure,
+#module-donate_stock figure {
+    flex: 0 0 100%;
+  }
+}
+#module-donate figure iframe,
+#module-donate_cash figure iframe,
+#module-donate_crypto figure iframe,
+#module-donate_stock figure iframe {
+  height: 100%;
+}
 #module-donate .module-flex,
 #module-donate_cash .module-flex,
 #module-donate_crypto .module-flex,
 #module-donate_stock .module-flex {
   flex: 0 0 50%;
+}
+@media (max-width: 768px) {
+  #module-donate .module-flex,
+#module-donate_cash .module-flex,
+#module-donate_crypto .module-flex,
+#module-donate_stock .module-flex {
+    flex: 0 0 100%;
+    margin-top: 1rem;
+  }
 }
 #module-donate iframe,
 #module-donate_cash iframe,
@@ -3576,6 +3607,10 @@ table.ui-datepicker-calendar thead {
 #module-donate_crypto .btn,
 #module-donate_stock .btn {
   flex: 0 0 auto;
+}
+
+#module-donate_crypto figure iframe {
+  min-height: 600px;
 }
 
 #module-tech-fellow ul,
