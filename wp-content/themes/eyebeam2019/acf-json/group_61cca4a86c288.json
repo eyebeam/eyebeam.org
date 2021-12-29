@@ -1,0 +1,126 @@
+{
+    "key": "group_61cca4a86c288",
+    "title": "Education",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_5aa1c0ea4cb9d",
+            "label": "Sponsors intro",
+            "name": "sponsors_intro",
+            "prefix": "acf",
+            "type": "wysiwyg",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c288",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "sponsors_intro",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "tabs": "all",
+            "delay": 0
+        },
+        {
+            "ID": 0,
+            "key": "field_5aa1c0cc4cb9b",
+            "label": "Sponsors",
+            "name": "sponsors",
+            "prefix": "acf",
+            "type": "repeater",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c288",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "sponsors",
+            "_prepare": 0,
+            "_valid": 1,
+            "sub_fields": [
+                {
+                    "ID": 0,
+                    "key": "field_5aa1c0de4cb9c",
+                    "label": "Logo",
+                    "name": "logo",
+                    "prefix": "acf",
+                    "type": "image",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "field_5aa1c0cc4cb9b",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "logo",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "return_format": "id",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                }
+            ],
+            "row_min": "",
+            "row_limit": "",
+            "layout": "row",
+            "button_label": "Add Sponsor",
+            "min": 0,
+            "max": 0,
+            "collapsed": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "699",
+                "order_no": 0,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_education",
+    "local": "php"
+}

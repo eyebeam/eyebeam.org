@@ -1,0 +1,393 @@
+{
+    "key": "group_61cca4a86c1a8",
+    "title": "Archive page",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_5a9b5875fa439",
+            "label": "Intro",
+            "name": "intro",
+            "prefix": "acf",
+            "type": "textarea",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c1a8",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "intro",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_5a9b5bb27264e",
+            "label": "Featured items",
+            "name": "featured_items",
+            "prefix": "acf",
+            "type": "repeater",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c1a8",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "featured_items",
+            "_prepare": 0,
+            "_valid": 1,
+            "sub_fields": [
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5bd27264f",
+                    "label": "Archive item",
+                    "name": "archive_item",
+                    "prefix": "acf",
+                    "type": "relationship",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "archive_item",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "return_format": "object",
+                    "post_type": [
+                        "archive"
+                    ],
+                    "taxonomy": [],
+                    "filters": [
+                        "search"
+                    ],
+                    "max": 1,
+                    "min": 0,
+                    "elements": [
+                        "post_title"
+                    ]
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b619493d0d",
+                    "label": "Override content",
+                    "name": "override",
+                    "prefix": "acf",
+                    "type": "radio",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "override",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "choices": {
+                        "hide": "Use Archive Item content",
+                        "show": "Override content"
+                    },
+                    "other_choice": 0,
+                    "save_other_choice": 0,
+                    "default_value": "hide",
+                    "layout": "horizontal",
+                    "allow_null": 0,
+                    "return_format": "value"
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5c0572650",
+                    "label": "Title",
+                    "name": "title",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 2,
+                    "instructions": "overrides archive title",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b619493d0d",
+                                "operator": "==",
+                                "value": "show"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "title",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "formatting": "html",
+                    "maxlength": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5c2472651",
+                    "label": "Name",
+                    "name": "name",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "overrides resident name",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b619493d0d",
+                                "operator": "==",
+                                "value": "show"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "name",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "formatting": "html",
+                    "maxlength": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9bc0d1c3b19",
+                    "label": "Description",
+                    "name": "description",
+                    "prefix": "acf",
+                    "type": "wysiwyg",
+                    "value": null,
+                    "menu_order": 4,
+                    "instructions": "overrides archive item",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b619493d0d",
+                                "operator": "==",
+                                "value": "show"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "description",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "tabs": "all",
+                    "delay": 0
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5c3f72652",
+                    "label": "Image",
+                    "name": "image",
+                    "prefix": "acf",
+                    "type": "image",
+                    "value": null,
+                    "menu_order": 5,
+                    "instructions": "overrides archive item",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b619493d0d",
+                                "operator": "==",
+                                "value": "show"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "image",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "return_format": "array",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5c8772653",
+                    "label": "Caption",
+                    "name": "caption",
+                    "prefix": "acf",
+                    "type": "textarea",
+                    "value": null,
+                    "menu_order": 6,
+                    "instructions": "overrides archive item",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b619493d0d",
+                                "operator": "==",
+                                "value": "show"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "caption",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9bc0f1c3b1a",
+                    "label": "Video URL",
+                    "name": "video_url",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 7,
+                    "instructions": "overrides archive item",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b619493d0d",
+                                "operator": "==",
+                                "value": "show"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b5bb27264e",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "video_url",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "formatting": "none",
+                    "maxlength": ""
+                }
+            ],
+            "row_min": "",
+            "row_limit": "",
+            "layout": "row",
+            "button_label": "Add Featured Item",
+            "min": 0,
+            "max": 0,
+            "collapsed": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-archive.php",
+                "order_no": 0,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_archive-page",
+    "local": "php"
+}

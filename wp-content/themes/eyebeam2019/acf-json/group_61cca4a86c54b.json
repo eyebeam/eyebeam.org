@@ -1,0 +1,123 @@
+{
+    "key": "group_61cca4a86c54b",
+    "title": "Staff",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_56b5638f9837b",
+            "label": "Staff Title",
+            "name": "staff_title",
+            "prefix": "acf",
+            "type": "text",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c54b",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "staff_title",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_56b5634b7fe89",
+            "label": "Staff Image",
+            "name": "staff_image",
+            "prefix": "acf",
+            "type": "image",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c54b",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "staff_image",
+            "_prepare": 0,
+            "_valid": 1,
+            "preview_size": "thumbnail",
+            "library": "all",
+            "return_format": "id",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_56d085ad17e77",
+            "label": "Staff Bio",
+            "name": "staff_bio",
+            "prefix": "acf",
+            "type": "wysiwyg",
+            "value": null,
+            "menu_order": 2,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c54b",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "staff_bio",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "toolbar": "full",
+            "media_upload": 1,
+            "tabs": "all",
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "staff",
+                "order_no": 0,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_staff",
+    "local": "php"
+}

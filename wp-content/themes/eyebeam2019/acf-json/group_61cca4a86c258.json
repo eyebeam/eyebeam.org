@@ -1,0 +1,87 @@
+{
+    "key": "group_61cca4a86c258",
+    "title": "Board",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_5a9a2d83690e7",
+            "label": "Board title",
+            "name": "board_title",
+            "prefix": "acf",
+            "type": "text",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c258",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "board_title",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_5a9a2d93690e8",
+            "label": "Board bio",
+            "name": "board_bio",
+            "prefix": "acf",
+            "type": "textarea",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c258",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "board_bio",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "board",
+                "order_no": 0,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_board",
+    "local": "php"
+}

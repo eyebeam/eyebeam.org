@@ -1,0 +1,381 @@
+{
+    "key": "group_61cca4a86c517",
+    "title": "Projects",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_project_description",
+            "label": "Description",
+            "name": "project_description",
+            "prefix": "acf",
+            "type": "wysiwyg",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c517",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "project_description",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "tabs": "all",
+            "delay": 0
+        },
+        {
+            "ID": 0,
+            "key": "field_557dde2425",
+            "label": "Image",
+            "name": "image",
+            "prefix": "acf",
+            "type": "image",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c517",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "image",
+            "_prepare": 0,
+            "_valid": 1,
+            "preview_size": "thumbnail",
+            "library": "all",
+            "return_format": "id",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_566aab769k",
+            "label": "Show Related Readings Automatically",
+            "name": "show_related",
+            "prefix": "acf",
+            "type": "radio",
+            "value": null,
+            "menu_order": 2,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c517",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "show_related",
+            "_prepare": 0,
+            "_valid": 1,
+            "choices": {
+                "auto": "Show Related Readings Automatically",
+                "manual": "Manually Select Related Readings"
+            },
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "manual",
+            "layout": "horizontal",
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "ID": 0,
+            "key": "field_586bce21ov33",
+            "label": "Related Readings",
+            "name": "related_readings",
+            "prefix": "acf",
+            "type": "relationship",
+            "value": null,
+            "menu_order": 3,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_566aab769k",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
+            "parent": "group_61cca4a86c517",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "related_readings",
+            "_prepare": 0,
+            "_valid": 1,
+            "return_format": "object",
+            "post_type": [
+                "event,post,resident,archive,"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search"
+            ],
+            "max": "",
+            "min": 0,
+            "elements": [
+                "post_type",
+                "post_title"
+            ]
+        },
+        {
+            "ID": 0,
+            "key": "field_565aee13pi",
+            "label": "Media",
+            "name": "media",
+            "prefix": "acf",
+            "type": "repeater",
+            "value": null,
+            "menu_order": 4,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c517",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "media",
+            "_prepare": 0,
+            "_valid": 1,
+            "sub_fields": [
+                {
+                    "ID": 0,
+                    "key": "field_565bbe48pf",
+                    "label": "Media type",
+                    "name": "media_type",
+                    "prefix": "acf",
+                    "type": "radio",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "field_565aee13pi",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "media_type",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "choices": {
+                        "image": "Image",
+                        "video_url": "Video URL"
+                    },
+                    "other_choice": 0,
+                    "save_other_choice": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "allow_null": 0,
+                    "return_format": "value"
+                },
+                {
+                    "ID": 0,
+                    "key": "field_576cbc67rv",
+                    "label": "Image",
+                    "name": "image",
+                    "prefix": "acf",
+                    "type": "image",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_565bbe48pf",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "parent": "field_565aee13pi",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "image",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "return_format": "id",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_558cac42c3",
+                    "label": "Video URL",
+                    "name": "video_url",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "currently only YouTube URLs work",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_565bbe48pf",
+                                "operator": "==",
+                                "value": "video_url"
+                            }
+                        ]
+                    ],
+                    "parent": "field_565aee13pi",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "video_url",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "formatting": "none",
+                    "maxlength": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_556aba43rg",
+                    "label": "Caption",
+                    "name": "caption",
+                    "prefix": "acf",
+                    "type": "wysiwyg",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "field_565aee13pi",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "caption",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "tabs": "all",
+                    "delay": 0
+                }
+            ],
+            "row_min": "",
+            "row_limit": "",
+            "layout": "row",
+            "button_label": "Add Media",
+            "min": 0,
+            "max": 0,
+            "collapsed": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_5aa1b7e8b1f79",
+            "label": "Display Tags",
+            "name": "show_tags",
+            "prefix": "acf",
+            "type": "radio",
+            "value": null,
+            "menu_order": 5,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c517",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "show_tags",
+            "_prepare": 0,
+            "_valid": 1,
+            "choices": {
+                "show": "Show Tags",
+                "hide": "Hide Tags"
+            },
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "show",
+            "layout": "horizontal",
+            "allow_null": 0,
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project",
+                "order_no": 0,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_projects",
+    "local": "php"
+}

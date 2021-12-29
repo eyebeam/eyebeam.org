@@ -76,8 +76,8 @@ add_filter('use_block_editor_for_post', '__return_false', 10);
 
 // Libraries
 $dir = __DIR__;
-include_once("$dir/lib/advanced-custom-fields/acf.php");
-include_once("$dir/lib/acf-repeater/acf-repeater.php");
+// include_once("$dir/lib/advanced-custom-fields-pro/acf.php");
+// include_once("$dir/lib/acf-repeater/acf-repeater.php");
 include_once("$dir/lib/custom-post-types.php");
 
 // Enable WP_DEBUG in wp-config.php to edit fields
@@ -87,23 +87,23 @@ if (! defined('WP_DEBUG') || ! WP_DEBUG) {
 
 	// define('ACF_LITE', true); // hide the editing UI
 
-	include_once("$dir/lib/custom-fields/archive-page.php");
-	include_once("$dir/lib/custom-fields/archive-post.php");
-	include_once("$dir/lib/custom-fields/auction-artwork.php");
-	include_once("$dir/lib/custom-fields/board.php");
-	include_once("$dir/lib/custom-fields/community.php");
-	include_once("$dir/lib/custom-fields/education.php");
-	include_once("$dir/lib/custom-fields/events.php");
-	include_once("$dir/lib/custom-fields/interns.php");
-	include_once("$dir/lib/custom-fields/media-release.php");
-	include_once("$dir/lib/custom-fields/modular-grid.php");
-	include_once("$dir/lib/custom-fields/post.php");
-	include_once("$dir/lib/custom-fields/page.php");
-	include_once("$dir/lib/custom-fields/recent-press.php");
-	include_once("$dir/lib/custom-fields/residency.php");
-	include_once("$dir/lib/custom-fields/residents.php");
-	include_once("$dir/lib/custom-fields/projects.php");
-	include_once("$dir/lib/custom-fields/staff.php");
+	// include_once("$dir/lib/custom-fields/archive-page.php");
+	// include_once("$dir/lib/custom-fields/archive-post.php");
+	// include_once("$dir/lib/custom-fields/auction-artwork.php");
+	// include_once("$dir/lib/custom-fields/board.php");
+	// include_once("$dir/lib/custom-fields/community.php");
+	// include_once("$dir/lib/custom-fields/education.php");
+	// include_once("$dir/lib/custom-fields/events.php");
+	// include_once("$dir/lib/custom-fields/interns.php");
+	// include_once("$dir/lib/custom-fields/media-release.php");
+	// include_once("$dir/lib/custom-fields/modular-grid.php");
+	// include_once("$dir/lib/custom-fields/post.php");
+	// include_once("$dir/lib/custom-fields/page.php");
+	// include_once("$dir/lib/custom-fields/recent-press.php");
+	// include_once("$dir/lib/custom-fields/residency.php");
+	// include_once("$dir/lib/custom-fields/residents.php");
+	// include_once("$dir/lib/custom-fields/projects.php");
+	// include_once("$dir/lib/custom-fields/staff.php");
 }
 
 function eyebeam2018_setup() {
@@ -796,264 +796,248 @@ function eyebeam2018_extract_intro($content) {
 	}
 
 	$sections = preg_split('/<hr\s*\/?>/', $content);
-	if (count($sections) < 2) {
-		return $content;
-	}
-	// if (preg_match('/<i>(.+?)<\/i>/ims', $sections[0], $matches)) {
-	// 	$intro = array_shift($sections);
+if (count($sections) < 2) { return $content; } // if (preg_match('/<i>(.+?)<\ /i>/ims', $sections[0], $matches)) {
+        // $intro = array_shift($sections);
 
-	// 	// TODO: get some htmlpurifier in the mix here
-	// 	$intro = preg_replace('/<span[^>]*>/', '', $intro);
-	// 	$intro = preg_replace('/<\/span[^>]*>/', '', $intro);
-	// 	$intro = preg_replace('/<i[^>]*>/', '', $intro);
-	// 	$intro = preg_replace('/<\/i[^>]*>/', '', $intro);
+        // // TODO: get some htmlpurifier in the mix here
+        // $intro = preg_replace('/<span[^>]*>/', '', $intro);
+            // $intro = preg_replace('/<\ /span[^>]*>/', '', $intro);
+                // $intro = preg_replace('/<i[^>]*>/', '', $intro);
+                    // $intro = preg_replace('/<\ /i[^>]*>/', '', $intro);
 
-	// 	$GLOBALS['eyebeam2018']['post_intro'] = $intro;
-	// 	return implode('<br>', $sections);
-	// }
+                        // $GLOBALS['eyebeam2018']['post_intro'] = $intro;
+                        // return implode('<br>', $sections);
+                        // }
 
 
 
 
-	return $content;
-}
+                        return $content;
+                        }
 
-// Inserts the_content-like content from ACF
-function eyebeam2018_content_fields($content) {
-	if (get_field('event_info')) {
-		$content .= get_field('event_info');
-	}
-	if (get_field('project_description')){
-		$content .= get_field('project_description');
-	}
-	if (get_field('resident_type')){
-		$content .= get_field('resident_type');
-		$content .= "\n";
-	}
-	if (get_field('start_year') && get_field('end_year')){
-		$start_year = get_field('start_year');
-		$end_year = get_field('end_year');
-		$content .= "$start_year - $end_year\n";
-	}
+                        // Inserts the_content-like content from ACF
+                        function eyebeam2018_content_fields($content) {
+                        if (get_field('event_info')) {
+                        $content .= get_field('event_info');
+                        }
+                        if (get_field('project_description')){
+                        $content .= get_field('project_description');
+                        }
+                        if (get_field('resident_type')){
+                        $content .= get_field('resident_type');
+                        $content .= "\n";
+                        }
+                        if (get_field('start_year') && get_field('end_year')){
+                        $start_year = get_field('start_year');
+                        $end_year = get_field('end_year');
+                        $content .= "$start_year - $end_year\n";
+                        }
 
-	if (get_field('resident_bio')){
-		$content .= get_field('resident_bio');
-	}
+                        if (get_field('resident_bio')){
+                        $content .= get_field('resident_bio');
+                        }
 
-	return $content;
-}
+                        return $content;
+                        }
 
-// Tweak shortcode outputs
-function eyebeam2018_shortcode_filter($output, $tag, $attrs) {
-	if ($tag == 'embed') {
-		return "<div class=\"video-container\">$output</div>";
-	}
-	return $output;
-}
-add_filter('do_shortcode_tag', 'eyebeam2018_shortcode_filter', 10, 3);
+                        // Tweak shortcode outputs
+                        function eyebeam2018_shortcode_filter($output, $tag, $attrs) {
+                        if ($tag == 'embed') {
+                        return "<div class=\"video-container\">$output</div>";
+                        }
+                        return $output;
+                        }
+                        add_filter('do_shortcode_tag', 'eyebeam2018_shortcode_filter', 10, 3);
 
-// Inserts a secret blog post as an HTML comment
-function eyebeam2018_view_source() {
-	if (empty($GLOBALS['eyebeam2018']['view_source_post'])) {
-		return;
-	}
+                        // Inserts a secret blog post as an HTML comment
+                        function eyebeam2018_view_source() {
+                        if (empty($GLOBALS['eyebeam2018']['view_source_post'])) {
+                        return;
+                        }
 
-	$slug = $GLOBALS['eyebeam2018']['view_source_post'];
-	$dir = __DIR__;
-	$header = "$dir/lib/.ignore/00-header.txt";
-	$path = "$dir/lib/.ignore/$slug.txt";
+                        $slug = $GLOBALS['eyebeam2018']['view_source_post'];
+                        $dir = __DIR__;
+                        $header = "$dir/lib/.ignore/00-header.txt";
+                        $path = "$dir/lib/.ignore/$slug.txt";
 
-	if (! file_exists($path)) {
-		return;
-	}
+                        if (! file_exists($path)) {
+                        return;
+                        }
 
-	echo "<!--\n";
+                        echo "
+                        <!--\n";
 	echo file_get_contents($header);
 	echo "\n///// VIEW SOURCE BLOG: $slug /////\n\n";
 	echo file_get_contents($path);
 	echo "-->\n";
-}
-add_action('eyebeam2018_view_source', 'eyebeam2018_view_source');
+                        }
+                        add_action('eyebeam2018_view_source', 'eyebeam2018_view_source');
 
-// Register a secret blog post for a given page
-function eyebeam2018_view_source_post($slug) {
-	$GLOBALS['eyebeam2018']['view_source_post'] = $slug;
-}
+                        // Register a secret blog post for a given page
+                        function eyebeam2018_view_source_post($slug) {
+                        $GLOBALS['eyebeam2018']['view_source_post'] = $slug;
+                        }
 
-// Returns a resident bio
-function eyebeam2018_resident_bio($resident, $members = null) {
-	$bio = '';
+                        // Returns a resident bio
+                        function eyebeam2018_resident_bio($resident, $members = null) {
+                        $bio = '';
 
-	//$bio = apply_filters('the_content', $resident->post_content);
+                        //$bio = apply_filters('the_content', $resident->post_content);
 
-	$links = get_field('links', $resident->ID);
-	if (! empty($members)) {
-		foreach ($members as $member) {
-			$member_links = get_field('links', $member->ID);
-			if (! empty($member_links)) {
-				$links = array_merge($links, $member_links);
-			}
-		}
-	}
+                        $links = get_field('links', $resident->ID);
+                        if (! empty($members)) {
+                        foreach ($members as $member) {
+                        $member_links = get_field('links', $member->ID);
+                        if (! empty($member_links)) {
+                        $links = array_merge($links, $member_links);
+                        }
+                        }
+                        }
 
-	if (! empty($links)) {
-		$bio .= "\n<div class=\"resident-links\">\n";
-		$link_items = array();
-		foreach ($links as $link) {
-			$esc_title = htmlentities($link['link_title']);
-			$esc_url = htmlentities($link['link_url']);
-			$link_items[] = "<a href=\"$esc_url\">$esc_title</a>";
-		}
-		$bio .= implode("<br>\n", $link_items) . "\n";
-		$bio .= "</div>\n";
-	}
+                        if (! empty($links)) {
+                        $bio .= "\n<div class=\"resident-links\">\n";
+                            $link_items = array();
+                            foreach ($links as $link) {
+                            $esc_title = htmlentities($link['link_title']);
+                            $esc_url = htmlentities($link['link_url']);
+                            $link_items[] = "<a href=\"$esc_url\">$esc_title</a>";
+                            }
+                            $bio .= implode("<br>\n", $link_items) . "\n";
+                            $bio .= "</div>\n";
+                        }
 
-	//if (empty($bio)) {
-	//	$bio = '<p><i>Nothing here (yet).</i></p>';
-	//}
+                        return $bio;
+                        }
 
-	//$bio = "<div class=\"resident-bio\">$bio</div>\n";
-	//$bio .= "<div class=\"resident-edit\"><a href=\"/people/$resident->ID\">Is this you? Edit your info.</a></div>\n";
+                        // Returns an array of project posts
+                        function eyebeam2018_get_projects($page = 1) {
+                        $args = array(
+                        'post_type' => 'project',
+                        'posts_per_page' => 9,
+                        );
+                        return get_posts($args);
+                        }
 
-	/*if (! empty($members)) {
-		foreach ($members as $member) {
-			$name = get_the_title($member);
-			$bio .= "<h3 class=\"resident-bio-name module-title\">$name</h3>\n";
-			$bio .= eyebeam2018_resident_bio($member);
-		}
-	}*/
+                        // Returns an array of event posts
 
-	return $bio;
-}
+                        function eyebeam2018_get_events($page = 1, $posts_per_page = 6) {
+                        $today = date('Ymd');
+                        $args = array(
+                        'post_type' => 'event',
+                        'posts_per_page' => $posts_per_page,
+                        'orderby'=> 'meta_value',
+                        'meta_key' => 'end_date',
+                        'order' => 'DESC',
+                        'paged' => $page,
+                        );
+                        return get_posts($args);
 
-// Returns an array of project posts
-function eyebeam2018_get_projects($page = 1) {
-	$args = array(
-		'post_type' => 'project',
-		'posts_per_page' => 9,
-		);
-	return get_posts($args);
-}
+                        }
 
-// Returns an array of event posts
+                        // Returns an event post for a given day
+                        function eyebeam2018_get_event($day = null) {
+                        if ($day){
+                        $day = date('Ymd', strtotime($day) );
+                        $args = array(
+                        'post_type' => 'event',
+                        'posts_per_page' => 3,
+                        'orderby'=> 'meta_value',
+                        'meta_key' => 'end_date',
+                        'order' => 'DESC',
+                        'meta_query' => array(
+                        array(
+                        'key'=> 'start_date',
+                        'value'=> $day,
+                        'compare'=> '='
+                        ),
+                        )
+                        );
+                        return get_posts($args);
+                        }
+                        else {
+                        return false;
+                        }
 
-function eyebeam2018_get_events($page = 1, $posts_per_page = 6) {
-	$today = date('Ymd');
-	$args = array(
-		'post_type' => 'event',
-		'posts_per_page' => $posts_per_page,
-		'orderby'=> 'meta_value',
-		'meta_key' => 'end_date',
-		'order' => 'DESC',
-		'paged' => $page,
-	);
-	return get_posts($args);
-
-}
-
-// Returns an event post for a given day
-function eyebeam2018_get_event($day = null) {
-	if ($day){
-		$day = date('Ymd', strtotime($day) );
-		$args = array(
-			'post_type' => 'event',
-			'posts_per_page' => 3,
-			'orderby'=> 'meta_value',
-			'meta_key' => 'end_date',
-			'order' => 'DESC',
-			'meta_query' => array(
-				array(
-					'key'=> 'start_date',
-					'value'=> $day,
-					'compare'=> '='
-				),
-			)
-		);
-		return get_posts($args);
-	}
-	else {
-		return false;
-	}
-
-}
+                        }
 
 
-// Returns an array of blog posts
-function eyebeam2018_get_blog_posts($page = 1) {
+                        // Returns an array of blog posts
+                        function eyebeam2018_get_blog_posts($page = 1) {
 
-	if (!isset($collection_post_limit)){
-		$collection_post_limit = 9;
-	}
+                        if (!isset($collection_post_limit)){
+                        $collection_post_limit = 9;
+                        }
 
-	$args = array(
-		'post_type' => 'post',
-		'posts_per_page' => $collection_post_limit,
-		'category_name' => 'from-eyebeam, artist-interview, artist-reflection',
-		'paged' => $page,
-		'orderby' => 'DESC',
-	);
-	return get_posts($args);
-}
+                        $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => $collection_post_limit,
+                        'category_name' => 'from-eyebeam, artist-interview, artist-reflection',
+                        'paged' => $page,
+                        'orderby' => 'DESC',
+                        );
+                        return get_posts($args);
+                        }
 
-// Returns an array of ideas posts
-function eyebeam2018_get_ideas($page = 1) {
-	$posts = get_posts(array(
-		'post_type' => 'post',
-		'posts_per_page' => 9,
-		'paged' => $page
-	));
-	return $posts;
-}
+                        // Returns an array of ideas posts
+                        function eyebeam2018_get_ideas($page = 1) {
+                        $posts = get_posts(array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 9,
+                        'paged' => $page
+                        ));
+                        return $posts;
+                        }
 
-// AJAX handler for lazy loading content
-function eyebeam2018_lazy_load() {
-	if (empty($_GET['load'])) {
-		die("Please specify a 'load' argument.");
-	}
-	$page = intval($_GET['page']);
-	if ($_GET['load'] == 'events') {
-		$posts = eyebeam2018_get_events($page, $_GET['limit']);
-		foreach ($posts as $post) {
-			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
-			get_template_part('templates/collection-event-item');
-		}
-	} else if ($_GET['load'] == 'event'){
-		if (!$_GET['day'])
-			return false;
-		$posts = eyebeam2018_get_event($_GET['day']);
-		if (!$posts){
-			$GLOBALS['eyebeam2018']['curr_collection_item'] = false;
-			get_template_part('templates/collection-event-item');
-		}
-		else {
-			foreach ($posts as $post) {
-				$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
-				get_template_part('templates/collection-event-item');
-		}
-		}
+                        // AJAX handler for lazy loading content
+                        function eyebeam2018_lazy_load() {
+                        if (empty($_GET['load'])) {
+                        die("Please specify a 'load' argument.");
+                        }
+                        $page = intval($_GET['page']);
+                        if ($_GET['load'] == 'events') {
+                        $posts = eyebeam2018_get_events($page, $_GET['limit']);
+                        foreach ($posts as $post) {
+                        $GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
+                        get_template_part('templates/collection-event-item');
+                        }
+                        } else if ($_GET['load'] == 'event'){
+                        if (!$_GET['day'])
+                        return false;
+                        $posts = eyebeam2018_get_event($_GET['day']);
+                        if (!$posts){
+                        $GLOBALS['eyebeam2018']['curr_collection_item'] = false;
+                        get_template_part('templates/collection-event-item');
+                        }
+                        else {
+                        foreach ($posts as $post) {
+                        $GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
+                        get_template_part('templates/collection-event-item');
+                        }
+                        }
 
 
-	} else if ($_GET['load'] == 'ideas') {
-		$posts = eyebeam2018_get_ideas($page);
-		foreach ($posts as $post) {
-			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
-			get_template_part('templates/collection-ideas-item');
-		}
-	} else if ($_GET['load'] == 'posts') {
-		$posts = eyebeam2018_get_blog_posts($page);
-		foreach ($posts as $post) {
-			$GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
-			get_template_part('templates/collection-post-item');
-		}
-	}
-	exit;
-}
-add_action('wp_ajax_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
-add_action('wp_ajax_nopriv_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
+                        } else if ($_GET['load'] == 'ideas') {
+                        $posts = eyebeam2018_get_ideas($page);
+                        foreach ($posts as $post) {
+                        $GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
+                        get_template_part('templates/collection-ideas-item');
+                        }
+                        } else if ($_GET['load'] == 'posts') {
+                        $posts = eyebeam2018_get_blog_posts($page);
+                        foreach ($posts as $post) {
+                        $GLOBALS['eyebeam2018']['curr_collection_item'] = $post;
+                        get_template_part('templates/collection-post-item');
+                        }
+                        }
+                        exit;
+                        }
+                        add_action('wp_ajax_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
+                        add_action('wp_ajax_nopriv_eyebeam2018_lazy_load', 'eyebeam2018_lazy_load');
 
-// Update resident links
-function eyebeam2018_db_migration_1() {
-	echo '<pre>';
+                        // Update resident links
+                        function eyebeam2018_db_migration_1() {
+                        echo '
+                        <pre>';
 	$db_version = get_option('eyebeam2018_db_version', 0);
 	if ($db_version >= 1) {
 		die("db_version = $db_version (skipping migration)\n");
@@ -1629,3 +1613,54 @@ function expose_year_field( $object ){
 
 
 add_action( 'rest_api_init', 'create_ACF_meta_in_REST' );
+
+// expose meta key meta value to api 
+add_filter('rest_endpoints', function ($routes) {
+    // I'm modifying multiple types here, you won't need the loop if you're just doing posts
+    foreach (['resident'] as $type) {
+        if (!($route =& $routes['/wp/v2/' . $type])) {
+            continue;
+        }
+
+        // Allow ordering by my meta value
+        $route[0]['args']['orderby']['enum'][] = 'meta_value_num';
+
+        // Allow only the meta keys that I want
+        $route[0]['args']['meta_key'] = array(
+            'description'       => 'Resident Start Year',
+            'type'              => 'int',
+            'enum'              => ['start_year'],
+            'validate_callback' => 'rest_validate_request_arg',
+        );
+    }
+
+    return $routes;
+});
+
+function wpa84258_admin_posts_sort_last_name( $query ){
+    global $pagenow;
+    if( is_admin()
+        && 'edit.php' == $pagenow
+        && !isset( $_GET['orderby'] )
+        && !isset( $_GET['post_type'] ) ){
+            $query->set( 'meta_key', 'start_year' );
+            $query->set( 'orderby', 'meta_value' );
+            $query->set( 'order', 'DESC' );
+    }
+}
+add_action( 'pre_get_posts', 'wpa84258_admin_posts_sort_last_name' );
+
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+
+function my_acf_json_load_point( $paths ) {
+
+    // remove original path (optional)
+    unset($paths[0]);
+
+    // append path
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+
+    // return
+    return $paths;
+
+}

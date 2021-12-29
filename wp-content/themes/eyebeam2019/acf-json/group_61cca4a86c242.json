@@ -1,0 +1,88 @@
+{
+    "key": "group_61cca4a86c242",
+    "title": "Auction Artwork",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_5cebcceb23744",
+            "label": "Artist Bio",
+            "name": "artist_bio",
+            "prefix": "acf",
+            "type": "wysiwyg",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c242",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "artist_bio",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "toolbar": "full",
+            "media_upload": 0,
+            "tabs": "all",
+            "delay": 0
+        },
+        {
+            "ID": 0,
+            "key": "field_5cebd077386a7",
+            "label": "Minimum bid",
+            "name": "minimum_bid",
+            "prefix": "acf",
+            "type": "number",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c242",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "minimum_bid",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": 1000,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "auction",
+                "order_no": 0,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_auction-artwork",
+    "local": "php"
+}

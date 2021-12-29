@@ -1,0 +1,385 @@
+{
+    "key": "group_61cca4a86c209",
+    "title": "Archive post",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_5a9b5a99ed3b3",
+            "label": "Residents",
+            "name": "residents",
+            "prefix": "acf",
+            "type": "relationship",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c209",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "residents",
+            "_prepare": 0,
+            "_valid": 1,
+            "return_format": "object",
+            "post_type": [
+                "resident"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search"
+            ],
+            "max": "",
+            "min": 0,
+            "elements": [
+                "post_title"
+            ]
+        },
+        {
+            "ID": 0,
+            "key": "field_5a9b5acfed3b4",
+            "label": "Year",
+            "name": "year",
+            "prefix": "acf",
+            "type": "text",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c209",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "year",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_5a9b59a4ed3ae",
+            "label": "Media",
+            "name": "media",
+            "prefix": "acf",
+            "type": "repeater",
+            "value": null,
+            "menu_order": 2,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c209",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "media",
+            "_prepare": 0,
+            "_valid": 1,
+            "sub_fields": [
+                {
+                    "ID": 0,
+                    "key": "field_5a9b59f2ed3af",
+                    "label": "Media type",
+                    "name": "media_type",
+                    "prefix": "acf",
+                    "type": "radio",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "field_5a9b59a4ed3ae",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "media_type",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "choices": {
+                        "image": "Image",
+                        "video_url": "Video URL"
+                    },
+                    "other_choice": 0,
+                    "save_other_choice": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "allow_null": 0,
+                    "return_format": "value"
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5a35ed3b0",
+                    "label": "Image",
+                    "name": "image",
+                    "prefix": "acf",
+                    "type": "image",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b59f2ed3af",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b59a4ed3ae",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "image",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "return_format": "id",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5a51ed3b1",
+                    "label": "Video URL",
+                    "name": "video_url",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 2,
+                    "instructions": "currently only YouTube URLs work",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a9b59f2ed3af",
+                                "operator": "==",
+                                "value": "video_url"
+                            }
+                        ]
+                    ],
+                    "parent": "field_5a9b59a4ed3ae",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "video_url",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "formatting": "none",
+                    "maxlength": ""
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5a9b5a79ed3b2",
+                    "label": "Caption",
+                    "name": "caption",
+                    "prefix": "acf",
+                    "type": "wysiwyg",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "field_5a9b59a4ed3ae",
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "caption",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "tabs": "all",
+                    "delay": 0
+                }
+            ],
+            "row_min": "",
+            "row_limit": "",
+            "layout": "row",
+            "button_label": "Add Media",
+            "min": 0,
+            "max": 0,
+            "collapsed": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_5aa1b7e8b1f58",
+            "label": "Show Related Readings Automatically",
+            "name": "show_related",
+            "prefix": "acf",
+            "type": "radio",
+            "value": null,
+            "menu_order": 3,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c209",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "show_related",
+            "_prepare": 0,
+            "_valid": 1,
+            "choices": {
+                "auto": "Show Related Readings Automatically",
+                "manual": "Manually Select Related Readings"
+            },
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "auto",
+            "layout": "horizontal",
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "ID": 0,
+            "key": "field_586bce21ov69",
+            "label": "Related Readings",
+            "name": "related_readings",
+            "prefix": "acf",
+            "type": "relationship",
+            "value": null,
+            "menu_order": 4,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5aa1b7e8b1f58",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
+            "parent": "group_61cca4a86c209",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "related_readings",
+            "_prepare": 0,
+            "_valid": 1,
+            "return_format": "object",
+            "post_type": [
+                "event,project,resident,post"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search"
+            ],
+            "max": "",
+            "min": 0,
+            "elements": [
+                "post_type",
+                "post_title"
+            ]
+        },
+        {
+            "ID": 0,
+            "key": "field_5aa1b7e8b1f199",
+            "label": "Display Tags",
+            "name": "show_tags",
+            "prefix": "acf",
+            "type": "radio",
+            "value": null,
+            "menu_order": 5,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c209",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "show_tags",
+            "_prepare": 0,
+            "_valid": 1,
+            "choices": {
+                "show": "Show Tags",
+                "hide": "Hide Tags"
+            },
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "show",
+            "layout": "horizontal",
+            "allow_null": 0,
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "archive",
+                "order_no": 0,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_archive-post",
+    "local": "php"
+}

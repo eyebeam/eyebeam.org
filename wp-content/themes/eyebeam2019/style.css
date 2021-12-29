@@ -24,8 +24,8 @@ Contents (breakpoints are mobile-first):
 /* -------------------------------------------------------------------------- */
 /* Reset */
 /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
+ *   v2.0 | 20110126
+ *  License: none (public domain)
 */
 html,
 body,
@@ -175,10 +175,11 @@ img {
   max-width: 100%;
 }
 
-/***
-Typography
-***/
-/* header sizing for the search page */
+/*
+ * header
+ * sizing for
+ * the search page
+*/
 header.search {
   height: 120px;
 }
@@ -223,6 +224,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
+  color: #272425;
 }
 
 strong,
@@ -237,7 +239,7 @@ i {
 }
 
 a {
-  color: #231f20;
+  color: #272425;
   text-decoration: underline;
 }
 
@@ -246,7 +248,7 @@ a.btn {
   display: inline-block;
   text-decoration: none;
   padding: 1rem 2rem;
-  border: 1px solid #262626;
+  border: 1px solid #272425;
 }
 
 a:focus {
@@ -337,7 +339,7 @@ form.error .response-error {
   }
 
   .module-title {
-    color: #262626;
+    color: #272425;
     padding: 0 0 1rem 0;
     font-family: "EyebeamSans", sans-serif !important;
   }
@@ -372,7 +374,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  color: #231f20;
+  color: #272425;
   background: white;
   font-family: "EyebeamSans", sans-serif;
   font-weight: 400;
@@ -454,8 +456,8 @@ header #search label input[type=text] {
   font-size: 1.5rem;
   font-family: "EyebeamSans", sans-serif;
   background: white;
-  color: #231f20;
-  border: 1px solid #231f20;
+  color: #272425;
+  border: 1px solid #272425;
   display: block;
   transition: 0.3s ease-out;
   z-index: 2;
@@ -506,8 +508,8 @@ header .mobile-label {
   padding: 1rem 0;
   width: 92.666vw;
   margin: 0 auto;
-  border-top: 1px solid #231f20;
-  border-bottom: 1px solid #231f20;
+  border-top: 1px solid #272425;
+  border-bottom: 1px solid #272425;
 }
 
 /*header h1 a {
@@ -570,7 +572,7 @@ body.show-menu header nav div .menu {
   -webkit-transition: height 250ms ease-out;
   transition: height 250ms ease-out;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #231f20;
+  border-bottom: 1px solid #272425;
   margin: 0 1rem;
 }
 
@@ -640,9 +642,9 @@ body.show-menu header nav .support {
 header nav li:last-child a {
   width: 25%;
   padding: 3px 2vw;
-  border: 1px solid #231f20;
+  border: 1px solid #272425;
   background: #00ff00;
-  color: #231f20;
+  color: #272425;
 }
 
 header nav li:last-child {
@@ -870,7 +872,7 @@ header nav .support {
   }
 
   header {
-    border-bottom: 1px solid #231f20;
+    border-bottom: 1px solid #272425;
   }
 
   header nav {
@@ -892,13 +894,13 @@ header nav .support {
   header nav li:last-child a {
     width: 100%;
     padding: 3px 2vw;
-    border: 1px solid #231f20;
+    border: 1px solid #272425;
     background: #00ff00;
-    color: #231f20;
+    color: #272425;
   }
 
   header nav li:last-child a:hover {
-    background: #231f20;
+    background: #272425;
     color: white;
   }
 
@@ -944,8 +946,8 @@ header nav .support {
   .show-sub-menu > ul.sub-menu {
     display: block;
     padding: 1rem 0;
-    border-top: 1px solid #231f20;
-    border-bottom: 1px solid #231f20;
+    border-top: 1px solid #272425;
+    border-bottom: 1px solid #272425;
     transition: all 0.1s ease-in;
   }
 
@@ -1040,7 +1042,7 @@ footer {
   }
 
   .subnav ul {
-    border-bottom: 1px solid #231f20;
+    border-bottom: 1px solid #272425;
     background: white;
     padding: 1vw 0;
   }
@@ -1055,13 +1057,13 @@ footer {
 
   .subnav a {
     font-family: "EyebeamSans", sans-serif;
-    color: #231f20 !important;
+    color: #272425 !important;
   }
 }
 /* -------------------------------------------------------------------------- */
 /* Footer */
 footer {
-  color: #231f20;
+  color: #272425;
   text-align: left;
   font-family: "Work Sans", sans-serif;
   font-size: 1.2rem;
@@ -1086,7 +1088,7 @@ footer .bottom div {
 
 .logos {
   padding: 2rem 8.333vw;
-  background: #231f20;
+  background: #272425;
   display: none;
 }
 
@@ -1138,7 +1140,7 @@ footer nav {
 }
 
 footer a {
-  color: #231f20;
+  color: #272425;
   text-decoration: none;
 }
 
@@ -1146,7 +1148,7 @@ footer form {
   padding: 1rem 0 0 0;
   display: flex;
   flex-wrap: wrap;
-  border-top: 3px solid #231f20;
+  border-top: 3px solid #272425;
 }
 
 footer form label {
@@ -1158,7 +1160,7 @@ footer form label {
 footer input {
   font-family: "EyebeamSans", sans-serif;
   font-size: 1.5rem;
-  color: #231f20;
+  color: #272425;
   text-align: left;
   flex-grow: 2;
   padding: 0 0 0 1rem;
@@ -1166,22 +1168,22 @@ footer input {
 
 footer input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #231f20;
+  color: #272425;
 }
 
 footer input::-moz-placeholder {
   /* Firefox 19+ */
-  color: #231f20;
+  color: #272425;
 }
 
 footer input:-ms-input-placeholder {
   /* IE 10+ */
-  color: #231f20;
+  color: #272425;
 }
 
 footer input:-moz-placeholder {
   /* Firefox 18- */
-  color: #231f20;
+  color: #272425;
 }
 
 footer input[type=text],
@@ -1189,7 +1191,7 @@ footer input[type=email] {
   display: block;
   width: 100%;
   height: 50px;
-  border: 1px solid #231f20;
+  border: 1px solid #272425;
   background: transparent;
   margin: 0 auto 12px auto;
 }
@@ -1198,8 +1200,8 @@ footer input[type=submit] {
   width: 146px;
   height: 50px;
   background: white;
-  border: 1px solid #231f20;
-  color: #231f20;
+  border: 1px solid #272425;
+  color: #272425;
   cursor: pointer;
   text-align: center;
 }
@@ -1257,7 +1259,7 @@ footer .social a {
   margin-right: 0;
   height: 36px;
   text-decoration: none;
-  color: #231f20;
+  color: #272425;
   -webkit-font-smoothing: antialiased;
   font: normal 48px/1 "dashicons";
 }
@@ -1288,8 +1290,8 @@ footer .social a:hover {
 footer .tagline {
   display: inline-block;
   padding: 4px 6px 0 6px;
-  color: #231f20;
-  background: #231f20;
+  color: #272425;
+  background: #272425;
 }
 
 footer h2,
@@ -1357,7 +1359,7 @@ footer input[type=email] {
     display: block;
     width: 162px;
     height: 50px;
-    border: 1px solid #231f20;
+    border: 1px solid #272425;
     background: transparent;
     margin: 0 auto 12px auto;
   }
@@ -1800,14 +1802,14 @@ Events
 .load-more a {
   font-size: 1.5rem;
   padding: 3px 2vw;
-  border: 1px solid #231f20;
+  border: 1px solid #272425;
   background: #00ff00;
-  color: #231f20;
+  color: #272425;
   text-decoration: none;
 }
 
 .load-more a:hover {
-  background: #231f20;
+  background: #272425;
   color: white;
 }
 
@@ -2368,7 +2370,7 @@ Alumni Archive 2.0
   position: sticky;
   top: 0;
   background: white;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #272425;
   z-index: 200;
 }
 .alumni-archive .alumni-archive-controls .alumni-archive-controls-form-search {
@@ -2388,10 +2390,10 @@ Alumni Archive 2.0
 .alumni-archive .alumni-archive-controls .alumni-archive-controls-form-search button {
   flex: 1 0 auto;
   margin-right: 1rem;
-  border: 1px solid black;
+  border: 1px solid #272425;
   padding: 0.5rem 1rem;
   background: white;
-  color: black;
+  color: #272425;
   font-size: 18px;
   cursor: pointer;
   line-height: 22px;
@@ -2418,7 +2420,7 @@ Alumni Archive 2.0
 .alumni-archive .alumni-archive-controls .alumni-archive-controls-form-sort div button {
   border: none;
   background: white;
-  color: black;
+  color: #272425;
   font-size: 18px;
   cursor: pointer;
   line-height: 22px;
@@ -2496,7 +2498,7 @@ Alumni Archive 2.0
   background: none !important;
 }
 .alumni-archive .alumni-archive-results .alumni-resident .alumni-resident-link .alumni-resident-image img {
-  height: calc( calc(83.333vw / 4) - 2rem);
+  height: calc(calc(83.333vw / 4) - 2rem);
   object-fit: cover;
 }
 .alumni-archive .alumni-archive-results .alumni-resident .alumni-resident-link .alumni-resident-name a {
@@ -2577,9 +2579,9 @@ Alumni Archive 2.0
 
 #residents-year select {
   font-family: "EyebeamSans", sans-serif;
-  border: 1px solid #231f20;
+  border: 1px solid #272425;
   padding: 3px 2vw;
-  border: 1px solid #231f20;
+  border: 1px solid #272425;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2587,7 +2589,7 @@ Alumni Archive 2.0
 }
 
 #residents-year select:hover {
-  background: #231f20;
+  background: #272425;
   color: white;
 }
 
@@ -2601,7 +2603,7 @@ Alumni Archive 2.0
 }
 
 .resident-bio {
-  border-top: 2px solid #231f20;
+  border-top: 2px solid #272425;
   margin-top: 10px;
 }
 
@@ -2624,7 +2626,7 @@ Alumni Archive 2.0
 }
 
 .resident-edit a:hover {
-  color: #231f20 !important;
+  color: #272425 !important;
 }
 
 @media (min-width: 857px) {
@@ -2866,7 +2868,7 @@ hr.wp-block-separator,
 hr {
   height: 1px;
   width: 100%;
-  background: #231f20;
+  background: #272425;
   border: 0;
   margin: 0 0 2rem 0;
 }
@@ -2908,7 +2910,7 @@ hr {
   font-size: 20px;
   width: 100%;
   height: 43px;
-  border: 2px solid #231f20;
+  border: 2px solid #272425;
   padding: 0 9px;
   background: transparent;
   margin: 4px 0 15px 0;
@@ -2918,7 +2920,7 @@ hr {
   width: 146px;
   height: 43px;
   color: #fff;
-  background: #231f20;
+  background: #272425;
   border: none;
   cursor: pointer;
   font-family: "Work Sans", sans-serif;
@@ -2930,7 +2932,7 @@ hr {
   font-family: "Work Sans", sans-serif;
   font-size: 20px;
   height: 43px;
-  border: 2px solid #231f20;
+  border: 2px solid #272425;
   padding: 0 9px;
   background: transparent;
   margin: 4px 5px 15px 0;
@@ -2974,7 +2976,7 @@ hr {
 }
 
 #donate #card-stripe {
-  border: 2px solid #231f20;
+  border: 2px solid #272425;
   max-width: 460px;
   height: 43px;
   padding: 9px;
@@ -2999,7 +3001,7 @@ hr {
 }
 
 #donate .response-success a {
-  color: #231f20 !important;
+  color: #272425 !important;
 }
 
 @media (min-width: 857px) {
@@ -3026,8 +3028,8 @@ hr {
 /* -------------------------------------------------------------------------- */
 /* Sponsors */
 .module-sponsors-container {
-  background: #262626;
-  border-color: #262626;
+  background: #272425;
+  border-color: #272425;
   color: #fff;
   padding-bottom: 0;
 }
@@ -3188,7 +3190,8 @@ hr {
     grid-template-columns: 1fr 1fr;
   }
 }
-.press-info .press-contact h3, .press-info .press-kit h3 {
+.press-info .press-contact h3,
+.press-info .press-kit h3 {
   font-family: "EyebeamSans", "Work Sans", sans-serif;
   font-size: 36px;
   line-height: 50px;
@@ -3243,8 +3246,8 @@ hr {
 
 .ui-datepicker .ui-datepicker-prev span,
 .ui-datepicker .ui-datepicker-next span {
-  border-left: 1px solid #231f20;
-  border-bottom: 1px solid #231f20;
+  border-left: 1px solid #272425;
+  border-bottom: 1px solid #272425;
   width: 8px;
   height: 8px;
 }
@@ -3304,7 +3307,7 @@ hr {
 .ui-button,
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-  color: #231f20;
+  color: #272425;
   border: none;
   background: none;
   text-align: center;
@@ -3316,12 +3319,12 @@ html .ui-button.ui-state-disabled:active {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-  color: #231f20;
+  color: #272425;
   background: #00ff00;
 }
 
 table.ui-datepicker-calendar thead {
-  border-bottom: 1px solid #231f20;
+  border-bottom: 1px solid #272425;
 }
 
 /** begin modal window styles */
@@ -3521,57 +3524,67 @@ table.ui-datepicker-calendar thead {
   max-width: 840px;
 }
 
-#module-donate.module-full_width {
+#module-donate.module-full_width,
+#module-donate_cash.module-full_width,
+#module-donate_crypto.module-full_width,
+#module-donate_stock.module-full_width {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 @media (min-width: 768px) {
-  #module-donate.module-full_width {
+  #module-donate.module-full_width,
+#module-donate_cash.module-full_width,
+#module-donate_crypto.module-full_width,
+#module-donate_stock.module-full_width {
     flex-wrap: nowrap;
   }
 }
-#module-donate iframe {
-  width: 101% !important;
+#module-donate figure,
+#module-donate_cash figure,
+#module-donate_crypto figure,
+#module-donate_stock figure {
+  flex: 0 0 calc(50% - 2rem);
 }
-#module-donate div.one_third {
-  margin-top: 20px;
-  flex-basis: 100%;
-  justify-content: center;
+#module-donate .module-flex,
+#module-donate_cash .module-flex,
+#module-donate_crypto .module-flex,
+#module-donate_stock .module-flex {
+  flex: 0 0 50%;
 }
-@media (min-width: 768px) {
-  #module-donate div.one_third {
-    flex-basis: calc(33.333% - 1rem);
-  }
+#module-donate iframe,
+#module-donate_cash iframe,
+#module-donate_crypto iframe,
+#module-donate_stock iframe {
+  width: 100% !important;
 }
-#module-donate div.one_third h2 {
-  font-size: 24px;
-  line-height: 30px;
+#module-donate .module-title,
+#module-donate_cash .module-title,
+#module-donate_crypto .module-title,
+#module-donate_stock .module-title {
+  flex: 0 0 50%;
 }
-@media (min-width: 768px) {
-  #module-donate div.one_third h2 {
-    margin: 16px 0 16px;
-  }
+#module-donate .module-flex,
+#module-donate_cash .module-flex,
+#module-donate_crypto .module-flex,
+#module-donate_stock .module-flex {
+  display: block;
 }
-#module-donate div.one_third h2:first-child {
-  margin-top: 0;
-}
-#module-donate div.one_third div {
-  flex-basis: 100%;
-  max-height: 100vh;
-  overflow: hidden;
-  transition: all 500ms ease-in-out;
-}
-#module-donate.module-one_third {
-  padding-top: 15px;
+#module-donate .btn,
+#module-donate_cash .btn,
+#module-donate_crypto .btn,
+#module-donate_stock .btn {
+  flex: 0 0 auto;
 }
 
-#module-tech-fellow ul, #module-chief-fundraiser ul {
+#module-tech-fellow ul,
+#module-chief-fundraiser ul {
   list-style-type: disc;
   padding-left: 16px;
 }
-#module-tech-fellow ul li, #module-chief-fundraiser ul li {
+#module-tech-fellow ul li,
+#module-chief-fundraiser ul li {
   margin-bottom: 8px;
 }
 

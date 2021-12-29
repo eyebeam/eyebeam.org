@@ -1,6 +1,7 @@
 <?php
 
 $type = get_sub_field('module_type');
+$module_type = get_sub_field('module_type');
 $section_header = get_sub_field('section_header');
 $title = null;
 $subtitle = null;
@@ -153,6 +154,7 @@ else if ($type == 'related_readings') {
 
 eyebeam2018_module(array(
 	'type' => $type,
+	'module_type' => $module_type,
 	'hash' => $hash,
 	'section_header' => $section_header,
 	'title' => $title,

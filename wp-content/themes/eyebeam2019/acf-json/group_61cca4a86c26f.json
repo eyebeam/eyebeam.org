@@ -1,0 +1,166 @@
+{
+    "key": "group_61cca4a86c26f",
+    "title": "Community General",
+    "fields": [
+        {
+            "ID": 0,
+            "key": "field_5696c421d47b8",
+            "label": "Program Name",
+            "name": "program_name",
+            "prefix": "acf",
+            "type": "text",
+            "value": null,
+            "menu_order": 0,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c26f",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "program_name",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_5696c44e75bdf",
+            "label": "Info",
+            "name": "info",
+            "prefix": "acf",
+            "type": "wysiwyg",
+            "value": null,
+            "menu_order": 1,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c26f",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "info",
+            "_prepare": 0,
+            "_valid": 1,
+            "default_value": "",
+            "toolbar": "full",
+            "media_upload": 1,
+            "tabs": "all",
+            "delay": 0
+        },
+        {
+            "ID": 0,
+            "key": "field_5696c46404295",
+            "label": "Image",
+            "name": "image",
+            "prefix": "acf",
+            "type": "image",
+            "value": null,
+            "menu_order": 2,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c26f",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "image",
+            "_prepare": 0,
+            "_valid": 1,
+            "preview_size": "thumbnail",
+            "library": "all",
+            "return_format": "array",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "ID": 0,
+            "key": "field_56dce78017abf",
+            "label": "Related Name",
+            "name": "related_name",
+            "prefix": "acf",
+            "type": "relationship",
+            "value": null,
+            "menu_order": 3,
+            "instructions": "",
+            "required": 0,
+            "id": "",
+            "class": "",
+            "conditional_logic": 0,
+            "parent": "group_61cca4a86c26f",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "_name": "related_name",
+            "_prepare": 0,
+            "_valid": 1,
+            "return_format": "object",
+            "post_type": [
+                "resident"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search"
+            ],
+            "max": "",
+            "min": 0,
+            "elements": [
+                "post_type",
+                "post_title"
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post",
+                "order_no": 0,
+                "group_no": 0
+            },
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "34",
+                "order_no": 1,
+                "group_no": 0
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "_valid": 1,
+    "id": "acf_community-general",
+    "local": "php"
+}

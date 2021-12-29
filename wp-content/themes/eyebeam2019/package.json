@@ -1,0 +1,9 @@
+{
+  "name": "eyebeam2019",
+  "version": "1.0.0",
+  "main": "js/eyebeam2018.js",
+  "license": "MIT",
+  "scripts": {
+    "watch": "sass --watch style.scss style.css"
+  }
+}

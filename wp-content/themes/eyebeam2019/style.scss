@@ -25,8 +25,8 @@ Contents (breakpoints are mobile-first):
 /* Reset */
 
 /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
+ *   v2.0 | 20110126
+ *  License: none (public domain)
 */
 
 html,
@@ -117,6 +117,7 @@ video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -131,17 +132,21 @@ nav,
 section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol,
 ul {
 	list-style: none;
 }
+
 blockquote,
 q {
 	quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -149,6 +154,7 @@ q:after {
 	content: "";
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -172,9 +178,7 @@ img {
 	max-width: 100%;
 }
 
-/***
-Typography
-***/
+// Typography
 
 @mixin heading-two {
 	font-family: 'EyebeamSans', 'Work Sans', sans-serif;
@@ -195,6 +199,7 @@ Typography
 	font-family: 'Work Sans', sans-serif;
 	font-size: 22px;
 	line-height: 30px;
+	color: rgb(39, 36, 37);
 }
 
 @mixin input {
@@ -207,10 +212,10 @@ Typography
 }
 
 @mixin button {
-	border: 1px solid black;
+	border: 1px solid rgb(39, 36, 37);
 	padding: .5rem 1rem;
 	background: white;
-	color: black;
+	color: rgb(39, 36, 37);
 	font-size: 18px;
 	cursor: pointer;
 	line-height: 22px;
@@ -219,31 +224,38 @@ Typography
 
 
 	&:hover {
-		background:rgb(0, 255, 0);
+		background: rgb(0, 255, 0);
 	}
 }
+
 @mixin button-light {
 	border: none;
 	background: white;
-	color: black;
+	color: rgb(39, 36, 37);
 	font-size: 18px;
 	cursor: pointer;
 	line-height: 22px;
 	font-family: "Work Sans", sans-serif;
 
 	&:hover {
-		background:rgb(0, 255, 0);
+		background: rgb(0, 255, 0);
 	}
 }
 
-/* header sizing for the search page */
+/*
+ * header
+ * sizing for
+ * the search page
+*/
 
 header.search {
 	height: 120px;
 }
+
 header:not(.search) form[role="search"] {
 	display: none;
 }
+
 header.search form {
 	text-align: center;
 	display: block;
@@ -260,6 +272,7 @@ p {
 	line-height: 1.2em;
 	margin-bottom: 1rem;
 }
+
 p:last-child {
 	padding-bottom: 0 !important;
 }
@@ -280,6 +293,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
+	color: rgb(39, 36, 37);
 }
 
 strong,
@@ -294,7 +308,7 @@ i {
 }
 
 a {
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	text-decoration: underline;
 }
 
@@ -303,7 +317,7 @@ a.btn {
 	display: inline-block;
 	text-decoration: none;
 	padding: 1rem 2rem;
-	border: 1px solid #262626;
+	border: 1px solid rgb(39, 36, 37);
 }
 
 a:focus {
@@ -356,7 +370,8 @@ form.error .response-error {
 
 .video-container {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 56.25%;
+	/* 16:9 */
 	height: 0;
 	overflow: hidden;
 }
@@ -393,7 +408,7 @@ form.error .response-error {
 	}
 
 	.module-title {
-		color: #262626;
+		color: rgb(39, 36, 37);
 		padding: 0 0 1rem 0;
 		font-family: "EyebeamSans", sans-serif !important;
 	}
@@ -414,8 +429,8 @@ form.error .response-error {
 		background: #00ff00;
 	}
 
-	figure:hover + .module-title a,
-	a.image:hover + .module-title a {
+	figure:hover+.module-title a,
+	a.image:hover+.module-title a {
 		background: #00ff00;
 	}
 
@@ -434,7 +449,7 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	background: white;
 	font-family: "EyebeamSans", sans-serif;
 	font-weight: 400;
@@ -465,7 +480,7 @@ header h1 {
 	position: absolute;
 	left: 0;
 	font-weight: 800;
-	color: #272425;
+	color: rgb(39, 36, 37);
 }
 
 header .mobile-logo {
@@ -522,12 +537,13 @@ header #search label input[type="text"] {
 	font-size: 1.5rem;
 	font-family: "EyebeamSans", sans-serif;
 	background: white;
-	color: #231f20;
-	border: 1px solid #231f20;
+	color: rgb(39, 36, 37);
+	border: 1px solid rgb(39, 36, 37);
 	display: block;
 	transition: 0.3s ease-out;
 	z-index: 2;
 }
+
 header #search label input[type="text"].visible {
 	display: block;
 	right: 0;
@@ -573,8 +589,8 @@ header .mobile-label {
 	padding: 1rem 0;
 	width: 92.666vw;
 	margin: 0 auto;
-	border-top: 1px solid #231f20;
-	border-bottom: 1px solid #231f20;
+	border-top: 1px solid rgb(39, 36, 37);
+	border-bottom: 1px solid rgb(39, 36, 37);
 }
 
 /*header h1 a {
@@ -601,7 +617,7 @@ header nav {
 }
 
 header a {
-	color: #272425;
+	color: rgb(39, 36, 37);
 	text-decoration: none;
 	line-height: 2rem;
 }
@@ -638,7 +654,7 @@ body.show-menu header nav div .menu {
 	-webkit-transition: height 250ms ease-out;
 	transition: height 250ms ease-out;
 	padding: 0.5rem 0;
-	border-bottom: 1px solid #231f20;
+	border-bottom: 1px solid rgb(39, 36, 37);
 	margin: 0 1rem;
 }
 
@@ -697,21 +713,24 @@ body.show-menu header nav .support {
 	background: #ff0000;
 	color: white;
 }
+
 .category-label#artist-reflection {
 	background: #00ff00;
 }
+
 .category-label#from-eyebeam {
-	// background: #231F200FF;
+	// background: rgb(39,36,37)0FF;
 	color: white;
 }
 
 header nav li:last-child a {
 	width: 25%;
 	padding: 3px 2vw;
-	border: 1px solid #231f20;
+	border: 1px solid rgb(39, 36, 37);
 	background: #00ff00;
-	color: #231f20;
+	color: rgb(39, 36, 37);
 }
+
 header nav li:last-child {
 	line-height: 2rem;
 }
@@ -723,6 +742,7 @@ header nav li:last-child {
 		margin: 0 8.333vw;
 		margin-bottom: 1rem;
 	}
+
 	div.mobile-logo {
 		padding: 1rem 0;
 	}
@@ -741,6 +761,7 @@ header nav li:last-child {
 		border: none;
 		padding: 0;
 	}
+
 	header nav {
 		transition: all 0.2s ease-in;
 	}
@@ -774,6 +795,7 @@ header nav li:last-child {
 		position: absolute;
 		width: 100%;
 	}
+
 	.logo-container#left h1 a {
 		display: block;
 	}
@@ -787,9 +809,11 @@ header nav li:last-child {
 		z-index: 200;
 		right: 0;
 	}
+
 	#left div.matte {
 		left: 0;
 	}
+
 	/*
 	div.logo-container.clone {
 		position: absolute;
@@ -859,6 +883,7 @@ header nav li:last-child {
 		position: absolute;
 		width: 100%;
 	}
+
 	.logo-container#right h1 a {
 		display: block;
 		height: 100%;
@@ -887,12 +912,15 @@ header nav li:last-child {
 	.logo-container#right h1 a#eyebeam_2_right {
 		background-size: 100%;
 	}
+
 	.logo-container#right h1 a#eyebeam_2_left {
 		background-size: 100%;
 	}
+
 	.logo-container#right h1 a#eyebeam_2_right img {
 		height: 100px;
 	}
+
 	.logo-container#right h1 a#eyebeam_2_right {
 		height: 100px;
 	}
@@ -931,7 +959,7 @@ header nav li:last-child {
 	}
 
 	header {
-		border-bottom: 1px solid #231f20;
+		border-bottom: 1px solid rgb(39, 36, 37);
 	}
 
 	header nav {
@@ -953,12 +981,13 @@ header nav li:last-child {
 	header nav li:last-child a {
 		width: 100%;
 		padding: 3px 2vw;
-		border: 1px solid #231f20;
+		border: 1px solid rgb(39, 36, 37);
 		background: #00ff00;
-		color: #231f20;
+		color: rgb(39, 36, 37);
 	}
+
 	header nav li:last-child a:hover {
-		background: #231f20;
+		background: rgb(39, 36, 37);
 		color: white;
 	}
 
@@ -1001,15 +1030,15 @@ header nav li:last-child {
 		color: blue;
 	}
 
-	.show-sub-menu > ul.sub-menu {
+	.show-sub-menu>ul.sub-menu {
 		display: block;
 		padding: 1rem 0;
-		border-top: 1px solid #231f20;
-		border-bottom: 1px solid #231f20;
+		border-top: 1px solid rgb(39, 36, 37);
+		border-bottom: 1px solid rgb(39, 36, 37);
 		transition: all 0.1s ease-in;
 	}
 
-	.sub-menu > li > a {
+	.sub-menu>li>a {
 		width: 100%;
 	}
 }
@@ -1030,10 +1059,12 @@ header nav li:last-child {
 		max-width: calc(1280px);
 		margin: 1rem auto;
 	}
+
 	#menu-header.menu {
 		margin: 0 auto;
 		max-width: 1280px;
 	}
+
 	#page,
 	footer {
 		max-width: 1280px;
@@ -1051,6 +1082,7 @@ header nav li:last-child {
 	.logo-container#left h1 a#eyebeam_1_left img {
 		bottom: 6vh;
 	}
+
 	.logo-container#left h1 a#eyebeam_2_left img {
 		bottom: 8vh;
 	}
@@ -1058,6 +1090,7 @@ header nav li:last-child {
 	.logo-container#right h1 a#eyebeam_2_right img {
 		top: 2vh;
 	}
+
 	.logo-container#right h1 a#eyebeam_2_right {
 		height: 120px;
 	}
@@ -1100,7 +1133,7 @@ header nav li:last-child {
 	}
 
 	.subnav ul {
-		border-bottom: 1px solid #231f20;
+		border-bottom: 1px solid rgb(39, 36, 37);
 		background: white;
 		padding: 1vw 0;
 	}
@@ -1115,7 +1148,7 @@ header nav li:last-child {
 
 	.subnav a {
 		font-family: "EyebeamSans", sans-serif;
-		color: #231f20 !important;
+		color: rgb(39, 36, 37) !important;
 	}
 }
 
@@ -1123,7 +1156,7 @@ header nav li:last-child {
 /* Footer */
 
 footer {
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	text-align: left;
 	font-family: "Work Sans", sans-serif;
 	font-size: 1.2rem;
@@ -1145,9 +1178,10 @@ footer .bottom {
 footer .bottom div {
 	flex: 1 0 100%;
 }
+
 .logos {
 	padding: 2rem 8.333vw;
-	background: #231f20;
+	background: rgb(39, 36, 37);
 	display: none;
 }
 
@@ -1193,13 +1227,14 @@ footer nav h3 {
 footer nav li a {
 	text-decoration: underline;
 }
+
 footer nav {
 	display: flex;
 	flex-wrap: wrap;
 }
 
 footer a {
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	text-decoration: none;
 }
 
@@ -1207,7 +1242,7 @@ footer form {
 	padding: 1rem 0 0 0;
 	display: flex;
 	flex-wrap: wrap;
-	border-top: 3px solid #231f20;
+	border-top: 3px solid rgb(39, 36, 37);
 }
 
 footer {
@@ -1223,7 +1258,7 @@ footer {
 footer input {
 	font-family: "EyebeamSans", sans-serif;
 	font-size: 1.5rem;
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	text-align: left;
 	flex-grow: 2;
 	padding: 0 0 0 1rem;
@@ -1231,22 +1266,22 @@ footer input {
 
 footer input::-webkit-input-placeholder {
 	/* Chrome/Opera/Safari */
-	color: #231f20;
+	color: rgb(39, 36, 37);
 }
 
 footer input::-moz-placeholder {
 	/* Firefox 19+ */
-	color: #231f20;
+	color: rgb(39, 36, 37);
 }
 
 footer input:-ms-input-placeholder {
 	/* IE 10+ */
-	color: #231f20;
+	color: rgb(39, 36, 37);
 }
 
 footer input:-moz-placeholder {
 	/* Firefox 18- */
-	color: #231f20;
+	color: rgb(39, 36, 37);
 }
 
 footer input[type="text"],
@@ -1254,7 +1289,7 @@ footer input[type="email"] {
 	display: block;
 	width: 100%;
 	height: 50px;
-	border: 1px solid #231f20;
+	border: 1px solid rgb(39, 36, 37);
 	background: transparent;
 	margin: 0 auto 12px auto;
 }
@@ -1263,8 +1298,8 @@ footer input[type="submit"] {
 	width: 146px;
 	height: 50px;
 	background: white;
-	border: 1px solid #231f20;
-	color: #231f20;
+	border: 1px solid rgb(39, 36, 37);
+	color: rgb(39, 36, 37);
 	cursor: pointer;
 	text-align: center;
 }
@@ -1322,7 +1357,7 @@ footer .social a {
 	margin-right: 0;
 	height: 36px;
 	text-decoration: none;
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	-webkit-font-smoothing: antialiased;
 	font: normal 48px/1 "dashicons";
 }
@@ -1353,8 +1388,8 @@ footer .social a:hover {
 footer .tagline {
 	display: inline-block;
 	padding: 4px 6px 0 6px;
-	color: #231f20;
-	background: #231f20;
+	color: rgb(39, 36, 37);
+	background: rgb(39, 36, 37);
 }
 
 footer h2,
@@ -1364,6 +1399,7 @@ footer h2,
 	line-height: 2rem;
 	margin: 1rem 0;
 }
+
 .logos h2 {
 	color: white;
 }
@@ -1421,7 +1457,7 @@ footer form p {
 		display: block;
 		width: 162px;
 		height: 50px;
-		border: 1px solid #231f20;
+		border: 1px solid rgb(39, 36, 37);
 		background: transparent;
 		margin: 0 auto 12px auto;
 	}
@@ -1444,6 +1480,7 @@ footer form p {
 		justify-content: space-between;
 		max-width: 1280px;
 	}
+
 	.logos #partners img {
 		object-fit: fill;
 		width: 90%;
@@ -1600,13 +1637,14 @@ footer form p {
 	width: 100%;
 }
 
-.module-container > ul {
+.module-container>ul {
 	display: inline-flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
 	padding-bottom: 1rem;
 }
+
 .module img {
 	width: 100%;
 	height: auto;
@@ -1615,6 +1653,7 @@ footer form p {
 
 .module .module-title {
 	font-family: "EyebeamSans", sans-serif;
+
 	a {
 		text-decoration: none;
 	}
@@ -1686,7 +1725,7 @@ footer form p {
 	font-size: 28px;
 	line-height: 28px;
 	text-transform: uppercase;
-	// color: #231F20000;
+	// color: rgb(39,36,37)000;
 	list-style: disc;
 	margin-left: 1.2em;
 }
@@ -1875,14 +1914,14 @@ Events
 .load-more a {
 	font-size: 1.5rem;
 	padding: 3px 2vw;
-	border: 1px solid #231f20;
+	border: 1px solid rgb(39, 36, 37);
 	background: #00ff00;
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	text-decoration: none;
 }
 
 .load-more a:hover {
-	background: #231f20;
+	background: rgb(39, 36, 37);
 	color: white;
 }
 
@@ -1915,7 +1954,7 @@ Events
 	}
 
 	.module-one_third:hover .module-flex .module-title a {
-		background:rgb(0, 255, 0);
+		background: rgb(0, 255, 0);
 	}
 }
 
@@ -1955,6 +1994,7 @@ module specific styles
 		.module-title {
 			margin: 0;
 		}
+
 		.module-description {
 			flex: 1 0 100%;
 		}
@@ -1980,6 +2020,7 @@ module specific styles
 	height: auto;
 	flex: 1 0 100%;
 }
+
 @media (min-width: 857px) {
 	.module-video {
 		flex: 1 0 calc(50% - 2rem);
@@ -2040,6 +2081,7 @@ module specific styles
 	.module-one_half {
 		width: calc(50% - 1rem);
 	}
+
 	.module-one_half.end {
 		padding-right: 0;
 	}
@@ -2198,6 +2240,7 @@ module specific styles
 	.module-collection #posts-list {
 		justify-content: space-between;
 	}
+
 	.module-collection #posts-list li {
 		margin-right: 0;
 	}
@@ -2315,6 +2358,7 @@ module specific styles
 				overflow: scroll;
 			}
 		}
+
 		.item-container:after {
 			content: "Scroll to read more";
 			display: flex;
@@ -2323,11 +2367,13 @@ module specific styles
 			padding: 1rem 0 0 0;
 		}
 	}
+
 	.module-full_width.module-frame {
 		.item-container {
 			.module-title {
 				flex: 0 0 50%;
 			}
+
 			.module-description {
 				flex: 0 0 50%;
 				border: 4px solid #000;
@@ -2339,6 +2385,7 @@ module specific styles
 		}
 	}
 }
+
 @media (min-height: 1000px) {
 	.module-frame {
 		.item-container {
@@ -2348,6 +2395,7 @@ module specific styles
 		}
 	}
 }
+
 @media (min-width: 1281px) {
 	.module-frame {
 		.item-container {
@@ -2384,6 +2432,7 @@ module specific styles
 		}
 	}
 }
+
 @media (min-width: 1050px) {
 	#search {
 		display: flex;
@@ -2402,6 +2451,7 @@ module specific styles
 		}
 	}
 }
+
 @media (min-width: 1050px) {
 	.module-toc li {
 		font-size: 42px;
@@ -2521,8 +2571,9 @@ Alumni Archive 2.0
 		position: sticky;
 		top: 0;
 		background: white;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid rgb(39, 36, 37);
 		z-index: 200;
+
 		.alumni-archive-controls-form-search {
 
 			padding: 1rem 0;
@@ -2541,10 +2592,12 @@ Alumni Archive 2.0
 				@include button;
 
 				&.active {
-					background-color:rgb(0, 255, 0) !important;
+					background-color: rgb(0, 255, 0) !important;
 				}
+
 				&:last-child {
-					margin-right: 0;;
+					margin-right: 0;
+					;
 				}
 			}
 		}
@@ -2556,13 +2609,15 @@ Alumni Archive 2.0
 			div {
 				display: flex;
 				flex: 1 0 50%;
+
 				button {
 					@include button-light;
 					margin-right: 1rem;
 
 					&.active {
-						background-color:rgb(0, 255, 0) !important;
+						background-color: rgb(0, 255, 0) !important;
 					}
+
 					&:last-child {
 						margin-right: 0;
 					}
@@ -2571,28 +2626,32 @@ Alumni Archive 2.0
 						span.asc {
 							display: none;
 						}
+
 						span.desc {
 							display: inline;
 						}
 					}
+
 					&.asc {
 						span.asc {
 							display: inline;
 						}
+
 						span.desc {
 							display: none;
 						}
 					}
-					
-					
+
+
 				}
+
 				&:last-child {
 					justify-content: flex-end;
 				}
 			}
 		}
 
-		
+
 	}
 
 	.alumni-archive-pagination {
@@ -2602,7 +2661,7 @@ Alumni Archive 2.0
 		align-items: center;
 		margin-bottom: 1rem;
 
-		a { 
+		a {
 			text-decoration: none;
 			margin: 0 .5rem;
 			padding: .5rem;
@@ -2618,17 +2677,19 @@ Alumni Archive 2.0
 			a {
 
 				text-decoration: none;
+
 				&.disabled {
 					opacity: .3;
 					background: none !important;
 				}
+
 				&.current {
 					font-weight: 800;
 				}
 			}
 
 		}
-		
+
 	}
 
 	.alumni-archive-results {
@@ -2643,34 +2704,40 @@ Alumni Archive 2.0
 
 			.alumni-resident-link {
 				text-decoration: none;
+
 				.alumni-resident-image {
 					a {
 						background: none !important;
 					}
+
 					margin-bottom: .5rem;
+
 					img {
-						height: calc( calc(83.333vw / 4) - 2rem);
+						height: calc(calc(83.333vw / 4) - 2rem);
 						object-fit: cover;
-	
+
 					}
 				}
+
 				.alumni-resident-name {
-					a { 
+					a {
 						text-decoration: none !important;
 					}
 				}
+
 				.alumni-resident-year {
 					text-decoration: none !important;
 					font-size: .75rem;
 					margin-top: .25rem;
 				}
 			}
-			
+
 			&.clone {
 				display: none;
 			}
+
 			&:hover .alumni-resident-name a {
-				background:rgb(0, 255, 0);
+				background: rgb(0, 255, 0);
 			}
 		}
 	}
@@ -2712,7 +2779,7 @@ Alumni Archive 2.0
 						object-fit: cover;
 					}
 
-					&:hover + h3.resident-name a {
+					&:hover+h3.resident-name a {
 						background: #00ff00;
 					}
 				}
@@ -2721,6 +2788,7 @@ Alumni Archive 2.0
 					flex: 0 0 auto;
 					margin: 0;
 					padding: 0;
+
 					a {
 						display: inline;
 						width: 100%;
@@ -2755,9 +2823,9 @@ Alumni Archive 2.0
 #residents-year select {
 	font-family: "EyebeamSans", sans-serif;
 
-	border: 1px solid #231f20;
+	border: 1px solid rgb(39, 36, 37);
 	padding: 3px 2vw;
-	border: 1px solid #231f20;
+	border: 1px solid rgb(39, 36, 37);
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -2765,7 +2833,7 @@ Alumni Archive 2.0
 }
 
 #residents-year select:hover {
-	background: #231f20;
+	background: rgb(39, 36, 37);
 	color: white;
 }
 
@@ -2779,11 +2847,11 @@ Alumni Archive 2.0
 }
 
 .resident-bio {
-	border-top: 2px solid #231f20;
+	border-top: 2px solid rgb(39, 36, 37);
 	margin-top: 10px;
 }
 
-.resident-bio-name + .resident-bio {
+.resident-bio-name+.resident-bio {
 	margin-top: 5px;
 }
 
@@ -2802,7 +2870,7 @@ Alumni Archive 2.0
 }
 
 .resident-edit a:hover {
-	color: #231f20 !important;
+	color: rgb(39, 36, 37) !important;
 }
 
 @media (min-width: 857px) {
@@ -2905,9 +2973,11 @@ figcaption {
 			font-size: 1.8rem;
 			line-height: 1.2em;
 		}
+
 		margin-bottom: 1rem;
 	}
 }
+
 .post-content {
 	blockquote {
 		p {
@@ -2943,6 +3013,7 @@ figcaption {
 
 .post .featured-video {
 	flex: 1 0 100%;
+
 	iframe {
 		width: 100%;
 		height: calc(83.334vw / (16 / 9));
@@ -2955,24 +3026,28 @@ figcaption {
 			display: none;
 		}
 	}
+
 	.post-main {
 		h3 {
 			font-family: "Work Sans", sans-serif;
 			font-size: 1.4rem;
 			line-height: 1.8rem;
 		}
+
 		img.alignright,
 		img.alignleft {
 			width: 50%;
 			margin-right: 1rem;
 			margin-bottom: 1rem;
 		}
+
 		img.alignright {
 			float: right;
 			margin-left: 1rem;
 			margin-bottom: 1rem;
 			margin-bottom: 1rem;
 		}
+
 		img.alignleft {
 			float: left;
 		}
@@ -3013,6 +3088,7 @@ figcaption {
 		/*float: left;*/
 		flex: 1 0 50%;
 	}
+
 	.post.gutenberg .post-main {
 		float: left;
 		width: calc(100% - 10px);
@@ -3078,7 +3154,7 @@ hr.wp-block-separator,
 hr {
 	height: 1px;
 	width: 100%;
-	background: #231f20;
+	background: rgb(39, 36, 37);
 	border: 0;
 	margin: 0 0 2rem 0;
 }
@@ -3091,9 +3167,11 @@ hr {
 .wp-block-column {
 	flex-grow: 1;
 }
+
 .wp-block-columns.column-7-5 .wp-block-column:first-child {
 	flex-basis: calc(8.333% * 7) !important;
 }
+
 .wp-block-columns.column-7-5 .wp-block-column:last-child {
 	flex-basis: calc(8.333% * 3) !important;
 }
@@ -3119,7 +3197,7 @@ hr {
 	font-size: 20px;
 	width: 100%;
 	height: 43px;
-	border: 2px solid #231f20;
+	border: 2px solid rgb(39, 36, 37);
 	padding: 0 9px;
 	background: transparent;
 	margin: 4px 0 15px 0;
@@ -3129,7 +3207,7 @@ hr {
 	width: 146px;
 	height: 43px;
 	color: #fff;
-	background: #231f20;
+	background: rgb(39, 36, 37);
 	border: none;
 	cursor: pointer;
 	font-family: "Work Sans", sans-serif;
@@ -3141,7 +3219,7 @@ hr {
 	font-family: "Work Sans", sans-serif;
 	font-size: 20px;
 	height: 43px;
-	border: 2px solid #231f20;
+	border: 2px solid rgb(39, 36, 37);
 	padding: 0 9px;
 	background: transparent;
 	margin: 4px 5px 15px 0;
@@ -3185,7 +3263,7 @@ hr {
 }
 
 #donate #card-stripe {
-	border: 2px solid #231f20;
+	border: 2px solid rgb(39, 36, 37);
 	max-width: 460px;
 	height: 43px;
 	padding: 9px;
@@ -3210,7 +3288,7 @@ hr {
 }
 
 #donate .response-success a {
-	color: #231f20 !important;
+	color: rgb(39, 36, 37) !important;
 }
 
 @media (min-width: 857px) {
@@ -3239,8 +3317,8 @@ hr {
 /* Sponsors */
 
 .module-sponsors-container {
-	background: #262626;
-	border-color: #262626;
+	background: rgb(39, 36, 37);
+	border-color: rgb(39, 36, 37);
 	color: #fff;
 	padding-bottom: 0;
 }
@@ -3258,6 +3336,7 @@ hr {
 }
 
 @media (min-width: 857px) {
+
 	.module-sponsors-container,
 	.module-sponsors,
 	.module-sponsors .module {
@@ -3281,16 +3360,18 @@ hr {
 .media-releases {
 	margin-bottom: 2rem;
 	width: 100%;
+
 	h2 {
 		@include heading-two;
 	}
+
 	.media-releases-list {
 		display: grid;
 		grid-template-columns: 1fr;
 		column-gap: 2rem;
 		row-gap: 2rem;
 
-		@media (min-width: 768px){
+		@media (min-width: 768px) {
 			grid-template-columns: 1fr 1fr;
 		}
 
@@ -3302,7 +3383,7 @@ hr {
 				height: 200px;
 				width: 100%;
 
-				@media (min-width: 768px){
+				@media (min-width: 768px) {
 					height: 400px;
 				}
 
@@ -3313,10 +3394,11 @@ hr {
 				}
 			}
 
-			.media-release-image:hover + .media-release-heading a {
+			.media-release-image:hover+.media-release-heading a {
 				background-color: #00ff00;
 				transition: background 0.1s ease-out;
 			}
+
 			.media-release-heading {
 				font-family: 'EyebeamSans', sans-serif;
 				font-size: 24px;
@@ -3337,16 +3419,18 @@ hr {
 .press-releases {
 	width: 100%;
 	margin-bottom: 2rem;
+
 	h2 {
 		@include heading-two;
 	}
+
 	.press-releases-list {
 		display: grid;
 		grid-template-columns: 1fr;
 		column-gap: 2rem;
 		row-gap: 2rem;
 
-		@media (min-width: 768px){
+		@media (min-width: 768px) {
 			grid-template-columns: 1fr 1fr;
 
 		}
@@ -3366,17 +3450,18 @@ hr {
 					width: 100%;
 					object-fit: cover;
 
-					@media (min-width: 768px){
+					@media (min-width: 768px) {
 						height: inherit;
 					}
 				}
-				
+
 			}
 
-			.press-release-image:hover + .press-release-heading a {
+			.press-release-image:hover+.press-release-heading a {
 				background-color: #00ff00;
 				transition: background 0.1s ease-out;
 			}
+
 			.press-release-heading {
 				font-family: 'EyebeamSans', sans-serif;
 				font-size: 24px;
@@ -3393,7 +3478,7 @@ hr {
 			.press-publication {
 				@include heading-three;
 			}
-			
+
 
 		}
 	}
@@ -3402,17 +3487,18 @@ hr {
 .press-info {
 	margin-bottom: 2rem;
 	display: grid;
-	grid-template-columns:  1fr;
+	grid-template-columns: 1fr;
 
-	@media (min-width: 768px){
+	@media (min-width: 768px) {
 		grid-template-columns: 1fr 1fr;
 	}
 
-	.press-contact, .press-kit {
+	.press-contact,
+	.press-kit {
 		h3 {
 			@include heading-two;
 		}
-		
+
 	}
 
 	.press-contact {
@@ -3422,14 +3508,15 @@ hr {
 	}
 
 	.press-kit {
-		
+
 		.press-kit-logo {
 			@include heading-two;
 			width: 250px;
 
 		}
+
 		.press-kit-download {
-			
+
 			.buttons {
 				display: flex;
 				flex-wrap: nowrap;
@@ -3475,16 +3562,19 @@ hr {
 .ui-datepicker-inline {
 	width: 100%;
 }
+
 .ui-datepicker .ui-datepicker-prev span,
 .ui-datepicker .ui-datepicker-next span {
-	border-left: 1px solid #231f20;
-	border-bottom: 1px solid #231f20;
+	border-left: 1px solid rgb(39, 36, 37);
+	border-bottom: 1px solid rgb(39, 36, 37);
 	width: 8px;
 	height: 8px;
 }
+
 .ui-datepicker .ui-datepicker-prev span {
 	transform: rotate(45deg) translateX(100%);
 }
+
 .ui-datepicker .ui-datepicker-next span {
 	transform: rotate(-135deg) translateX(-100%);
 }
@@ -3493,6 +3583,7 @@ hr {
 	right: 3rem;
 	left: unset;
 }
+
 .ui-datepicker .ui-datepicker-prev span {
 	content: "<";
 }
@@ -3535,7 +3626,7 @@ hr {
 .ui-button,
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	border: none;
 	background: none;
 	text-align: center;
@@ -3547,12 +3638,12 @@ html .ui-button.ui-state-disabled:active {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-	color: #231f20;
+	color: rgb(39, 36, 37);
 	background: #00ff00;
 }
 
 table.ui-datepicker-calendar thead {
-	border-bottom: 1px solid #231f20;
+	border-bottom: 1px solid rgb(39, 36, 37);
 }
 
 /** begin modal window styles */
@@ -3641,6 +3732,7 @@ table.ui-datepicker-calendar thead {
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
@@ -3650,6 +3742,7 @@ table.ui-datepicker-calendar thead {
 	from {
 		opacity: 1;
 	}
+
 	to {
 		opacity: 0;
 	}
@@ -3659,6 +3752,7 @@ table.ui-datepicker-calendar thead {
 	from {
 		transform: translateY(15%);
 	}
+
 	to {
 		transform: translateY(0);
 	}
@@ -3668,6 +3762,7 @@ table.ui-datepicker-calendar thead {
 	from {
 		transform: translateY(0);
 	}
+
 	to {
 		transform: translateY(-10%);
 	}
@@ -3695,19 +3790,23 @@ table.ui-datepicker-calendar thead {
 	width: 100vw;
 	height: 101vh;
 	color: white;
+
 	header {
 		background: none;
 		border: none;
 	}
+
 	img {
 		width: 25vw;
 		margin-bottom: 2rem;
 		margin-top: 2rem;
 	}
+
 	h2 {
 		color: white;
 		width: 75vw;
 	}
+
 	a {
 		color: white;
 
@@ -3728,6 +3827,7 @@ table.ui-datepicker-calendar thead {
 		padding-bottom: 1rem;
 		overflow-y: scroll;
 		height: calc(100vh - 2rem);
+
 		iframe {
 			width: 75vw;
 			height: calc(75vw / 1.7778);
@@ -3762,7 +3862,11 @@ table.ui-datepicker-calendar thead {
 	}
 }
 
-#module-donate {
+#module-donate,
+#module-donate_cash,
+#module-donate_crypto,
+#module-donate_stock {
+
 	&.module-full_width {
 		display: flex;
 		flex-direction: row;
@@ -3770,62 +3874,44 @@ table.ui-datepicker-calendar thead {
 
 		justify-content: space-between;
 
-		@media (min-width: 768px){
+		@media (min-width: 768px) {
 			flex-wrap: nowrap;
 
 		}
 	}
+
+	figure {
+		flex: 0 0 calc(50% - 2rem);
+	}
+
+	.module-flex {
+		flex: 0 0 50%;
+	}
+
 	iframe {
-		width: 101% !important;
-	}
-	div.one_third {
-
-		margin-top: 20px;
-
-		flex-basis: 100%;
-		@media (min-width: 768px){
-			flex-basis: calc(33.333% - 1rem);
-
-		}
-		justify-content: center;
-
-		h2 {
-			font-size: 24px;
-			line-height: 30px;
-
-
-			@media (min-width: 768px){
-				margin: 16px 0 16px;
-
-			}
-
-
-
-			&:first-child {
-				margin-top: 0;
-			}
-		}
-
-		div {
-			// display: flex;
-			// justify-content: center;
-			flex-basis: 100%;
-			max-height: 100vh;
-			// height:0;
-			overflow: hidden;
-			transition: all 500ms ease-in-out;
-		}
+		width: 100% !important;
 	}
 
-	&.module-one_third {
-		padding-top: 15px;
+	.module-title {
+		flex: 0 0 50%;
 	}
+
+	.module-flex {
+		display: block;
+	}
+
+	.btn {
+		flex: 0 0 auto;
+	}
+
 }
 
-#module-tech-fellow, #module-chief-fundraiser {
+#module-tech-fellow,
+#module-chief-fundraiser {
 	ul {
 		list-style-type: disc;
 		padding-left: 16px;
+
 		li {
 			margin-bottom: 8px;
 		}
