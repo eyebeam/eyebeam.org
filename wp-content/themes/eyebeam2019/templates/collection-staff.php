@@ -11,7 +11,9 @@ echo "<ul id=\"collection_staff\" class=\"$collection_columns\">\n";
 
 $posts = get_posts(array(
 	'post_type' => 'staff',
-	'posts_per_page' => -1
+	'posts_per_page' => -1,
+	'orderby' => 'menu_order',
+	'order' => 'asc'
 ));
 
 foreach ($posts as $staff) {
